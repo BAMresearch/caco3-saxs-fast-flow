@@ -28,3 +28,8 @@ scratch/
 *.blg
 *.out
 *.synctex.gz
+
+# Raw HDF5 binary data
+h5/
+*.h5
+

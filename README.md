@@ -133,9 +133,6 @@ project - CaCO3/
 ├── model_description_and_interpretation.md           # Core manuscript and interpretation notes
 ├── references.bib                                     # BibTeX citation database
 ├── vps_framework_extracted.txt                        # Mathematical framework reference extraction
-├── h5/                                                # Raw averaged HDF5 files with pyFAI instrument metadata
-│   ├── ND-i-001 selected short distance/              # Short-distance scans (SampleDistance = 2.9997 m)
-│   └── ND-i-001 selected long distance/               # Long-distance scans (SampleDistance = 30.7059 m)
 ├── project notes/                                     # Beamtime logbook, proposal, and reference notes
 │   ├── Logbook Beamtime 11-11-2023.docx               # Primary beamtime operational logbook
 │   ├── Mathematical Framework for VPS Scattering.docx # Theoretical framework of viscoelastic phase separation
