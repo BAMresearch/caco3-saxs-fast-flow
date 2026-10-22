@@ -14,10 +14,8 @@ Standardized project palette:
 - Discrete ACC Nanospheres: #0284c7 (ocean blue)
 - Secondary ACC Mode (10 mM): #0ea5e9 (sky blue)
 - Giant Droplets / Porod Tail: #d97706 (warm amber)
-- Viscoelastic Mesh Fluctuations / PNCs: #9333ea (violet purple)
 - Incoherent Background: #64748b (slate grey)
 
-Language convention: British spelling, neutral phrasing, without em-dashes.
 Output: results/output/model_transformation_diagram.svg
 """
 

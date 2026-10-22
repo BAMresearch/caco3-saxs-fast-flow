@@ -18,7 +18,6 @@ Panels:
 (E) Phase Mass Ratio Evolution (phi_net / phi_acc on log scale)
 (F) Cross-Scale Goodness-of-Fit Metric chi^2_red(t)
 
-Language convention: British spelling, neutral phrasing, without em-dashes.
 Outputs:
   output/unified_trajectories/unified_cross_scale_trajectories.png
   output/unified_trajectories/unified_cross_scale_trajectories.pdf

@@ -8,9 +8,6 @@ Author: Tomasz Stawski, tomasz.stawski@bam.de
 Generates results/index.html and results/dashboard/index.html providing
 centralised navigation, cross-series parameter comparison, vector model
 transformation diagram, Viscoelastic Phase Separation (VPS) verification,
-and time-resolved kinetic trajectory synthesis across supersaturations.
-
-Language convention: British spelling, neutral phrasing, without em-dashes.
 Primary benchmark: 40 mM pure CaCO3 (ND-i-009).
 """
 

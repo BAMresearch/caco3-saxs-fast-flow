@@ -18,8 +18,6 @@ The framework verifies:
 5. Distinction between Viscoelastic Phase Separation (VPS) and Arrested
    Spinodal Decomposition (ASD).
 6. Logical model transitions across supersaturation.
-
-Language convention: British spelling, neutral phrasing, without em-dashes.
 """
 
 import os

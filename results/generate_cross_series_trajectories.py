@@ -9,8 +9,6 @@ This script extracts, aligns, and visualises time-resolved structural
 trajectories across the six calcium carbonate reaction series (ND-i-001,
 ND-i-002, ND-i-003, ND-i-004, ND-i-005, ND-i-009). ND-i-009 serves as
 the primary 40 mM pure CaCO3 benchmark for viscoelastic phase separation.
-
-Language convention: British spelling, neutral phrasing, without em-dashes.
 Outputs:
   results/output/cross_series_trajectories_comparison.png
   results/output/cross_series_trajectories.json
