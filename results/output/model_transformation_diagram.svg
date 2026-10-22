@@ -575,6 +575,6 @@
 
   <!-- ==================== FOOTER: ATTRIBUTION ==================== -->
   <g transform="translate(45, 840)">
-    <text x="0" y="0" fill="#64748b" font-size="10">Data Processing Responsible: Tomasz Stawski, tomasz.stawski@bam.de | Reference: Mathematical Framework for VPS Scattering | Data: ESRF ID02</text>
+    <text x="0" y="0" fill="#64748b" font-size="10">Data Processing Responsible: Tomasz Stawski, tomasz.stawski@bam.de | Viscoelastic Phase Separation (VPS) Framework | Data: ESRF ID02</text>
   </g>
 </svg>

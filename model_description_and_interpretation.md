@@ -12,13 +12,12 @@
 * Viscoelastic Phase Separation (VPS) Verification Report: [results/output/vps_framework_verification_report.md](file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/results/output/vps_framework_verification_report.md)
 * Cross-Series Kinetic Trajectories: [results/output/cross_series_trajectories_comparison.png](file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/results/output/cross_series_trajectories_comparison.png)
 * Trajectory Telemetry Data: [results/output/cross_series_trajectories.json](file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/results/output/cross_series_trajectories.json)
-* BibTeX Database: [references.bib](file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/references.bib)
 
 ---
 
 ## 1. Introduction, Physical Premise & Supersaturation Regimes
 
-In highly supersaturated, alkaline aqueous solutions ($\text{Ca}^{2+} + \text{CO}_3^{2-} \rightarrow \text{CaCO}_3$), the initial phase separation trajectory frequently bypasses classical monomer-by-monomer nucleation [De Yoreo et al., 2015; Gebauer et al., 2008; Stawski et al., 2016, 2019]. Instead, precipitation initiates through liquid-liquid phase separation (LLPS) [Gower & Odom, 2000; Wallace et al., 2013; Bewernitz et al., 2012]. Deep within the spinodal instability boundary, barrierless demixing drives the spontaneous condensation of hydrated ionic polymers or Dynamically Ordered Liquid-Like Oxyanion Polymers (DOLLOPs) [Cahn, 1965; Demichelis et al., 2011].
+In highly supersaturated, alkaline aqueous solutions ($\text{Ca}^{2+} + \text{CO}_3^{2-} \rightarrow \text{CaCO}_3$), the initial phase separation trajectory frequently bypasses classical monomer-by-monomer nucleation. Instead, precipitation initiates through liquid-liquid phase separation (LLPS). Deep within the spinodal instability boundary, barrierless demixing drives the spontaneous condensation of hydrated ionic polymers or Dynamically Ordered Liquid-Like Oxyanion Polymers (DOLLOPs).
 
 Under stopped-flow rapid-mixing conditions at the ESRF ID02 beamline ($q \in [0.0020, 2.54]\ \text{nm}^{-1}$, real-space dimensions $2.5\ \text{nm}$ to $3.1\ \mu\text{m}$, time resolution $0.045\ \text{s}$ to $10.88\ \text{s}$), the reaction pathways exhibit three distinct supersaturation-dependent regimes:
 
@@ -31,13 +30,13 @@ Under stopped-flow rapid-mixing conditions at the ESRF ID02 beamline ($q \in [0.
 3. **High Supersaturation ($20\ \text{mM}$ to $40\ \text{mM}\ \text{CaCO}_3$, Series ND-i-001, ND-i-002, ND-i-005, ND-i-006, ND-i-009): Energy-Barrier-Free Spinodal Gelation and Viscoelastic Droplet Pinch-Off**  
    At and above $20\ \text{mM}$, the system reaches an energy-barrier-free composition within the spinodal boundary. Nucleation barriers are absent. Invariable primary building units ($r_0 \approx 8 - 9\ \text{nm}$) appear practically instantaneously without induction delay, establishing a characteristic knee-bending feature in scattering at $q \approx 0.1\ \text{nm}^{-1}$. Kinetic evolution is restricted to lower $q$, where the mass fractal network ($D_m \approx 1.84 - 1.95$) expands. Concurrently, at ultra-low $q$ ($q < 0.005\ \text{nm}^{-1}$), steep power-law decay ($I \propto q^{-4}$) with deep Bessel oscillations reveals giant spherical domains ($\langle R \rangle \approx 2.9 - 3.5\ \mu\text{m}$).
 
-This analytical model proves that these micrometer spheres are **not** solid ACC colloids or crystalline spherulites. Instead, they represent **dense liquid-like precursor droplets (emulsion domains)** that spontaneously pinch off from the continuous spinodal network via **Rayleigh-Plateau capillary instabilities** [Rayleigh, 1878; Plateau, 1873] and **Viscoelastic Phase Separation (VPS)** [Tanaka, 2000, 2001], coexisting in dynamic mechanical equilibrium with the spanning gel mesh.
+This analytical model proves that these micrometer spheres are not solid ACC colloids or crystalline spherulites. Instead, they represent dense liquid-like precursor droplets (emulsion domains) that spontaneously pinch off from the continuous spinodal network via Rayleigh-Plateau capillary instabilities and Viscoelastic Phase Separation (VPS), coexisting in dynamic mechanical equilibrium with the spanning gel mesh.
 
 ---
 
 ## 2. Multi-Scale Scattering Model Formulation
 
-The total coherent scattering intensity $I_{\text{tot}}(q)$ across the merged reciprocal space ($q \in [0.0020, 2.54]\ \text{nm}^{-1}$, ESRF ID02 [Narayanan et al., 2018]) is expressed as an incoherent superposition of three spatially decoupled morphological contributions plus a flat solvent background:
+The total coherent scattering intensity $I_{\text{tot}}(q)$ across the merged reciprocal space ($q \in [0.0020, 2.54]\ \text{nm}^{-1}$, ESRF ID02) is expressed as an incoherent superposition of three spatially decoupled morphological contributions plus a flat solvent background:
 
 $$\mathbf{I_{\text{tot}}(q) = I_{\text{droplet}}(q) + I_{\text{mesh}}(q) + I_{\text{high-q}}(q) + I_{\text{bkg}}}$$
 
@@ -81,7 +80,7 @@ where:
   $$I_{\text{droplet}}(q) = \phi_{\text{drop}} (\Delta \rho_{\text{drop}})^2 \frac{\langle V^2 P_{\text{sphere}}(q) \rangle}{\langle V \rangle}$$
 
 #### The Asymptotic Porod Boundary ($D = 3$)
-For $q R \gg 1$, the intra-droplet interference oscillations dampen, and the envelope follows Porod's universal law for three-dimensional compact bodies with sharp, smooth interfaces [Porod, 1951]:
+For $q R \gg 1$, the intra-droplet interference oscillations dampen, and the envelope follows Porod's universal law for three-dimensional compact bodies with sharp, smooth interfaces:
 
 $$I_{\text{droplet}}(q) \xrightarrow{q R \gg 1} 2\pi (\Delta \rho_{\text{drop}})^2 \frac{S_{\text{tot}}}{q^4}$$
 
@@ -91,7 +90,7 @@ where $S_{\text{tot}} = 4\pi \langle R^2 \rangle n_{\text{drop}}$ is the total s
 
 ### 2.2. Tier 2: Continuous Spinodal Mesh / Mass Fractal Network ($0.005 \le q \le 0.2\ \text{nm}^{-1}$)
 
-The majority of the precipitated material resides in an extended, bicontinuous spinodal network. This continuous mesh is modelled as a mass fractal assembly of primary hydrated nodes of mean radius $r_0 \approx 8.8\ \text{nm}$ connected with fractal dimension $D_m \approx 1.83 - 1.95$ and an upper structural correlation cutoff length $\xi$ [Teixeira, 1988; Sorensen, 2001]:
+The majority of the precipitated material resides in an extended, bicontinuous spinodal network. This continuous mesh is modelled as a mass fractal assembly of primary hydrated nodes of mean radius $r_0 \approx 8.8\ \text{nm}$ connected with fractal dimension $D_m \approx 1.83 - 1.95$ and an upper structural correlation cutoff length $\xi$:
 
 $$I_{\text{mesh}}(q) = \phi_{\text{mesh}} (\Delta \rho_{\text{mesh}})^2 V_{\text{node}} P_{\text{node}}(q, r_0) S_{\text{fractal}}(q, D_m, \xi)$$
 
@@ -116,14 +115,14 @@ $$S_{\text{fractal}}(q) = 1 + \frac{1}{(q r_0)^{D_m}} \frac{D_m \Gamma(D_m - 1)}
 At high scattering vectors, two mathematically complementary formulations describe the elevated scattering plateau:
 
 #### Option A: Prenucleation Clusters / DOLLOPs
-Sub-nanometre hydrated ion associates (Dynamically Ordered Liquid-Like Oxyanion Polymers, DOLLOPs [Gebauer et al., 2008; Demichelis et al., 2011]) existing in dynamic equilibrium within the solvent channels:
+Sub-nanometre hydrated ion associates (Dynamically Ordered Liquid-Like Oxyanion Polymers, DOLLOPs) existing in dynamic equilibrium within the solvent channels:
 
 $$I_{\text{PNC}}(q) = \phi_{\text{PNC}} (\Delta \rho_{\text{PNC}})^2 V_{\text{PNC}} \left[ \frac{3 j_1(q R_{\text{PNC}})}{q R_{\text{PNC}}} \right]^2$$
 
 Calibrated parameters: $\langle R_{\text{PNC}} \rangle = 0.53 \pm 0.15\ \text{nm}$, $\phi_{\text{PNC}} \approx 1.8 \times 10^{-3}$.
 
 #### Option B: Viscoelastic Dynamic Mesh Fluctuations (Tanaka / Fisher-Burford)
-Internal concentration fluctuations of the polymer-like dense viscoelastic mesh, with correlation mesh size $\xi_{\text{fluc}}$ and Porod surface-decay exponent $\mu = 4.0$ [Fisher & Burford, 1967; Tanaka, 2000]:
+Internal concentration fluctuations of the polymer-like dense viscoelastic mesh, with correlation mesh size $\xi_{\text{fluc}}$ and Porod surface-decay exponent $\mu = 4.0$:
 
 $$I_{\text{fluc}}(q) = \frac{A_{\text{fluc}}}{\left[ 1 + \frac{2}{3\mu} (q \xi_{\text{fluc}})^2 \right]^{\mu / 2}} = \frac{A_{\text{fluc}}}{\left[ 1 + \frac{1}{6} (q \xi_{\text{fluc}})^2 \right]^2}$$
 
@@ -157,7 +156,7 @@ For $\mu = 2$, this expression reduces to the classical Ornstein-Zernike (OZ) co
 ### 3.1. Rayleigh-Plateau Capillary Instability of Bicontinuous Struts
 
 1. **Capillary Dispersion in Viscous Liquid Cylinders:**  
-   In early spinodal demixing, Cahn-Hilliard decomposition produces an isotropic, interconnected bicontinuous structure of dense liquid cylinders embedded in a lower-density aqueous phase [Cahn, 1965]. Because the dense phase has an interfacial tension $\gamma \sim 1 - 10\ \text{mN/m}$ against water, cylindrical ligaments of radius $R_{\text{strut}}$ are unstable to capillary radius fluctuations [Plateau, 1873; Rayleigh, 1878]:
+   In early spinodal demixing, Cahn-Hilliard decomposition produces an isotropic, interconnected bicontinuous structure of dense liquid cylinders embedded in a lower-density aqueous phase. Because the dense phase has an interfacial tension $\gamma \sim 1 - 10\ \text{mN/m}$ against water, cylindrical ligaments of radius $R_{\text{strut}}$ are unstable to capillary radius fluctuations:
    $$r(z) = R_{\text{strut}} + \epsilon_0 \cos(k z) e^{\omega t}$$
 
 2. **The Cutoff Condition:**  
@@ -177,7 +176,7 @@ For $\mu = 2$, this expression reduces to the classical Ornstein-Zernike (OZ) co
 
 ### 3.2. Viscoelastic Phase Separation (VPS) and Tanaka Two-Fluid Dynamics
 
-Because the dense mineral network exhibits a stress relaxation time $\tau_{\text{mesh}}$ that is orders of magnitude longer than the solvent diffusion time $\tau_{\text{solv}}$ ($\tau_{\text{mesh}} \gg \tau_{\text{solv}}$), phase separation is governed by **Viscoelastic Phase Separation (VPS)** [Tanaka, 2000, 2001]:
+Because the dense mineral network exhibits a stress relaxation time $\tau_{\text{mesh}}$ that is orders of magnitude longer than the solvent diffusion time $\tau_{\text{solv}}$ ($\tau_{\text{mesh}} \gg \tau_{\text{solv}}$), phase separation is governed by Viscoelastic Phase Separation (VPS):
 
 1. **Two-Fluid Force Balance & Dynamic Asymmetry:**  
    In the Two-Fluid Model, the velocities of the mineral network ($\mathbf{v}_p$) and solvent ($\mathbf{v}_s$) are distinct. Under incompressibility, the force balance is:
@@ -193,7 +192,7 @@ Because the dense mineral network exhibits a stress relaxation time $\tau_{\text
 3. **Bulk Stress and Volume Shrinking:**  
    The decomposition of the stress tensor into shear ($\boldsymbol{\sigma}_s$) and bulk ($\sigma_{\text{bulk}}$) components reveals that the isotropic contraction of the network is resisted by its bulk elastic modulus:
    $$\sigma_{\text{bulk}} = K_{\text{os}} \nabla \cdot \mathbf{v}_p$$
-   This bulk stress drives the **volume shrinking** observed in scattering: the mineral gel contracts like a sponge, squeezing out solvent until elastic tension balances osmotic pressure.
+   This bulk stress drives the volume shrinking observed in scattering: the mineral gel contracts like a sponge, squeezing out solvent until elastic tension balances osmotic pressure.
 
 4. **Stress Relaxation via Rupture and Droplet Shedding:**  
    When coarsening strains exceed the transient yield stress of the struts, the network ruptures mechanically. Detached fluid domains contract under interfacial tension into compact spherical droplets ($\langle R_{\text{drop}} \rangle \approx 3.2\ \mu\text{m}$), while unbroken connected paths arrest into the spanning fractal gel mesh ($D_m \approx 1.84$).
@@ -277,7 +276,7 @@ At $q_{\text{min}} = 0.00213\ \text{nm}^{-1}$, the droplets generate **$77.8\%$*
 | Parameter | Specification | Beamline Operation Notes |
 | :--- | :--- | :--- |
 | **Synchrotron Facility** | **ESRF - The European Synchrotron** (Grenoble, France) | Extremely Brilliant Source (EBS) storage ring (Proposal CH-6828) |
-| **Beamline** | **ID02 (TRUSAXS / USAXS / SAXS)** | High-brilliance undulator beamline [Narayanan et al., 2018] |
+| **Beamline** | **ID02 (TRUSAXS / USAXS / SAXS)** | High-brilliance undulator beamline |
 | **Photon Energy ($E$)** | **$12.23\ \text{keV}$ ($12,230.0\ \text{eV}$)** | $\text{Si}(111)$ double crystal monochromator (`egy=12230.0`, `theta=9.308`) |
 | **X-ray Wavelength ($\lambda$)** | **$0.101377\ \text{nm}$ ($1.0138\ \text{Å}$)** | Calibrated pyFAI wavelength parameter (`WaveLength = 1.01377e-10 m`) |
 | **Detector System** | **Dectris Eiger2 4M** | Hybrid photon counting pixel detector ($2068 \times 2162\ \text{pixels}$, $75\ \mu\text{m}$ pitch) |
@@ -288,32 +287,7 @@ At $q_{\text{min}} = 0.00213\ \text{nm}^{-1}$, the droplets generate **$77.8\%$*
 
 ---
 
-## 8. Complete Reference List
-
-1. **Bewernitz, M. A., Ersen, O., Chakarova, R., & Gower, L. B.** (2012). A metastable liquid precursor phase of calcium carbonate and its role in form development. *Faraday Discussions*, 159, 291–312.
-2. **Cahn, J. W.** (1965). Phase separation by spinodal decomposition in isotropic systems. *The Journal of Chemical Physics*, 42(1), 93–99.
-3. **De Yoreo, J. J., Gilbert, P. U. P. A., Sommerdijk, N. A. M., Penn, R. L., Whitelam, S., et al.** (2015). Crystallization by particle attachment in synthetic, biogenic, and geologic environments. *Science*, 349(6247), aaa6760.
-4. **Demichelis, R., Raiteri, P., Gale, J. D., Quigley, D., & Gebauer, D.** (2011). Stable prenucleation mineral clusters are liquid-like ionic polymers. *Nature Communications*, 2(1), 590.
-5. **Fisher, M. E., & Burford, R. J.** (1967). Theory of critical-point scattering and correlation functions. *Physical Review*, 156(2), 583–622.
-6. **Gebauer, D., Völkel, A., & Cölfen, H.** (2008). Stable prenucleation calcium carbonate clusters. *Science*, 322(5909), 1819–1822.
-7. **Gower, L. B., & Odom, D. J.** (2000). Biomimetic mineralisation via a polymer-induced liquid-precursor (PILP) process. *Journal of Crystal Growth*, 210(4), 719–734.
-8. **Gower, L. B.** (2008). The polymer-induced liquid-precursor (PILP) process: a journey from amorphous to crystalline materials. *Chemical Reviews*, 108(11), 4551–4627.
-9. **Narayanan, T., Sztucki, M., Van Vaerenbergh, P., Léonardon, J., Gorini, J., et al.** (2018). The ID02 high-brilliance small-angle X-ray scattering beamline at the ESRF. *Journal of Applied Crystallography*, 51(6), 1511–1524.
-10. **Plateau, J. A. F.** (1873). *Statique expérimentale et théorique des liquides soumis aux seules forces moléculaires*. Gauthier-Villars, Paris.
-11. **Porod, G.** (1951). Die Röntgenkleinwinkelstreuung von dichtgepackten kolloiden Systemen. *Kolloid-Zeitschrift*, 124(2), 83–114.
-12. **Rayleigh, Lord.** (1878). On the instability of jets. *Proceedings of the London Mathematical Society*, 1(1), 4–13.
-13. **Siggia, E. D.** (1979). Late stages of spinodal decomposition in binary mixtures. *Physical Review A*, 20(2), 595–605.
-14. **Sorensen, C. M.** (2001). Light scattering by fractal aggregates: a review. *Aerosol Science and Technology*, 35(2), 648–687.
-15. **Stawski, T. M., Van Driessche, A. E. S., Ossorio, M., Rodriguez-Blanco, J. D., Besselink, R., & Benning, L. G.** (2016). Formation of amorphous calcium carbonate: Direct observation of non-classical nucleation pathways. *Nature Communications*, 7, 11177.
-16. **Stawski, T. M., & Benning, L. G.** (2019). Nucleation and growth of inorganic nanoparticles: from ions to crystals studied by in situ SAXS/WAXS. *Nanoscale*, 11(30), 14068–14083.
-17. **Tanaka, H.** (2000). Viscoelastic phase separation. *Journal of Physics: Condensed Matter*, 12(15), R207–R264.
-18. **Tanaka, H.** (2001). Viscoelastic phase separation in soft matter and foods. *Current Opinion in Colloid & Interface Science*, 6(3), 259–271.
-19. **Teixeira, J.** (1988). Small-angle scattering by fractal systems. *Journal of Applied Crystallography*, 21(6), 781–785.
-20. **Wallace, A. F., Henzler, K., Sun, S., Raiteri, P., Gale, J. D., Gebauer, D., Cölfen, H., & De Yoreo, J. J.** (2013). Microscopic evidence for liquid-liquid separation in supersaturated CaCO3 solutions. *Science*, 341(6148), 885–889.
-
----
-
-## 9. License & Attribution
+## 8. License & Attribution
 
 * **Data Processing Responsible:** Tomasz Stawski (`tomasz.stawski@bam.de`), Federal Institute for Materials Research and Testing (BAM), Unter den Eichen 87, 12205 Berlin, Germany.
 * **Beamtime Proposal:** ESRF Proposal CH-6828 (*Time-resolved Small-Angle X-ray Scattering on Non-Classical Nucleation Pathways of Calcium Carbonate*).

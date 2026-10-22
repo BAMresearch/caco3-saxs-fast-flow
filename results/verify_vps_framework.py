@@ -140,7 +140,7 @@ def analyse_vps_metrics(data):
     report.append("# Viscoelastic Phase Separation (VPS) Framework Verification Report")
     report.append("")
     report.append("**Data Processing Responsible:** Tomasz Stawski (tomasz.stawski@bam.de)")
-    report.append("**Reference Document:** Mathematical Framework for VPS Scattering")
+    report.append("**Theoretical Framework:** Viscoelastic Phase Separation (VPS)")
     report.append("")
     report.append("## 1. Executive Summary")
     report.append("")

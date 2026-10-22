@@ -132,9 +132,8 @@ Interactive tools and high-resolution publication assets are precompiled and dir
 project - CaCO3/
 ├── README.md                                          # Comprehensive project and beamline documentation
 ├── .gitignore                                         # Git ignore rules for caches and auxiliary files
-├── model_description_and_interpretation.md           # Core manuscript and interpretation notes
-├── references.bib                                     # BibTeX citation database
-├── vps_framework_extracted.txt                        # Mathematical framework reference extraction
+├── model_description_and_interpretation.md           # Core model formulation and physical interpretation
+├── LICENSE                                            # Standard MIT License
 ├── project notes/                                     # Beamtime logbook, proposal, and reference notes
 │   ├── Logbook Beamtime 11-11-2023.docx               # Primary beamtime operational logbook
 │   ├── Mathematical Framework for VPS Scattering.docx # Theoretical framework of viscoelastic phase separation
