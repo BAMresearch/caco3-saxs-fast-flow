@@ -1,0 +1,10 @@
+Metric,Viscoelastic_Model,Polydisperse_Unconstrained,Polydisperse_Core_Conserved
+Mean Reduced Chi2 across 50 frames,0.278,0.508,3.490
+Frame 00 Reduced Chi2,0.272,0.765,3.706
+Frame 49 Reduced Chi2,0.305,0.369,2.814
+Frame 00 Low-q (< 0.1 nm^-1) Mean Res^2,0.28,6.38 (Massive systematic misfit),14.62
+Frame 00 High-q (>= 0.5 nm^-1) Mean Res^2,0.26,0.25,2.64 (Underestimates high-q slope)
+Mean Core Radius <R_prim> [nm],8.25 nm (grows 7.0 -> 9.7 nm),1.95 nm (Artificially shrunken),4.50 nm (Pegged at 4.5 nm bound)
+Consistency with Baseline Composite (R = 6.59 nm),Strictly Consistent,Severe Discrepancy (1.9 nm vs 6.6 nm),Approximate (Pegged at bound)
+Consistency with Long-Distance (R = 8.25 nm),Strictly Consistent,Severe Discrepancy (1.9 nm vs 8.3 nm),Approximate
+Physical Plausibility of Background,Physical (bkg ~ 0.0004 cm^-1),Moderate (bkg ~ 0.0008 - 0.0011 cm^-1),Unphysical (bkg ~ 0.0018 - 0.0021 cm^-1 inflated)

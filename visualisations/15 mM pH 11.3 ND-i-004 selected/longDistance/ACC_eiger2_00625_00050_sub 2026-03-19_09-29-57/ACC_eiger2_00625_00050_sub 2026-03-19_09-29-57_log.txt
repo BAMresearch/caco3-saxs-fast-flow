@@ -1,0 +1,297 @@
+2026-03-19 09:29:57 INFO     Writing algorithm settings to:
+2026-03-19 09:29:57 INFO         'file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/visualisations/15%20mM%20pH%2011.3%20ND-i-004%20selected/longDistance/ACC_eiger2_00625_00050_sub%202026-03-19_09-29-57/ACC_eiger2_00625_00050_sub%202026-03-19_09-29-57_settings.cfg'
+2026-03-19 09:29:57 INFO     Writing Complete state of the calculation to:
+2026-03-19 09:29:57 INFO         'file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/visualisations/15%20mM%20pH%2011.3%20ND-i-004%20selected/longDistance/ACC_eiger2_00625_00050_sub%202026-03-19_09-29-57/ACC_eiger2_00625_00050_sub%202026-03-19_09-29-57_hdf5archive.mh5'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/name': 'McSAS'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/cls': 'McSAS'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/startFromMinimum/cls': 'ParameterBoolean'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/startFromMinimum/displayName': 'depreciated'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/startFromMinimum/description': 'Sets the initial guess to minimal values rather than a uniform dist.'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/startFromMinimum/value': '0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/startFromMinimum/name': 'startFromMinimum'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/maxIterations/unit/magnitudeConversion': '1.0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/maxIterations/unit/type': 'NoUnit'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/maxIterations/unit/displayMagnitudeName': '-'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/maxIterations/displayName': 'maximum iterations'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/maxIterations/name': 'maxIterations'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/maxIterations/value': '100000.0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/maxIterations/valueRange': '(1, 1e+100)'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/maxIterations/cls': 'ParameterFloat'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/maxIterations/description': 'Maximum number of iterations allowed before failing.'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/seriesStats/cls': 'ParameterBoolean'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/seriesStats/displayName': 'Calc. series statistics'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/seriesStats/description': 'Plots the mean of each configured histogram range per selected dataset and writes all distribution moments to file.'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/seriesStats/value': '0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/seriesStats/name': 'seriesStats'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/showIncomplete/cls': 'ParameterBoolean'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/showIncomplete/displayName': 'Plot unsuccessful / incomplete results'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/showIncomplete/description': 'After an interrupted run or an optimization that did not reach convergence, show results anyway.'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/showIncomplete/value': '1'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/showIncomplete/name': 'showIncomplete'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/convergenceCriterion/unit/magnitudeConversion': '1.0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/convergenceCriterion/unit/type': 'NoUnit'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/convergenceCriterion/unit/displayMagnitudeName': '-'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/convergenceCriterion/displayName': 'convergence criterion'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/convergenceCriterion/name': 'convergenceCriterion'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/convergenceCriterion/value': '1.0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/convergenceCriterion/valueRange': '(0, 1e+200)'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/convergenceCriterion/cls': 'ParameterFloat'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/convergenceCriterion/description': 'Reduced Chi-squared value to reach for optimisation success.'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/findBackground/cls': 'ParameterBoolean'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/findBackground/displayName': 'Find background level?'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/findBackground/description': 'Adds a constant background level to the model fitting.'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/findBackground/value': '1'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/findBackground/name': 'findBackground'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/numContribs/displayName': 'number of contributions'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/numContribs/name': 'numContribs'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/numContribs/value': '5000'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/numContribs/valueRange': '(1, 1000000.0)'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/numContribs/cls': 'ParameterNumerical'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/numContribs/description': 'Total number of contributions making up a scattering pattern'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/autoClose/cls': 'ParameterBoolean'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/autoClose/displayName': 'Automatically close result windows'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/autoClose/description': 'Prevents cluttering the screen with many windows if series are fitted'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/autoClose/value': '0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/autoClose/name': 'autoClose'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/maxRetries/displayName': 'Maximum no. of allowed retries'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/maxRetries/name': 'maxRetries'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/maxRetries/value': '5'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/maxRetries/valueRange': '(1, 100)'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/maxRetries/cls': 'ParameterNumerical'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/maxRetries/description': 'When the MC method cannot reach convergence, it will try again this number of times.'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/compensationExponent/unit/magnitudeConversion': '1.0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/compensationExponent/unit/type': 'NoUnit'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/compensationExponent/unit/displayMagnitudeName': '-'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/compensationExponent/displayName': 'weighting compensation'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/compensationExponent/name': 'compensationExponent'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/compensationExponent/value': '0.2'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/compensationExponent/valueRange': '(-1e+200, 1e+200)'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/compensationExponent/cls': 'ParameterFloat'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/compensationExponent/description': 'Compensates the weighting of contributions, default volume-weighted (2/3).'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/numReps/displayName': 'number of repetitions'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/numReps/name': 'numReps'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/numReps/value': '4'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/numReps/valueRange': '(1, 1000000.0)'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/numReps/cls': 'ParameterNumerical'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/algo/numReps/description': 'Number of independent McSAS results to compute, from which averages and uncertainties are estimated'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/filename': '/home/tomek/Insync/tomasz.stawski@gmail.com/Google Drive/WORK/Projects current/project - CaCO3/visualisations/15 mM pH 11.3 ND-i-004 selected/longDistance/ACC_eiger2_00625_00050_sub.dat'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] dataset 'mcsasentry/data/f/rawData' (1645,)
+2026-03-19 09:29:57 DEBUG    [HDFWriter] dataset 'mcsasentry/data/f/rawDataU' (1645,)
+2026-03-19 09:29:57 DEBUG    [HDFWriter] dataset 'mcsasentry/data/f/siData' (1645,)
+2026-03-19 09:29:57 DEBUG    [HDFWriter] dataset 'mcsasentry/data/f/siDataU' (1645,)
+2026-03-19 09:29:57 DEBUG    [HDFWriter] dataset 'mcsasentry/data/f/binnedData' (100,)
+2026-03-19 09:29:57 DEBUG    [HDFWriter] dataset 'mcsasentry/data/f/binnedDataU' (100,)
+2026-03-19 09:29:57 DEBUG    [HDFWriter] dataset 'mcsasentry/data/f/validIndices' (1507,)
+2026-03-19 09:29:57 DEBUG    [HDFWriter] dataset 'mcsasentry/data/f/limit' (len: 2)
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/f/unit/magnitudeConversion': '1.0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/f/unit/type': 'ScatteringIntensity'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/f/unit/displayMagnitudeName': '(m sr)⁻¹'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] dataset 'mcsasentry/data/x0/rawData' (1645,)
+2026-03-19 09:29:57 DEBUG    [HDFWriter] skipped DataVector.rawDataU (datavector.py l.31) It is empty or does not exist (=None).
+2026-03-19 09:29:57 DEBUG    [HDFWriter] dataset 'mcsasentry/data/x0/siData' (1645,)
+2026-03-19 09:29:57 DEBUG    [HDFWriter] skipped DataVector.siDataU (datavector.py l.31) It is empty or does not exist (=None).
+2026-03-19 09:29:57 DEBUG    [HDFWriter] dataset 'mcsasentry/data/x0/binnedData' (100,)
+2026-03-19 09:29:57 DEBUG    [HDFWriter] skipped DataVector.binnedDataU (datavector.py l.31) It is empty or does not exist (=None).
+2026-03-19 09:29:57 DEBUG    [HDFWriter] dataset 'mcsasentry/data/x0/validIndices' (1507,)
+2026-03-19 09:29:57 DEBUG    [HDFWriter] dataset 'mcsasentry/data/x0/limit' (len: 2)
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/x0/unit/magnitudeConversion': '1000000000.0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/x0/unit/type': 'ScatteringVector'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/x0/unit/displayMagnitudeName': 'nm⁻¹'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] skipped SASData.x1 (dataobj.py l.198) It is empty or does not exist (=None).
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/name': 'SAS data configuration'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/cls': 'SASConfig'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x0Low/unit/magnitudeConversion': '1000000000.0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x0Low/unit/type': 'ScatteringVector'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x0Low/unit/displayMagnitudeName': 'nm⁻¹'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x0Low/displayName': 'lower q cut-off'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x0Low/value': '22466310.0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x0Low/name': 'x0Low'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x0Low/valueRange': '(1982856.7699999998, 249169812.0)'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x0Low/suffix': 'nm⁻¹'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x0Low/decimals': '10'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x0Low/cls': 'ParameterFloat'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x0High/unit/magnitudeConversion': '1000000000.0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x0High/unit/type': 'ScatteringVector'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x0High/unit/displayMagnitudeName': 'nm⁻¹'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x0High/displayName': 'upper q cut-off'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x0High/value': '249169800.0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x0High/name': 'x0High'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x0High/valueRange': '(1982856.7699999998, 249169812.0)'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x0High/suffix': 'nm⁻¹'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x0High/decimals': '10'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x0High/cls': 'ParameterFloat'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x1Low/unit/magnitudeConversion': '1.0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x1Low/unit/type': 'NoUnit'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x1Low/unit/displayMagnitudeName': '-'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x1Low/displayName': 'lower {x1} cut-off'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x1Low/value': '0.0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x1Low/name': 'x1Low'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x1Low/valueRange': '(0.0, 1e+200)'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x1Low/decimals': '10'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x1Low/cls': 'ParameterFloat'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x1High/unit/magnitudeConversion': '1.0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x1High/unit/type': 'NoUnit'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x1High/unit/displayMagnitudeName': '-'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x1High/displayName': 'upper {x1} cut-off'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x1High/value': '1e+200'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x1High/name': 'x1High'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x1High/valueRange': '(0.0, 1e+200)'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x1High/decimals': '10'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/x1High/cls': 'ParameterFloat'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/fMaskZero/cls': 'ParameterBoolean'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/fMaskZero/displayName': 'Mask I values of 0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/fMaskZero/description': 'Renders intensity values that are zero invalid for fitting'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/fMaskZero/value': '0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/fMaskZero/name': 'fMaskZero'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/fMaskNeg/cls': 'ParameterBoolean'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/fMaskNeg/displayName': 'Mask negative I values'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/fMaskNeg/description': 'Renders negative intensity values invalid for fitting'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/fMaskNeg/value': '0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/fMaskNeg/name': 'fMaskNeg'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/fuMin/unit/magnitudeConversion': '0.01'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/fuMin/unit/type': 'Fraction'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/fuMin/unit/displayMagnitudeName': '%'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/fuMin/displayName': 'minimum uncertainty estimate'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/fuMin/value': '0.01'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/fuMin/name': 'fuMin'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/fuMin/valueRange': '(0.0, 1.0)'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/fuMin/suffix': '%'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/fuMin/decimals': '9'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/fuMin/cls': 'ParameterFloat'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/nBin/displayName': 'target number of bins 
+ (0 = no re-binning)'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/nBin/name': 'nBin'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/nBin/value': '100'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/nBin/valueRange': '(0.0, 1000)'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/nBin/cls': 'ParameterNumerical'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/nBin/description': 'Sets the number of bins to rebin the data into. 
+ May be smaller than target value.'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/sampleName': ''
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/is2d': '0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/name': 'SAS smearing configuration'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/cls': 'GaussianSmearing'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/doSmear/cls': 'ParameterBoolean'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/doSmear/displayName': 'Apply smearing correction'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/doSmear/value': '0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/doSmear/name': 'doSmear'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/nSteps/displayName': 'number of smearing points around each q'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/nSteps/name': 'nSteps'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/nSteps/value': '25'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/nSteps/valueRange': '(0, 1000)'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/nSteps/cls': 'ParameterNumerical'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/twoDColl/cls': 'ParameterBoolean'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/twoDColl/displayName': 'Slit-smeared data (unchecked), or 2D-averaged data (checked)'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/twoDColl/value': '0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/twoDColl/name': 'twoDColl'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/variance/unit/magnitudeConversion': '1000000000.0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/variance/unit/type': 'ScatteringVector'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/variance/unit/displayMagnitudeName': 'nm⁻¹'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/variance/displayName': 'Variance (σ²) of <br /> Gaussian beam profile'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/variance/description': 'Full width at half maximum of the Gaussian beamprofile (horizontal for slit-collimated systems, circularly averaged for 2D pinhole and rectangular slit)'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/variance/value': '1536360.0'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/variance/name': 'variance'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/variance/valueRange': '(150351.9999999851, 498339624.0)'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/variance/suffix': 'nm⁻¹'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/variance/decimals': '9'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/data/config/smearing/variance/cls': 'ParameterFloat'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] skipped GaussianSmearing.qOffset (sasconfig.py l.77) It is empty or does not exist (=None).
+2026-03-19 09:29:57 DEBUG    [HDFWriter] skipped GaussianSmearing.weights (sasconfig.py l.77) It is empty or does not exist (=None).
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/modelName': 'Sphere'
+2026-03-19 09:29:57 DEBUG    Writing model parameter: radius to HDF5
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/radius/generator/cls': 'RandomUniform'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/radius/unit/magnitudeConversion': '1e-09'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/radius/unit/type': 'Length'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/radius/unit/displayMagnitudeName': 'nm'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/radius/histograms/0/param': 'radius'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/radius/histograms/0/lower': '5e-09'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/radius/histograms/0/upper': '1.5e-06'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/radius/histograms/0/binCount': '50'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/radius/histograms/0/xscale': 'log'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/radius/histograms/0/yweight': 'vol'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/radius/histograms/0/autoFollow': '1'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/radius/displayName': 'Sphere radius'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/radius/value': '1e-08'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/radius/name': 'radius'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/radius/valueRange': '(0.0, 1e+200)'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/radius/activeRange': '(5.0000000000000001e-09, 1.5e-06)'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/radius/cls': 'FitParameterFloat'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/radius/decimals': '9'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/radius/isActive': '1'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/radius/suffix': 'nm'
+2026-03-19 09:29:57 DEBUG    Writing model parameter: sld to HDF5
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/sld/unit/magnitudeConversion': '1e+20'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/sld/unit/type': 'SLD'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/sld/unit/displayMagnitudeName': 'Å⁻²'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/sld/displayName': 'scattering length density difference'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/sld/value': '1e+14'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/sld/name': 'sld'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/sld/valueRange': '(0.0, 1e+200)'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/sld/suffix': 'Å⁻²'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/sld/decimals': '9'
+2026-03-19 09:29:57 DEBUG    [HDFWriter] attribute 'mcsasentry/model/sld/cls': 'ParameterFloat'
+2026-03-19 09:29:57 INFO     Using model: Sphere
+2026-03-19 09:29:57 INFO     Analysing parameters: 
+Sphere radius: 10.0 (1e-08) in [0.0, 1e+200] (nm), active range: [5.0, 1500.0] (nm), active: True
+scattering length density difference: 1e-06 (1e+14) in [0.0, 1e+200] (Å⁻²), active: False
+2026-03-19 09:29:57 INFO     Initial Chi-squared value: 0.132540653643
+2026-03-19 09:29:57 INFO     normal exit
+2026-03-19 09:29:57 INFO     Number of iterations per second: 0.0
+2026-03-19 09:29:57 INFO     Number of valid moves: 0
+2026-03-19 09:29:57 INFO     Final Chi-squared value: 0.132540653643
+2026-03-19 09:29:57 INFO     finished optimization number 1 of 4
+  total elapsed time: 0.00370713472366 minutes
+  average time per optimization 0.00370713472366 minutes
+  total time remaining 0.011121404171 minutes
+2026-03-19 09:29:57 INFO     Initial Chi-squared value: 0.289095245573
+2026-03-19 09:29:57 INFO     normal exit
+2026-03-19 09:29:57 INFO     Number of iterations per second: 0.0
+2026-03-19 09:29:57 INFO     Number of valid moves: 0
+2026-03-19 09:29:57 INFO     Final Chi-squared value: 0.289095245573
+2026-03-19 09:29:57 INFO     finished optimization number 2 of 4
+  total elapsed time: 0.00666824976603 minutes
+  average time per optimization 0.00333412488302 minutes
+  total time remaining 0.00666824976603 minutes
+2026-03-19 09:29:57 INFO     Initial Chi-squared value: 0.16676647197
+2026-03-19 09:29:57 INFO     normal exit
+2026-03-19 09:29:57 INFO     Number of iterations per second: 0.0
+2026-03-19 09:29:57 INFO     Number of valid moves: 0
+2026-03-19 09:29:57 INFO     Final Chi-squared value: 0.16676647197
+2026-03-19 09:29:57 INFO     finished optimization number 3 of 4
+  total elapsed time: 0.0093533317248 minutes
+  average time per optimization 0.0031177772416 minutes
+  total time remaining 0.0031177772416 minutes
+2026-03-19 09:29:58 INFO     Initial Chi-squared value: 0.238098329915
+2026-03-19 09:29:58 INFO     normal exit
+2026-03-19 09:29:58 INFO     Number of iterations per second: 0.0
+2026-03-19 09:29:58 INFO     Number of valid moves: 0
+2026-03-19 09:29:58 INFO     Final Chi-squared value: 0.238098329915
+2026-03-19 09:29:58 INFO     finished optimization number 4 of 4
+  total elapsed time: 0.0120503465335 minutes
+  average time per optimization 0.00301258663336 minutes
+  total time remaining 0.0 minutes
+2026-03-19 09:29:59 INFO     Writing distributions to:
+2026-03-19 09:29:59 INFO         'file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/visualisations/15%20mM%20pH%2011.3%20ND-i-004%20selected/longDistance/ACC_eiger2_00625_00050_sub%202026-03-19_09-29-57/ACC_eiger2_00625_00050_sub%202026-03-19_09-29-57_hist-radius-True-5(nm)-1500(nm)-50-log-vol.dat'
+2026-03-19 09:29:59 INFO     Containing the following columns:
+2026-03-19 09:29:59 INFO     Writing distribution statistics to:
+2026-03-19 09:29:59 INFO         'file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/visualisations/15%20mM%20pH%2011.3%20ND-i-004%20selected/longDistance/ACC_eiger2_00625_00050_sub%202026-03-19_09-29-57/ACC_eiger2_00625_00050_sub%202026-03-19_09-29-57_stats_radius.dat'
+2026-03-19 09:29:59 INFO     Containing the following columns:
+2026-03-19 09:29:59 INFO         [ lower         ]   5.000000E-09
+2026-03-19 09:29:59 INFO         [ upper         ]   1.500000E-06
+2026-03-19 09:29:59 INFO         [ weighting     ]            vol
+2026-03-19 09:29:59 INFO         [ totalValue    ]   5.762328E-05
+2026-03-19 09:29:59 INFO         [ totalValueStd ]   1.317451E-05
+2026-03-19 09:29:59 INFO         [ mean          ]   4.507084E-08
+2026-03-19 09:29:59 INFO         [ meanStd       ]   7.792117E-09
+2026-03-19 09:29:59 INFO         [ variance      ]   1.462121E-14
+2026-03-19 09:29:59 INFO         [ varianceStd   ]   2.880832E-15
+2026-03-19 09:29:59 INFO         [ skew          ]   6.624892E+00
+2026-03-19 09:29:59 INFO         [ skewStd       ]   7.403092E-01
+2026-03-19 09:29:59 INFO         [ kurtosis      ]   5.687447E+01
+2026-03-19 09:29:59 INFO         [ kurtosisStd   ]   1.245151E+01
+2026-03-19 09:29:59 INFO     Writing fit data to:
+2026-03-19 09:29:59 INFO         'file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/visualisations/15%20mM%20pH%2011.3%20ND-i-004%20selected/longDistance/ACC_eiger2_00625_00050_sub%202026-03-19_09-29-57/ACC_eiger2_00625_00050_sub%202026-03-19_09-29-57_fit.dat'
+2026-03-19 09:29:59 INFO     Containing the following columns:
+2026-03-19 09:29:59 INFO     Writing Model contribution parameters to:
+2026-03-19 09:29:59 INFO         'file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/visualisations/15%20mM%20pH%2011.3%20ND-i-004%20selected/longDistance/ACC_eiger2_00625_00050_sub%202026-03-19_09-29-57/ACC_eiger2_00625_00050_sub%202026-03-19_09-29-57_contributions.pickle'
+2026-03-19 09:30:00 INFO     Writing plot PDF to:
+2026-03-19 09:30:00 INFO         'file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/visualisations/15%20mM%20pH%2011.3%20ND-i-004%20selected/longDistance/ACC_eiger2_00625_00050_sub%202026-03-19_09-29-57/ACC_eiger2_00625_00050_sub%202026-03-19_09-29-57.pdf'
