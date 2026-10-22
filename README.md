@@ -2,11 +2,11 @@
 
 [![Light Source](https://img.shields.io/badge/Light%20Source-ESRF%20(Grenoble)-blue)](https://www.esrf.fr/)
 [![Beamline](https://img.shields.io/badge/Beamline-ID02%20(TRUSAXS)-indigo)](https://www.esrf.fr/UsersAndScience/Experiments/TBS/ID02)
-[![Energy](https://img.shields.io/badge/Beam%20Energy-12.46%20keV-orange)]()
-[![Wavelength](https://img.shields.io/badge/%CE%BB-0.0995%20nm-amber)]()
+[![Energy](https://img.shields.io/badge/Beam%20Energy-12.23%20keV-orange)]()
+[![Wavelength](https://img.shields.io/badge/%CE%BB-0.10138%20nm-amber)]()
 [![Detector](https://img.shields.io/badge/Detector-Dectris%20Eiger2%204M-green)]()
 [![q--Range](https://img.shields.io/badge/q--Range-0.002%20to%202.54%20nm%E2%88%921-teal)]()
-[![Camera Lengths](https://img.shields.io/badge/Geometries-3.0%20m%20%7C%2031.0%20m-purple)]()
+[![Camera Lengths](https://img.shields.io/badge/Geometries-3.0%20m%20(2.9997%20m)%20%7C%2031.0%20m%20(30.7059%20m)-purple)]()
 [![Analysis Register](https://img.shields.io/badge/Standard-Unified%20Physicochemical%20Register-slate)]()
 
 Publication repository and unified multi-scale kinetic modelling suite for time-resolved synchrotron Small-Angle X-ray Scattering (SAXS) measurements of calcium carbonate ($\mathrm{CaCO}_3$) precipitation collected at the **ESRF ID02 High-Brilliance TRUSAXS / USAXS / SAXS beamline** (European Synchrotron Radiation Facility, Grenoble, France).
@@ -29,17 +29,17 @@ The project resolves the structural hierarchy and kinetic pathway across four de
 
 ## Experimental & Beamline Parameters
 
-| Parameter | Specification | Details / Operation Notes |
+| Parameter | Specification | Details / Operation Notes (Verified from HDF5 Metadata) |
 | :--- | :--- | :--- |
 | **Synchrotron Light Source** | **ESRF - The European Synchrotron** (Grenoble, France) | Extremely Brilliant Source (EBS) storage ring |
 | **Beamline** | **ID02 (Time-Resolved Ultra-Small-Angle & Small-Angle X-ray Scattering)** | High-brilliance undulator beamline |
-| **X-ray Photon Energy** | **$12.46\ \mathrm{keV}$** | Monochromatic beam ($\mathrm{Si}(111)$ double crystal monochromator) |
-| **X-ray Wavelength ($\lambda$)** | **$0.0995\ \mathrm{nm}$** ($0.995\ \mathrm{Å}$) | Calibrated via standard reference calibrants |
+| **X-ray Photon Energy** | **$12.23\ \mathrm{keV}$ ($12,230.0\ \mathrm{eV}$)** | $\mathrm{Si}(111)$ double crystal monochromator (`egy=12230.0eV`, `theta=9.308deg`) |
+| **X-ray Wavelength ($\lambda$)** | **$0.101377\ \mathrm{nm}$** ($1.0138\ \mathrm{Å}$) | Calibrated pyFAI wavelength parameter (`WaveLength = 1.01377e-10 m`) |
 | **Detector System** | **Dectris Eiger2 4M** | Hybrid photon counting (HPC) pixel detector |
 | **Detector Dimensions** | $2068 \times 2162\ \mathrm{pixels}$ | Active sensor area $\approx 155.1 \times 162.15\ \mathrm{mm}^2$ |
 | **Pixel Pitch** | $75.0 \times 75.0\ \mu\mathrm{m}^2$ | Isotropic square pixel geometry |
-| **Short-Distance Camera Length (SD)** | **$3.0\ \mathrm{m}$** (actual $\approx 3.08\ \mathrm{m}$) | Covers $q \in [0.022, 2.54]\ \mathrm{nm}^{-1}$ ($d \approx 2.5\ \text{to}\ 285\ \mathrm{nm}$) |
-| **Long-Distance Camera Length (LD)** | **$31.0\ \mathrm{m}$** | Evacuated flight tube; covers $q \in [0.002, 0.44]\ \mathrm{nm}^{-1}$ ($d \approx 14\ \text{nm to}\ 3.1\ \mu\mathrm{m}$) |
+| **Short-Distance Camera Length (SD)** | **$3.0\ \mathrm{m}$ nominal ($2.9997\ \mathrm{m}$ calibrated)** | HDF5 `SampleDistance = 2.9997 m`; covers $q \in [0.022, 2.54]\ \mathrm{nm}^{-1}$ |
+| **Long-Distance Camera Length (LD)** | **$31.0\ \mathrm{m}$ nominal ($30.7059\ \mathrm{m}$ calibrated)** | HDF5 `SampleDistance = 30.7059 m`; covers $q \in [0.002, 0.25]\ \mathrm{nm}^{-1}$ |
 | **Combined Composite $q$-Range** | **$0.0020\ \mathrm{nm}^{-1}$ to $2.54\ \mathrm{nm}^{-1}$** | $>3$ orders of magnitude in reciprocal space; stitched across cameras |
 | **Sample Environment / Mixer** | **BioLogic SFM-400 / 4-Syringe Stopped-Flow Mixer** | High-speed pneumatic injection with $1.3\ \mathrm{mm}$ optical path capillary |
 | **Volumetric Injection Rate** | **$3.33\ \mathrm{mL/s}$** per syringe | $100\ \mu\mathrm{L}$ to $200\ \mu\mathrm{L}$ shot volumes into quartz flow capillary |
@@ -133,6 +133,9 @@ project - CaCO3/
 ├── model_description_and_interpretation.md           # Core manuscript and interpretation notes
 ├── references.bib                                     # BibTeX citation database
 ├── vps_framework_extracted.txt                        # Mathematical framework reference extraction
+├── h5/                                                # Raw averaged HDF5 files with pyFAI instrument metadata
+│   ├── ND-i-001 selected short distance/              # Short-distance scans (SampleDistance = 2.9997 m)
+│   └── ND-i-001 selected long distance/               # Long-distance scans (SampleDistance = 30.7059 m)
 ├── project notes/                                     # Beamtime logbook, proposal, and reference notes
 │   ├── Logbook Beamtime 11-11-2023.docx               # Primary beamtime operational logbook
 │   ├── Mathematical Framework for VPS Scattering.docx # Theoretical framework of viscoelastic phase separation
