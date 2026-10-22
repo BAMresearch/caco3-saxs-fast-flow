@@ -130,35 +130,36 @@ Interactive tools and high-resolution publication assets are precompiled and dir
 project - CaCO3/
 ├── README.md                                          # Comprehensive project and beamline documentation
 ├── .gitignore                                         # Git ignore rules for caches and auxiliary files
-├── Logbook Beamtime 11-11-2023.docx                   # Primary beamtime operational logbook
-├── Mathematical Framework for VPS Scattering.docx     # Theoretical framework of viscoelastic phase separation
-├── model_description_and_interpretation.tex           # LaTeX publication draft
-├── model_description_and_interpretation.pdf           # Compiled publication manuscript
+├── model_description_and_interpretation.md           # Core manuscript and interpretation notes
 ├── references.bib                                     # BibTeX citation database
-├── results/                                           # Centralised analysis suite
-│   ├── saxs_colors.py                                 # Invariant 9-component color palette & styling
-│   ├── build_master_dashboard.py                      # Master interactive HTML synthesis generator
-│   ├── generate_model_transformation_diagram.py       # SVG vector transformation diagram generator
-│   ├── generate_cross_series_trajectories.py          # 4-panel kinetic synthesis trajectory builder
-│   ├── standardize_composite_plots.py                 # Uniform baseline curve re-rendering script
-│   ├── verify_vps_framework.py                        # Theoretical self-consistency validator
-│   ├── index.html                                     # Master interactive synthesis dashboard
-│   ├── dashboard/index.html                           # Standalone synthesis dashboard copy
-│   ├── output/                                        # Master publication figures and diagrams
-│   │   ├── model_transformation_diagram.svg
-│   │   ├── cross_series_trajectories_comparison.png
-│   │   └── cross_series_trajectories_comparison.json
-│   ├── ND-i-001_40mM_pH11.3/                          # Rapid quench 40 mM spinodal dataset
-│   ├── ND-i-002_20mM_pH11.3/                          # 20 mM spinodal gelation dataset
-│   ├── ND-i-003_10mM_pH11.3/                          # 10 mM sub-spinodal nucleation dataset
-│   ├── ND-i-004_15mM_pH11.3/                          # 15 mM crossover boundary dataset
-│   ├── ND-i-005_40mM_pH11.3_CoCl2/                    # 40 mM additive perturbation dataset (+Co2+)
-│   ├── ND-i-006_40mM_pH9.75/                          # 40 mM buffered pH 9.75 dataset
-│   └── ND-i-009_40mM_pH10.0/                          # 40 mM buffered pH 10.0 primary benchmark
-├── visualisations/                                    # Raw ASCII and graphical reduction runs
-└── project - CaCO3/                                   # Historical proposal and primary beamtime frames
-    ├── proposal ESRF/CH-6828.pdf                      # Original ESRF beamtime proposal
-    └── dataNDi009/                                    # Primary short/long-distance frame folders
+├── vps_framework_extracted.txt                        # Mathematical framework reference extraction
+├── project notes/                                     # Beamtime logbook, proposal, and reference notes
+│   ├── Logbook Beamtime 11-11-2023.docx               # Primary beamtime operational logbook
+│   ├── Mathematical Framework for VPS Scattering.docx # Theoretical framework of viscoelastic phase separation
+│   ├── proposal ESRF/CH-6828.pdf                      # Original ESRF beamtime proposal
+│   ├── refs/                                          # Historical literature references
+│   ├── dataNDi009/                                    # Primary short/long-distance frame folders
+│   └── drawing.svg, overlay.pdf, ND-009.opj           # Working diagrams and project files
+└── results/                                           # Centralised analysis suite
+    ├── saxs_colors.py                                 # Invariant 9-component color palette & styling
+    ├── build_master_dashboard.py                      # Master interactive HTML synthesis generator
+    ├── generate_model_transformation_diagram.py       # SVG vector transformation diagram generator
+    ├── generate_cross_series_trajectories.py          # 4-panel kinetic synthesis trajectory builder
+    ├── standardize_composite_plots.py                 # Uniform baseline curve re-rendering script
+    ├── verify_vps_framework.py                        # Theoretical self-consistency validator
+    ├── index.html                                     # Master interactive synthesis dashboard
+    ├── dashboard/index.html                           # Standalone synthesis dashboard copy
+    ├── output/                                        # Master publication figures and diagrams
+    │   ├── model_transformation_diagram.svg
+    │   ├── cross_series_trajectories_comparison.png
+    │   └── cross_series_trajectories_comparison.json
+    ├── ND-i-001_40mM_pH11.3/                          # Rapid quench 40 mM spinodal dataset
+    ├── ND-i-002_20mM_pH11.3/                          # 20 mM spinodal gelation dataset
+    ├── ND-i-003_10mM_pH11.3/                          # 10 mM sub-spinodal nucleation dataset
+    ├── ND-i-004_15mM_pH11.3/                          # 15 mM crossover boundary dataset
+    ├── ND-i-005_40mM_pH11.3_CoCl2/                    # 40 mM additive perturbation dataset (+Co2+)
+    ├── ND-i-006_40mM_pH9.75/                          # 40 mM buffered pH 9.75 dataset
+    └── ND-i-009_40mM_pH10.0/                          # 40 mM buffered pH 10.0 primary benchmark
 ```
 
 ---

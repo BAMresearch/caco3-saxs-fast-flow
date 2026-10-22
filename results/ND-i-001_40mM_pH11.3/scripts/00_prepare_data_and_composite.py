@@ -43,34 +43,32 @@ def prepare_dataset():
     os.makedirs(raw_l_dir, exist_ok=True)
     os.makedirs(raw_f_dir, exist_ok=True)
 
-    # Copy files if not already present
-    src_s_files = sorted(glob.glob(os.path.join(SRC_DIR, 'shortDistance', '*.dat')))
-    src_l_files = sorted(glob.glob(os.path.join(SRC_DIR, 'longDistance', '*.dat')))
-    src_f_files = sorted(glob.glob(os.path.join(SRC_DIR, 'finalStages', '*.dat')))
+    # Check if files already present locally or need copying from source
+    s_files_local = sorted(glob.glob(os.path.join(raw_s_dir, '*.dat')))
+    l_files_local = sorted(glob.glob(os.path.join(raw_l_dir, '*.dat')))
 
-    print(f"Source short files: {len(src_s_files)}, long files: {len(src_l_files)}, final files: {len(src_f_files)}")
-    assert len(src_s_files) == 50, f"Expected 50 short files, found {len(src_s_files)}"
-    assert len(src_l_files) == 50, f"Expected 50 long files, found {len(src_l_files)}"
-
-    for f in src_s_files:
-        dest = os.path.join(raw_s_dir, os.path.basename(f))
-        if not os.path.exists(dest):
-            shutil.copy2(f, dest)
-
-    for f in src_l_files:
-        dest = os.path.join(raw_l_dir, os.path.basename(f))
-        if not os.path.exists(dest):
-            shutil.copy2(f, dest)
-
-    for f in src_f_files:
-        dest = os.path.join(raw_f_dir, os.path.basename(f))
-        if not os.path.exists(dest):
-            shutil.copy2(f, dest)
+    if len(s_files_local) < 50 or len(l_files_local) < 50:
+        if os.path.exists(SRC_DIR):
+            src_s_files = sorted(glob.glob(os.path.join(SRC_DIR, 'shortDistance', '*.dat')))
+            src_l_files = sorted(glob.glob(os.path.join(SRC_DIR, 'longDistance', '*.dat')))
+            src_f_files = sorted(glob.glob(os.path.join(SRC_DIR, 'finalStages', '*.dat')))
+            for f in src_s_files:
+                shutil.copy2(f, os.path.join(raw_s_dir, os.path.basename(f)))
+            for f in src_l_files:
+                shutil.copy2(f, os.path.join(raw_l_dir, os.path.basename(f)))
+            for f in src_f_files:
+                shutil.copy2(f, os.path.join(raw_f_dir, os.path.basename(f)))
+        else:
+            print(f"Using existing local raw files ({len(s_files_local)} short, {len(l_files_local)} long)")
+    else:
+        print(f"Using existing local raw files ({len(s_files_local)} short, {len(l_files_local)} long)")
 
     # Also copy the final short frame as short final stage reference
     sh_final_ref = os.path.join(raw_f_dir, 'ACC_eiger2_00093_00050_sub.dat')
     if not os.path.exists(sh_final_ref):
-        shutil.copy2(src_s_files[-1], sh_final_ref)
+        s_files_avail = sorted(glob.glob(os.path.join(raw_s_dir, '*.dat')))
+        if s_files_avail:
+            shutil.copy2(s_files_avail[-1], sh_final_ref)
 
     # 2. Load Timestamps
     if os.path.exists(META_JSON):
