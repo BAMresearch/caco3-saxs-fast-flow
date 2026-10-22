@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Author: Tomasz Stawski, tomasz.stawski@bam.de
+# Data Processing Responsible: Tomasz Stawski, tomasz.stawski@bam.de
 """
 Standardized Composite Baseline Plot Generator
 ----------------------------------------------

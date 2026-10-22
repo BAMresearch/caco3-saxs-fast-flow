@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Author: Tomasz Stawski, tomasz.stawski@bam.de
+# Data Processing Responsible: Tomasz Stawski, tomasz.stawski@bam.de
 """
 Script to evaluate alternative form factors (Platelets/Disks, Cylinders/Rods, Ellipsoids)
 against Polydisperse Spheres and the Viscoelastic model on ND-i-005 short distance data.

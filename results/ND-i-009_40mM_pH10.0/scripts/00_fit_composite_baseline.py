@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Author: Tomasz Stawski, tomasz.stawski@bam.de
+# Data Processing Responsible: Tomasz Stawski, tomasz.stawski@bam.de
 """
 Script 00: Fit Merged Dataset for ND-i-009 as Physical Starting Point.
 

@@ -1,4 +1,4 @@
-# Author: Tomasz Stawski, tomasz.stawski@bam.de
+# Data Processing Responsible: Tomasz Stawski, tomasz.stawski@bam.de
 """
 Models package for ND-i-009 SAXS fitting suite.
 """

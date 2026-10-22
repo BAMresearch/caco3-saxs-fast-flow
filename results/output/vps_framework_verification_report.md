@@ -1,6 +1,6 @@
 # Viscoelastic Phase Separation (VPS) Framework Verification Report
 
-**Author:** Tomasz Stawski (tomasz.stawski@bam.de)
+**Data Processing Responsible:** Tomasz Stawski (tomasz.stawski@bam.de)
 **Reference Document:** Mathematical Framework for VPS Scattering
 
 ## 1. Executive Summary

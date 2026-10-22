@@ -2,7 +2,7 @@
 
 **Title:** Dual-Morphology Spinodal Demixing in Non-Classical Calcium Carbonate Precipitation: Coexistence of an Extended Viscoelastic Fractal Mesh and Capillary-Pinched Dense Liquid Droplets  
 **Target Section:** Theoretical Model Formulation & Physical Interpretation  
-**Author:** Tomasz M. Stawski (*Federal Institute for Materials Research and Testing (BAM), Berlin, Germany*)  
+**Data Processing Responsible:** Tomasz Stawski (*Federal Institute for Materials Research and Testing (BAM), Berlin, Germany*)  
 **Associated Artifacts:**
 * Compiled PDF: [model_description_and_interpretation.pdf](file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/model_description_and_interpretation.pdf)
 * LaTeX Source: [model_description_and_interpretation.tex](file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/model_description_and_interpretation.tex)

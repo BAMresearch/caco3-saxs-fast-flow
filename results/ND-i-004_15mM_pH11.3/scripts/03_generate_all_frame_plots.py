@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Author: Tomasz Stawski, tomasz.stawski@bam.de
+# Data Processing Responsible: Tomasz Stawski, tomasz.stawski@bam.de
 """
 Script 03: Parallel Rendering of 100 Comprehensive Diagnostic Frame Plots for ND-i-004.
 --------------------------------------------------------------------------------------

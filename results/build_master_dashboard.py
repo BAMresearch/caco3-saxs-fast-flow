@@ -3,7 +3,7 @@
 """
 Master Multi-Scale SAXS Synthesis Dashboard Generator
 -----------------------------------------------------
-Author: Tomasz Stawski, tomasz.stawski@bam.de
+Data Processing Responsible: Tomasz Stawski, tomasz.stawski@bam.de
 
 Generates results/index.html and results/dashboard/index.html providing
 centralised navigation, cross-series parameter comparison, vector model
@@ -636,7 +636,7 @@ def build_master_dashboard():
           and macroscopic emulsion coarsening across concentration, pH, and additive variations.
         </p>
         <div style="font-size: 0.85rem; color: #94a3b8; margin-top: 6px;">
-          Author: Tomasz Stawski (tomasz.stawski@bam.de), Federal Institute for Materials Research and Testing (BAM)
+          Data Processing Responsible: Tomasz Stawski (tomasz.stawski@bam.de), Federal Institute for Materials Research and Testing (BAM)
         </div>
       </div>
       <div class="badge-bar">

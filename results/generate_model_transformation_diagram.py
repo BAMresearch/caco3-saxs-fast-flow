@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Author: Tomasz Stawski, tomasz.stawski@bam.de
+# Data Processing Responsible: Tomasz Stawski, tomasz.stawski@bam.de
 """
 Model Transformation Diagram Generator (Vector SVG)
 ---------------------------------------------------
@@ -594,9 +594,9 @@ def generate_diagram_svg():
     <text x="34" y="38" fill="#cbd5e1" font-size="9.5">High-q fluctuation length ξ_fluc ≈ 1.5 to 3.0 nm reflects the transient mesh of entangled, hydrated PNC oligomers prior to solid ACC condensation</text>
   </g>
 
-  <!-- ==================== FOOTER: AUTHORSHIP ==================== -->
+  <!-- ==================== FOOTER: ATTRIBUTION ==================== -->
   <g transform="translate(45, 840)">
-    <text x="0" y="0" fill="#64748b" font-size="10">Author: Tomasz Stawski, tomasz.stawski@bam.de | Reference: Mathematical Framework for VPS Scattering | Data: ESRF ID02</text>
+    <text x="0" y="0" fill="#64748b" font-size="10">Data Processing Responsible: Tomasz Stawski, tomasz.stawski@bam.de | Reference: Mathematical Framework for VPS Scattering | Data: ESRF ID02</text>
   </g>
 </svg>"""
     return svg

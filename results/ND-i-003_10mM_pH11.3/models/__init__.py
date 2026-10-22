@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Author: Tomasz Stawski, tomasz.stawski@bam.de
+# Data Processing Responsible: Tomasz Stawski, tomasz.stawski@bam.de
 """
 Models module for ND-i-003 unified SAXS analysis suite.
 Discrete Amorphous Calcium Carbonate (ACC) Nanosphere Form Factor & Kinetics.

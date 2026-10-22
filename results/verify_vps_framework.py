@@ -3,7 +3,7 @@
 """
 Verification of Viscoelastic Phase Separation (VPS) Framework in CaCO3 SAXS
 ---------------------------------------------------------------------------
-Author: Tomasz Stawski, tomasz.stawski@bam.de
+Data Processing Responsible: Tomasz Stawski, tomasz.stawski@bam.de
 
 This script calculates the viscoelastic phase separation parameters as defined
 by Tanaka (2000, 2001) and evaluates model self-consistency across experimental
@@ -139,7 +139,7 @@ def analyse_vps_metrics(data):
     report = []
     report.append("# Viscoelastic Phase Separation (VPS) Framework Verification Report")
     report.append("")
-    report.append("**Author:** Tomasz Stawski (tomasz.stawski@bam.de)")
+    report.append("**Data Processing Responsible:** Tomasz Stawski (tomasz.stawski@bam.de)")
     report.append("**Reference Document:** Mathematical Framework for VPS Scattering")
     report.append("")
     report.append("## 1. Executive Summary")
@@ -443,7 +443,7 @@ def generate_vps_synthesis_plot(data):
 def main():
     print("================================================================================")
     print("  VERIFYING VISCOELASTIC PHASE SEPARATION (VPS) SCATTERING FRAMEWORK")
-    print("  Author: Tomasz Stawski, tomasz.stawski@bam.de")
+    print("  Data Processing Responsible: Tomasz Stawski, tomasz.stawski@bam.de")
     print("================================================================================")
     data = load_all_parameters()
     analyse_vps_metrics(data)

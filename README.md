@@ -8,6 +8,7 @@
 [![q--Range](https://img.shields.io/badge/q--Range-0.002%20to%202.54%20nm%E2%88%921-teal)]()
 [![Camera Lengths](https://img.shields.io/badge/Geometries-3.0%20m%20(2.9997%20m)%20%7C%2031.0%20m%20(30.7059%20m)-purple)]()
 [![Analysis Register](https://img.shields.io/badge/Standard-Unified%20Physicochemical%20Register-slate)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Publication repository and unified multi-scale kinetic modelling suite for time-resolved synchrotron Small-Angle X-ray Scattering (SAXS) measurements of calcium carbonate ($\mathrm{CaCO}_3$) precipitation collected at the **ESRF ID02 High-Brilliance TRUSAXS / USAXS / SAXS beamline** (European Synchrotron Radiation Facility, Grenoble, France).
 
@@ -23,7 +24,8 @@ The project resolves the structural hierarchy and kinetic pathway across four de
 5. [Master Dashboards & Publication Diagrams](#master-dashboards--publication-diagrams)
 6. [Repository Directory Structure](#repository-directory-structure)
 7. [Reproducibility & Execution Guide](#reproducibility--execution-guide)
-8. [Scientific Authorship & Citation](#scientific-authorship--citation)
+8. [Data Processing & Citation](#data-processing--citation)
+9. [License](#license)
 
 ---
 
@@ -202,11 +204,17 @@ All scripts can be executed using the system Python interpreter:
 
 ---
 
-## Scientific Authorship & Citation
+## Data Processing & Citation
 
-- **Author**: Dr Tomasz M. Stawski
+- **Data Processing Responsible**: Tomasz Stawski
 - **Affiliation**: Federal Institute for Materials Research and Testing (BAM), Unter den Eichen 87, 12205 Berlin, Germany
 - **Contact**: `tomasz.stawski@bam.de`
 - **Beamtime Affiliation**: ESRF - The European Synchrotron, 71 Avenue des Martyrs, 38000 Grenoble, France (Proposal CH-6828)
 - **Primary Beamline Reference**:
   > Narayanan, T., Sztucki, M., Van Vaerenbergh, P., Léonardon, J., Gorini, J., Claustre, L., Sever, F., Morse, J., & Boesecke, P. (2018). *The ID02 high-brilliance small-angle X-ray scattering beamline at the ESRF*. **Journal of Applied Crystallography**, 51(6), 1511–1524.
+
+---
+
+## License
+
+This project is licensed under the standard [MIT License](LICENSE).

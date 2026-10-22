@@ -3,7 +3,7 @@
 """
 Cross-Series Trajectory Synthesis and Comparison
 ------------------------------------------------
-Author: Tomasz Stawski, tomasz.stawski@bam.de
+Data Processing Responsible: Tomasz Stawski, tomasz.stawski@bam.de
 
 This script extracts, aligns, and visualises time-resolved structural
 trajectories across the six calcium carbonate reaction series (ND-i-001,
