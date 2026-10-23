@@ -8,7 +8,6 @@ __pycache__/
 .vscode/
 .idea/
 .DS_Store
-.antigravityignore
 
 # Python virtual environments
 venv/

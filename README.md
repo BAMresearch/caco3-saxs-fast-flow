@@ -115,13 +115,13 @@ To guarantee rigorous cross-series reproducibility, all diagrams, scripts, basel
 Interactive tools and high-resolution publication assets are precompiled and directly accessible:
 
 1. **Master Synthesis Dashboard**:
-   - Web application: [`results/index.html`](file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/results/index.html) and [`results/dashboard/index.html`](file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/results/dashboard/index.html)
+   - Web application: [`results/index.html`](results/index.html) and [`results/dashboard/index.html`](results/dashboard/index.html)
    - Features dataset hub cards, physicochemical continuum timelines, live cross-series kinetic trajectory charts, comparative parameter matrices, composite curve galleries, and mathematical formalisms.
 2. **Model Transformation SVG Vector Diagram**:
-   - File: [`results/output/model_transformation_diagram.svg`](file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/results/output/model_transformation_diagram.svg)
+   - File: [`results/output/model_transformation_diagram.svg`](results/output/model_transformation_diagram.svg)
    - Scalable vector schema depicting the phase diagram, model equations, component proportion tallies (including 26% PNC mesh for 40 mM benchmark), and morphological transitions.
 3. **Cross-Series Trajectory Synthesis**:
-   - File: [`results/output/cross_series_trajectories_comparison.png`](file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/results/output/cross_series_trajectories_comparison.png)
+   - File: [`results/output/cross_series_trajectories_comparison.png`](results/output/cross_series_trajectories_comparison.png)
    - 4-panel kinetic comparison displaying fractal dimension $D_f(t)$, correlation length $\xi(t)$, volume and invariant component tallies, and mean squared residuals.
 
 ---

@@ -11,7 +11,7 @@ Key Scientific Constraints Implemented:
 1. Strict Selection of Frames with Obvious Form Factors:
    - Early frames during the induction period (Frames 0 to 32, t < 2.45 s) lack an obvious form factor;
      the signal at the knee is indistinguishable from solvent noise (I_knee < 3.5 cm^-1, SNR < 1.0).
-   - In accordance with instructions, frames without obvious form factors are NOT fitted with the sphere model.
+   - Frames without obvious form factors are not fitted with the sphere model.
      Their sphere parameters are set to NaN, and only the flat solvent baseline is evaluated.
 2. Direct Rigorous Testing of Schulz-Flory vs Lognormal Distributions:
    - For all frames with obvious form factors (Frames 33 to 49, t = 2.45 to 10.88 s), BOTH the

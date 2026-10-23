@@ -4,14 +4,14 @@
 **Target Section:** Theoretical Model Formulation, Kinetic Regimes & Fitting Parameter Synthesis  
 **Data Processing Responsible:** Tomasz Stawski (*Federal Institute for Materials Research and Testing (BAM), Berlin, Germany*)  
 **Contact:** `tomasz.stawski@bam.de`  
-**License:** Standard MIT License ([LICENSE](file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/LICENSE))  
+**License:** Standard MIT License ([LICENSE](LICENSE))  
 
 **Associated Project Artifacts:**
-* Interactive Master Dashboard: [results/index.html](file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/results/index.html) and [results/dashboard/index.html](file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/results/dashboard/index.html)
-* Vector Model Transformation Diagram: [results/output/model_transformation_diagram.svg](file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/results/output/model_transformation_diagram.svg)
-* Viscoelastic Phase Separation (VPS) Verification Report: [results/output/vps_framework_verification_report.md](file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/results/output/vps_framework_verification_report.md)
-* Cross-Series Kinetic Trajectories: [results/output/cross_series_trajectories_comparison.png](file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/results/output/cross_series_trajectories_comparison.png)
-* Trajectory Telemetry Data: [results/output/cross_series_trajectories.json](file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/results/output/cross_series_trajectories.json)
+* Interactive Master Dashboard: [results/index.html](results/index.html) and [results/dashboard/index.html](results/dashboard/index.html)
+* Vector Model Transformation Diagram: [results/output/model_transformation_diagram.svg](results/output/model_transformation_diagram.svg)
+* Viscoelastic Phase Separation (VPS) Verification Report: [results/output/vps_framework_verification_report.md](results/output/vps_framework_verification_report.md)
+* Cross-Series Kinetic Trajectories: [results/output/cross_series_trajectories_comparison.png](results/output/cross_series_trajectories_comparison.png)
+* Trajectory Telemetry Data: [results/output/cross_series_trajectories.json](results/output/cross_series_trajectories.json)
 
 ---
 
@@ -214,4 +214,4 @@ Even though the droplets represent only $\approx 16.7\%$ of total mineral volume
 
 * **Data Processing Responsible:** Tomasz Stawski (`tomasz.stawski@bam.de`), Federal Institute for Materials Research and Testing (BAM), Unter den Eichen 87, 12205 Berlin, Germany.
 * **Beamtime Proposal:** ESRF Proposal CH-6828 (*Time-resolved Small-Angle X-ray Scattering on Non-Classical Nucleation Pathways of Calcium Carbonate*).
-* **License:** This work is licensed under the terms of the standard [MIT License](file:///home/tomek/Insync/tomasz.stawski@gmail.com/Google%20Drive/WORK/Projects%20current/project%20-%20CaCO3/LICENSE).
+* **License:** This work is licensed under the terms of the standard [MIT License](LICENSE).
