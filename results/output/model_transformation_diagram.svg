@@ -30,7 +30,7 @@
 
   <!-- ==================== HEADER ==================== -->
   <g transform="translate(45, 30)">
-    <text x="0" y="0" fill="#ffffff" font-size="19" font-weight="700" letter-spacing="-0.01em">Model transformation across supersaturation: Viscoelastic Phase Separation (VPS) continuum</text>
+    <text x="0" y="0" fill="#ffffff" font-size="19" font-weight="700" letter-spacing="-0.01em">Model transformation across supersaturation: viscoelastic phase separation (VPS) continuum</text>
     <text x="0" y="20" fill="#94a3b8" font-size="12">Structural and mathematical evolution grounded in multi-scale composite SAXS datasets (q in [0.002, 2.5] nm⁻¹)</text>
   </g>
 
@@ -39,25 +39,25 @@
     <rect x="0" y="0" width="1250" height="25" rx="6" fill="#070d19" stroke="#1e293b" stroke-width="1"/>
     
     <circle cx="16" cy="12.5" r="3.5" fill="#64748b" opacity="0.8"/>
-    <text x="26" y="16" fill="#94a3b8" font-size="9" font-weight="600">Experimental Scattering Data</text>
+    <text x="26" y="16" fill="#94a3b8" font-size="9" font-weight="600">Experimental scattering data</text>
     
     <line x1="185" y1="12.5" x2="210" y2="12.5" stroke="#dc2626" stroke-width="2.5"/>
-    <text x="218" y="16" fill="#f87171" font-size="9" font-weight="600">Total Unified Fit</text>
+    <text x="218" y="16" fill="#f87171" font-size="9" font-weight="600">Total unified fit</text>
 
     <line x1="330" y1="12.5" x2="355" y2="12.5" stroke="#059669" stroke-width="2.0" stroke-dasharray="4,2"/>
-    <text x="363" y="16" fill="#34d399" font-size="9" font-weight="600">Spinodal Fractal Network</text>
+    <text x="363" y="16" fill="#34d399" font-size="9" font-weight="600">Spinodal fractal network</text>
 
     <line x1="520" y1="12.5" x2="545" y2="12.5" stroke="#0284c7" stroke-width="2.0" stroke-dasharray="5,2,1,2"/>
-    <text x="553" y="16" fill="#38bdf8" font-size="9" font-weight="600">Discrete ACC Spheres</text>
+    <text x="553" y="16" fill="#38bdf8" font-size="9" font-weight="600">Discrete ACC spheres</text>
 
     <line x1="700" y1="12.5" x2="725" y2="12.5" stroke="#9333ea" stroke-width="2.0" stroke-dasharray="2,2"/>
-    <text x="733" y="16" fill="#c084fc" font-size="9" font-weight="600">Tanaka PNC Fluctuation Mesh</text>
+    <text x="733" y="16" fill="#c084fc" font-size="9" font-weight="600">Tanaka PNC fluctuation mesh</text>
 
     <line x1="915" y1="12.5" x2="940" y2="12.5" stroke="#d97706" stroke-width="2.0" stroke-dasharray="3,2"/>
-    <text x="948" y="16" fill="#fbbf24" font-size="9" font-weight="600">Macroscopic Droplets / Porod Tail</text>
+    <text x="948" y="16" fill="#fbbf24" font-size="9" font-weight="600">Macroscopic droplets / Porod tail</text>
 
     <line x1="1135" y1="12.5" x2="1160" y2="12.5" stroke="#64748b" stroke-width="1.2" stroke-dasharray="1,2"/>
-    <text x="1168" y="16" fill="#94a3b8" font-size="9" font-weight="600">Solvent Background</text>
+    <text x="1168" y="16" fill="#94a3b8" font-size="9" font-weight="600">Solvent background</text>
   </g>
 
   <!-- ==================== THERMODYNAMIC CONCENTRATION AXIS (BOTTOM) ==================== -->
@@ -199,7 +199,7 @@
         <rect x="0" y="0" width="57" height="10" rx="2" fill="#0284c7"/>
         <rect x="58" y="0" width="142" height="10" rx="2" fill="#0ea5e9"/>
       </g>
-      <text x="8" y="42" fill="#e2e8f0" font-size="8.5" font-weight="500">ACC Spheres: <tspan fill="#38bdf8" font-weight="600">100%</tspan> | Fractal Gel: <tspan fill="#64748b" font-weight="600">0%</tspan> | Tanaka PNC: <tspan fill="#64748b" font-weight="600">0%</tspan></text>
+      <text x="8" y="42" fill="#e2e8f0" font-size="8.5" font-weight="500">ACC spheres: <tspan fill="#38bdf8" font-weight="600">100%</tspan> | Fractal gel: <tspan fill="#64748b" font-weight="600">0%</tspan> | Tanaka PNC: <tspan fill="#64748b" font-weight="600">0%</tspan></text>
       <text x="8" y="56" fill="#94a3b8" font-size="8">Mode 1 (28% @ 21 nm) + Mode 2 (72% @ 60 nm); 0% gel network &amp; PNC mesh</text>
     </g>
   </g>
@@ -312,8 +312,8 @@
         <rect x="0" y="0" width="126" height="10" rx="2" fill="#0284c7"/>
         <rect x="127" y="0" width="73" height="10" rx="2" fill="#059669"/>
       </g>
-      <text x="8" y="42" fill="#e2e8f0" font-size="8.5" font-weight="500">Baseline: <tspan fill="#38bdf8" font-weight="600">63% ACC Spheres</tspan> | <tspan fill="#34d399" font-weight="600">37% Fractal Gel</tspan></text>
-      <text x="8" y="56" fill="#fbbf24" font-size="8">Dynamic evolution: 96% ACC (0.06 s) &rarr; 76% Fractal Gel (10.9 s)</text>
+      <text x="8" y="42" fill="#e2e8f0" font-size="8.5" font-weight="500">Baseline: <tspan fill="#38bdf8" font-weight="600">63% ACC spheres</tspan> | <tspan fill="#34d399" font-weight="600">37% fractal gel</tspan></text>
+      <text x="8" y="56" fill="#fbbf24" font-size="8">Dynamic evolution: 96% ACC (0.06 s) &rarr; 76% fractal gel (10.9 s)</text>
     </g>
   </g>
 
@@ -425,7 +425,7 @@
         <rect x="0" y="0" width="152" height="10" rx="2" fill="#059669"/>
         <rect x="153" y="0" width="47" height="10" rx="2" fill="#9333ea"/>
       </g>
-      <text x="8" y="42" fill="#e2e8f0" font-size="8.5" font-weight="500">Fractal Gel: <tspan fill="#34d399" font-weight="600">76%</tspan> | Tanaka PNC Mesh: <tspan fill="#c084fc" font-weight="600">24%</tspan> (0% Spheres)</text>
+      <text x="8" y="42" fill="#e2e8f0" font-size="8.5" font-weight="500">Fractal gel: <tspan fill="#34d399" font-weight="600">76%</tspan> | Tanaka PNC mesh: <tspan fill="#c084fc" font-weight="600">24%</tspan> (0% spheres)</text>
       <text x="8" y="56" fill="#94a3b8" font-size="8">Transient viscoelastic PNC mesh (R_pnc &approx; 1.46 nm); discrete spheres 0%</text>
     </g>
   </g>
@@ -444,7 +444,7 @@
     <rect x="0" y="0" width="410" height="40" rx="10" fill="#7f1d1d" fill-opacity="0.4"/>
     <text x="14" y="24" fill="#ffffff" font-size="13" font-weight="600">40 mM (ND-i-009, primary pure CaCO₃ benchmark)</text>
     <rect x="300" y="10" width="98" height="18" rx="9" fill="rgba(248, 113, 113, 0.2)" stroke="#f87171" stroke-width="1"/>
-    <text x="349" y="22" text-anchor="middle" fill="#f87171" font-size="8.5" font-weight="600">VPS Benchmark</text>
+    <text x="349" y="22" text-anchor="middle" fill="#f87171" font-size="8.5" font-weight="600">VPS benchmark</text>
 
     <text x="14" y="58" fill="#94a3b8" font-size="10" font-weight="600">Morphology and mechanisms</text>
     <text x="14" y="74" fill="#e2e8f0" font-size="11" font-weight="500">Percolating spinodal network, coarsening droplets, and PNC mesh</text>
@@ -540,7 +540,7 @@
         <rect x="271" y="0" width="95" height="10" rx="2" fill="#9333ea"/>
         <rect x="367" y="0" width="3" height="10" rx="2" fill="#d97706"/>
       </g>
-      <text x="8" y="42" fill="#e2e8f0" font-size="8.5" font-weight="500">Fractal Gel: <tspan fill="#34d399" font-weight="600">73%</tspan> | Tanaka PNC Mesh: <tspan fill="#c084fc" font-weight="600">26%</tspan> | Droplets: <tspan fill="#fbbf24" font-weight="600">1%</tspan> (0% Spheres)</text>
+      <text x="8" y="42" fill="#e2e8f0" font-size="8.5" font-weight="500">Fractal gel: <tspan fill="#34d399" font-weight="600">73%</tspan> | Tanaka PNC mesh: <tspan fill="#c084fc" font-weight="600">26%</tspan> | Droplets: <tspan fill="#fbbf24" font-weight="600">1%</tspan> (0% spheres)</text>
       <text x="8" y="56" fill="#94a3b8" font-size="8">Tanaka viscoelastic fluctuation mesh (ξ_fluc ≈ 2.7 nm) vitrifies into percolated gel nodes</text>
     </g>
   </g>
@@ -575,6 +575,6 @@
 
   <!-- ==================== FOOTER: ATTRIBUTION ==================== -->
   <g transform="translate(45, 840)">
-    <text x="0" y="0" fill="#64748b" font-size="10">Data Processing Responsible: Tomasz Stawski, tomasz.stawski@bam.de | Viscoelastic Phase Separation (VPS) Framework | Data: ESRF ID02</text>
+    <text x="0" y="0" fill="#64748b" font-size="10">Data processing responsible: Tomasz Stawski, tomasz.stawski@bam.de | Viscoelastic phase separation (VPS) framework | Data: ESRF ID02</text>
   </g>
 </svg>

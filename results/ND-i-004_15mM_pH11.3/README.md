@@ -1,4 +1,4 @@
-# Unified Multi-Scale SAXS Fitting Suite (Dataset ND-i-004)
+# Unified multi-scale SAXS fitting suite (dataset ND-i-004)
 
 This repository contains the complete, unified SAXS kinetic fitting suite for dataset **ND-i-004** ($15.0\text{ mM }\text{CaCO}_3$, pH 11.3, pure system without additive, ESRF ID02 synchrotron time-resolved SAXS).
 
@@ -10,13 +10,13 @@ It implements the validated **Hybrid Multi-Scale Physical Model** combining:
 
 ---
 
-## Scientific Rationale & The Hybrid Model at 15 mM
+## Scientific rationale and the hybrid model at 15 mM
 
 At $15.0\text{ mM}$ supersaturation and $\text{pH }11.3$, precipitation lies directly at the physical crossover between:
 * **Spinodal Liquid-Liquid Demixing / Gelation** (characteristic of the high-concentration $40\text{ mM}$ series ND-i-001 and ND-i-009, where low-$q$ mass fractal scattering $S(q, D_m, \xi)$ dominates).
 * **Classical Nucleation & Growth of Polydisperse ACC Droplets** (characteristic of the $19.2\text{ mM}$ series ND-i-003, where high-$q$ $P(q, R, \sigma)$ form-factor oscillations and steep $-4$ Porod slopes dominate).
 
-### Quantitative Proof & Backward Evolutionary Strategy:
+### Quantitative proof and backward evolutionary strategy:
 1. **Unified Building Block Architecture**: The Spinodal Mass Fractal Network does not exist without a physical building block form factor. By anchoring $R_{\rm prim} = 3.5\text{ nm}$ ($\sigma = 1.5\text{ nm}$) across both cameras, the network scattering at long distance and the high-$q$ plateau at short distance are unified under a single physical framework.
 2. **Composite / Merged Baseline Fit**: Refitted across all four decades of $q \in [0.002, 2.5]\text{ nm}^{-1}$ using the unified hybrid model (Primary Building Blocks + Teixeira Structure Factor + ACC Nanospheres + Porod Tail + Background), resolving the full multi-scale hierarchy.
 3. **Backward Evolutionary Propagation ($49 \to 0$)**: Forward fitting from $t=0$ suffers from low SNR and nascent droplet ambiguity, causing optimizers to inflate polydispersity ($\sigma \to 12.5\text{ nm}$, smearing out oscillations). Backward propagation seeds from the mature state at Frame 49 ($t = 10.88\text{ s}$), where SNR is highest and Bessel oscillations ($q \in [0.08, 0.35]\text{ nm}^{-1}$) are sharp. Propagating backward smoothly tracks droplet contraction to early nuclei ($R \approx 15.9\text{ nm}$) and network contraction ($\xi: 197 \to 20\text{ nm}$) without boundary artifacts.
@@ -25,30 +25,30 @@ At $15.0\text{ mM}$ supersaturation and $\text{pH }11.3$, precipitation lies dir
 
 ---
 
-## Model Mathematical Formulation
+## Model mathematical formulation
 
 The total observed scattering intensity is given by:
 
 $$I_{\rm tot}(q, t) = I_{\rm net}(q, t) + I_{\rm porod}(q, t) + I_{\rm ACC}(q, t) + I_{\rm bkg}(t)$$
 
-### 1. Mesoscale Percolated Network (Teixeira Fractal with Building Blocks)
+### 1. Meso-scale percolated network (Teixeira fractal with building blocks)
 $$I_{\rm net}(q) = \phi_{\rm net} (\Delta \rho)^2 \int_0^\infty n(R) V(R)^2 P(q, R) S(q, R, D_m, \xi) \, dR$$
 $$S(q, R, D_m, \xi) = 1 + \frac{D_m \Gamma(D_m - 1)}{(q R)^{D_m}} \left[ 1 + \frac{1}{(q \xi)^2} \right]^{-\frac{D_m - 1}{2}} \sin\left[ (D_m - 1) \arctan(q \xi) \right]$$
 *For short distance ($q \gg \xi^{-1}$ and $q R_{\rm prim} \approx 1$), $S(q) \to 1$, reducing $I_{\rm net}(q)$ to the building block form factor.*
 
-### 2. Discrete ACC Nanospheres (Lognormal Distribution)
+### 2. Discrete ACC nanospheres (lognormal distribution)
 $$I_{\rm ACC}(q) = (\Delta \rho)^2 \int_0^\infty \left(\frac{4}{3}\pi R^3\right)^2 \left[ 3 \frac{\sin(qR) - qR\cos(qR)}{(qR)^3} \right]^2 N(R)\, dR$$
 $$N(R) = \frac{\phi_{\rm ACC}}{\frac{4}{3}\pi R_0^3 \exp(9\sigma_{\rm log}^2 / 2)} \frac{1}{\sqrt{2\pi}\sigma_{\rm log} R} \exp\left( - \frac{(\ln R - \ln R_0)^2}{2\sigma_{\rm log}^2} \right)$$
 
-### 3. Asymptotic Porod Surface Scattering (Giant Coarsening Domains, $q R \gg 1$)
+### 3. Asymptotic Porod surface scattering (giant coarsening domains, $q R \gg 1$)
 $$I_{\rm porod}(q) = \frac{A_{\rm porod}}{q^4}$$
 Eliminates Bessel function oscillation aliasing and accelerates frame convergence by $> 20\times$.
 
 ---
 
-## Key Kinetic Results Summary (ND-i-004)
+## Key kinetic results summary (ND-i-004)
 
-| Reaction Time $t$ | $\langle R_{\rm ACC} \rangle$ [nm] | $\sigma_{\rm ACC}$ [nm] | $\phi_{\rm ACC} \times 10^5$ | $\phi_{\rm net} \times 10^5$ | $D_m$ (Network) | $\xi$ (Network) [nm] | $A_{\rm porod} \times 10^6$ (SD) | $\chi^2_{\rm red}$ (SD) | $\chi^2_{\rm red}$ (LD) |
+| Reaction time $t$ | $\langle R_{\rm ACC} \rangle$ [nm] | $\sigma_{\rm ACC}$ [nm] | $\phi_{\rm ACC} \times 10^5$ | $\phi_{\rm net} \times 10^5$ | $D_m$ (network) | $\xi$ (network) [nm] | $A_{\rm porod} \times 10^6$ (SD) | $\chi^2_{\rm red}$ (SD) | $\chi^2_{\rm red}$ (LD) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **0.060 s** | $15.89 \pm 0.35$ | $7.45 \pm 0.32$ | $0.37 \pm 0.04$ | $0.01 \pm 0.00$ | $2.48 \pm 0.04$ | $20.2 \pm 3.1$ | $0.00 \pm 0.01$ | **0.095** | **0.064** |
 | **0.269 s** | $36.61 \pm 0.05$ | $8.07 \pm 0.08$ | $2.47 \pm 0.03$ | $0.07 \pm 0.01$ | $2.47 \pm 0.03$ | $55.4 \pm 3.9$ | $1.65 \pm 0.05$ | **0.149** | **0.125** |
@@ -59,7 +59,7 @@ Eliminates Bessel function oscillation aliasing and accelerates frame convergenc
 
 ---
 
-## Directory Organization (Strictly Zero Symlinks)
+## Directory organisation
 
 ```
 unified_fitting_ND-i-004/
@@ -95,7 +95,7 @@ unified_fitting_ND-i-004/
 
 ---
 
-## Execution Guide
+## Execution guide
 
 To reproduce or re-run the entire pipeline from scratch:
 

@@ -278,9 +278,9 @@ def generate_synthesis_figure(trajectories):
     
     x_in = np.arange(len(concs))
     w_in = 0.55
-    ax_in.bar(x_in, acc_pct, w_in, color=SAXS_COLORS['acc_spheres'], label='ACC Spheres')
-    ax_in.bar(x_in, net_pct, w_in, bottom=acc_pct, color=SAXS_COLORS['fractal_network'], label='Fractal Gel')
-    ax_in.bar(x_in, pnc_pct, w_in, bottom=acc_pct + net_pct, color=SAXS_COLORS['pnc_fluctuations'], label='Tanaka PNC Mesh')
+    ax_in.bar(x_in, acc_pct, w_in, color=SAXS_COLORS['acc_spheres'], label='ACC spheres')
+    ax_in.bar(x_in, net_pct, w_in, bottom=acc_pct, color=SAXS_COLORS['fractal_network'], label='Fractal gel')
+    ax_in.bar(x_in, pnc_pct, w_in, bottom=acc_pct + net_pct, color=SAXS_COLORS['pnc_fluctuations'], label='Tanaka PNC mesh')
     ax_in.bar(x_in, drp_pct, w_in, bottom=acc_pct + net_pct + pnc_pct, color=SAXS_COLORS['droplets_porod'], label='Droplets / Porod')
     
     ax_in.set_xticks(x_in)
@@ -288,7 +288,7 @@ def generate_synthesis_figure(trajectories):
     ax_in.set_xlabel(r'$[\mathrm{Ca}^{2+}]_0$ [mM]', fontsize=7.5)
     ax_in.set_ylim(0, 105)
     ax_in.set_ylabel('Share [%]', fontsize=7.5)
-    ax_in.set_title('Phase Dominance', fontsize=8.0, fontweight='bold')
+    ax_in.set_title('Phase dominance', fontsize=8.0, fontweight='bold')
     ax_in.tick_params(labelsize=7.5)
     ax_in.legend(fontsize=6.0, loc='upper right', framealpha=0.88)
 

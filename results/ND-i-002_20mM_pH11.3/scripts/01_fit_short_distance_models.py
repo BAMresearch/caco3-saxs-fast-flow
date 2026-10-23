@@ -7,7 +7,7 @@ Script 01: Short Distance Time-Resolved Fitting for ND-i-002.
 Fits the 50 short-distance SAXS frames (3.0 m geometry, t = 0.060 s to 10.877 s)
 using a two-step physical procedure:
 1. Fit the polydisperse spherical building blocks (Rmean, stdDev, phi, D) in the first place
-   on the lower-q range (q <= 0.40 nm^-1) where primary particles dominate.
+   on the lower q-range (q <= 0.40 nm^-1) where primary particles dominate.
 2. Explain the remaining intensity in the fit with the viscoelastic concentration fluctuation
    component (A_fluc, xi_fluc, mu_fluc = 4.0).
 3. Jointly refine all parameters across the full range with sequential continuity regularization.

@@ -1,9 +1,9 @@
-# Viscoelastic Phase Separation (VPS) Framework Verification Report
+# Viscoelastic phase separation (VPS) framework verification report
 
-**Data Processing Responsible:** Tomasz Stawski (tomasz.stawski@bam.de)
-**Theoretical Framework:** Viscoelastic Phase Separation (VPS)
+**Data processing responsible:** Tomasz Stawski (tomasz.stawski@bam.de)
+**Theoretical framework:** Viscoelastic phase separation (VPS)
 
-## 1. Executive Summary
+## 1. Executive summary
 
 This document evaluates the time-resolved SAXS fitting results for calcium carbonate
 precipitation in the context of the Tanaka Viscoelastic Phase Separation (VPS) theory.
@@ -28,9 +28,9 @@ Key findings:
 
 ---
 
-## 2. Parameter Synthesis Across Regimes
+## 2. Parameter synthesis across regimes
 
-| Series ID | Concentration | pH | Regime | Primary Radius R_prim [nm] | Fractal Dim. D_m | Network Cutoff xi [nm] | Droplet Radius <R_large> [um] | Reduced Chi2 |
+| Series ID | Concentration | pH | Physical regime | Primary radius $R_{\text{prim}}$ [nm] | Fractal dimension $D_m$ | Network cutoff $\xi$ [nm] | Droplet radius $\langle R_{\text{large}} \rangle$ [$\mu\text{m}$] | Reduced $\chi^2$ |
 | :--- | :---: | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **ND-i-003** | 10.0 mM | 11.3 | Sub-spinodal nucleation | 138.8 (ACC) | N/A | N/A | 2.63 | 0.966 |
 | **ND-i-004** | 15.0 mM | 11.3 | Crossover boundary | 4.94 | 2.850 | 108.7 | N/A | 1.309 |
@@ -41,9 +41,9 @@ Key findings:
 
 ---
 
-## 3. Mathematical Verification of Tanaka VPS Concepts
+## 3. Mathematical verification of Tanaka VPS concepts
 
-### 3.1. Dynamic Asymmetry and the Viscoelastic Length Scale
+### 3.1. Dynamic asymmetry and the viscoelastic length scale
 The Tanaka two-fluid model introduces the dynamic asymmetry parameter:
 $$\alpha = \frac{\zeta_p}{\zeta_s} - 1 \gg 0$$
 where zeta_p is the friction coefficient of the polymer-like mineral network (DOLLOPs / hydrated clusters),
@@ -58,7 +58,7 @@ In our scattering data, the multi-scale hierarchy verifies this crossover:
 - For q < 1/xi_ve (r > xi_ve): stress has relaxed, permitting capillary flow and phase inversion
   into macroscopic liquid droplets (<R_large> in [2.2, 3.5] um).
 
-### 3.2. Quantitative Proof of Volume Shrinking (ND-i-009 Benchmark)
+### 3.2. Quantitative proof of volume shrinking (ND-i-009 benchmark)
 In classical Model B/H spinodal decomposition, phase separation proceeds with constant phase volumes.
 In contrast, Viscoelastic Phase Separation requires volume shrinking of the transient network,
 accompanied by solvent expulsion. In ND-i-009 (351 frames, 15 ms cadence):
@@ -67,7 +67,7 @@ accompanied by solvent expulsion. In ND-i-009 (351 frames, 15 ms cadence):
 - The increase in D_m at constant node radius directly represents the compaction and densification
   of the network strands, confirming Tanaka volume shrinking.
 
-### 3.3. Phase Inversion into Macroscopic Droplets
+### 3.3. Phase inversion into macroscopic droplets
 As the viscoelastic network contracts, elastic stress sigma_ij accumulates along interconnected struts.
 When elastic tension exceeds the local yield threshold, struts rupture and retract into spherical droplets.
 This explains why all spinodal series (ND-i-004, ND-i-002, ND-i-009, ND-i-001, ND-i-005) exhibit a stationary
@@ -75,7 +75,7 @@ macroscopic droplet population (<R_large> in [2.2, 3.5] um) coexisting with the 
 
 ---
 
-## 4. Logical Transition Continuum Across Experimental Regimes
+## 4. Logical transition continuum across experimental regimes
 
 1. **Regime 1: Sub-spinodal nucleation (10 mM, ND-i-003)**
    - Condition: ln(S_ACC) < ln(S*), below spinodal boundary.

@@ -1,11 +1,11 @@
-# Multi-Scale In-Situ SAXS Analysis of Calcium Carbonate Precipitation
+# Multi-scale in-situ SAXS analysis of calcium carbonate precipitation
 
 [![Light Source](https://img.shields.io/badge/Light%20Source-ESRF%20(Grenoble)-blue)](https://www.esrf.fr/)
 [![Beamline](https://img.shields.io/badge/Beamline-ID02%20(TRUSAXS)-indigo)](https://www.esrf.fr/UsersAndScience/Experiments/TBS/ID02)
 [![Energy](https://img.shields.io/badge/Beam%20Energy-12.23%20keV-orange)]()
 [![Wavelength](https://img.shields.io/badge/%CE%BB-0.10138%20nm-amber)]()
 [![Detector](https://img.shields.io/badge/Detector-Dectris%20Eiger2%204M-green)]()
-[![q--Range](https://img.shields.io/badge/q--Range-0.002%20to%202.54%20nm%E2%88%921-teal)]()
+[![q-range](https://img.shields.io/badge/q--range-0.002%20to%202.54%20nm%E2%88%921-teal)]()
 [![Camera Lengths](https://img.shields.io/badge/Geometries-3.0%20m%20(2.9997%20m)%20%7C%2031.0%20m%20(30.7059%20m)-purple)]()
 [![Analysis Register](https://img.shields.io/badge/Standard-Unified%20Physicochemical%20Register-slate)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -16,22 +16,22 @@ The project resolves the structural hierarchy and kinetic pathway across four de
 
 ---
 
-## Table of Contents
-1. [Experimental & Beamline Parameters](#experimental--beamline-parameters)
-2. [Reaction Series & Experimental Matrix](#reaction-series--experimental-matrix)
-3. [Multi-Scale Physical Scattering Formalism](#multi-scale-physical-scattering-formalism)
-4. [Standardised Component Palette & Visual Register](#standardised-component-palette--visual-register)
-5. [Master Dashboards & Publication Diagrams](#master-dashboards--publication-diagrams)
-6. [Repository Directory Structure](#repository-directory-structure)
-7. [Reproducibility & Execution Guide](#reproducibility--execution-guide)
-8. [Data Processing & Citation](#data-processing--citation)
+## Table of contents
+1. [Experimental and beamline parameters](#experimental-and-beamline-parameters)
+2. [Reaction series and experimental matrix](#reaction-series-and-experimental-matrix)
+3. [Multi-scale physical scattering formalism](#multi-scale-physical-scattering-formalism)
+4. [Standardised component palette and visual register](#standardised-component-palette-and-visual-register)
+5. [Master dashboards and publication diagrams](#master-dashboards-and-publication-diagrams)
+6. [Repository directory structure](#repository-directory-structure)
+7. [Reproducibility and execution guide](#reproducibility-and-execution-guide)
+8. [Data processing and citation](#data-processing-and-citation)
 9. [License](#license)
 
 ---
 
-## Experimental & Beamline Parameters
+## Experimental and beamline parameters
 
-| Parameter | Specification | Details / Operation Notes (Verified from HDF5 Metadata) |
+| Parameter | Specification | Details / operation notes (verified from HDF5 metadata) |
 | :--- | :--- | :--- |
 | **Synchrotron Light Source** | **ESRF - The European Synchrotron** (Grenoble, France) | Extremely Brilliant Source (EBS) storage ring |
 | **Beamline** | **ID02 (Time-Resolved Ultra-Small-Angle & Small-Angle X-ray Scattering)** | High-brilliance undulator beamline |
@@ -40,9 +40,9 @@ The project resolves the structural hierarchy and kinetic pathway across four de
 | **Detector System** | **Dectris Eiger2 4M** | Hybrid photon counting (HPC) pixel detector |
 | **Detector Dimensions** | $2068 \times 2162\ \mathrm{pixels}$ | Active sensor area $\approx 155.1 \times 162.15\ \mathrm{mm}^2$ |
 | **Pixel Pitch** | $75.0 \times 75.0\ \mu\mathrm{m}^2$ | Isotropic square pixel geometry |
-| **Short-Distance Camera Length (SD)** | **$3.0\ \mathrm{m}$ nominal ($2.9997\ \mathrm{m}$ calibrated)** | HDF5 `SampleDistance = 2.9997 m`; covers $q \in [0.022, 2.54]\ \mathrm{nm}^{-1}$ |
-| **Long-Distance Camera Length (LD)** | **$31.0\ \mathrm{m}$ nominal ($30.7059\ \mathrm{m}$ calibrated)** | HDF5 `SampleDistance = 30.7059 m`; covers $q \in [0.002, 0.25]\ \mathrm{nm}^{-1}$ |
-| **Combined Composite $q$-Range** | **$0.0020\ \mathrm{nm}^{-1}$ to $2.54\ \mathrm{nm}^{-1}$** | $>3$ orders of magnitude in reciprocal space; stitched across cameras |
+| **Short-distance camera length (SD)** | **$3.0\ \mathrm{m}$ nominal ($2.9997\ \mathrm{m}$ calibrated)** | HDF5 `SampleDistance = 2.9997 m`; covers $q \in [0.022, 2.54]\ \mathrm{nm}^{-1}$ |
+| **Long-distance camera length (LD)** | **$31.0\ \mathrm{m}$ nominal ($30.7059\ \mathrm{m}$ calibrated)** | HDF5 `SampleDistance = 30.7059 m`; covers $q \in [0.002, 0.25]\ \mathrm{nm}^{-1}$ |
+| **Combined composite $q$-range** | **$0.0020\ \mathrm{nm}^{-1}$ to $2.54\ \mathrm{nm}^{-1}$** | $>3$ orders of magnitude in reciprocal space; stitched across cameras |
 | **Sample Environment / Mixer** | **BioLogic SFM-400 / 4-Syringe Stopped-Flow Mixer** | High-speed pneumatic injection with $1.3\ \mathrm{mm}$ optical path capillary |
 | **Volumetric Injection Rate** | **$3.33\ \mathrm{mL/s}$** per syringe | $100\ \mu\mathrm{L}$ to $200\ \mu\mathrm{L}$ shot volumes into quartz flow capillary |
 | **Mixer Dead Time** | $\sim 2.0 - 4.5\ \mathrm{ms}$ | Rapid turbulent mixing preceding exposure window |
@@ -52,11 +52,11 @@ The project resolves the structural hierarchy and kinetic pathway across four de
 
 ---
 
-## Reaction Series & Experimental Matrix
+## Reaction series and experimental matrix
 
 The experimental campaign systematically investigates the boundary between classical nucleation and non-classical spinodal decomposition across concentration, pH, and additive perturbation:
 
-| Series ID | Calcium Reagent | Carbonate Reagent | Buffer / Initial pH | Physical Regime | Converged Model Description |
+| Series ID | Calcium reagent | Carbonate reagent | Buffer / initial pH | Physical regime | Converged model description |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **ND-i-003** | $10.0\ \mathrm{mM}\ \mathrm{CaCl}_2$ | $10.0\ \mathrm{mM}\ \mathrm{Na}_2\mathrm{CO}_3$ | Pure, $\mathrm{pH}\ 11.3$ | Sub-spinodal nucleation | Discrete ACC spheres ($R \approx 18.4\ \mathrm{nm}$, 100% volume) + macroscopic emulsion droplets |
 | **ND-i-004** | $15.0\ \mathrm{mM}\ \mathrm{CaCl}_2$ | $15.0\ \mathrm{mM}\ \mathrm{Na}_2\mathrm{CO}_3$ | Pure, $\mathrm{pH}\ 11.3$ | Crossover boundary | Coexisting early mass fractal network ($D_f = 1.95$) + emerging ACC spheres |
@@ -68,65 +68,65 @@ The experimental campaign systematically investigates the boundary between class
 
 ---
 
-## Multi-Scale Physical Scattering Formalism
+## Multi-scale physical scattering formalism
 
 The total coherent scattering cross-section $I_{\mathrm{tot}}(q)\ [\mathrm{cm}^{-1}]$ over $q \in [0.002, 2.54]\ \mathrm{nm}^{-1}$ is modelled as an analytical linear superposition of decoupled structural contributions:
 
 $$I_{\mathrm{tot}}(q) = I_{\mathrm{droplet/ACC}}(q) + I_{\mathrm{network}}(q) + I_{\mathrm{fluc}}(q) + I_{\mathrm{bkg}}$$
 
-### 1. Primary Mass Fractal Network ($I_{\mathrm{network}}$)
+### 1. Primary mass fractal network ($I_{\mathrm{network}}$)
 Formed by polydisperse spherical building blocks obeying a lognormal distribution $n(R)$ with Teixeira mass-fractal structure factor $S(q, D_f, \xi)$:
 $$I_{\mathrm{network}}(q) = (\Delta\rho)^2 \phi_{\mathrm{prim}} \int_0^\infty n(R) V(R) P_{\mathrm{sphere}}(q, R)\, dR \cdot S(q, D_f, \xi)$$
 $$S(q, D_f, \xi) = 1 + \frac{D_f \Gamma(D_f - 1)}{\left[1 + \frac{1}{(q\xi)^2}\right]^{(D_f - 1)/2}} \frac{\sin\left[(D_f - 1)\arctan(q\xi)\right]}{(q R_{\mathrm{prim}})^{D_f}}$$
 
-### 2. Discrete ACC Nanospheres ($I_{\mathrm{ACC}}$)
+### 2. Discrete ACC nanospheres ($I_{\mathrm{ACC}}$)
 Observed exclusively in the sub-spinodal regime ($10\ \mathrm{mM}$, ND-i-003) where dynamic network percolation is absent:
 $$I_{\mathrm{ACC}}(q) = (\Delta\rho)^2 \phi_{\mathrm{ACC}} \int_0^\infty n_{\mathrm{ACC}}(R) V(R) P_{\mathrm{sphere}}(q, R)\, dR$$
 
-### 3. Tanaka Prenucleation Cluster / Fluctuation Mesh ($I_{\mathrm{fluc}}$)
+### 3. Tanaka prenucleation cluster / fluctuation mesh ($I_{\mathrm{fluc}}$)
 Dynamic concentration fluctuations within the semi-dilute solvent mesh, modelled using the generalized Fisher-Burford / Tanaka formulation ($\mu_{\mathrm{fluc}} = 4.0$):
 $$I_{\mathrm{fluc}}(q) = \frac{A_{\mathrm{fluc}}}{\left[1 + (q \xi_{\mathrm{fluc}})^2\right]^{\mu_{\mathrm{fluc}} / 2}}$$
 where $\xi_{\mathrm{fluc}} \approx 2.7 - 3.1\ \mathrm{nm}$ corresponds to the characteristic correlation length of the prenucleation coordination mesh.
 
-### 4. Secondary Macroscopic Droplets / Porod Tail ($I_{\mathrm{droplet}}$)
+### 4. Secondary macroscopic droplets / Porod tail ($I_{\mathrm{droplet}}$)
 Ultra-low-$q$ power law scattering originating from coarsening phase-separated liquid-condensed droplets ($\langle R_{\mathrm{large}} \rangle \approx 2.2 - 3.9\ \mu\mathrm{m}$):
 $$I_{\mathrm{droplet}}(q) = \frac{K_{\mathrm{Porod}}}{q^4} \quad \text{or} \quad (\Delta\rho)^2 \phi_{\mathrm{large}} \langle V_{\mathrm{large}} \rangle P_{\mathrm{sphere}}(q, R_{\mathrm{large}})$$
 
 ---
 
-## Standardised Component Palette & Visual Register
+## Standardised component palette and visual register
 
 To guarantee rigorous cross-series reproducibility, all diagrams, scripts, baseline galleries, and dashboards adhere strictly to the project-wide invariant visual register:
 
-| Model Component | Hex Code | Colour Sample | Stroke Style | Technical Representation |
+| Model component | Hex code | Colour sample | Stroke style | Technical representation |
 | :--- | :--- | :--- | :--- | :--- |
-| **Total Unified Fit** | `#dc2626` | ![#dc2626](https://via.placeholder.com/14/dc2626/000000?text=+) | Solid (`-`, $2.2\ \mathrm{pt}$) | Complete multi-component model sum |
-| **Spinodal Fractal Network** | `#059669` | ![#059669](https://via.placeholder.com/14/059669/000000?text=+) | Dashed (`--`, $1.8\ \mathrm{pt}$) | Teixeira mass fractal building block aggregate |
-| **Discrete ACC Spheres** | `#0284c7` | ![#0284c7](https://via.placeholder.com/14/0284c7/000000?text=+) | Dash-dot (`-.`, $1.8\ \mathrm{pt}$) | Polydisperse sub-spinodal ACC nanospheres |
-| **Tanaka PNC Mesh** | `#9333ea` | ![#9333ea](https://via.placeholder.com/14/9333ea/000000?text=+) | Dotted (`:`, $1.8\ \mathrm{pt}$) | Viscoelastic dynamic concentration fluctuations |
-| **Macroscopic Droplets / Porod** | `#d97706` | ![#d97706](https://via.placeholder.com/14/d97706/000000?text=+) | Long-dash (`--`, $1.5\ \mathrm{pt}$) | Secondary liquid-condensed emulsion droplets |
-| **Solvent Background** | `#64748b` | ![#64748b](https://via.placeholder.com/14/64748b/000000?text=+) | Dotted (`:`, $1.0\ \mathrm{pt}$) | Invariant flat residual background |
-| **Experimental Data** | `#334155` | ![#334155](https://via.placeholder.com/14/334155/000000?text=+) | Markers (`o`, $\alpha = 0.55$) | Calibrated synchrotron scattering profiles |
+| **Total unified fit** | `#dc2626` | ![#dc2626](https://via.placeholder.com/14/dc2626/000000?text=+) | Solid (`-`, $2.2\ \mathrm{pt}$) | Complete multi-component model sum |
+| **Spinodal fractal network** | `#059669` | ![#059669](https://via.placeholder.com/14/059669/000000?text=+) | Dashed (`--`, $1.8\ \mathrm{pt}$) | Teixeira mass fractal building block aggregate |
+| **Discrete ACC spheres** | `#0284c7` | ![#0284c7](https://via.placeholder.com/14/0284c7/000000?text=+) | Dash-dot (`-.`, $1.8\ \mathrm{pt}$) | Polydisperse sub-spinodal ACC nanospheres |
+| **Tanaka PNC mesh** | `#9333ea` | ![#9333ea](https://via.placeholder.com/14/9333ea/000000?text=+) | Dotted (`:`, $1.8\ \mathrm{pt}$) | Viscoelastic dynamic concentration fluctuations |
+| **Macroscopic droplets / Porod** | `#d97706` | ![#d97706](https://via.placeholder.com/14/d97706/000000?text=+) | Long-dash (`--`, $1.5\ \mathrm{pt}$) | Secondary liquid-condensed emulsion droplets |
+| **Solvent background** | `#64748b` | ![#64748b](https://via.placeholder.com/14/64748b/000000?text=+) | Dotted (`:`, $1.0\ \mathrm{pt}$) | Invariant flat residual background |
+| **Experimental data** | `#334155` | ![#334155](https://via.placeholder.com/14/334155/000000?text=+) | Markers (`o`, $\alpha = 0.55$) | Calibrated synchrotron scattering profiles |
 
 ---
 
-## Master Dashboards & Publication Diagrams
+## Master dashboards and publication diagrams
 
 Interactive tools and high-resolution publication assets are precompiled and directly accessible:
 
-1. **Master Synthesis Dashboard**:
+1. **Master synthesis dashboard**:
    - Web application: [`results/index.html`](results/index.html) and [`results/dashboard/index.html`](results/dashboard/index.html)
    - Features dataset hub cards, physicochemical continuum timelines, live cross-series kinetic trajectory charts, comparative parameter matrices, composite curve galleries, and mathematical formalisms.
-2. **Model Transformation SVG Vector Diagram**:
+2. **Model transformation SVG vector diagram**:
    - File: [`results/output/model_transformation_diagram.svg`](results/output/model_transformation_diagram.svg)
    - Scalable vector schema depicting the phase diagram, model equations, component proportion tallies (including 26% PNC mesh for 40 mM benchmark), and morphological transitions.
-3. **Cross-Series Trajectory Synthesis**:
+3. **Cross-series trajectory synthesis**:
    - File: [`results/output/cross_series_trajectories_comparison.png`](results/output/cross_series_trajectories_comparison.png)
    - 4-panel kinetic comparison displaying fractal dimension $D_f(t)$, correlation length $\xi(t)$, volume and invariant component tallies, and mean squared residuals.
 
 ---
 
-## Repository Directory Structure
+## Repository directory structure
 
 ```text
 project - CaCO3/
@@ -165,47 +165,47 @@ project - CaCO3/
 
 ---
 
-## Reproducibility & Execution Guide
+## Reproducibility and execution guide
 
-### Environment Prerequisites
+### Environment prerequisites
 The analysis suite requires Python 3.10+ with standard scientific libraries:
 ```bash
 pip install numpy scipy matplotlib pandas lmfit
 ```
 
-### Running the End-to-End Analysis
+### Running the end-to-end analysis
 All scripts can be executed using the system Python interpreter:
 
-1. **Re-render the Standardised Composite Baseline Fits**:
+1. **Re-render the standardised composite baseline fits**:
    ```bash
    /home/tomek/anaconda3/bin/python results/standardize_composite_plots.py
    ```
 
-2. **Regenerate the Cross-Series Trajectory Synthesis**:
+2. **Regenerate the cross-series trajectory synthesis**:
    ```bash
    /home/tomek/anaconda3/bin/python results/generate_cross_series_trajectories.py
    ```
 
-3. **Rebuild the Vector Model Transformation Diagram**:
+3. **Rebuild the vector model transformation diagram**:
    ```bash
    /home/tomek/anaconda3/bin/python results/generate_model_transformation_diagram.py
    ```
 
-4. **Verify the Viscoelastic Phase Separation Consistency**:
+4. **Verify the viscoelastic phase separation consistency**:
    ```bash
    /home/tomek/anaconda3/bin/python results/verify_vps_framework.py
    ```
 
-5. **Recompile the Master Synthesis Dashboards**:
+5. **Recompile the master synthesis dashboards**:
    ```bash
    /home/tomek/anaconda3/bin/python results/build_master_dashboard.py
    ```
 
 ---
 
-## Data Processing & Citation
+## Data processing and citation
 
-- **Data Processing Responsible**: Tomasz Stawski
+- **Data processing responsible**: Tomasz Stawski
 - **Affiliation**: Federal Institute for Materials Research and Testing (BAM), Unter den Eichen 87, 12205 Berlin, Germany
 - **Contact**: `tomasz.stawski@bam.de`
 - **Beamtime Affiliation**: ESRF - The European Synchrotron, 71 Avenue des Martyrs, 38000 Grenoble, France (Proposal CH-6828)

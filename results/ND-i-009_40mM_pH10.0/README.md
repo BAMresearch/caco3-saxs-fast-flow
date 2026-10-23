@@ -1,4 +1,4 @@
-# Unified Multi-Scale SAXS Fitting Suite (Dataset ND-i-009)
+# Unified multi-scale SAXS fitting suite (dataset ND-i-009)
 
 This repository contains the clean, unified SAXS kinetic fitting suite for dataset **ND-i-009** ($40.0\text{ mM }\text{CaCO}_3$, pH 10.0, pure system without additive).
 
@@ -6,9 +6,9 @@ It integrates the validated theoretical concepts across short distance ($3.0\tex
 
 ---
 
-## Architecture & Scientific Models
+## Architecture and scientific models
 
-### 1. Short Distance ($q \in [0.022, 2.54]\text{ nm}^{-1}$, 351 Frames, $t = 0.045 \to 5.295\text{ s}$)
+### 1. Short distance ($q \in [0.022, 2.54]\text{ nm}^{-1}$, 351 frames, $t = 0.045 \to 5.295\text{ s}$)
 * **Option 2: Continuous Evolutionary Viscoelastic Network Fluctuations**:
   - **Frame 0**: Finite pre-percolation cutoff ($\xi = 46.7\text{ nm}$).
   - **Frames $> 0$**: Infinite network percolated regime ($\xi \to \infty$).
@@ -16,7 +16,7 @@ It integrates the validated theoretical concepts across short distance ($3.0\tex
   - **Continuous Viscoelastic Drift**: Both correlation length $\xi_{\rm fluc}(t)$ ($2.72 \to 2.84\text{ nm}$) and fluctuation amplitude $A_{\rm fluc}(t)$ ($0.142 \to 0.197\text{ cm}^{-1}$) evolve smoothly without zig-zags or spikes.
   - **Quality of Fit**: Mean reduced $\chi^2_{\rm red} = 0.290$ (median $0.205$), high-$q$ $\chi^2_{\rm red} = 0.075$.
 
-### 2. Long Distance ($q \in [0.007, 0.44]\text{ nm}^{-1}$, 350 Frames, $t = 0.045 \to 5.280\text{ s}$)
+### 2. Long distance ($q \in [0.007, 0.44]\text{ nm}^{-1}$, 350 frames, $t = 0.045 \to 5.280\text{ s}$)
 * **Option C Forward Model**:
   - **Frame 0**: Early induction phase fitted without macroscopic droplets ($\phi_{\rm large} = 0$).
   - **Frames $> 0$**: Forward continuity model with infinite network cutoff ($\xi \to \infty$) and constant relative polydispersity ($\sigma_{\rm large}/R_{\rm large} = 0.065$).
@@ -24,14 +24,14 @@ It integrates the validated theoretical concepts across short distance ($3.0\tex
   - **Effective Mesoscopic Exponent**: Under the $\xi \to \infty$ constraint, $D_f(t)$ serves as an effective mesoscopic power-law exponent that reflects cluster growth during pre-percolation ($1.46 \to 1.89$ for $t < 1.0\text{ s}$), converging to $1.90$ (matching the short-distance fractal dimension) once macroscopic network percolation is reached.
   - **Quality of Fit**: Mean reduced $\chi^2_{\rm red} = 0.162$ (median $0.151$).
 
-### 3. Rigorous Parameter Uncertainties
+### 3. Rigorous parameter uncertainties
 * All fitted parameters include formal standard errors ($\pm 1\sigma$ confidence limits) propagated from the covariance matrix of the non-linear least-squares estimator (`lmfit`).
 * All trajectory figures (`trajectories.png` and `unified_cross_scale_trajectories.png`) feature shaded $\pm 1\sigma$ uncertainty bands.
 * The interactive dashboard displays live $\pm 1\sigma$ error margins on all parameters across both camera distances.
 
 ---
 
-## Directory Organization
+## Directory organisation
 
 ```
 unified_fitting_ND-i-009/
@@ -66,7 +66,7 @@ unified_fitting_ND-i-009/
 
 ---
 
-## Pipeline Execution
+## Pipeline execution
 
 To run the complete workflow from the project directory:
 

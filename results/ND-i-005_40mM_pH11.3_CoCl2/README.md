@@ -1,17 +1,17 @@
-# Unified SAXS Multiscale Kinetic Analysis: ND-i-005
+# Unified SAXS multi-scale kinetic analysis: ND-i-005
 **System:** 40 mM $\text{CaCO}_3$, pH 11.3 with Cobalt Additive  
 **Instrumentation:** High-Speed Synchrotron SAXS (Short Distance 3.0 m & Long Distance 31.0 m)  
 **Reaction Timescale:** $t = 0.060\text{ s}$ to $10.877\text{ s}$ (50 time-resolved frames)  
 
 ---
 
-## 1. Executive Summary
+## 1. Executive summary
 
 This repository houses the unified, time-resolved small-angle X-ray scattering (SAXS) kinetic analysis for dataset **ND-i-005** ($40\text{ mM }\text{CaCO}_3$, **pH 11.3** with **Cobalt additive**).
 
 Using high-resolution camera geometries ($3.0\text{ m}$ short distance and $31.0\text{ m}$ long distance), the scattering curves span over 3 orders of magnitude in momentum transfer ($q \in [0.002, 2.5]\text{ nm}^{-1}$) across real reaction times from $60\text{ ms}$ to $10.88\text{ s}$.
 
-### Key Physical Discoveries:
+### Key physical discoveries:
 1. **Structural Length Scale Hierarchy:**
    - **Primary Polydisperse Spherical Building Blocks:** First-principles building blocks ($\langle R_{\rm prim} \rangle \approx 7.0 \to 9.7\text{ nm}$, $\sigma_{\rm prim} \approx 3.0 - 4.5\text{ nm}$) fitted in the first place across the primary Guinier knee ($q \le 0.40\text{ nm}^{-1}$).
    - **Viscoelastic Network Fluctuation Component:** Dynamic concentration fluctuations modelled via the generalized Fisher-Burford / Tanaka formulation ($\mu_{\rm fluc} = 4.0$) with correlation mesh $\xi_{\rm fluc} \approx 8.0 \to 9.1\text{ nm}$ and amplitude $A_{\rm fluc} \approx 0.52 \to 0.89\text{ cm}^{-1}$, capturing the remaining high-$q$ intensity.
@@ -27,7 +27,7 @@ Using high-resolution camera geometries ($3.0\text{ m}$ short distance and $31.0
 
 ---
 
-## 2. Directory Structure
+## 2. Directory structure
 
 ```
 unified_fitting_ND-i-005/
@@ -76,27 +76,27 @@ unified_fitting_ND-i-005/
 
 ---
 
-## 3. Converged Baseline Parameters ($\pm 1\sigma$)
+## 3. Converged baseline parameters ($\pm 1\sigma$)
 
-| Parameter | Symbol | Value | $\pm 1\sigma$ Error | Physical Meaning |
+| Parameter | Symbol | Value | $\pm 1\sigma$ error | Physical meaning |
 | :--- | :--- | :--- | :--- | :--- |
-| Primary Core Radius | $\langle R_{\rm prim} \rangle$ | $6.59\text{ nm}$ | $\pm 0.53\text{ nm}$ | Mean radius of amorphous building blocks |
-| Primary Core Dispersion | $\sigma_{\rm prim}$ | $3.32\text{ nm}$ | $\pm 0.13\text{ nm}$ | Log-normal standard deviation |
-| Primary Volume Fraction | $\phi_{\rm prim}$ | $9.7 \times 10^{-5}$ | $\pm 0.3 \times 10^{-5}$ | Volume fraction of primary fractal network |
-| Mass Fractal Dimension | $D_f$ | $2.102$ | $\pm 0.013$ | Space-filling scaling exponent |
-| Network Correlation Cutoff | $\xi$ | $1194\text{ nm}$ | $\pm 2347\text{ nm}$ | Mesoscale network cluster size |
-| Droplet Radius | $\langle R_{\rm large} \rangle$ | $3530\text{ nm}$ | $\pm 48\text{ nm}$ | Mean radius of secondary dense liquid droplets |
-| Droplet Dispersion | $\sigma_{\rm large}$ | $504\text{ nm}$ | $\pm 6.3\text{ nm}$ | Log-normal standard deviation ($\sigma/R = 0.143$) |
-| Droplet Volume Fraction | $\phi_{\rm large}$ | $2.5 \times 10^{-5}$ | $\pm 0.5 \times 10^{-5}$ | Volume fraction of secondary droplets |
-| Cluster Radius | $R_{\rm pnc}$ | $2.40\text{ nm}$ | $\pm 0.03\text{ nm}$ | Radius of sub-nanometer clusters / DOLLOPs |
-| Cluster Dispersion | $\sigma_{\rm pnc}$ | $1.32\text{ nm}$ | $\pm 0.01\text{ nm}$ | Log-normal standard deviation |
-| Cluster Volume Fraction | $\phi_{\rm pnc}$ | $4.87 \times 10^{-4}$ | $\pm 0.08 \times 10^{-4}$ | Volume fraction of cluster population |
-| Incoherent Background | $bkg$ | $8.43 \times 10^{-4}$ | $\pm 0.16 \times 10^{-4}$ | Constant flat background [cm$^{-1}$] |
-| Goodness of Fit | $\chi^2_{\rm red}$ | **2.67** | : | Reduced chi-square across 1831 points |
+| Primary core radius | $\langle R_{\rm prim} \rangle$ | $6.59\text{ nm}$ | $\pm 0.53\text{ nm}$ | Mean radius of amorphous building blocks |
+| Primary core dispersion | $\sigma_{\rm prim}$ | $3.32\text{ nm}$ | $\pm 0.13\text{ nm}$ | Log-normal standard deviation |
+| Primary volume fraction | $\phi_{\rm prim}$ | $9.7 \times 10^{-5}$ | $\pm 0.3 \times 10^{-5}$ | Volume fraction of primary fractal network |
+| Mass fractal dimension | $D_f$ | $2.102$ | $\pm 0.013$ | Space-filling scaling exponent |
+| Network correlation cutoff | $\xi$ | $1194\text{ nm}$ | $\pm 2347\text{ nm}$ | Mesoscale network cluster size |
+| Droplet radius | $\langle R_{\rm large} \rangle$ | $3530\text{ nm}$ | $\pm 48\text{ nm}$ | Mean radius of secondary dense liquid droplets |
+| Droplet dispersion | $\sigma_{\rm large}$ | $504\text{ nm}$ | $\pm 6.3\text{ nm}$ | Log-normal standard deviation ($\sigma/R = 0.143$) |
+| Droplet volume fraction | $\phi_{\rm large}$ | $2.5 \times 10^{-5}$ | $\pm 0.5 \times 10^{-5}$ | Volume fraction of secondary droplets |
+| Cluster radius | $R_{\rm pnc}$ | $2.40\text{ nm}$ | $\pm 0.03\text{ nm}$ | Radius of sub-nanometer clusters / DOLLOPs |
+| Cluster dispersion | $\sigma_{\rm pnc}$ | $1.32\text{ nm}$ | $\pm 0.01\text{ nm}$ | Log-normal standard deviation |
+| Cluster volume fraction | $\phi_{\rm pnc}$ | $4.87 \times 10^{-4}$ | $\pm 0.08 \times 10^{-4}$ | Volume fraction of cluster population |
+| Incoherent background | $bkg$ | $8.43 \times 10^{-4}$ | $\pm 0.16 \times 10^{-4}$ | Constant flat background [cm$^{-1}$] |
+| Goodness of fit | $\chi^2_{\rm red}$ | **2.67** | : | Reduced chi-square across 1831 points |
 
 ---
 
-## 4. Master Interactive Dashboard
+## 4. Master interactive dashboard
 
 The interactive reviewer dashboard is located at:
 `output/dashboard/index.html`

@@ -636,7 +636,7 @@ def build_master_dashboard():
           and macroscopic emulsion coarsening across concentration, pH, and additive variations.
         </p>
         <div style="font-size: 0.85rem; color: #94a3b8; margin-top: 6px;">
-          Data Processing Responsible: Tomasz Stawski (tomasz.stawski@bam.de), Federal Institute for Materials Research and Testing (BAM)
+          Data processing responsible: Tomasz Stawski (tomasz.stawski@bam.de), Federal Institute for Materials Research and Testing (BAM)
         </div>
       </div>
       <div class="badge-bar">
@@ -855,11 +855,11 @@ def build_master_dashboard():
 
         <!-- VISCOELASTIC PHASE SEPARATION (VPS) VERIFICATION SUBSECTION -->
         <div class="text-block" style="margin-top: 24px; border-top: 1px solid var(--border); padding-top: 16px;">
-          <h3>Viscoelastic Phase Separation (VPS) framework verification</h3>
+          <h3>Viscoelastic phase separation (VPS) framework verification</h3>
           <p>
             The experimental trajectories and model transitions verify the mathematical framework of 
-            <strong>Viscoelastic Phase Separation (VPS)</strong> formulated by Tanaka (2000, 2001) and detailed in 
-            <em>Mathematical Framework for VPS Scattering</em>:
+            <strong>Viscoelastic phase separation (VPS)</strong> formulated by Tanaka (2000, 2001) and detailed in 
+            <em>Mathematical framework for VPS scattering</em>:
           </p>
           <ul style="margin: 8px 0 12px 20px;">
             <li>
@@ -940,39 +940,39 @@ def build_master_dashboard():
             <!-- 10 mM Card -->
             <div style="background: rgba(2, 132, 199, 0.08); border: 1px solid rgba(2, 132, 199, 0.25); border-radius: 6px; padding: 0.85rem;">
               <div style="color: #38bdf8; font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">10 mM (ND-i-003, Sub-spinodal)</div>
-              <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin: 0.2rem 0;">100% Discrete ACC Spheres</div>
+              <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin: 0.2rem 0;">100% discrete ACC spheres</div>
               <!-- Segmented Bar -->
               <div style="display: flex; height: 6px; border-radius: 3px; overflow: hidden; margin: 6px 0 8px 0; background: #1e293b;">
-                <div style="width: 28%; background: #0284c7;" title="ACC Mode 1: 28%"></div>
-                <div style="width: 72%; background: #0ea5e9;" title="ACC Mode 2: 72%"></div>
+                <div style="width: 28%; background: #0284c7;" title="ACC mode 1: 28%"></div>
+                <div style="width: 72%; background: #0ea5e9;" title="ACC mode 2: 72%"></div>
               </div>
               <div style="font-size: 0.8rem; color: var(--text-muted);">
-                Mode 1 (28% @ 21 nm) + Mode 2 (72% @ 60 nm). <strong>0% Fractal Gel | 0% Tanaka PNC Mesh</strong>. Sub-spinodal non-percolating solution where PNC fluctuations remain below the small-angle scattering threshold.
+                Mode 1 (28% @ 21 nm) + Mode 2 (72% @ 60 nm). <strong>0% fractal gel | 0% Tanaka PNC mesh</strong>. Sub-spinodal non-percolating solution where PNC fluctuations remain below the small-angle scattering threshold.
               </div>
             </div>
 
             <!-- 15 mM Card -->
             <div style="background: rgba(45, 212, 191, 0.08); border: 1px solid rgba(45, 212, 191, 0.25); border-radius: 6px; padding: 0.85rem;">
               <div style="color: #2dd4bf; font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">15 mM (ND-i-004, Dynamic Inversion)</div>
-              <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin: 0.2rem 0;">96% ACC &rarr; 76% Fractal Gel</div>
+              <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin: 0.2rem 0;">96% ACC &rarr; 76% fractal gel</div>
               <!-- Segmented Bar -->
               <div style="display: flex; height: 6px; border-radius: 3px; overflow: hidden; margin: 6px 0 8px 0; background: #1e293b;">
-                <div style="width: 63%; background: #0284c7;" title="ACC Spheres: 63%"></div>
-                <div style="width: 37%; background: #059669;" title="Fractal Gel: 37%"></div>
+                <div style="width: 63%; background: #0284c7;" title="ACC spheres: 63%"></div>
+                <div style="width: 37%; background: #059669;" title="Fractal gel: 37%"></div>
               </div>
               <div style="font-size: 0.8rem; color: var(--text-muted);">
-                Dynamic crossover at <em>t</em> &approx; 0.15 to 0.25 s: initial sphere nucleation arrests, and spinodal gel network develops to comprise the predominant mass fraction. Baseline composite: <strong>63% ACC Spheres | 37% Fractal Gel</strong>.
+                Dynamic crossover at <em>t</em> &approx; 0.15 to 0.25 s: initial sphere nucleation arrests, and spinodal gel network develops to comprise the predominant mass fraction. Baseline composite: <strong>63% ACC spheres | 37% fractal gel</strong>.
               </div>
             </div>
 
             <!-- 20 mM Card -->
             <div style="background: rgba(5, 150, 105, 0.08); border: 1px solid rgba(5, 150, 105, 0.25); border-radius: 6px; padding: 0.85rem;">
               <div style="color: #34d399; font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">20 mM (ND-i-002, Spinodal Gel)</div>
-              <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin: 0.2rem 0;">76% Fractal | 24% Tanaka PNC</div>
+              <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin: 0.2rem 0;">76% fractal gel | 24% Tanaka PNC mesh</div>
               <!-- Segmented Bar -->
               <div style="display: flex; height: 6px; border-radius: 3px; overflow: hidden; margin: 6px 0 8px 0; background: #1e293b;">
-                <div style="width: 76%; background: #059669;" title="Fractal Network: 76%"></div>
-                <div style="width: 24%; background: #9333ea;" title="Tanaka PNC Mesh: 24%"></div>
+                <div style="width: 76%; background: #059669;" title="Fractal network: 76%"></div>
+                <div style="width: 24%; background: #9333ea;" title="Tanaka PNC mesh: 24%"></div>
               </div>
               <div style="font-size: 0.8rem; color: var(--text-muted);">
                 Discrete ACC spheres suppressed (<strong>0%</strong>). Continuous percolated gel network (<em>D<sub>f</sub> = 1.86</em>, &xi; = 356 nm) coexists with hydrated <strong>Tanaka PNC mesh</strong> (&lang;R<sub>pnc</sub>&rang; = 1.46 nm, &phi;<sub>pnc</sub> = 1.50 &times; 10<sup>-5</sup>).
@@ -982,11 +982,11 @@ def build_master_dashboard():
             <!-- 40 mM Card -->
             <div style="background: rgba(248, 113, 113, 0.08); border: 1px solid rgba(248, 113, 113, 0.25); border-radius: 6px; padding: 0.85rem;">
               <div style="color: #f87171; font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">40 mM (ND-i-009 &amp; ND-i-001, Benchmarks)</div>
-              <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin: 0.2rem 0;">73% Fractal | 26% PNC | 1% Droplets</div>
+              <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin: 0.2rem 0;">73% fractal gel | 26% PNC mesh | 1% droplets</div>
               <!-- Segmented Bar -->
               <div style="display: flex; height: 6px; border-radius: 3px; overflow: hidden; margin: 6px 0 8px 0; background: #1e293b;">
-                <div style="width: 73%; background: #059669;" title="Fractal Gel: 73%"></div>
-                <div style="width: 26%; background: #9333ea;" title="Tanaka PNC Mesh: 26%"></div>
+                <div style="width: 73%; background: #059669;" title="Fractal gel: 73%"></div>
+                <div style="width: 26%; background: #9333ea;" title="Tanaka PNC mesh: 26%"></div>
                 <div style="width: 1%; background: #d97706;" title="Droplets: 1%"></div>
               </div>
               <div style="font-size: 0.8rem; color: var(--text-muted);">
@@ -1006,11 +1006,11 @@ def build_master_dashboard():
                   <tr>
                     <th>Series</th>
                     <th>Conditions</th>
-                    <th class="num" style="color: #38bdf8;">Discrete ACC Spheres (%)</th>
-                    <th class="num" style="color: #34d399;">Fractal Network (%)</th>
-                    <th class="num" style="color: #c084fc;">Tanaka PNC Mesh (%)</th>
+                    <th class="num" style="color: #38bdf8;">Discrete ACC spheres (%)</th>
+                    <th class="num" style="color: #34d399;">Fractal network (%)</th>
+                    <th class="num" style="color: #c084fc;">Tanaka PNC mesh (%)</th>
                     <th class="num" style="color: #fbbf24;">Droplets / Porod (%)</th>
-                    <th>Dominant Mechanism &amp; Morphological Notes</th>
+                    <th>Dominant mechanism and morphological notes</th>
                   </tr>
                 </thead>
                 <tbody>

@@ -1,10 +1,10 @@
-# Unified SAXS Analysis Suite: Dataset ND-i-006
+# Unified SAXS analysis suite: dataset ND-i-006
 
 > [!WARNING]
 > **EXCLUDED DATASET : DO NOT USE**
 > This dataset has been excluded from analysis and comparison suites. Any preliminary fits have been removed.
 
-## 1. Experimental Conditions
+## 1. Experimental conditions
 - **System**: Pure CaCO3 (40.0 mM, pH 9.75)
 - **Beamline**: ESRF ID02 High-Brilliance SAXS/WAXS Beamline
 - **Detectors / Geometries**:
@@ -13,7 +13,7 @@
 - **Regime**: Spinodal Mass Fractal Network & Secondary Large Droplets / Spheres.
   - **Morphology Confirmation**: Contains **only mass fractal networks and secondary large spheres/droplets**, but **no discrete ACC particles** (no intermediate 30–50 nm particle form-factor knee).
 
-## 2. Directory Structure
+## 2. Directory structure
 ```
 results/ND-i-006_40mM_pH9.75/
 ├── data/

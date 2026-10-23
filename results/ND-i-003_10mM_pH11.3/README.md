@@ -1,4 +1,4 @@
-# Unified Multi-Scale SAXS Fitting Suite (Dataset ND-i-003)
+# Unified multi-scale SAXS fitting suite (dataset ND-i-003)
 
 This repository contains the clean, unified SAXS kinetic fitting suite for dataset **ND-i-003** ($10.0\text{ mM }\text{CaCO}_3$, pH 11.3, pure uninhibited system).
 
@@ -6,15 +6,15 @@ It integrates the validated theoretical concepts across short distance ($3.0\tex
 
 ---
 
-## Physical Context & Scientific Models
+## Physical context and scientific models
 
-### 1. Low Supersaturation Regime & Absence of Spinodal Gelation
+### 1. Low supersaturation regime and absence of spinodal gelation
 In contrast to high-supersaturation regimes ($40\text{ mM}$ in ND-i-001 and ND-i-009) where barrierless phase separation drives the instantaneous formation of a bicontinuous mass fractal gel network ($D_m \approx 1.84$), the $10\text{ mM}$ scenario in **ND-i-003** resides well below the spinodal boundary:
 * **Suppression of Mass Fractal Gelation**: The Teixeira mass-fractal structure factor $S(q)$ and pre-nucleation cluster percolation are completely inapplicable.
 * **Classical Homogeneous Nucleation**: Phase transformation proceeds via the classical nucleation and growth of discrete, non-percolating amorphous calcium carbonate (ACC) nanospheres.
 * **Textbook Porod Scattering**: The scattering at intermediate and high $q$ displays asymptotic $q^{-4}$ power-law decay ($D=3$), confirming compact, dense 3D spherical particles with sharp interfaces rather than diffuse mass fractals ($q^{-D_m}$ with $D_m < 3$).
 
-### 2. Short Distance ($q \in [0.022, 2.54]\text{ nm}^{-1}$, 50 Frames, $t = 0.060 \to 10.877\text{ s}$)
+### 2. Short distance ($q \in [0.022, 2.54]\text{ nm}^{-1}$, 50 frames, $t = 0.060 \to 10.877\text{ s}$)
 * **Pure Flat Solvent Background**:
   - The short camera distance ($3.0\text{ m}$) detects no primary building blocks, high-$q$ excess, or prenucleation cluster fluctuations.
   - The signal is rigorously modeled by a flat solvent background:
@@ -23,7 +23,7 @@ In contrast to high-supersaturation regimes ($40\text{ mM}$ in ND-i-001 and ND-i
   - The mean subtracted intensity is centered symmetrically around zero ($\pm 0.0002\text{ cm}^{-1}$), with $\approx 55 - 60\%$ positive data points (pure Gaussian noise).
   - **Quality of Fit**: Reduced $\chi^2_{\rm red} \approx 0.09$, verifying that no sub-$10\text{ nm}$ primary nodes exist.
 
-### 3. Long Distance ($q \in [0.002, 0.25]\text{ nm}^{-1}$, 50 Frames, $t = 0.060 \to 10.877\text{ s}$)
+### 3. Long distance ($q \in [0.002, 0.25]\text{ nm}^{-1}$, 50 frames, $t = 0.060 \to 10.877\text{ s}$)
 * **Unified Multi-Component Scattering Model**:
   - Unexplained low-$q$ intensities ($q \in [0.002, 0.01]\text{ nm}^{-1}$) exhibit a clean $q^{-4}$ power-law decay ($I \sim 10^2 - 10^3\text{ cm}^{-1}$ at $q = 0.0025\text{ nm}^{-1}$), arising from asymptotic surface scattering off macroscopic interfaces ($R \gg 500\text{ nm}$, e.g. capillary wall wetting, meniscus, coarse precipitates).
   - The total scattering is rigorously modeled across all frames by:
@@ -46,19 +46,19 @@ In contrast to high-supersaturation regimes ($40\text{ mM}$ in ND-i-001 and ND-i
     The fitted plateau $\phi = 4.41 \times 10^{-4}$ represents $\approx 88.2\%$ of the total stoichiometric precursor budget (and composite baseline yields $\phi = 4.42 \times 10^{-4}$), confirming quantitative conversion of precursor ions into discrete ACC nanospheres.
   - **Quality of Fit**: Reduced $\chi^2_{\rm red} \sim 0.08 - 0.19$ across the entire growth trajectory (substantially reduced from $\approx 0.75$ in earlier sphere-only fits).
 
-### 4. Rigorous Parameter Uncertainties & Visualization
+### 4. Rigorous parameter uncertainties and visualization
 * All fitted parameters include formal standard errors ($\pm 1\sigma$ confidence limits) propagated from the covariance matrix of `lmfit`.
 * All trajectory figures feature shaded $\pm 1\sigma$ uncertainty bands.
 * Diagnostic frame plots show full component decompositions ($I_{\rm total}$, $I_{\rm sphere}$, $I_{\rm porod}$, $I_{\rm bkg}$) with legends placed at `loc='upper right'` to prevent obstructing scattering curves.
 * The interactive dashboard displays live $\pm 1\sigma$ error margins on all parameters across both camera distances.
 
-### 5. Companion Non-Parametric Validation: McSAS3 Suite
+### 5. Companion non-parametric validation: McSAS3 suite
 * In addition to the parametric lognormal models here, an **independent non-parametric Monte Carlo size distribution analysis** has been executed in the companion directory [`mcsas_fitting_ND-i-003/`](../mcsas_fitting_ND-i-003/).
 * Both analyses coexist in parallel: the parametric suite provides rigorous analytical volume fractions ($\phi$), baseline solvent metrics, and composite scattering curves, while the McSAS3 suite provides shape-free Monte Carlo validation of $\langle R \rangle(t)$ and $D_V(R)$.
 
 ---
 
-## Directory Organization
+## Directory organisation
 
 ```
 unified_fitting_ND-i-003/
@@ -103,7 +103,7 @@ unified_fitting_ND-i-003/
 
 ---
 
-## Pipeline Execution
+## Pipeline execution
 
 To run the complete workflow from the project directory:
 

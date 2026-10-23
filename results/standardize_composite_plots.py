@@ -92,25 +92,25 @@ def plot_nd_i_003():
 
     # Top panel
     ax_fit.errorbar(q_data, y_data, yerr=dy_data, fmt='o', markersize=2.5,
-                    color=SAXS_COLORS['data'], alpha=0.45, label='Composite Scattering Data (ND-i-003, 10 mM)')
+                    color=SAXS_COLORS['data'], alpha=0.45, label='Composite scattering data (ND-i-003, 10 mM)')
     ax_fit.plot(q_dense, y_dense, color=SAXS_COLORS['total_fit'], linewidth=2.2,
-                label=f'Total Unified Fit ($\\chi^2_{{\\rm red}} = {p["redchi"]:.2f}$)')
+                label=f'Total unified fit ($\\chi^2_{{\\rm red}} = {p["redchi"]:.2f}$)')
     ax_fit.plot(q_dense, y_acc1_dense, color=SAXS_COLORS['acc_spheres'], linestyle='-.', linewidth=1.8,
-                label=f'Discrete ACC Spheres (Mode 1) ($\\langle R_1 \\rangle = {p["Rmean"]:.1f}$ nm, $\\sigma_1 = {p["stdDev"]:.1f}$ nm)')
+                label=f'Discrete ACC spheres (mode 1) ($\\langle R_1 \\rangle = {p["Rmean"]:.1f}$ nm, $\\sigma_1 = {p["stdDev"]:.1f}$ nm)')
     ax_fit.plot(q_dense, y_acc2_dense, color=SAXS_COLORS['acc_spheres_mode2'], linestyle=':', linewidth=1.6,
-                label=f'Discrete ACC Spheres (Mode 2) ($\\langle R_2 \\rangle = {p["R2"]:.1f}$ nm, $\\sigma_2 = {p["stdDev2"]:.1f}$ nm)')
+                label=f'Discrete ACC spheres (mode 2) ($\\langle R_2 \\rangle = {p["R2"]:.1f}$ nm, $\\sigma_2 = {p["stdDev2"]:.1f}$ nm)')
     ax_fit.plot(q_dense, y_drop_dense, color=SAXS_COLORS['droplets_porod'], linestyle='-.', linewidth=1.8,
-                label=f'Macroscopic Droplets / Porod Tail ($\\langle R_{{\\rm lg}} \\rangle = {p["mean_radius_large"]:.0f}$ nm, $\\phi_{{\\rm lg}} = {p["total_volume_fraction_large"]:.2e}$)')
+                label=f'Macroscopic droplets / Porod tail ($\\langle R_{{\\rm lg}} \\rangle = {p["mean_radius_large"]:.0f}$ nm, $\\phi_{{\\rm lg}} = {p["total_volume_fraction_large"]:.2e}$)')
     ax_fit.axhline(p['bkg'], color=SAXS_COLORS['background'], linestyle=':', linewidth=1.2,
-                   label=f'Solvent Background ({p["bkg"]:.2e} cm$^{{-1}}$)')
+                   label=f'Solvent background ({p["bkg"]:.2e} cm$^{{-1}}$)')
 
     ax_fit.set_xscale('log')
     ax_fit.set_yscale('log')
     ax_fit.set_xlim(0.0018, 2.70)
     ax_fit.set_ylim(1e-4, 5e3)
     ax_fit.set_ylabel(r'Intensity $I(q)$ [cm$^{-1}$]', fontsize=12, fontweight='bold')
-    ax_fit.set_title('ND-i-003: Multiscale Composite Baseline Fit (10.0 mM CaCO$_3$, pH 11.3, Sub-spinodal)\n'
-                     r'Bimodal ACC Nanospheres + Dense Liquid Droplets ($q \in [0.002, 2.54]\ \mathrm{nm}^{-1}$)',
+    ax_fit.set_title('ND-i-003: Multi-scale composite baseline fit (10.0 mM CaCO$_3$, pH 11.3, sub-spinodal)\n'
+                     r'Bimodal ACC nanospheres + dense liquid droplets ($q \in [0.002, 2.54]\ \mathrm{nm}^{-1}$)',
                      fontsize=11, fontweight='bold')
     ax_fit.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.4)
     ax_fit.legend(loc='upper right', fontsize=8.8, framealpha=0.92)
@@ -123,8 +123,8 @@ def plot_nd_i_003():
     ax_res.set_xscale('log')
     ax_res.set_xlim(0.0018, 2.70)
     ax_res.set_ylim(-5, 5)
-    ax_res.set_xlabel(r'Scattering Vector $q$ [nm$^{-1}$]', fontsize=12, fontweight='bold')
-    ax_res.set_ylabel(r'Res. [$\sigma$]', fontsize=10, fontweight='bold')
+    ax_res.set_xlabel(r'Scattering vector $q$ [nm$^{-1}$]', fontsize=12, fontweight='bold')
+    ax_res.set_ylabel(r'Residuals [$\sigma$]', fontsize=10, fontweight='bold')
     ax_res.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.4)
 
     plt.savefig(os.path.join(out_dir, 'composite_baseline_fit.png'), dpi=300, bbox_inches='tight')
@@ -175,20 +175,20 @@ def plot_nd_i_004():
     ax_fit = fig.add_subplot(gs[0])
     ax_res = fig.add_subplot(gs[1], sharex=ax_fit)
 
-    ax_fit.loglog(q_data, y_data, 'o', color=SAXS_COLORS['data'], markersize=2.5, alpha=0.40, label='Composite Scattering Data (ND-i-004, 15 mM)')
-    ax_fit.loglog(q_dense, I_tot, color=SAXS_COLORS['total_fit'], linestyle='-', linewidth=2.2, label=f'Total Unified Fit ($\\chi^2_{{\\mathrm{{red}}}} = {p["redchi"]:.2f}$)')
+    ax_fit.loglog(q_data, y_data, 'o', color=SAXS_COLORS['data'], markersize=2.5, alpha=0.40, label='Composite scattering data (ND-i-004, 15 mM)')
+    ax_fit.loglog(q_dense, I_tot, color=SAXS_COLORS['total_fit'], linestyle='-', linewidth=2.2, label=f'Total unified fit ($\\chi^2_{{\\mathrm{{red}}}} = {p["redchi"]:.2f}$)')
     ax_fit.loglog(q_dense, I_net, color=SAXS_COLORS['fractal_network'], linestyle='--', linewidth=1.8,
-                  label=f'Spinodal Fractal Network ($R_{{\\rm prim}} = {p["R_prim"]:.1f}$ nm, $D_m = {p["Dm"]:.2f}$, $\\xi = {p["xi"]:.0f}$ nm)')
+                  label=f'Spinodal fractal network ($R_{{\\rm prim}} = {p["R_prim"]:.1f}$ nm, $D_m = {p["Dm"]:.2f}$, $\\xi = {p["xi"]:.0f}$ nm)')
     ax_fit.loglog(q_dense, I_acc, color=SAXS_COLORS['acc_spheres'], linestyle='-.', linewidth=1.8,
-                  label=f'Discrete ACC Spheres ($\\langle R \\rangle = {p["R_acc"]:.1f} \\pm {p["std_acc"]:.1f}$ nm, $\\phi = {p["phi_acc"]:.2e}$)')
+                  label=f'Discrete ACC spheres ($\\langle R \\rangle = {p["R_acc"]:.1f} \\pm {p["std_acc"]:.1f}$ nm, $\\phi = {p["phi_acc"]:.2e}$)')
     ax_fit.loglog(q_dense, I_por, color=SAXS_COLORS['droplets_porod'], linestyle='-.', linewidth=1.6,
-                  label=f'Macroscopic Droplets / Porod Tail ($A = {p["A_porod"]*1e6:.2f}\\times 10^{{-6}}$)')
+                  label=f'Macroscopic droplets / Porod tail ($A = {p["A_porod"]*1e6:.2f}\\times 10^{{-6}}$)')
     ax_fit.axhline(p['bkg'], color=SAXS_COLORS['background'], linestyle=':', linewidth=1.2,
-                   label=f'Solvent Background ({p["bkg"]:.2e} cm$^{{-1}}$)')
+                   label=f'Solvent background ({p["bkg"]:.2e} cm$^{{-1}}$)')
 
     ax_fit.set_ylabel('Intensity $I(q)$ [cm$^{-1}$]', fontsize=12, fontweight='bold')
-    ax_fit.set_title('ND-i-004: Multiscale Composite Baseline Fit (15.0 mM CaCO$_3$, pH 11.3, Crossover Boundary)\n'
-                     r'Spinodal Mass Fractal Network + ACC Nanosphere Form Factor ($q \in [0.002, 2.5]\ \mathrm{nm}^{-1}$)', fontsize=11, fontweight='bold')
+    ax_fit.set_title('ND-i-004: Multi-scale composite baseline fit (15.0 mM CaCO$_3$, pH 11.3, crossover boundary)\n'
+                     r'Spinodal mass fractal network + ACC nanosphere form factor ($q \in [0.002, 2.5]\ \mathrm{nm}^{-1}$)', fontsize=11, fontweight='bold')
     ax_fit.legend(loc='upper right', fontsize=8.8, framealpha=0.92)
     ax_fit.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.4)
     ax_fit.set_xlim(0.0018, 2.65)
@@ -200,8 +200,8 @@ def plot_nd_i_004():
     ax_res.plot(q_data, residuals, 'o', color=SAXS_COLORS['residuals'], markersize=2.2, alpha=0.5)
     ax_res.set_xscale('log')
     ax_res.set_xlim(0.0018, 2.65)
-    ax_res.set_xlabel('Scattering Vector $q$ [nm$^{-1}$]', fontsize=12, fontweight='bold')
-    ax_res.set_ylabel('Res. [$\\sigma$]', fontsize=10, fontweight='bold')
+    ax_res.set_xlabel('Scattering vector $q$ [nm$^{-1}$]', fontsize=12, fontweight='bold')
+    ax_res.set_ylabel('Residuals [$\\sigma$]', fontsize=10, fontweight='bold')
     ax_res.set_ylim(-5.0, 5.0)
     ax_res.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.4)
 
@@ -250,21 +250,21 @@ def plot_nd_i_002():
     ax_res = fig.add_subplot(gs[1], sharex=ax_fit)
 
     ax_fit.loglog(q_data, y_data, 'o', color=SAXS_COLORS['data'], markersize=2.5, alpha=0.40,
-                  label='Composite Scattering Data (ND-i-002, 20 mM)')
+                  label='Composite scattering data (ND-i-002, 20 mM)')
     ax_fit.loglog(q_dense, I_tot_dense, color=SAXS_COLORS['total_fit'], linestyle='-', linewidth=2.2,
-                  label=f'Total Unified Fit ($\\chi^2_{{\\rm red}} = {p["redchi"]:.2f}$)')
+                  label=f'Total unified fit ($\\chi^2_{{\\rm red}} = {p["redchi"]:.2f}$)')
     ax_fit.loglog(q_dense, I_net_dense, color=SAXS_COLORS['fractal_network'], linestyle='--', linewidth=1.8,
-                  label=f'Spinodal Fractal Network ($R = {p["Rmean"]:.1f}$ nm, $D_m = {p["D"]:.2f}$, $\\xi = {p["xi"]:.0f}$ nm)')
+                  label=f'Spinodal fractal network ($R = {p["Rmean"]:.1f}$ nm, $D_m = {p["D"]:.2f}$, $\\xi = {p["xi"]:.0f}$ nm)')
     ax_fit.loglog(q_dense, I_por_dense, color=SAXS_COLORS['droplets_porod'], linestyle='-.', linewidth=1.8,
-                  label=f'Macroscopic Droplets / Porod Tail ($A = {p["A_porod"]*1e8:.2f}\\times 10^{{-8}}$ cm$^{{-1}}$nm$^{{-4}}$)')
+                  label=f'Macroscopic droplets / Porod tail ($A = {p["A_porod"]*1e8:.2f}\\times 10^{{-8}}$ cm$^{{-1}}$nm$^{{-4}}$)')
     ax_fit.loglog(q_dense, I_pnc_dense, color=SAXS_COLORS['pnc_fluctuations'], linestyle=':', linewidth=1.8,
-                  label=f'Tanaka PNC Mesh ($R_{{\\rm pnc}} = {p["R_pnc"]:.1f}$ nm, $\\phi = {p["phi_pnc"]:.2e}$)')
+                  label=f'Tanaka PNC mesh ($R_{{\\rm pnc}} = {p["R_pnc"]:.1f}$ nm, $\\phi = {p["phi_pnc"]:.2e}$)')
     ax_fit.axhline(p['bkg'], color=SAXS_COLORS['background'], linestyle=':', linewidth=1.2,
-                   label=f'Solvent Background ({p["bkg"]:.2e} cm$^{{-1}}$)')
+                   label=f'Solvent background ({p["bkg"]:.2e} cm$^{{-1}}$)')
 
     ax_fit.set_ylabel('Intensity $I(q)$ [cm$^{-1}$]', fontsize=12, fontweight='bold')
-    ax_fit.set_title('ND-i-002: Multiscale Composite Baseline Fit (20.0 mM CaCO$_3$, pH 11.3, Spinodal Gelation)\n'
-                     r'Spinodal Fractal Network + Porod Tail + Sub-nm Clusters ($q \in [0.002, 2.54]\ \mathrm{nm}^{-1}$)',
+    ax_fit.set_title('ND-i-002: Multi-scale composite baseline fit (20.0 mM CaCO$_3$, pH 11.3, spinodal gelation)\n'
+                     r'Spinodal fractal network + Porod tail + sub-nm clusters ($q \in [0.002, 2.54]\ \mathrm{nm}^{-1}$)',
                      fontsize=11, fontweight='bold')
     ax_fit.legend(loc='upper right', fontsize=8.8, framealpha=0.92)
     ax_fit.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.4)
@@ -277,8 +277,8 @@ def plot_nd_i_002():
     ax_res.plot(q_data, residuals, 'o', color=SAXS_COLORS['residuals'], markersize=2.2, alpha=0.5)
     ax_res.set_xscale('log')
     ax_res.set_xlim(0.0018, 2.70)
-    ax_res.set_xlabel('Scattering Vector $q$ [nm$^{-1}$]', fontsize=12, fontweight='bold')
-    ax_res.set_ylabel('Res. [$\\sigma$]', fontsize=10, fontweight='bold')
+    ax_res.set_xlabel('Scattering vector $q$ [nm$^{-1}$]', fontsize=12, fontweight='bold')
+    ax_res.set_ylabel('Residuals [$\\sigma$]', fontsize=10, fontweight='bold')
     ax_res.set_ylim(-5.0, 5.0)
     ax_res.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.4)
 
@@ -317,20 +317,20 @@ def plot_nd_i_009():
     ax_fit = fig.add_subplot(gs[0])
     ax_res = fig.add_subplot(gs[1], sharex=ax_fit)
 
-    ax_fit.loglog(q_data, y_data, 'o', color=SAXS_COLORS['data'], markersize=2.5, alpha=0.40, label='Composite Scattering Data (ND-i-009, 40 mM, pH 10.0)')
-    ax_fit.loglog(q_dense, I_tot, color=SAXS_COLORS['total_fit'], linestyle='-', linewidth=2.2, label=f'Total Unified Fit ($\\chi^2_{{\\mathrm{{red}}}} = {p["redchi"]:.2f}$)')
+    ax_fit.loglog(q_data, y_data, 'o', color=SAXS_COLORS['data'], markersize=2.5, alpha=0.40, label='Composite scattering data (ND-i-009, 40 mM, pH 10.0)')
+    ax_fit.loglog(q_dense, I_tot, color=SAXS_COLORS['total_fit'], linestyle='-', linewidth=2.2, label=f'Total unified fit ($\\chi^2_{{\\mathrm{{red}}}} = {p["redchi"]:.2f}$)')
     ax_fit.loglog(q_dense, I_prim, color=SAXS_COLORS['fractal_network'], linestyle='--', linewidth=1.8,
-                  label=f'Spinodal Fractal Network ($R = {p["Rmean"]:.2f}$ nm, $D_m = {p["D"]:.2f}$, $\\xi = {p["xi"]:.0f}$ nm)')
+                  label=f'Spinodal fractal network ($R = {p["Rmean"]:.2f}$ nm, $D_m = {p["D"]:.2f}$, $\\xi = {p["xi"]:.0f}$ nm)')
     ax_fit.loglog(q_dense, I_large, color=SAXS_COLORS['droplets_porod'], linestyle='-.', linewidth=1.8,
-                  label=f'Macroscopic Droplets / Porod Tail ($\\langle R \\rangle = {p["mean_radius_large"]:.0f}$ nm)')
+                  label=f'Macroscopic droplets / Porod tail ($\\langle R \\rangle = {p["mean_radius_large"]:.0f}$ nm)')
     ax_fit.loglog(q_dense, I_oz, color=SAXS_COLORS['pnc_fluctuations'], linestyle=':', linewidth=1.8,
-                  label=f'Tanaka PNC Fluctuation Mesh ($\\xi_{{\\rm fluc}} = {p["xi_OZ"]:.2f}$ nm)')
+                  label=f'Tanaka PNC fluctuation mesh ($\\xi_{{\\rm fluc}} = {p["xi_OZ"]:.2f}$ nm)')
     ax_fit.axhline(p['bkg'], color=SAXS_COLORS['background'], linestyle=':', linewidth=1.2,
-                   label=f'Solvent Background ({p["bkg"]:.2e} cm$^{{-1}}$)')
+                   label=f'Solvent background ({p["bkg"]:.2e} cm$^{{-1}}$)')
 
     ax_fit.set_ylabel('Intensity $I(q)$ [cm$^{-1}$]', fontsize=12, fontweight='bold')
-    ax_fit.set_title('ND-i-009: Multiscale Composite Baseline Fit (40.0 mM CaCO$_3$, pH 10.0, Pure Benchmark)\n'
-                     r'Tanaka VPS Network + Droplet Inversion + Viscoelastic Mesh ($q \in [0.002, 2.5]\ \mathrm{nm}^{-1}$)',
+    ax_fit.set_title('ND-i-009: Multi-scale composite baseline fit (40.0 mM CaCO$_3$, pH 10.0, pure benchmark)\n'
+                     r'Tanaka VPS network + droplet inversion + viscoelastic mesh ($q \in [0.002, 2.5]\ \mathrm{nm}^{-1}$)',
                      fontsize=11, fontweight='bold')
     ax_fit.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.4)
     ax_fit.legend(loc='upper right', frameon=True, fontsize=8.8, framealpha=0.92)
@@ -343,8 +343,8 @@ def plot_nd_i_009():
     ax_res.plot(q_data, residuals, 'o', color=SAXS_COLORS['residuals'], markersize=2.2, alpha=0.5)
     ax_res.set_xscale('log')
     ax_res.set_xlim(0.0018, 2.65)
-    ax_res.set_xlabel('Scattering Vector $q$ [nm$^{-1}$]', fontsize=12, fontweight='bold')
-    ax_res.set_ylabel('Res. [$\\sigma$]', fontsize=10, fontweight='bold')
+    ax_res.set_xlabel('Scattering vector $q$ [nm$^{-1}$]', fontsize=12, fontweight='bold')
+    ax_res.set_ylabel('Residuals [$\\sigma$]', fontsize=10, fontweight='bold')
     ax_res.set_ylim(-5.0, 5.0)
     ax_res.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.4)
 
@@ -400,19 +400,19 @@ def plot_nd_i_001():
     ax_fit = fig.add_subplot(gs[0])
     ax_res = fig.add_subplot(gs[1], sharex=ax_fit)
 
-    ax_fit.loglog(q_data, y_data, 'o', color=SAXS_COLORS['data'], markersize=2.5, alpha=0.45, label='Composite Scattering Data (ND-i-001, 40 mM, pH 11.3)')
-    ax_fit.loglog(q_dense, I_tot, color=SAXS_COLORS['total_fit'], linestyle='-', linewidth=2.2, label=f'Total Unified Fit ($\\chi^2_{{\\mathrm{{red}}}} = {p["redchi"]:.2f}$)')
+    ax_fit.loglog(q_data, y_data, 'o', color=SAXS_COLORS['data'], markersize=2.5, alpha=0.45, label='Composite scattering data (ND-i-001, 40 mM, pH 11.3)')
+    ax_fit.loglog(q_dense, I_tot, color=SAXS_COLORS['total_fit'], linestyle='-', linewidth=2.2, label=f'Total unified fit ($\\chi^2_{{\\mathrm{{red}}}} = {p["redchi"]:.2f}$)')
     ax_fit.loglog(q_dense, I_prim, color=SAXS_COLORS['fractal_network'], linestyle='--', linewidth=1.8,
-                  label=f'Spinodal Fractal Network ($\\langle R \\rangle = {p["Rmean"]:.2f}$ nm, $D_f = {p["D"]:.2f}$)')
+                  label=f'Spinodal fractal network ($\\langle R \\rangle = {p["Rmean"]:.2f}$ nm, $D_f = {p["D"]:.2f}$)')
     ax_fit.loglog(q_dense, I_large, color=SAXS_COLORS['droplets_porod'], linestyle='-.', linewidth=1.8,
-                  label=f'Macroscopic Droplets / Porod Tail ($\\langle R \\rangle = {p["mean_radius_large"]:.0f}$ nm, $\\phi = {p["total_volume_fraction_large"]:.2e}$)')
+                  label=f'Macroscopic droplets / Porod tail ($\\langle R \\rangle = {p["mean_radius_large"]:.0f}$ nm, $\\phi = {p["total_volume_fraction_large"]:.2e}$)')
     ax_fit.loglog(q_dense, I_pnc, color=SAXS_COLORS['pnc_fluctuations'], linestyle=':', linewidth=1.8,
-                  label=f'Tanaka PNC Mesh ($\\langle R_{{\\rm pnc}} \\rangle = {p["R_pnc"]:.2f}$ nm, $\\phi = {p["phi_pnc"]:.2e}$)')
+                  label=f'Tanaka PNC mesh ($\\langle R_{{\\rm pnc}} \\rangle = {p["R_pnc"]:.2f}$ nm, $\\phi = {p["phi_pnc"]:.2e}$)')
     ax_fit.axhline(p['bkg'], color=SAXS_COLORS['background'], linestyle=':', linewidth=1.2,
-                   label=f'Solvent Background ({p["bkg"]:.2e} cm$^{{-1}}$)')
+                   label=f'Solvent background ({p["bkg"]:.2e} cm$^{{-1}}$)')
 
     ax_fit.set_ylabel('Intensity $I(q)$ [cm$^{-1}$]', fontsize=12, fontweight='bold')
-    ax_fit.set_title('ND-i-001: Full-Range Multiscale Composite Baseline Fit (40.0 mM CaCO$_3$, pH 11.3, Pure Instant Quench)\n'
+    ax_fit.set_title('ND-i-001: Full-range multi-scale composite baseline fit (40.0 mM CaCO$_3$, pH 11.3, pure instant quench)\n'
                      r'$q \in [0.002, 2.5]\ \mathrm{nm}^{-1}$ across 4 length scale decades', fontsize=11, fontweight='bold')
     ax_fit.legend(loc='upper right', fontsize=8.8, framealpha=0.92)
     ax_fit.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.4)
@@ -425,8 +425,8 @@ def plot_nd_i_001():
     ax_res.plot(q_data, residuals, 'o', color=SAXS_COLORS['residuals'], markersize=2.2, alpha=0.5)
     ax_res.set_xscale('log')
     ax_res.set_xlim(0.0018, 2.65)
-    ax_res.set_xlabel('Scattering Vector $q$ [nm$^{-1}$]', fontsize=12, fontweight='bold')
-    ax_res.set_ylabel('Res. [$\\sigma$]', fontsize=10, fontweight='bold')
+    ax_res.set_xlabel('Scattering vector $q$ [nm$^{-1}$]', fontsize=12, fontweight='bold')
+    ax_res.set_ylabel('Residuals [$\\sigma$]', fontsize=10, fontweight='bold')
     ax_res.set_ylim(-5.0, 5.0)
     ax_res.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.4)
 
@@ -477,19 +477,19 @@ def plot_nd_i_005():
     ax_fit = fig.add_subplot(gs[0])
     ax_res = fig.add_subplot(gs[1], sharex=ax_fit)
 
-    ax_fit.loglog(q_data, y_data, 'o', color=SAXS_COLORS['data'], markersize=2.5, alpha=0.45, label='Composite Scattering Data (ND-i-005, 40 mM + CoCl$_2$)')
-    ax_fit.loglog(q_dense, I_tot, color=SAXS_COLORS['total_fit'], linestyle='-', linewidth=2.2, label=f'Total Unified Fit ($\\chi^2_{{\\mathrm{{red}}}} = {p["redchi"]:.2f}$)')
+    ax_fit.loglog(q_data, y_data, 'o', color=SAXS_COLORS['data'], markersize=2.5, alpha=0.45, label='Composite scattering data (ND-i-005, 40 mM + CoCl$_2$)')
+    ax_fit.loglog(q_dense, I_tot, color=SAXS_COLORS['total_fit'], linestyle='-', linewidth=2.2, label=f'Total unified fit ($\\chi^2_{{\\mathrm{{red}}}} = {p["redchi"]:.2f}$)')
     ax_fit.loglog(q_dense, I_prim, color=SAXS_COLORS['fractal_network'], linestyle='--', linewidth=1.8,
-                  label=f'Spinodal Fractal Network ($\\langle R \\rangle = {p["Rmean"]:.2f}$ nm, $D_f = {p["D"]:.2f}$, $\\xi = {p["xi"]:.0f}$ nm)')
+                  label=f'Spinodal fractal network ($\\langle R \\rangle = {p["Rmean"]:.2f}$ nm, $D_f = {p["D"]:.2f}$, $\\xi = {p["xi"]:.0f}$ nm)')
     ax_fit.loglog(q_dense, I_large, color=SAXS_COLORS['droplets_porod'], linestyle='-.', linewidth=1.8,
-                  label=f'Macroscopic Droplets / Porod Tail ($\\langle R \\rangle = {p["mean_radius_large"]:.0f}$ nm)')
+                  label=f'Macroscopic droplets / Porod tail ($\\langle R \\rangle = {p["mean_radius_large"]:.0f}$ nm)')
     ax_fit.loglog(q_dense, I_pnc, color=SAXS_COLORS['pnc_fluctuations'], linestyle=':', linewidth=1.8,
-                  label=f'Tanaka PNC Mesh ($\\langle R_{{\\rm pnc}} \\rangle = {p["R_pnc"]:.2f}$ nm, $\\phi = {p["phi_pnc"]:.2e}$)')
+                  label=f'Tanaka PNC mesh ($\\langle R_{{\\rm pnc}} \\rangle = {p["R_pnc"]:.2f}$ nm, $\\phi = {p["phi_pnc"]:.2e}$)')
     ax_fit.axhline(p['bkg'], color=SAXS_COLORS['background'], linestyle=':', linewidth=1.2,
-                   label=f'Solvent Background ({p["bkg"]:.2e} cm$^{{-1}}$)')
+                   label=f'Solvent background ({p["bkg"]:.2e} cm$^{{-1}}$)')
 
     ax_fit.set_ylabel('Intensity $I(q)$ [cm$^{-1}$]', fontsize=12, fontweight='bold')
-    ax_fit.set_title('ND-i-005: Multiscale Baseline Scattering Curve Fit & Component Decomposition\n(40.0 mM CaCO$_3$, pH 11.3 with Cobalt Additive Perturbation)', fontsize=11, fontweight='bold')
+    ax_fit.set_title('ND-i-005: Multi-scale baseline scattering curve fit and component decomposition\n(40.0 mM CaCO$_3$, pH 11.3 with cobalt additive perturbation)', fontsize=11, fontweight='bold')
     ax_fit.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.4)
     ax_fit.legend(loc='upper right', frameon=True, fontsize=8.8, framealpha=0.92)
     ax_fit.set_xlim(0.0018, 2.65)
@@ -501,8 +501,8 @@ def plot_nd_i_005():
     ax_res.plot(q_data, residuals, 'o', color=SAXS_COLORS['residuals'], markersize=2.2, alpha=0.5)
     ax_res.set_xscale('log')
     ax_res.set_xlim(0.0018, 2.65)
-    ax_res.set_xlabel('Scattering Vector $q$ [nm$^{-1}$]', fontsize=12, fontweight='bold')
-    ax_res.set_ylabel('Res. [$\\sigma$]', fontsize=10, fontweight='bold')
+    ax_res.set_xlabel('Scattering vector $q$ [nm$^{-1}$]', fontsize=12, fontweight='bold')
+    ax_res.set_ylabel('Residuals [$\\sigma$]', fontsize=10, fontweight='bold')
     ax_res.set_ylim(-5.0, 5.0)
     ax_res.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.4)
 

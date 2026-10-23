@@ -1,17 +1,17 @@
-# Unified SAXS Multiscale Kinetic Analysis: ND-i-002
+# Unified SAXS multi-scale kinetic analysis: ND-i-002
 **System:** 20 mM $\text{CaCO}_3$, pH 11.3 (Pure System without Additive)  
 **Instrumentation:** High-Speed Synchrotron SAXS (Short Distance 3.0 m & Long Distance 31.0 m, ESRF ID02)  
 **Reaction Timescale:** $t = 0.060\text{ s}$ to $10.877\text{ s}$ (50 time-resolved frames)  
 
 ---
 
-## 1. Executive Summary
+## 1. Executive summary
 
 This repository houses the unified, time-resolved small-angle X-ray scattering (SAXS) kinetic analysis suite for dataset **ND-i-002** ($20\text{ mM }\text{CaCO}_3$, **pH 11.3**, pure homogeneous precipitation without additive).
 
 Using synchronized high-speed synchrotron camera geometries ($3.0\text{ m}$ short distance and $31.0\text{ m}$ long distance), the scattering profiles span over 3 orders of magnitude in momentum transfer ($q \in [0.002, 2.54]\text{ nm}^{-1}$) across real reaction times from $60\text{ ms}$ to $10.88\text{ s}$.
 
-### Key Physical Discoveries:
+### Key physical discoveries:
 1. **Structural Hierarchy Across Multiple Spatial Scales:**
    - **Primary Polydisperse Spherical Building Blocks:** First-principles building blocks ($\langle R_{\rm prim} \rangle \approx 8.5 \to 11.4\text{ nm}$, $\sigma_{\rm prim} \approx 4.0 - 4.4\text{ nm}$) fitted across the primary knee ($q \le 0.40\text{ nm}^{-1}$).
    - **Viscoelastic Network Fluctuation Component:** Dynamic concentration fluctuations modelled via the generalized Fisher-Burford / Tanaka formulation ($\mu_{\rm fluc} = 4.0$) with correlation mesh $\xi_{\rm fluc} \approx 13.5 \to 15.0\text{ nm}$ and amplitude $A_{\rm fluc} \approx 0.03 \to 0.16\text{ cm}^{-1}$, fully explaining the high-$q$ excess intensity.
@@ -24,7 +24,7 @@ Using synchronized high-speed synchrotron camera geometries ($3.0\text{ m}$ shor
 
 ---
 
-## 2. Directory Structure
+## 2. Directory structure
 
 ```
 unified_fitting_ND-i-002/
@@ -74,24 +74,24 @@ unified_fitting_ND-i-002/
 
 ---
 
-## 3. Converged Baseline Parameters ($\pm 1\sigma$)
+## 3. Converged baseline parameters ($\pm 1\sigma$)
 
-| Parameter | Symbol | Value | $\pm 1\sigma$ Error | Physical Meaning |
+| Parameter | Symbol | Value | $\pm 1\sigma$ error | Physical meaning |
 | :--- | :--- | :--- | :--- | :--- |
-| Primary Building Block Radius | $\langle R_{\rm prim} \rangle$ | $11.24\text{ nm}$ | $\pm 0.13\text{ nm}$ | Mean radius of amorphous building blocks |
-| Primary Core Dispersion | $\sigma_{\rm prim}$ | $3.99\text{ nm}$ | $\pm 0.02\text{ nm}$ | Log-normal standard deviation |
-| Primary Network Volume Fraction | $\phi_{\rm net}$ | $4.74 \times 10^{-5}$ | $\pm 0.02 \times 10^{-5}$ | Volume fraction of primary fractal network |
-| Mass Fractal Dimension | $D_m$ | $1.856$ | $\pm 0.007$ | Space-filling network scaling exponent |
-| Network Correlation Cutoff | $\xi$ | $356.0\text{ nm}$ | $\pm 24.8\text{ nm}$ | Mesoscale network cluster correlation length |
-| Porod Interface Scale | $A_{\rm porod}$ | $5.28 \times 10^{-8}$ | $\pm 0.02 \times 10^{-8}$ | Macroscopic surface interface scattering |
-| Prenucleation Cluster Radius | $\langle R_{\rm pnc} \rangle$ | $1.46\text{ nm}$ | $\pm 0.39\text{ nm}$ | Mean radius of sub-nm PNC clusters |
-| PNC Volume Fraction | $\phi_{\rm pnc}$ | $1.50 \times 10^{-5}$ | $\pm 0.12 \times 10^{-5}$ | Volume fraction of PNC cluster population |
-| Incoherent Background | $bkg$ | $1.37 \times 10^{-4}$ | $\pm 0.08 \times 10^{-4}$ | Constant flat background [cm$^{-1}$] |
-| Goodness of Fit | $\chi^2_{\rm red}$ | **0.964** | : | Reduced chi-square across 1879 points |
+| Primary building block radius | $\langle R_{\rm prim} \rangle$ | $11.24\text{ nm}$ | $\pm 0.13\text{ nm}$ | Mean radius of amorphous building blocks |
+| Primary core dispersion | $\sigma_{\rm prim}$ | $3.99\text{ nm}$ | $\pm 0.02\text{ nm}$ | Log-normal standard deviation |
+| Primary network volume fraction | $\phi_{\rm net}$ | $4.74 \times 10^{-5}$ | $\pm 0.02 \times 10^{-5}$ | Volume fraction of primary fractal network |
+| Mass fractal dimension | $D_m$ | $1.856$ | $\pm 0.007$ | Space-filling network scaling exponent |
+| Network correlation cutoff | $\xi$ | $356.0\text{ nm}$ | $\pm 24.8\text{ nm}$ | Mesoscale network cluster correlation length |
+| Porod interface scale | $A_{\rm porod}$ | $5.28 \times 10^{-8}$ | $\pm 0.02 \times 10^{-8}$ | Macroscopic surface interface scattering |
+| Prenucleation cluster radius | $\langle R_{\rm pnc} \rangle$ | $1.46\text{ nm}$ | $\pm 0.39\text{ nm}$ | Mean radius of sub-nm PNC clusters |
+| PNC volume fraction | $\phi_{\rm pnc}$ | $1.50 \times 10^{-5}$ | $\pm 0.12 \times 10^{-5}$ | Volume fraction of PNC cluster population |
+| Incoherent background | $bkg$ | $1.37 \times 10^{-4}$ | $\pm 0.08 \times 10^{-4}$ | Constant flat background [cm$^{-1}$] |
+| Goodness of fit | $\chi^2_{\rm red}$ | **0.964** | : | Reduced chi-square across 1879 points |
 
 ---
 
-## 4. Pipeline Execution
+## 4. Pipeline execution
 
 To run the complete workflow from the project directory:
 
