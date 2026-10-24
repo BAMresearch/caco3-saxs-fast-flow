@@ -17,15 +17,15 @@ import argparse
 import subprocess
 
 PROJECT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-PYTHON_BIN = sys.executable
+PYTHON_BIN = '/home/tomek/anaconda3/bin/python' if os.path.exists('/home/tomek/anaconda3/bin/python') else sys.executable
 
 STEPS = [
-    ("Step 0: Fit Merged Composite Baseline", os.path.join(PROJECT_DIR, 'scripts', '00_fit_merged_baseline.py')),
-    ("Step 1: Evolutionary Fit Short-Distance Models", os.path.join(PROJECT_DIR, 'scripts', '01_fit_short_distance_models.py')),
-    ("Step 2: Fit Long-Distance Multi-Models", os.path.join(PROJECT_DIR, 'scripts', '02_fit_long_distance_models.py')),
-    ("Step 3: Generate All Frame Diagnostic Plots", os.path.join(PROJECT_DIR, 'scripts', '03_generate_all_frame_plots.py')),
-    ("Step 4: Parameter Trajectory Analysis & Comparisons", os.path.join(PROJECT_DIR, 'scripts', '04_compare_parameter_trajectories.py')),
-    ("Step 5: Compile Master Interactive Dashboard", os.path.join(PROJECT_DIR, 'scripts', '05_build_unified_dashboard.py'))
+    ("Step 0: Fit Merged Composite Baseline", os.path.join(PROJECT_DIR, 'scripts', 'analysis', '00_fit_merged_baseline.py')),
+    ("Step 1: Evolutionary Fit Short-Distance Models", os.path.join(PROJECT_DIR, 'scripts', 'analysis', '01_fit_short_distance_models.py')),
+    ("Step 2: Fit Long-Distance Multi-Models", os.path.join(PROJECT_DIR, 'scripts', 'analysis', '02_fit_long_distance_models.py')),
+    ("Step 3: Generate All Frame Diagnostic Plots", os.path.join(PROJECT_DIR, 'scripts', 'plotting', '03_generate_all_frame_plots.py')),
+    ("Step 4: Parameter Trajectory Analysis & Comparisons", os.path.join(PROJECT_DIR, 'scripts', 'plotting', '04_compare_parameter_trajectories.py')),
+    ("Step 5: Compile Master Interactive Dashboard", os.path.join(PROJECT_DIR, 'scripts', 'dashboard', '05_build_unified_dashboard.py'))
 ]
 
 

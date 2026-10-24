@@ -20,15 +20,15 @@ import argparse
 import subprocess
 
 PROJECT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-PYTHON_BIN = sys.executable
+PYTHON_BIN = '/home/tomek/anaconda3/bin/python' if os.path.exists('/home/tomek/anaconda3/bin/python') else sys.executable
 
 STEPS = [
-    ("Step 0: Fit Full-Range Composite Baseline", os.path.join(PROJECT_DIR, 'scripts', '00_fit_composite_baseline.py')),
-    ("Step 1: Fit Short-Distance Solvent Background", os.path.join(PROJECT_DIR, 'scripts', '01_fit_short_distance_models.py')),
-    ("Step 2: Fit Long-Distance Discrete ACC Nanosphere Kinetics", os.path.join(PROJECT_DIR, 'scripts', '02_fit_long_distance_models.py')),
-    ("Step 3: Generate All Diagnostic Frame Plots", os.path.join(PROJECT_DIR, 'scripts', '03_generate_all_frame_plots.py')),
-    ("Step 4: Unified Multi-Scale Parameter Trajectory Analysis", os.path.join(PROJECT_DIR, 'scripts', '04_compare_parameter_trajectories.py')),
-    ("Step 5: Compile Master Interactive HTML Dashboard", os.path.join(PROJECT_DIR, 'scripts', '05_build_unified_dashboard.py'))
+    ("Step 0: Fit Full-Range Composite Baseline", os.path.join(PROJECT_DIR, 'scripts', 'analysis', '00_fit_composite_baseline.py')),
+    ("Step 1: Fit Short-Distance Solvent Background", os.path.join(PROJECT_DIR, 'scripts', 'analysis', '01_fit_short_distance_models.py')),
+    ("Step 2: Fit Long-Distance Discrete ACC Nanosphere Kinetics", os.path.join(PROJECT_DIR, 'scripts', 'analysis', '02_fit_long_distance_models.py')),
+    ("Step 3: Generate All Diagnostic Frame Plots", os.path.join(PROJECT_DIR, 'scripts', 'plotting', '03_generate_all_frame_plots.py')),
+    ("Step 4: Unified Multi-Scale Parameter Trajectory Analysis", os.path.join(PROJECT_DIR, 'scripts', 'plotting', '04_compare_parameter_trajectories.py')),
+    ("Step 5: Compile Master Interactive HTML Dashboard", os.path.join(PROJECT_DIR, 'scripts', 'dashboard', '05_build_unified_dashboard.py'))
 ]
 
 

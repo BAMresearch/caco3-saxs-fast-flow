@@ -1,34 +1,28 @@
-# Viscoelastic phase separation (VPS) framework verification report
+# Viscoelastic Phase Separation (VPS) Framework Verification Report
 
 **Data processing responsible:** Tomasz Stawski (tomasz.stawski@bam.de)
 **Theoretical framework:** Viscoelastic phase separation (VPS)
 
-## 1. Executive summary
+---
 
-This document evaluates the time-resolved SAXS fitting results for calcium carbonate
-precipitation in the context of the Tanaka Viscoelastic Phase Separation (VPS) theory.
-The experimental data across six series (10 mM to 40 mM) demonstrate that phase separation
-in supersaturated calcium carbonate solutions is governed by dynamic asymmetry between
-slow ionic oligomers / hydrated mineral networks and fast water.
+## 1. Executive Summary
 
-Key findings:
-1. **Viscoelastic Length Scale (xi_ve):** Spans the mesoscale (100 to 1000 nm). At length scales
-   smaller than xi_ve (high q), stress relaxation is slow, producing an elastic gel mesh and
-   suppressing hydrodynamic coarsening. At length scales larger than xi_ve (low q), hydrodynamic
-   coarsening and phase inversion into macroscopic liquid droplets occur.
-2. **Volume Shrinking:** The 40 mM benchmark (ND-i-009) displays monotonic densification of the
-   mass fractal network, where D_m(t) drifts from 1.881 to 1.925 whilst primary node radius
-   remains invariant at 2.80 nm. This confirms solvent expulsion from the viscoelastic strands.
-3. **Phase Inversion:** Secondary macroscopic droplets (<R_large> in [2.2, 3.5] um) coexist with
-   the continuous network, confirming mechanical stress relaxation via strut rupture and droplet shedding.
-4. **Distinction from ASD:** Unlike Arrested Spinodal Decomposition, which permanently locks domain
-   size and scattering power via glass jamming, the system shows continuous evolution and volume shrinking.
-5. **Self-Consistent Transition:** The series transition logically from sub-spinodal discrete spheres
-   (10 mM) to boundary crossover (15 mM), spinodal gelation (20 mM), and deep spinodal VPS (40 mM).
+This document evaluates the time-resolved SAXS fitting results for calcium carbonate precipitation in the context of the Tanaka Viscoelastic Phase Separation (VPS) theory.
+
+The experimental data across six series (10 mM to 40 mM) demonstrate that phase separation in supersaturated calcium carbonate solutions is governed by **dynamic asymmetry** between slow ionic oligomers / hydrated mineral networks and fast water.
+
+### Key Physical Findings:
+1. **Viscoelastic Length Scale ($\xi_{\text{ve}}$):** Spans the mesoscale (100 to 1000 nm).
+   - At length scales smaller than $\xi_{\text{ve}}$ ($q > 1/\xi_{\text{ve}}$, high $q$), stress relaxation is slow, producing an elastic gel mesh and suppressing hydrodynamic coarsening.
+   - At length scales larger than $\xi_{\text{ve}}$ ($q < 1/\xi_{\text{ve}}$, low $q$), hydrodynamic coarsening and phase inversion into macroscopic liquid droplets occur unhindered.
+2. **Volume Shrinking (Tanaka Densification):** The 40 mM benchmark (ND-i-009) displays monotonic densification of the mass fractal network, where $D_m(t)$ drifts from 1.881 to 1.925 whilst primary node radius remains invariant at $R_{\text{prim}} = 2.80\text{ nm}$. This confirms solvent expulsion from the viscoelastic strands.
+3. **Phase Inversion:** Secondary macroscopic droplets ($\langle R_{\text{large}} \rangle \in [2.2, 3.5]\ \mu\text{m}$) coexist with the continuous network, confirming mechanical stress relaxation via strut rupture and capillary droplet shedding.
+4. **Distinction from ASD:** Unlike Arrested Spinodal Decomposition, which permanently locks domain size and scattering power via repulsive glass jamming, the calcium carbonate system shows continuous structural evolution, progressive volume shrinking, and secondary droplet coexistence.
+5. **Self-Consistent Transition:** The series transition logically from sub-spinodal discrete spheres (10 mM) to boundary crossover (15 mM), spinodal gelation (20 mM), and deep spinodal VPS (40 mM).
 
 ---
 
-## 2. Parameter synthesis across regimes
+## 2. Parameter Synthesis Across Regimes
 
 | Series ID | Concentration | pH | Physical regime | Primary radius $R_{\text{prim}}$ [nm] | Fractal dimension $D_m$ | Network cutoff $\xi$ [nm] | Droplet radius $\langle R_{\text{large}} \rangle$ [$\mu\text{m}$] | Reduced $\chi^2$ |
 | :--- | :---: | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -41,69 +35,98 @@ Key findings:
 
 ---
 
-## 3. Mathematical verification of Tanaka VPS concepts
+## 3. Mathematical Verification of Tanaka VPS Concepts
 
-### 3.1. Dynamic asymmetry and the viscoelastic length scale
+## 1. Dynamic Asymmetry and the Viscoelastic Length Scale
+
 The Tanaka two-fluid model introduces the dynamic asymmetry parameter:
+
 $$\alpha = \frac{\zeta_p}{\zeta_s} - 1 \gg 0$$
-where zeta_p is the friction coefficient of the polymer-like mineral network (DOLLOPs / hydrated clusters),
-and zeta_s is the solvent friction coefficient. Because ionic oligomers relax slowly relative to water,
-the viscoelastic length scale emerges as:
-$$\xi_{\rm ve} = \sqrt{\frac{K + \frac{4}{3}G}{\zeta}} \tau_r \sim \sqrt{D_{\rm coop} \tau_r}$$
-where K is the osmotic bulk modulus, G is the shear modulus, and tau_r is the stress relaxation time.
+
+where $\zeta_p$ is the friction coefficient of the polymer-like mineral network (DOLLOPs / hydrated ionic clusters), and $\zeta_s$ is the solvent friction coefficient. Because ionic oligomers relax slowly relative to water, the viscoelastic length scale emerges as:
+
+$$\xi_{\text{ve}} = \sqrt{\frac{K_{\text{os}} + \frac{4}{3}G}{\zeta}} \tau_r \sim \sqrt{D_{\text{coop}} \tau_r}$$
+
+where $K_{\text{os}}$ is the osmotic bulk modulus, $G$ is the shear modulus, $\zeta$ is the inter-fluid friction, and $\tau_r$ is the stress relaxation time.
 
 In our scattering data, the multi-scale hierarchy verifies this crossover:
-- For q > 1/xi_ve (r < xi_ve): fluctuations probe internal viscoelastic gel modes (xi_fluc in [1.5, 4.6] nm).
-  The network resists hydrodynamic deformation, leading to frozen domain size or volume shrinking.
-- For q < 1/xi_ve (r > xi_ve): stress has relaxed, permitting capillary flow and phase inversion
-  into macroscopic liquid droplets (<R_large> in [2.2, 3.5] um).
-
-### 3.2. Quantitative proof of volume shrinking (ND-i-009 benchmark)
-In classical Model B/H spinodal decomposition, phase separation proceeds with constant phase volumes.
-In contrast, Viscoelastic Phase Separation requires volume shrinking of the transient network,
-accompanied by solvent expulsion. In ND-i-009 (351 frames, 15 ms cadence):
-- Primary building block radius is invariant: R_prim = 2.80 nm throughout the run.
-- Network fractal dimension increases monotonically: D_m drifts from 1.881 to 1.925.
-- The increase in D_m at constant node radius directly represents the compaction and densification
-  of the network strands, confirming Tanaka volume shrinking.
-
-### 3.3. Phase inversion into macroscopic droplets
-As the viscoelastic network contracts, elastic stress sigma_ij accumulates along interconnected struts.
-When elastic tension exceeds the local yield threshold, struts rupture and retract into spherical droplets.
-This explains why all spinodal series (ND-i-004, ND-i-002, ND-i-009, ND-i-001, ND-i-005) exhibit a stationary
-macroscopic droplet population (<R_large> in [2.2, 3.5] um) coexisting with the space-filling gel mesh.
+- **For $q > 1/\xi_{\text{ve}}$ ($r < \xi_{\text{ve}}$):** Fluctuations probe internal viscoelastic gel modes ($\xi_{\text{fluc}} \in [1.5, 4.6]\text{ nm}$). The network resists hydrodynamic deformation, leading to frozen domain size or volume shrinking.
+- **For $q < 1/\xi_{\text{ve}}$ ($r > \xi_{\text{ve}}$):** Stress has relaxed, permitting capillary flow and phase inversion into macroscopic liquid droplets ($\langle R_{\text{large}} \rangle \in [2.2, 3.5]\ \mu\text{m}$).
 
 ---
 
-## 4. Logical transition continuum across experimental regimes
+## 2. Quantitative Proof of Volume Shrinking (ND-i-009 Benchmark)
 
-1. **Regime 1: Sub-spinodal nucleation (10 mM, ND-i-003)**
-   - Condition: ln(S_ACC) < ln(S*), below spinodal boundary.
-   - Model: Discrete ACC nanospheres growing from 60 to 107 nm, S(q) = 1 (no fractal gel).
-   - Transition trigger: Increasing supersaturation toward C* ≈ 12-15 mM.
+In classical Model B/H spinodal decomposition, phase separation proceeds with constant phase volumes. In contrast, Viscoelastic Phase Separation requires **volume shrinking** of the transient network, accompanied by solvent expulsion. In ND-i-009 (351 frames, 15 ms cadence):
+- **Primary building block radius is invariant:** $R_{\text{prim}} = 2.80\text{ nm}$ throughout the entire reaction run.
+- **Network fractal dimension increases monotonically:** $D_m$ drifts from $1.881$ to $1.925$.
+- **Densification mechanism:** The increase in $D_m$ at constant node radius directly represents the compaction and densification of the network strands, confirming Tanaka volume shrinking.
 
-2. **Regime 2: Crossover boundary (15 mM, ND-i-004)**
-   - Condition: ln(S_ACC) ≈ ln(S*), boundary of instability.
-   - Model: Dual-knee coexistence of discrete ACC nanospheres (R_acc ≈ 48 nm) and early percolating
-     mass fractal network (R_prim = 4.94 nm, D_m = 2.85, xi = 108.7 nm).
-   - Transition trigger: Complete suppression of discrete nucleation as spinodal demixing takes over.
+---
 
-3. **Regime 3: Spinodal gelation (20 mM, ND-i-002)**
-   - Condition: ln(S_ACC) > ln(S*), barrierless liquid-liquid demixing.
-   - Model: Discrete ACC particles disappear entirely (I_sph -> 0). Formation of continuous mass fractal
-     gel (D_m = 1.856, xi = 356 nm, R_prim = 11.24 nm) coexisting with macroscopic droplets.
-   - Transition trigger: Increased supersaturation and observation time resolution.
+## 3. Phase Inversion into Macroscopic Droplets
 
-4. **Regime 4: Deep spinodal LLPS and VPS benchmark (40 mM pure CaCO3, ND-i-009 / ND-i-001)**
-   - Condition: High supersaturation benchmark.
-   - ND-i-009 (pH 10.0): Resolves continuous pre-percolation (xi: 46.7 nm -> inf), volume shrinking
-     (D_m: 1.881 -> 1.925), and internal PNC viscoelastic fluctuation mesh (xi_fluc ≈ 2.7-2.8 nm).
-   - ND-i-001 (pH 11.3): Higher supersaturation produces instantaneous barrierless quench (t_ind < 0.06 s),
-     dense network (D_m = 2.328, xi = 735 nm), and macroscopic droplets (<R_large> = 3.01 um).
-   - Transition trigger: Chemical dopant perturbation.
+As the viscoelastic network contracts, elastic stress $\sigma_{ij}$ accumulates along interconnected struts. When elastic tension exceeds the local yield threshold, struts rupture and retract into spherical droplets.
 
-5. **Regime 5: Additive perturbation branch (40 mM + Co2+, ND-i-005)**
-   - Condition: Same nominal supersaturation as ND-i-001 with 1 mM CoCl2 additive.
-   - Model: Co2+ adsorption lowers interfacial tension gamma, expanding primary building blocks
-     (R_prim: 3.5 -> 6.59 nm) and network correlation length (xi: 735 -> 1194 nm), whilst opening the
-     fractal network (D_m: 2.33 -> 2.10).
+This explains why all spinodal series (ND-i-004, ND-i-002, ND-i-009, ND-i-001, ND-i-005) exhibit a stationary macroscopic droplet population ($\langle R_{\text{large}} \rangle \in [2.2, 3.5]\ \mu\text{m}$) coexisting with the space-filling gel mesh.
+
+Under Rayleigh-Plateau capillary instability:
+
+$$\lambda_{\text{opt}} \approx 9.02 R_{\text{strut}} \implies R_{\text{drop}} \approx 1.89 R_{\text{strut}} \approx 2.8 - 3.5\ \mu\text{m}$$
+
+---
+
+## 4. Distinction from Arrested Spinodal Decomposition (ASD)
+
+Unlike Arrested Spinodal Decomposition, which permanently freezes domain growth via repulsive glass jamming, the calcium carbonate system shows:
+1. Continuous structural evolution and progressive volume shrinking without sudden structural freezing.
+2. Dynamic stress relaxation through mechanical rupture rather than kinetic trapping.
+3. Coexistence of an open percolating gel mesh with liquid macroscopic droplets.
+
+---
+
+## 4. Logical Transition Continuum Across Experimental Regimes
+
+Across reactant supersaturation and chemical conditions, the six experimental series form a coherent physical continuum spanning five distinct thermodynamic regimes:
+
+### 1. Regime 1: Sub-spinodal Nucleation (10.0 mM, ND-i-003, pH 11.3)
+- **Thermodynamic condition:** $\ln S_{\text{ACC}} < \ln S^*$, below the spinodal boundary.
+- **Physical model:** Classical nucleation of discrete amorphous calcium carbonate (ACC) nanospheres ($R_{\text{acc}} \approx 60 \to 107\text{ nm}$ over 10 s) with $S(q) = 1$ (no mass fractal gel network). Intermediate-to-high $q$ shows pronounced form-factor oscillations and $q^{-4}$ Porod decay.
+- **Transition trigger:** Increasing supersaturation towards $C^* \approx 12 - 15\text{ mM}$ lowers the nucleation barrier until spinodal demixing becomes thermodynamically favorable.
+
+---
+
+### 2. Regime 2: Crossover Boundary (15.0 mM, ND-i-004, pH 11.3)
+- **Thermodynamic condition:** $\ln S_{\text{ACC}} \approx \ln S^*$, boundary of mechanical and thermodynamic instability.
+- **Physical model:** Dual-knee scattering curve displaying simultaneous coexistence of discrete ACC nanospheres ($R_{\text{acc}} \approx 47.7\text{ nm}$) and an emerging percolating mass fractal gel network ($R_{\text{prim}} = 4.94\text{ nm}$, $D_m = 2.85$, $\xi = 108.7\text{ nm}$).
+- **Transition trigger:** Complete suppression of discrete ACC nucleation as barrierless spinodal demixing dominates the solution volume.
+
+---
+
+### 3. Regime 3: Spinodal Gelation (20.0 mM, ND-i-002, pH 11.3)
+- **Thermodynamic condition:** $\ln S_{\text{ACC}} > \ln S^*$, barrierless liquid-liquid demixing (LLPS).
+- **Physical model:** Discrete ACC nanospheres disappear entirely ($I_{\text{sph}} \to 0$). Continuous mass fractal gel network forms practically instantaneously ($D_m = 1.856$, $\xi = 356\text{ nm}$, $R_{\text{prim}} = 11.24\text{ nm}$) coexisting with macroscopic droplets.
+- **Transition trigger:** Further increase in supersaturation accelerates phase separation kinetics, requiring higher observation cadence.
+
+---
+
+### 4. Regime 4: Deep Spinodal LLPS and VPS Benchmark (40.0 mM Pure CaCO3)
+- **Thermodynamic condition:** Deep spinodal quench with extreme dynamic asymmetry between ionic oligomers and solvent.
+- **ND-i-009 Benchmark (pH 10.0, 351 frames, 15 ms cadence):**
+  - Resolves time-resolved pre-percolation ($\xi: 46.7\text{ nm} \to \infty$).
+  - Proves Tanaka volume shrinking: monotonic densification of the mass fractal network ($D_m: 1.881 \to 1.925$) at strictly invariant primary building block radius ($R_{\text{prim}} = 2.80\text{ nm}$).
+  - Resolves internal viscoelastic fluctuation mesh ($\xi_{\text{fluc}} \approx 2.7 - 2.8\text{ nm}$) probing entangled PNC oligomers.
+  - Secondary macroscopic liquid droplets coarsen continuously ($\langle R_{\text{large}} \rangle = 2.27 \to 3.20\ \mu\text{m}$).
+- **ND-i-001 Quench (pH 11.3, 50 frames):**
+  - Higher supersaturation produces instantaneous barrierless quench ($t_{\text{ind}} < 0.06\text{ s}$).
+  - Dense network ($D_m = 2.328$, $\xi = 735\text{ nm}$, $R_{\text{prim}} = 3.51\text{ nm}$) with capillary droplets ($\langle R_{\text{large}} \rangle = 3.01\ \mu\text{m}$).
+
+---
+
+### 5. Regime 5: Additive Perturbation Branch (40.0 mM + 1.0 mM Co2+, ND-i-005, pH 11.3)
+- **Thermodynamic condition:** Same nominal supersaturation as ND-i-001, perturbed by specific chemical dopant ($\text{Co}^{2+}$).
+- **Physical model:** Specific adsorption of $\text{Co}^{2+}$ onto nascent mineral surfaces lowers interfacial energy $\gamma$, which:
+  - Expands primary building block nodes: $R_{\text{prim}} = 6.59\text{ nm}$ (vs $3.51\text{ nm}$ in pure ND-i-001).
+  - Extends the network correlation length: $\xi = 1194\text{ nm}$ (vs $735\text{ nm}$).
+  - Loosens network packing into a more open fractal structure: $D_m = 2.102$ (vs $2.328$).
+  - Preserves macroscopic droplet phase inversion ($\langle R_{\text{large}} \rangle = 3.53\ \mu\text{m}$).

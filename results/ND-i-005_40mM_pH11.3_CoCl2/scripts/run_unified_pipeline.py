@@ -19,16 +19,16 @@ import argparse
 import subprocess
 
 PROJECT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-PYTHON_BIN = sys.executable
+PYTHON_BIN = '/home/tomek/anaconda3/bin/python' if os.path.exists('/home/tomek/anaconda3/bin/python') else sys.executable
 
 STEPS = [
-    ("Step 0: Prepare Data and Stitched Composite Anchor", os.path.join(PROJECT_DIR, 'scripts', '00_prepare_data_and_composite.py')),
-    ("Step 1: Fit Multiscale Composite Baseline", os.path.join(PROJECT_DIR, 'scripts', '00_fit_composite_baseline.py')),
-    ("Step 2: Fit Short-Distance Time Series (3.0 m, 50 frames)", os.path.join(PROJECT_DIR, 'scripts', '01_fit_short_distance_models.py')),
-    ("Step 3: Fit Long-Distance Time Series (31.0 m, 50 frames)", os.path.join(PROJECT_DIR, 'scripts', '02_fit_long_distance_models.py')),
-    ("Step 4: Generate All Universal Diagnostic Frame Plots (100 plots)", os.path.join(PROJECT_DIR, 'scripts', '03_generate_all_frame_plots.py')),
-    ("Step 5: Cross-Scale Trajectory Synthesis", os.path.join(PROJECT_DIR, 'scripts', '04_compare_parameter_trajectories.py')),
-    ("Step 6: Build Master Interactive Dashboard", os.path.join(PROJECT_DIR, 'scripts', '05_build_unified_dashboard.py'))
+    ("Step 0: Prepare Data and Stitched Composite Anchor", os.path.join(PROJECT_DIR, 'scripts', 'analysis', '00_prepare_data_and_composite.py')),
+    ("Step 1: Fit Multiscale Composite Baseline", os.path.join(PROJECT_DIR, 'scripts', 'analysis', '00_fit_composite_baseline.py')),
+    ("Step 2: Fit Short-Distance Time Series (3.0 m, 50 frames)", os.path.join(PROJECT_DIR, 'scripts', 'analysis', '01_fit_short_distance_models.py')),
+    ("Step 3: Fit Long-Distance Time Series (31.0 m, 50 frames)", os.path.join(PROJECT_DIR, 'scripts', 'analysis', '02_fit_long_distance_models.py')),
+    ("Step 4: Generate All Universal Diagnostic Frame Plots (100 plots)", os.path.join(PROJECT_DIR, 'scripts', 'plotting', '03_generate_all_frame_plots.py')),
+    ("Step 5: Cross-Scale Trajectory Synthesis", os.path.join(PROJECT_DIR, 'scripts', 'plotting', '04_compare_parameter_trajectories.py')),
+    ("Step 6: Build Master Interactive Dashboard", os.path.join(PROJECT_DIR, 'scripts', 'dashboard', '05_build_unified_dashboard.py'))
 ]
 
 
@@ -48,7 +48,10 @@ def run_command(desc, script_path):
 
 def main():
     parser = argparse.ArgumentParser(description="Unified ND-i-005 SAXS Pipeline Runner")
-    parser.add_argument('--all', action='store_true', help="Run all pipeline steps end-to-end (Steps 0 to 6)")
+    parser.add_argument('--all', action='store_true', help="Run all pipeline steps end-to-end")
+    parser.add_argument('--fit', '--analysis', dest='fit', action='store_true', help="Run data preparation and fitting models")
+    parser.add_argument('--plot', action='store_true', help="Run all diagnostic frame and trajectory plots")
+    parser.add_argument('--dashboard', action='store_true', help="Compile unified interactive HTML dashboard")
     parser.add_argument('--step', type=int, choices=range(len(STEPS)), help="Run a specific step (0 to 6)")
     args = parser.parse_args()
 
