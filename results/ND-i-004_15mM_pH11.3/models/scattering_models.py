@@ -192,35 +192,6 @@ def calc_fb_intensity(q, A_fluc, xi_fluc, mu_fluc=4.0):
     return A_fluc / (1.0 + (2.0 / (3.0 * mu_fluc)) * (q * xi_fluc)**2)**(mu_fluc / 2.0)
 
 
-def calc_pnc_intensity(q, R_pnc, std_pnc, phi_pnc, rho2=RHO2_CALIBRATED, integration_steps=120):
-    """
-    Vectorized integrated scattering intensity for sub-nanometer prenucleation clusters (DOLLOPs).
-    I_pnc(q) = rho2 * int [ r^6 * n(r) * P(q, r) ] dr
-    """
-    if phi_pnc <= 0 or R_pnc <= 0:
-        return np.zeros_like(q)
-        
-    mu, sigma = convert_mean_std_to_mu_sigma(R_pnc, std_pnc)
-    vol_per_unit = calc_total_volume_per_unit(mu, sigma, R_pnc, std_pnc, integration_steps)
-    number_density = phi_pnc / vol_per_unit
-
-    r_min = max(1e-4, R_pnc - 3.5 * std_pnc)
-    r_max = R_pnc + 6.0 * std_pnc
-    r_grid = np.linspace(r_min, r_max, integration_steps, endpoint=True)
-    dr = r_grid[1] - r_grid[0]
-
-    r_col = r_grid[:, np.newaxis]
-    q_row = np.asarray(q)[np.newaxis, :]
-
-    P_qr = sphere_form_factor(q_row, r_col)
-    dist = log_normal_pdf(r_col, mu, sigma) * number_density
-
-    integrand = (r_col**6) * dist * P_qr * dr
-    np.nan_to_num(integrand, copy=False, nan=0.0)
-    
-    return rho2 * np.sum(integrand, axis=0)
-
-
 def calc_porod_intensity(q, A_porod, exp_porod=4.0):
     """
     Macroscopic Porod surface scattering component: I_porod(q) = A_porod / (q ** exp_porod).
@@ -234,7 +205,7 @@ def calc_porod_intensity(q, A_porod, exp_porod=4.0):
 def calc_model_intensity(params, q, include_large_spheres=True, include_oz=True, integration_steps=300):
     """
     Calculates total scattering intensity from lmfit Parameters dictionary.
-    Decomposes into primary fractal, large spheres, Porod tail, high-q component (PNC, FB, or OZ), and flat background.
+    Decomposes into primary fractal, large spheres, Porod tail, high-q component (FB or OZ), and flat background.
     """
     rho2 = params['rho2'].value if hasattr(params['rho2'], 'value') else params['rho2']
     phi = params['phi'].value if hasattr(params['phi'], 'value') else params['phi']
@@ -261,17 +232,8 @@ def calc_model_intensity(params, q, include_large_spheres=True, include_oz=True,
             exp_p = params['exp_porod'].value if ('exp_porod' in params and hasattr(params['exp_porod'], 'value')) else params.get('exp_porod', 4.0)
             I_total += calc_porod_intensity(q, A_porod, exp_p)
 
-    # High-Q option 1: PNCs (small polydisperse spheres)
-    if 'phi_pnc' in params and 'R_pnc' in params:
-        phi_pnc = params['phi_pnc'].value if hasattr(params['phi_pnc'], 'value') else params['phi_pnc']
-        if phi_pnc > 0:
-            R_pnc = params['R_pnc'].value if hasattr(params['R_pnc'], 'value') else params['R_pnc']
-            std_pnc = params['std_pnc'].value if hasattr(params['std_pnc'], 'value') else params['std_pnc']
-            I_pnc = calc_pnc_intensity(q, R_pnc, std_pnc, phi_pnc, rho2=rho2, integration_steps=120)
-            I_total += I_pnc
-
-    # High-Q option 2: Viscoelastic network fluctuations (Fisher-Burford)
-    elif 'A_fluc' in params and 'xi_fluc' in params:
+    # High-Q Viscoelastic network fluctuations (Fisher-Burford / Tanaka)
+    if 'A_fluc' in params and 'xi_fluc' in params:
         A_fluc = params['A_fluc'].value if hasattr(params['A_fluc'], 'value') else params['A_fluc']
         if A_fluc > 0:
             xi_fluc = params['xi_fluc'].value if hasattr(params['xi_fluc'], 'value') else params['xi_fluc']
@@ -279,7 +241,7 @@ def calc_model_intensity(params, q, include_large_spheres=True, include_oz=True,
             I_fb = calc_fb_intensity(q, A_fluc, xi_fluc, mu_fluc=mu_fluc)
             I_total += I_fb
 
-    # High-Q option 3: Ornstein-Zernike fluctuations
+    # High-Q option 2: Ornstein-Zernike fluctuations
     elif include_oz and 'A_OZ' in params and 'xi_OZ' in params:
         A_OZ = params['A_OZ'].value if hasattr(params['A_OZ'], 'value') else params['A_OZ']
         xi_OZ = params['xi_OZ'].value if hasattr(params['xi_OZ'], 'value') else params['xi_OZ']
@@ -320,13 +282,7 @@ def decompose_model_components(params, q, integration_steps=300):
             I_large = I_large + I_porod
 
     I_high = np.zeros_like(q)
-    if 'phi_pnc' in params and 'R_pnc' in params:
-        phi_pnc = params['phi_pnc'].value if hasattr(params['phi_pnc'], 'value') else params['phi_pnc']
-        if phi_pnc > 0:
-            R_pnc = params['R_pnc'].value if hasattr(params['R_pnc'], 'value') else params['R_pnc']
-            std_pnc = params['std_pnc'].value if hasattr(params['std_pnc'], 'value') else params['std_pnc']
-            I_high = calc_pnc_intensity(q, R_pnc, std_pnc, phi_pnc, rho2=rho2, integration_steps=120)
-    elif 'A_fluc' in params and 'xi_fluc' in params:
+    if 'A_fluc' in params and 'xi_fluc' in params:
         A_fluc = params['A_fluc'].value if hasattr(params['A_fluc'], 'value') else params['A_fluc']
         if A_fluc > 0:
             xi_fluc = params['xi_fluc'].value if hasattr(params['xi_fluc'], 'value') else params['xi_fluc']

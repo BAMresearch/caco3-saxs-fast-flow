@@ -411,8 +411,8 @@ def build_dashboard():
             <tr><th>Secondary Droplet Radius &lang;R<sub>large</sub>&rang;</th><td>{bp['mean_radius_large']:.0f} &plusmn; {bp.get('std_err_mean_radius_large', 0.0):.0f} nm</td></tr>
             <tr><th>Secondary Droplet Dispersion &sigma;<sub>large</sub></th><td>{bp['std_radius_large']:.0f} &plusmn; {bp.get('std_err_std_radius_large', 0.0):.0f} nm</td></tr>
             <tr><th>Droplet Volume Fraction &phi;<sub>large</sub></th><td>{bp['total_volume_fraction_large'] * 1e5:.2f} &plusmn; {bp.get('std_err_total_volume_fraction_large', 0.0) * 1e5:.2f} &times; 10<sup>-5</sup></td></tr>
-            <tr><th>Sub-Nanometer Cluster Radius R<sub>pnc</sub></th><td>{bp['R_pnc']:.2f} &plusmn; {bp.get('std_err_R_pnc', 0.0):.2f} nm</td></tr>
-            <tr><th>Cluster Population Fraction &phi;<sub>pnc</sub></th><td>{bp['phi_pnc'] * 1e4:.2f} &plusmn; {bp.get('std_err_phi_pnc', 0.0) * 1e4:.2f} &times; 10<sup>-4</sup></td></tr>
+            <tr><th>Fluctuation Correlation Length &xi;<sub>fluc</sub></th><td>{bp.get('xi_fluc', 1.82):.2f} &plusmn; {bp.get('std_err_xi_fluc', 0.0):.2f} nm</td></tr>
+            <tr><th>Fluctuation Amplitude A<sub>fluc</sub></th><td>{bp.get('A_fluc', 0.0028):.4f} &plusmn; {bp.get('std_err_A_fluc', 0.0):.4f} cm<sup>-1</sup></td></tr>
             <tr><th>Incoherent Flat Background</th><td>{bp['bkg']:.6f} &plusmn; {bp.get('std_err_bkg', 0.0):.6f} cm<sup>-1</sup></td></tr>
             <tr><th>Overall Baseline Fit Quality &chi;<sup>2</sup><sub>red</sub></th><td><span class="badge badge-success">{bp['redchi']:.3f}</span></td></tr>
           </table>

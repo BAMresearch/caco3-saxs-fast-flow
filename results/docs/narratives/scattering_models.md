@@ -28,8 +28,14 @@ where $(\Delta \rho)^2 = 26.884225\text{ cm}^{-2}$ is the calibrated electron co
 - **Large Droplets:** Monodisperse or lognormal spherical droplets ($\langle R_{\text{large}} \rangle \in [2.2, 3.5]\ \mu\text{m}$) capturing capillary-sheared emulsion domains.
 - **Asymptotic Porod Tail:** $I_{\text{porod}}(q) = A_{\text{porod}} / q^4$ representing scattering from smooth interfaces of giant domains ($q R \gg 1$).
 
-### 4. High-$q$ Viscoelastic Mesh Fluctuations & PNCs
-- **Fisher-Burford / Tanaka Viscoelastic Mesh:**
-  $$I_{\text{FB}}(q) = \frac{A_{\text{fluc}}}{\left[ 1 + \frac{2}{3\mu} (q \xi_{\text{fluc}})^2 \right]^{\mu/2}}$$
-  ($\mu = 2$ for Ornstein-Zernike fluctuations, $\mu = 4$ for Porod decay).
-- **Prenucleation Clusters (PNCs/DOLLOPs):** Polydisperse spherical form factor with $R_{\text{pnc}} \in [0.5, 6.4]\text{ nm}$.
+### 4. High-$q$ Viscoelastic Mesh Fluctuations (PNCs / Tanaka Framework)
+The excess scattering at high $q$ arises from dynamic concentration and network density fluctuations of the transient viscoelastic mesh formed by entangled, hydrated ionic oligomers (prenucleation clusters / DOLLOPs), modeled via the generalized Fisher-Burford / Tanaka formulation:
+
+$$I_{\text{high-q}}(q) \equiv I_{\text{fluc}}(q) = \frac{A_{\text{fluc}}}{\left[ 1 + \frac{2}{3\mu_{\text{fluc}}} (q \xi_{\text{fluc}})^2 \right]^{\mu_{\text{fluc}}/2}}$$
+
+where:
+- $\xi_{\text{fluc}} \in [1.5, 4.5]\text{ nm}$ is the characteristic correlation mesh size of the entangled PNC oligomer network.
+- $A_{\text{fluc}}$ is the fluctuation amplitude scaling with the local density contrast of the transient strands.
+- $\mu_{\text{fluc}} = 4.0$ corresponds to Porod-type boundary decay across viscoelastic strands (with $\mu_{\text{fluc}} = 2.0$ representing classical Ornstein-Zernike critical concentration fluctuations).
+
+

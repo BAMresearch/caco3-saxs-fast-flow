@@ -382,14 +382,14 @@ def build_dashboard():
               <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Macroscopic surface interface scattering</td>
             </tr>
             <tr>
-              <td>Prenucleation Cluster Radius</td><td>&lang;R<sub>pnc</sub>&rang;</td>
-              <td>{bp.get('R_pnc', 1.46):.2f} nm</td><td>&plusmn; {bp.get('std_err_R_pnc', 0.0):.2f} nm</td>
-              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Mean radius of sub-nm PNC clusters</td>
+              <td>Fluctuation Correlation Length</td><td>&xi;<sub>fluc</sub></td>
+              <td>{bp.get('xi_fluc', 7.84):.2f} nm</td><td>&plusmn; {bp.get('std_err_xi_fluc', 0.0):.2f} nm</td>
+              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Viscoelastic concentration fluctuation correlation length</td>
             </tr>
             <tr>
-              <td>PNC Volume Fraction</td><td>&phi;<sub>pnc</sub></td>
-              <td>{bp.get('phi_pnc', 0.0) * 1e5:.2f} &times; 10<sup>-5</sup></td><td>&plusmn; {bp.get('std_err_phi_pnc', 0.0) * 1e5:.2f} &times; 10<sup>-5</sup></td>
-              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Volume fraction of PNC clusters</td>
+              <td>Fluctuation Amplitude</td><td>A<sub>fluc</sub></td>
+              <td>{bp.get('A_fluc', 0.02):.4f} cm<sup>-1</sup></td><td>&plusmn; {bp.get('std_err_A_fluc', 0.0):.4f} cm<sup>-1</sup></td>
+              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Tanaka fluctuation mesh forward intensity</td>
             </tr>
             <tr>
               <td>Incoherent Background</td><td>bkg</td>

@@ -87,12 +87,10 @@ unified_fitting_ND-i-005/
 | Network correlation cutoff | $\xi$ | $1194\text{ nm}$ | $\pm 2347\text{ nm}$ | Mesoscale network cluster size |
 | Droplet radius | $\langle R_{\rm large} \rangle$ | $3530\text{ nm}$ | $\pm 48\text{ nm}$ | Mean radius of secondary dense liquid droplets |
 | Droplet dispersion | $\sigma_{\rm large}$ | $504\text{ nm}$ | $\pm 6.3\text{ nm}$ | Log-normal standard deviation ($\sigma/R = 0.143$) |
-| Droplet volume fraction | $\phi_{\rm large}$ | $2.5 \times 10^{-5}$ | $\pm 0.5 \times 10^{-5}$ | Volume fraction of secondary droplets |
-| Cluster radius | $R_{\rm pnc}$ | $2.40\text{ nm}$ | $\pm 0.03\text{ nm}$ | Radius of sub-nanometer clusters / DOLLOPs |
-| Cluster dispersion | $\sigma_{\rm pnc}$ | $1.32\text{ nm}$ | $\pm 0.01\text{ nm}$ | Log-normal standard deviation |
-| Cluster volume fraction | $\phi_{\rm pnc}$ | $4.87 \times 10^{-4}$ | $\pm 0.08 \times 10^{-4}$ | Volume fraction of cluster population |
-| Incoherent background | $bkg$ | $8.43 \times 10^{-4}$ | $\pm 0.16 \times 10^{-4}$ | Constant flat background [cm$^{-1}$] |
-| Goodness of fit | $\chi^2_{\rm red}$ | **2.67** | : | Reduced chi-square across 1831 points |
+| Fluctuation correlation length | $\xi_{\rm fluc}$ | $1.82\text{ nm}$ | $\pm 0.66\text{ nm}$ | Tanaka viscoelastic concentration fluctuation length |
+| Fluctuation amplitude | $A_{\rm fluc}$ | $0.0028\text{ cm}^{-1}$ | $\pm 0.0018\text{ cm}^{-1}$ | Viscoelastic fluctuation mesh forward intensity |
+| Incoherent background | $bkg$ | $4.91 \times 10^{-4}$ | $\pm 1.24 \times 10^{-4}$ | Constant flat background [cm$^{-1}$] |
+| Goodness of fit | $\chi^2_{\rm red}$ | **4.47** | : | Reduced chi-square across 1831 points |
 
 ---
 

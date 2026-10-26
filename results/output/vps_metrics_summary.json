@@ -27,11 +27,11 @@
       "concentration_mM": 20.0,
       "pH": 11.3,
       "regime": "Spinodal gelation",
-      "r_prim": "11.24",
-      "dm": "1.856",
-      "xi": "356.0",
+      "r_prim": "11.46",
+      "dm": "1.859",
+      "xi": "351.6",
       "r_large_um": "N/A",
-      "chi2_red": "0.964"
+      "chi2_red": "0.971"
     },
     {
       "series_id": "ND-i-009",
@@ -49,22 +49,22 @@
       "concentration_mM": 40.0,
       "pH": 11.3,
       "regime": "Rapid quench spinodal",
-      "r_prim": "3.50",
-      "dm": "2.328",
-      "xi": "735.4",
-      "r_large_um": "3.01",
-      "chi2_red": "0.397"
+      "r_prim": "15.43",
+      "dm": "2.265",
+      "xi": "923.1",
+      "r_large_um": "3.04",
+      "chi2_red": "0.718"
     },
     {
       "series_id": "ND-i-005",
       "concentration_mM": 40.0,
       "pH": 11.3,
       "regime": "Additive perturbation branch",
-      "r_prim": "6.59",
-      "dm": "2.102",
-      "xi": "1193.6",
-      "r_large_um": "3.53",
-      "chi2_red": "2.672"
+      "r_prim": "2.40",
+      "dm": "1.966",
+      "xi": "4014.7",
+      "r_large_um": "3.47",
+      "chi2_red": "4.470"
     }
   ],
   "nd009_volume_shrinking": {

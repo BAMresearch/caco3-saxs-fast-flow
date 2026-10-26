@@ -232,17 +232,16 @@ def plot_nd_i_002():
         rho2=m02.RHO2_CALIBRATED, integration_steps=150
     )
     I_por_dense = m02.calc_porod_intensity(q_dense, p['A_porod'], 4.0)
-    I_pnc_dense = m02.calc_pnc_intensity(
-        q_dense, p['R_pnc'], p['std_pnc'], p['phi_pnc'],
-        rho2=m02.RHO2_CALIBRATED, integration_steps=100
+    I_fluc_dense = m02.calc_fb_intensity(
+        q_dense, p['A_fluc'], p['xi_fluc'], mu_fluc=p.get('mu_fluc', 4.0)
     )
     I_bkg_dense = np.full_like(q_dense, p['bkg'])
-    I_tot_dense = I_net_dense + I_por_dense + I_pnc_dense + I_bkg_dense
+    I_tot_dense = I_net_dense + I_por_dense + I_fluc_dense + I_bkg_dense
 
     I_net_d = m02.calc_primary_fractal_intensity(q_data, p['Rmean'], p['stdDev'], p['phi'], p['D'], p['xi'], rho2=m02.RHO2_CALIBRATED)
     I_por_d = m02.calc_porod_intensity(q_data, p['A_porod'], 4.0)
-    I_pnc_d = m02.calc_pnc_intensity(q_data, p['R_pnc'], p['std_pnc'], p['phi_pnc'], rho2=m02.RHO2_CALIBRATED)
-    c_final = I_net_d + I_por_d + I_pnc_d + p['bkg']
+    I_fluc_d = m02.calc_fb_intensity(q_data, p['A_fluc'], p['xi_fluc'], mu_fluc=p.get('mu_fluc', 4.0))
+    c_final = I_net_d + I_por_d + I_fluc_d + p['bkg']
 
     fig = plt.figure(figsize=(10.5, 8.0))
     gs = fig.add_gridspec(2, 1, height_ratios=[3.2, 1], hspace=0.10)
@@ -257,8 +256,8 @@ def plot_nd_i_002():
                   label=f'Spinodal fractal network ($R = {p["Rmean"]:.1f}$ nm, $D_m = {p["D"]:.2f}$, $\\xi = {p["xi"]:.0f}$ nm)')
     ax_fit.loglog(q_dense, I_por_dense, color=SAXS_COLORS['droplets_porod'], linestyle='-.', linewidth=1.8,
                   label=f'Macroscopic droplets / Porod tail ($A = {p["A_porod"]*1e8:.2f}\\times 10^{{-8}}$ cm$^{{-1}}$nm$^{{-4}}$)')
-    ax_fit.loglog(q_dense, I_pnc_dense, color=SAXS_COLORS['pnc_fluctuations'], linestyle=':', linewidth=1.8,
-                  label=f'Tanaka PNC mesh ($R_{{\\rm pnc}} = {p["R_pnc"]:.1f}$ nm, $\\phi = {p["phi_pnc"]:.2e}$)')
+    ax_fit.loglog(q_dense, I_fluc_dense, color=SAXS_COLORS['pnc_fluctuations'], linestyle=':', linewidth=1.8,
+                  label=f'Tanaka viscoelastic fluctuations ($\\xi_{{\\rm fluc}} = {p["xi_fluc"]:.1f}$ nm, $A_{{\\rm fluc}} = {p["A_fluc"]:.3f}$ cm$^{{-1}}$)')
     ax_fit.axhline(p['bkg'], color=SAXS_COLORS['background'], linestyle=':', linewidth=1.2,
                    label=f'Solvent background ({p["bkg"]:.2e} cm$^{{-1}}$)')
 
@@ -383,17 +382,16 @@ def plot_nd_i_001():
         q_dense, p['mean_radius_large'], p['std_radius_large'], p['total_volume_fraction_large'],
         rho2=m01.RHO2_CALIBRATED, integration_steps=200
     )
-    I_pnc = m01.calc_pnc_intensity(
-        q_dense, p['R_pnc'], p['std_pnc'], p['phi_pnc'],
-        rho2=m01.RHO2_CALIBRATED, integration_steps=120
+    I_fluc = m01.calc_fb_intensity(
+        q_dense, p['A_fluc'], p['xi_fluc'], mu_fluc=p.get('mu_fluc', 4.0)
     )
     I_bkg = np.full_like(q_dense, p['bkg'])
-    I_tot = I_prim + I_large + I_pnc + I_bkg
+    I_tot = I_prim + I_large + I_fluc + I_bkg
 
     I_prim_d = m01.calc_primary_fractal_intensity(q_data, p['Rmean'], p['stdDev'], p['phi'], p['D'], p['xi'], rho2=m01.RHO2_CALIBRATED)
     I_large_d = m01.calc_large_sphere_intensity(q_data, p['mean_radius_large'], p['std_radius_large'], p['total_volume_fraction_large'], rho2=m01.RHO2_CALIBRATED)
-    I_pnc_d = m01.calc_pnc_intensity(q_data, p['R_pnc'], p['std_pnc'], p['phi_pnc'], rho2=m01.RHO2_CALIBRATED)
-    c_final = I_prim_d + I_large_d + I_pnc_d + p['bkg']
+    I_fluc_d = m01.calc_fb_intensity(q_data, p['A_fluc'], p['xi_fluc'], mu_fluc=p.get('mu_fluc', 4.0))
+    c_final = I_prim_d + I_large_d + I_fluc_d + p['bkg']
 
     fig = plt.figure(figsize=(10.5, 8.0))
     gs = fig.add_gridspec(2, 1, height_ratios=[3.2, 1], hspace=0.10)
@@ -406,8 +404,8 @@ def plot_nd_i_001():
                   label=f'Spinodal fractal network ($\\langle R \\rangle = {p["Rmean"]:.2f}$ nm, $D_f = {p["D"]:.2f}$)')
     ax_fit.loglog(q_dense, I_large, color=SAXS_COLORS['droplets_porod'], linestyle='-.', linewidth=1.8,
                   label=f'Macroscopic droplets / Porod tail ($\\langle R \\rangle = {p["mean_radius_large"]:.0f}$ nm, $\\phi = {p["total_volume_fraction_large"]:.2e}$)')
-    ax_fit.loglog(q_dense, I_pnc, color=SAXS_COLORS['pnc_fluctuations'], linestyle=':', linewidth=1.8,
-                  label=f'Tanaka PNC mesh ($\\langle R_{{\\rm pnc}} \\rangle = {p["R_pnc"]:.2f}$ nm, $\\phi = {p["phi_pnc"]:.2e}$)')
+    ax_fit.loglog(q_dense, I_fluc, color=SAXS_COLORS['pnc_fluctuations'], linestyle=':', linewidth=1.8,
+                  label=f'Tanaka viscoelastic fluctuations ($\\xi_{{\\rm fluc}} = {p["xi_fluc"]:.1f}$ nm, $A_{{\\rm fluc}} = {p["A_fluc"]:.3f}$ cm$^{{-1}}$)')
     ax_fit.axhline(p['bkg'], color=SAXS_COLORS['background'], linestyle=':', linewidth=1.2,
                    label=f'Solvent background ({p["bkg"]:.2e} cm$^{{-1}}$)')
 
@@ -460,17 +458,16 @@ def plot_nd_i_005():
         q_dense, p['mean_radius_large'], p['std_radius_large'], p['total_volume_fraction_large'],
         rho2=m05.RHO2_CALIBRATED, integration_steps=200
     )
-    I_pnc = m05.calc_pnc_intensity(
-        q_dense, p['R_pnc'], p['std_pnc'], p['phi_pnc'],
-        rho2=m05.RHO2_CALIBRATED, integration_steps=120
+    I_fluc = m05.calc_fb_intensity(
+        q_dense, p['A_fluc'], p['xi_fluc'], mu_fluc=p.get('mu_fluc', 4.0)
     )
     I_bkg = np.full_like(q_dense, p['bkg'])
-    I_tot = I_prim + I_large + I_pnc + I_bkg
+    I_tot = I_prim + I_large + I_fluc + I_bkg
 
     I_prim_d = m05.calc_primary_fractal_intensity(q_data, p['Rmean'], p['stdDev'], p['phi'], p['D'], p['xi'], rho2=m05.RHO2_CALIBRATED)
     I_large_d = m05.calc_large_sphere_intensity(q_data, p['mean_radius_large'], p['std_radius_large'], p['total_volume_fraction_large'], rho2=m05.RHO2_CALIBRATED)
-    I_pnc_d = m05.calc_pnc_intensity(q_data, p['R_pnc'], p['std_pnc'], p['phi_pnc'], rho2=m05.RHO2_CALIBRATED)
-    c_final = I_prim_d + I_large_d + I_pnc_d + p['bkg']
+    I_fluc_d = m05.calc_fb_intensity(q_data, p['A_fluc'], p['xi_fluc'], mu_fluc=p.get('mu_fluc', 4.0))
+    c_final = I_prim_d + I_large_d + I_fluc_d + p['bkg']
 
     fig = plt.figure(figsize=(10.5, 8.0))
     gs = fig.add_gridspec(2, 1, height_ratios=[3.2, 1], hspace=0.10)
@@ -483,8 +480,8 @@ def plot_nd_i_005():
                   label=f'Spinodal fractal network ($\\langle R \\rangle = {p["Rmean"]:.2f}$ nm, $D_f = {p["D"]:.2f}$, $\\xi = {p["xi"]:.0f}$ nm)')
     ax_fit.loglog(q_dense, I_large, color=SAXS_COLORS['droplets_porod'], linestyle='-.', linewidth=1.8,
                   label=f'Macroscopic droplets / Porod tail ($\\langle R \\rangle = {p["mean_radius_large"]:.0f}$ nm)')
-    ax_fit.loglog(q_dense, I_pnc, color=SAXS_COLORS['pnc_fluctuations'], linestyle=':', linewidth=1.8,
-                  label=f'Tanaka PNC mesh ($\\langle R_{{\\rm pnc}} \\rangle = {p["R_pnc"]:.2f}$ nm, $\\phi = {p["phi_pnc"]:.2e}$)')
+    ax_fit.loglog(q_dense, I_fluc, color=SAXS_COLORS['pnc_fluctuations'], linestyle=':', linewidth=1.8,
+                  label=f'Tanaka viscoelastic fluctuations ($\\xi_{{\\rm fluc}} = {p["xi_fluc"]:.1f}$ nm, $A_{{\\rm fluc}} = {p["A_fluc"]:.3f}$ cm$^{{-1}}$)')
     ax_fit.axhline(p['bkg'], color=SAXS_COLORS['background'], linestyle=':', linewidth=1.2,
                    label=f'Solvent background ({p["bkg"]:.2e} cm$^{{-1}}$)')
 

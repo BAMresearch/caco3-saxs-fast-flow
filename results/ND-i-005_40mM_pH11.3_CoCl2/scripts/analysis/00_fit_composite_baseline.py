@@ -7,7 +7,7 @@ Script 00: Fit Composite Baseline Scattering Curve for ND-i-005.
 Establishes the global structural baseline across q in [0.002, 2.5] nm^-1:
 - Primary building blocks: Rmean, stdDev, phi, D, xi
 - Large droplet population: mean_radius_large, std_radius_large, total_volume_fraction_large
-- Sub-nanometer prenucleation clusters (PNCs): R_pnc, std_pnc, phi_pnc
+- Viscoelastic network fluctuations (Fisher-Burford / Tanaka): A_fluc, xi_fluc, mu_fluc = 4.0
 - Incoherent background: bkg
 
 Outputs:
@@ -37,7 +37,7 @@ from models.scattering_models import (
     decompose_model_components,
     calc_primary_fractal_intensity,
     calc_large_sphere_intensity,
-    calc_pnc_intensity,
+    calc_fb_intensity,
     RHO2_CALIBRATED
 )
 from models.fitting_engine import residuals_func
@@ -72,9 +72,9 @@ def fit_composite_baseline():
     p.add('mean_radius_large', value=3000.0, min=500.0, max=10000.0, vary=False)
     p.add('std_radius_large', value=150.0, min=10.0, max=1500.0, vary=False)
     p.add('total_volume_fraction_large', value=3e-5, min=1e-8, max=0.01, vary=False)
-    p.add('R_pnc', value=1.25, min=0.1, max=10.0, vary=False)
-    p.add('std_pnc', value=0.95, min=0.05, max=5.0, vary=False)
-    p.add('phi_pnc', value=0.0011, min=1e-7, max=0.05, vary=False)
+    p.add('A_fluc', value=0.08, min=1e-5, max=5.0, vary=False)
+    p.add('xi_fluc', value=2.5, min=0.5, max=15.0, vary=False)
+    p.add('mu_fluc', value=4.0, vary=False)
 
     # --- 4-Stage Hierarchical Fit ---
     print("\n--- Running Stage 1: Primary Building Block & Fractal Fit (q in [0.015, 0.4] nm^-1) ---")
@@ -97,31 +97,31 @@ def fit_composite_baseline():
     p = out2.params.copy()
     print(f"Stage 2 Complete: R_large = {p['mean_radius_large'].value:.1f} nm, phi_large = {p['total_volume_fraction_large'].value:.6e}, xi = {p['xi'].value:.1f} nm")
 
-    print("\n--- Running Stage 3: Sub-Nanometer Prenucleation Clusters Fit at High-q (q > 0.3 nm^-1) ---")
+    print("\n--- Running Stage 3: Viscoelastic Network Fluctuations Fit at High-q (q > 0.3 nm^-1) ---")
     p['xi'].vary = False
     p['mean_radius_large'].vary = False
     p['std_radius_large'].vary = False
     p['total_volume_fraction_large'].vary = False
-    p['R_pnc'].vary = True
-    p['std_pnc'].vary = True
-    p['phi_pnc'].vary = True
+    p['A_fluc'].vary = True
+    p['xi_fluc'].vary = True
     p['bkg'].vary = True
     s3_mask = (q_data > 0.3)
     out3 = minimize(residuals_func, p, args=(q_data[s3_mask], y_data[s3_mask], dy_data[s3_mask], False, False, 1.0, 80), method='least_squares')
     p = out3.params.copy()
-    print(f"Stage 3 Complete: R_pnc = {p['R_pnc'].value:.3f} nm, phi_pnc = {p['phi_pnc'].value:.6e}, bkg = {p['bkg'].value:.6e}")
+    print(f"Stage 3 Complete: A_fluc = {p['A_fluc'].value:.4f} cm^-1, xi_fluc = {p['xi_fluc'].value:.3f} nm, bkg = {p['bkg'].value:.6e}")
 
     print("\n--- Running Stage 4: Full Multi-Component Global Refinement Across All Length Scales ---")
     for k in p:
-        if k not in ['rho2']:
+        if k not in ['rho2', 'mu_fluc']:
             p[k].vary = True
     out_final = minimize(residuals_func, p, args=(q_data, y_data, dy_data, True, False, 1.0, 100), method='least_squares', max_nfev=600)
     
     # Compute exact covariance matrix and standard errors around converged solution
     p_cov = Parameters()
     p_cov.add('rho2', value=RHO2_CALIBRATED, vary=False)
-    for k in ['phi', 'Rmean', 'stdDev', 'D', 'xi', 'bkg', 'mean_radius_large', 'std_radius_large', 'total_volume_fraction_large', 'R_pnc', 'std_pnc', 'phi_pnc']:
+    for k in ['phi', 'Rmean', 'stdDev', 'D', 'xi', 'bkg', 'mean_radius_large', 'std_radius_large', 'total_volume_fraction_large', 'A_fluc', 'xi_fluc']:
         p_cov.add(k, value=out_final.params[k].value, min=1e-8, max=1e5, vary=True)
+    p_cov.add('mu_fluc', value=4.0, vary=False)
     out_cov = minimize(residuals_func, p_cov, args=(q_data, y_data, dy_data, True, False, 1.0, 100), method='leastsq', calc_covar=True)
     final_params = out_cov.params
     red_chi2 = out_cov.redchi
@@ -164,12 +164,12 @@ def fit_composite_baseline():
         q_dense, final_params['mean_radius_large'].value, final_params['std_radius_large'].value,
         final_params['total_volume_fraction_large'].value, rho2=RHO2_CALIBRATED, integration_steps=200
     )
-    I_pnc = calc_pnc_intensity(
-        q_dense, final_params['R_pnc'].value, final_params['std_pnc'].value,
-        final_params['phi_pnc'].value, rho2=RHO2_CALIBRATED, integration_steps=120
+    I_fluc = calc_fb_intensity(
+        q_dense, final_params['A_fluc'].value, final_params['xi_fluc'].value,
+        mu_fluc=final_params.get('mu_fluc', 4.0).value if 'mu_fluc' in final_params else 4.0
     )
     I_bkg = np.full_like(q_dense, final_params['bkg'].value)
-    I_tot = I_prim + I_large + I_pnc + I_bkg
+    I_tot = I_prim + I_large + I_fluc + I_bkg
 
     fig = plt.figure(figsize=(11, 8.5))
     gs = fig.add_gridspec(2, 1, height_ratios=[3.2, 1], hspace=0.12)
@@ -183,8 +183,8 @@ def fit_composite_baseline():
                   label=f'Primary Fractal Network ($\\langle R \\rangle = {final_params["Rmean"].value:.2f} \\pm {final_params["stdDev"].value:.2f}$ nm, $D_f = {final_params["D"].value:.2f}$)')
     ax_fit.loglog(q_dense, I_large, color='#d97706', linestyle='-.', linewidth=1.8,
                   label=f'Large Droplet Population ($\\langle R \\rangle = {final_params["mean_radius_large"].value:.0f} \\pm {final_params["std_radius_large"].value:.0f}$ nm)')
-    ax_fit.loglog(q_dense, I_pnc, color='#9333ea', linestyle=':', linewidth=1.8,
-                  label=f'Sub-Nanometer Clusters ($\\langle R \\rangle = {final_params["R_pnc"].value:.2f}$ nm)')
+    ax_fit.loglog(q_dense, I_fluc, color='#9333ea', linestyle=':', linewidth=1.8,
+                  label=f'Tanaka Viscoelastic Fluctuations ($\\xi_{{\\mathrm{{fluc}}}} = {final_params["xi_fluc"].value:.2f}$ nm, $A_{{\\mathrm{{fluc}}}} = {final_params["A_fluc"].value:.3f}$ cm$^{{-1}}$)')
     ax_fit.axhline(final_params['bkg'].value, color='#64748b', linestyle=':', linewidth=1.2,
                    label=f'Incoherent Background ({final_params["bkg"].value:.2e} cm$^{{-1}}$)')
 

@@ -10,7 +10,7 @@ Synthesizes the multiscale structural evolution across both camera geometries
 Panels:
 (A) Structural Hierarchy Across 4 Orders of Magnitude (0.5 nm to 4.0 um)
 (B) Cross-Scale Network Fractal Dimension Agreement D_f(t) +/- 1 sigma
-(C) Phase Volume Fraction Evolution (phi_prim, phi_pnc, phi_large) +/- 1 sigma
+(C) Phase Volume Fraction & Fluctuation Evolution (phi_prim, phi_large, A_fluc) +/- 1 sigma
 (D) Cross-Scale Goodness-of-Fit Metric chi^2_red(t)
 
 Output:

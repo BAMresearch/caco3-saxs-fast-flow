@@ -7,7 +7,7 @@ Script 00: Fit Composite Baseline Scattering Curve for ND-i-002.
 Establishes the global structural baseline across q in [0.002, 2.54] nm^-1:
 - Primary building blocks in Spinodal Fractal Network: Rmean, stdDev, phi, D, xi
 - Macroscopic Porod surface tail: A_porod / q^4
-- Sub-nanometer clusters / high-q excess: R_pnc, std_pnc, phi_pnc
+- Viscoelastic network fluctuations (Fisher-Burford / Tanaka): A_fluc, xi_fluc, mu_fluc = 4.0
 - Incoherent background: bkg
 
 Outputs:
@@ -34,7 +34,7 @@ sys.path.insert(0, PROJECT_DIR)
 
 from models.scattering_models import (
     calc_primary_fractal_intensity,
-    calc_pnc_intensity,
+    calc_fb_intensity,
     RHO2_CALIBRATED
 )
 
@@ -72,10 +72,10 @@ def fit_composite_baseline():
     # 2. Macroscopic Porod surface tail
     p.add('A_porod', value=5.5e-8, min=1e-11, max=0.01, vary=True)
 
-    # 3. Sub-nanometer clusters / high-q excess
-    p.add('R_pnc', value=1.5, min=0.2, max=5.0, vary=True)
-    p.add('std_pnc', value=1.0, min=0.1, max=3.0, vary=True)
-    p.add('phi_pnc', value=1.4e-5, min=1e-7, max=0.001, vary=True)
+    # 3. Viscoelastic concentration fluctuations (Fisher-Burford / Tanaka)
+    p.add('A_fluc', value=0.08, min=1e-5, max=5.0, vary=True)
+    p.add('xi_fluc', value=2.5, min=0.5, max=15.0, vary=True)
+    p.add('mu_fluc', value=4.0, vary=False)
 
     # 4. Incoherent flat background
     p.add('bkg', value=1.3e-4, min=1e-6, max=0.01, vary=True)
@@ -87,11 +87,11 @@ def fit_composite_baseline():
             rho2=RHO2_CALIBRATED, integration_steps=80
         )
         I_por = pars['A_porod'].value / (q_eval ** 4)
-        I_pnc = calc_pnc_intensity(
-            q_eval, pars['R_pnc'].value, pars['std_pnc'].value,
-            pars['phi_pnc'].value, rho2=RHO2_CALIBRATED
+        I_fluc = calc_fb_intensity(
+            q_eval, pars['A_fluc'].value, pars['xi_fluc'].value,
+            mu_fluc=pars['mu_fluc'].value
         )
-        return I_net + I_por + I_pnc + pars['bkg'].value
+        return I_net + I_por + I_fluc + pars['bkg'].value
 
     def res(pars):
         c = model_eval(pars, q_data)
@@ -140,12 +140,12 @@ def fit_composite_baseline():
         rho2=RHO2_CALIBRATED, integration_steps=120
     )
     I_por_dense = final_params['A_porod'].value / (q_dense ** 4)
-    I_pnc_dense = calc_pnc_intensity(
-        q_dense, final_params['R_pnc'].value, final_params['std_pnc'].value,
-        final_params['phi_pnc'].value, rho2=RHO2_CALIBRATED
+    I_fluc_dense = calc_fb_intensity(
+        q_dense, final_params['A_fluc'].value, final_params['xi_fluc'].value,
+        mu_fluc=final_params['mu_fluc'].value
     )
     I_bkg_dense = np.full_like(q_dense, final_params['bkg'].value)
-    I_tot_dense = I_net_dense + I_por_dense + I_pnc_dense + I_bkg_dense
+    I_tot_dense = I_net_dense + I_por_dense + I_fluc_dense + I_bkg_dense
 
     fig = plt.figure(figsize=(10.5, 8.0))
     gs = fig.add_gridspec(2, 1, height_ratios=[3.2, 1], hspace=0.10)
@@ -162,8 +162,8 @@ def fit_composite_baseline():
                   label=f'Spinodal Fractal Network ($R = {final_params["Rmean"].value:.1f}$ nm, $D_m = {final_params["D"].value:.2f}$, $\\xi = {final_params["xi"].value:.0f}$ nm)')
     ax_fit.loglog(q_dense, I_por_dense, color='#d97706', linestyle='-.', linewidth=1.8,
                   label=f'Macroscopic Droplets / Porod Tail ($A = {final_params["A_porod"].value*1e8:.2f}\\times 10^{{-8}}$ cm$^{{-1}}$nm$^{{-4}}$)')
-    ax_fit.loglog(q_dense, I_pnc_dense, color='#9333ea', linestyle=':', linewidth=1.8,
-                  label=f'Tanaka PNC Mesh ($R_{{\\rm pnc}} = {final_params["R_pnc"].value:.1f}$ nm, $\\phi = {final_params["phi_pnc"].value:.2e}$)')
+    ax_fit.loglog(q_dense, I_fluc_dense, color='#9333ea', linestyle=':', linewidth=1.8,
+                  label=f'Tanaka Viscoelastic Fluctuation Mesh ($\\xi_{{\\rm fluc}} = {final_params["xi_fluc"].value:.2f}$ nm, $A_{{\\rm fluc}} = {final_params["A_fluc"].value:.2e}$ cm$^{{-1}}$)')
     ax_fit.axhline(final_params['bkg'].value, color='#64748b', linestyle=':', linewidth=1.2,
                    label=f'Solvent Background ({final_params["bkg"].value:.2e} cm$^{{-1}}$)')
 

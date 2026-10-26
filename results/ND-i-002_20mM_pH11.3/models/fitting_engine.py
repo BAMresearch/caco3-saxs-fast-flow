@@ -96,47 +96,6 @@ def create_short_distance_params(baseline_params=None):
     return p
 
 
-def create_short_distance_pnc_params(baseline_params=None):
-    """
-    Creates Parameters for Short Distance with Prenucleation Clusters (PNCs / DOLLOPs).
-    - Large spheres EXCLUDED (phi_large=0)
-    - xi FIXED to merged baseline value
-    - Primary particles (phi, Rmean, stdDev, D) ACTIVE
-    - Sub-nanometer PNCs (R_pnc, std_pnc, phi_pnc) ACTIVE
-    - Flat background ACTIVE
-    """
-    p = Parameters()
-    p.add('rho2', value=RHO2_CALIBRATED, vary=False)
-
-    phi_val = 0.003 if baseline_params is None else baseline_params.get('phi', 0.003)
-    Rmean_val = 8.5 if baseline_params is None else baseline_params.get('Rmean', 8.5)
-    stdDev_val = 3.0 if baseline_params is None else baseline_params.get('stdDev', 3.0)
-    D_val = 1.85 if baseline_params is None else baseline_params.get('D', 1.85)
-    xi_val = 3000.0 if baseline_params is None else baseline_params.get('xi', 3000.0)
-    bkg_val = 0.015 if baseline_params is None else baseline_params.get('bkg', 0.015)
-
-    p.add('phi', value=phi_val, min=1e-6, max=0.05, vary=True)
-    p.add('Rmean', value=Rmean_val, min=2.0, max=25.0, vary=True)
-    p.add('stdDev', value=stdDev_val, min=0.2, max=12.0, vary=True)
-    p.add('D', value=D_val, min=1.1, max=2.999, vary=True)
-    p.add('xi', value=xi_val, vary=False)
-    p.add('bkg', value=bkg_val, min=0.0, max=0.2, vary=True)
-
-    # Large spheres parked at 0
-    p.add('mean_radius_large', value=3200.0, vary=False)
-    p.add('std_radius_large', value=150.0, vary=False)
-    p.add('total_volume_fraction_large', value=0.0, vary=False)
-
-    # PNC Parameters (DOLLOPs)
-    R_pnc_val = 0.53 if baseline_params is None else baseline_params.get('R_pnc', 0.53)
-    std_pnc_val = 0.35 if baseline_params is None else baseline_params.get('std_pnc', 0.35)
-    phi_pnc_val = 0.0018 if baseline_params is None else baseline_params.get('phi_pnc', 0.0018)
-
-    p.add('R_pnc', value=R_pnc_val, min=0.2, max=2.5, vary=True)
-    p.add('std_pnc', value=std_pnc_val, min=0.05, max=1.2, vary=True)
-    p.add('phi_pnc', value=phi_pnc_val, min=1e-7, max=0.02, vary=True)
-
-    return p
 
 
 def create_short_distance_viscoelastic_params(baseline_params=None):

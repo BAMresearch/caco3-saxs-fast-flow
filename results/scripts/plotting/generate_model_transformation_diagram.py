@@ -167,14 +167,14 @@ def build_curves_nd_i_002():
     q_dense = np.geomspace(0.002, 2.50, 200)
     I_net = m02.calc_primary_fractal_intensity(q_dense, p['Rmean'], p['stdDev'], p['phi'], p['D'], p['xi'], rho2=m02.RHO2_CALIBRATED, integration_steps=100)
     I_por = m02.calc_porod_intensity(q_dense, p['A_porod'], 4.0)
-    I_pnc = m02.calc_pnc_intensity(q_dense, p['R_pnc'], p['std_pnc'], p['phi_pnc'], rho2=m02.RHO2_CALIBRATED, integration_steps=80)
+    I_fluc = m02.calc_fb_intensity(q_dense, p['A_fluc'], p['xi_fluc'], mu_fluc=p.get('mu_fluc', 4.0))
     I_bkg = np.full_like(q_dense, p['bkg'])
-    I_tot = I_net + I_por + I_pnc + I_bkg
+    I_tot = I_net + I_por + I_fluc + I_bkg
 
     curves = [
         {'q': q_dense, 'y': I_por, 'color': SAXS_COLORS['droplets_porod'], 'width': 1.5, 'dash': '3,2'},
         {'q': q_dense, 'y': I_net, 'color': SAXS_COLORS['fractal_network'], 'width': 1.5, 'dash': '4,2'},
-        {'q': q_dense, 'y': I_pnc, 'color': SAXS_COLORS['pnc_fluctuations'], 'width': 1.5, 'dash': '2,2'},
+        {'q': q_dense, 'y': I_fluc, 'color': SAXS_COLORS['pnc_fluctuations'], 'width': 1.5, 'dash': '2,2'},
         {'q': q_dense, 'y': I_bkg, 'color': SAXS_COLORS['background'], 'width': 1.0, 'dash': '1,2'},
         {'q': q_dense, 'y': I_tot, 'color': SAXS_COLORS['total_fit'], 'width': 2.0},
     ]
@@ -498,7 +498,7 @@ def generate_diagram_svg():
         <rect x="153" y="0" width="47" height="10" rx="2" fill="{SAXS_COLORS['pnc_fluctuations']}"/>
       </g>
       <text x="8" y="42" fill="#e2e8f0" font-size="8.5" font-weight="500">Fractal gel: <tspan fill="#34d399" font-weight="600">76%</tspan> | Tanaka PNC mesh: <tspan fill="#c084fc" font-weight="600">24%</tspan> (0% spheres)</text>
-      <text x="8" y="56" fill="#94a3b8" font-size="8">Transient viscoelastic PNC mesh (R_pnc &approx; 1.46 nm); discrete spheres 0%</text>
+      <text x="8" y="56" fill="#94a3b8" font-size="8">Transient viscoelastic PNC mesh (&xi; &approx; 2.5 - 7.8 nm); discrete spheres 0%</text>
     </g>
   </g>
 

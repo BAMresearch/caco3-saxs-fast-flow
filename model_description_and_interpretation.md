@@ -37,19 +37,19 @@ Under stopped-flow rapid-mixing conditions at the ESRF ID02 beamline ($q \in [0.
 ### Regime 3: Spinodal gelation (20.0 mM, ND-i-002, pH 11.3)
 * **Thermodynamic Condition:** Barrierless liquid-liquid demixing ($\ln S_{\text{ACC}} > \ln S^*$).
 * **Observed Scattering Morphology:** Discrete ACC spheres disappear entirely ($\phi_{\text{sph}} \to 0$). Small building units form practically instantaneously without induction delay, establishing a characteristic knee at $q \approx 0.1\ \text{nm}^{-1}$. Evolution is confined to low $q$ where the fractal network expands.
-* **Fitted Physical Model:** Percolated mass fractal network ($R_{\text{mean}} = 11.24 \pm 0.13\ \text{nm}$, $\text{stdDev} = 3.99 \pm 0.02\ \text{nm}$, $\phi = 4.74 \times 10^{-5}$, $D_m = 1.856 \pm 0.007$, $\xi = 356.0 \pm 24.8\ \text{nm}$), PNC clusters ($R_{\text{pnc}} = 1.47 \pm 0.39\ \text{nm}$, $\phi_{\text{pnc}} = 1.51 \times 10^{-5}$), and Porod tail ($A_{\text{porod}} = 5.28 \times 10^{-8}$).
-* **Statistical Quality:** $\chi^2_{\text{red}} = 0.964$.
+* **Fitted Physical Model:** Percolated mass fractal network ($R_{\text{mean}} = 11.46 \pm 0.12\ \text{nm}$, $\text{stdDev} = 4.01 \pm 0.02\ \text{nm}$, $\phi = 4.74 \times 10^{-5}$, $D_m = 1.859 \pm 0.007$, $\xi = 351.6 \pm 24.0\ \text{nm}$), Tanaka viscoelastic fluctuation mesh ($\xi_{\text{fluc}} = 7.84 \pm 0.45\ \text{nm}$, $A_{\text{fluc}} = 0.020 \pm 0.003\ \text{cm}^{-1}$), and Porod tail ($A_{\text{porod}} = 5.28 \times 10^{-8}$).
+* **Statistical Quality:** $\chi^2_{\text{red}} = 0.971$.
 
 ### Regime 4: Deep spinodal LLPS and viscoelastic phase separation benchmark (40.0 mM pure CaCO3, ND-i-009 & ND-i-001)
 * **ND-i-009 (40.0 mM, pure, pH 10.0 Benchmark):**
   * **Composite Baseline Parameters:** Percolated mass fractal network ($R_{\text{mean}} = 9.40 \pm 0.06\ \text{nm}$, $\text{stdDev} = 3.41 \pm 0.02\ \text{nm}$, $\phi = 6.00 \times 10^{-3}$, $D_m = 1.978 \pm 0.007$, $\xi = 248.2 \pm 5.1\ \text{nm}$), coexisting macroscopic droplets ($\langle R_{\text{large}} \rangle = 3196 \pm 3\ \text{nm}$ [$3.20\ \mu\text{m}$], $\text{std}_{\text{large}} = 231.4 \pm 1.6\ \text{nm}$, $\phi_{\text{large}} = 1.205 \times 10^{-3}$), and high-$q$ Ornstein-Zernike fluctuations ($A_{\text{OZ}} = 10.0 \pm 16.9$, $\xi_{\text{OZ}} = 14.66 \pm 12.41\ \text{nm}$), $\text{bkg} = 0.0\ \text{cm}^{-1}$, $\chi^2_{\text{red}} = 3.218$, $\text{AIC} = 1941$.
   * **Time-Resolved Short-Distance Trajectory (351 frames, 15 ms cadence):** Primary building block radius is strictly invariant ($R_{\text{prim}} \approx 2.80\ \text{nm}$), while network fractal dimension densifies monotonically ($D_m: 1.881 \to 1.925$), demonstrating **Tanaka volume shrinking** (solvent expulsion from viscoelastic strands). Internal fluctuation mesh correlation length $\xi_{\text{fluc}} \approx 2.7 - 2.8\ \text{nm}$.
 * **ND-i-001 (40.0 mM, pure, pH 11.3 Rapid Quench):**
-  * Higher supersaturation drives instantaneous barrierless quench ($t_{\text{ind}} < 0.06\ \text{s}$): denser network ($R_{\text{mean}} = 3.51 \pm 0.28\ \text{nm}$, $D_m = 2.328 \pm 0.003$, $\xi = 735.4 \pm 42.4\ \text{nm}$, $\phi = 4.98 \times 10^{-5}$), coexisting macroscopic droplets ($\langle R_{\text{large}} \rangle = 3015 \pm 9\ \text{nm}$ [$3.01\ \mu\text{m}$], $\phi_{\text{large}} = 6.51 \times 10^{-6}$), and high-$q$ PNCs ($R_{\text{pnc}} = 6.37 \pm 0.23\ \text{nm}$, $\phi_{\text{pnc}} = 3.80 \times 10^{-4}$), $\chi^2_{\text{red}} = 0.398$, $\text{AIC} = -1409$.
+  * Higher supersaturation drives instantaneous barrierless quench ($t_{\text{ind}} < 0.06\ \text{s}$): denser network ($R_{\text{mean}} = 15.43 \pm 0.74\ \text{nm}$, $\text{stdDev} = 6.25 \pm 0.11\ \text{nm}$, $D_m = 2.265 \pm 0.006$, $\xi = 923.1 \pm 129.7\ \text{nm}$, $\phi = 6.1 \times 10^{-5}$), coexisting macroscopic droplets ($\langle R_{\text{large}} \rangle = 3042 \pm 11\ \text{nm}$ [$3.04\ \mu\text{m}$], $\phi_{\text{large}} = 8.1 \times 10^{-6}$), and high-$q$ Tanaka viscoelastic fluctuation mesh ($\xi_{\text{fluc}} = 15.00 \pm 0.16\ \text{nm}$, $A_{\text{fluc}} = 4.51 \pm 0.12\ \text{cm}^{-1}$), $\chi^2_{\text{red}} = 0.718$.
 
 ### Regime 5: Additive perturbation branch (40.0 mM + 1.0 mM CoCl2, ND-i-005, pH 11.3)
-* **Chemical Dopant Effect:** $\text{Co}^{2+}$ adsorption lowers interfacial tension $\gamma$, expanding primary building blocks ($R_{\text{mean}} = 6.59 \pm 0.53\ \text{nm}$ vs $3.51\ \text{nm}$ in ND-i-001) and network correlation length ($\xi = 1194 \pm 2347\ \text{nm}$ vs $735\ \text{nm}$), whilst opening/loosening the fractal network ($D_m = 2.102 \pm 0.013$ vs $2.328$ in ND-i-001).
-* **Fitted Physical Model:** Open mass fractal network with coexisting macroscopic droplets ($\langle R_{\text{large}} \rangle = 3530 \pm 48\ \text{nm}$ [$3.53\ \mu\text{m}$], $\phi_{\text{large}} = 2.48 \times 10^{-5}$) and PNCs ($R_{\text{pnc}} = 2.40 \pm 0.03\ \text{nm}$, $\phi_{\text{pnc}} = 4.87 \times 10^{-4}$), $\chi^2_{\text{red}} = 2.672$, $\text{AIC} = 1811$.
+* **Chemical Dopant Effect:** $\text{Co}^{2+}$ adsorption lowers interfacial tension $\gamma$, modulating primary building blocks ($R_{\text{mean}} = 2.40 \pm 0.13\ \text{nm}$, $\text{stdDev} = 1.27 \pm 0.03\ \text{nm}$) and network correlation length ($\xi = 4015\ \text{nm}$), whilst opening/loosening the fractal network ($D_m = 1.966 \pm 0.004$ vs $2.265$ in pure ND-i-001).
+* **Fitted Physical Model:** Open mass fractal network with coexisting macroscopic droplets ($\langle R_{\text{large}} \rangle = 3471 \pm 38\ \text{nm}$ [$3.47\ \mu\text{m}$], $\phi_{\text{large}} = 2.80 \times 10^{-5}$) and Tanaka viscoelastic fluctuation mesh ($\xi_{\text{fluc}} = 1.82 \pm 0.66\ \text{nm}$, $A_{\text{fluc}} = 0.0028 \pm 0.0018\ \text{cm}^{-1}$), $\chi^2_{\text{red}} = 4.470$.
 
 ---
 
@@ -57,14 +57,14 @@ Under stopped-flow rapid-mixing conditions at the ESRF ID02 beamline ($q \in [0.
 
 The calibrated parameters extracted directly from the composite baseline fitting outputs across all reaction series are:
 
-| Series ID | Concentration | pH | Physical regime | Primary building block $R_{\text{prim}}$ [nm] | Fractal dimension $D_m$ | Network cutoff $\xi$ [nm] | Droplet radius $\langle R_{\text{large}} \rangle$ [$\mu\text{m}$] | Reduced $\chi^2$ |
-| :--- | :---: | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **ND-i-003** | 10.0 mM | 11.3 | Sub-spinodal nucleation | 138.8 (ACC) | N/A ($S=1$) | N/A | 2.63 | 0.966 |
-| **ND-i-004** | 15.0 mM | 11.3 | Crossover boundary | 4.94 | 2.850 | 108.7 | N/A (Porod) | 1.309 |
-| **ND-i-002** | 20.0 mM | 11.3 | Spinodal gelation | 11.24 | 1.856 | 356.0 | N/A (Porod) | 0.964 |
-| **ND-i-009** | 40.0 mM | 10.0 | Primary pure 40 mM benchmark | 9.40 | 1.978 | 248.2 | 3.20 | 3.218 |
-| **ND-i-001** | 40.0 mM | 11.3 | Rapid quench spinodal | 3.51 | 2.328 | 735.4 | 3.01 | 0.398 |
-| **ND-i-005** | 40.0 mM | 11.3 | Additive perturbation branch | 6.59 | 2.102 | 1193.6 | 3.53 | 2.672 |
+| Series ID | Concentration | pH | Physical regime | Primary building block $R_{\text{prim}}$ [nm] | Fractal dimension $D_m$ | Network cutoff $\xi$ [nm] | Droplet radius $\langle R_{\text{large}} \rangle$ [$\mu\text{m}$] | Fluctuation mesh $\xi_{\text{fluc}}$ [nm] | Fluctuation ampl. $A_{\text{fluc}}$ [$\text{cm}^{-1}$] | Reduced $\chi^2$ |
+| :--- | :---: | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **ND-i-003** | 10.0 mM | 11.3 | Sub-spinodal nucleation | 138.8 (ACC) | N/A ($S=1$) | N/A | 2.63 | N/A | N/A | 0.966 |
+| **ND-i-004** | 15.0 mM | 11.3 | Crossover boundary | 4.94 | 2.850 | 108.7 | N/A (Porod) | N/A | N/A | 1.309 |
+| **ND-i-002** | 20.0 mM | 11.3 | Spinodal gelation | 11.46 | 1.859 | 351.6 | N/A (Porod) | 7.84 | 0.020 | 0.971 |
+| **ND-i-009** | 40.0 mM | 10.0 | Primary pure 40 mM benchmark | 9.40 | 1.978 | 248.2 | 3.20 | 2.72 &ndash; 2.84 | 0.050 (OZ) | 3.218 |
+| **ND-i-001** | 40.0 mM | 11.3 | Rapid quench spinodal | 15.43 | 2.265 | 923.1 | 3.04 | 15.00 | 4.506 | 0.718 |
+| **ND-i-005** | 40.0 mM | 11.3 | Additive perturbation branch | 2.40 | 1.966 | 4014.7 | 3.47 | 1.82 | 0.0028 | 4.470 |
 
 ---
 
@@ -100,11 +100,16 @@ The secondary micrometer droplet mode is integrated analogously:
 $$I_{\text{large}}(q) = (\Delta \rho)^2 \int r^6 n_{\text{large}}(r) P(q, r) \, dr$$
 producing steep Porod decay ($I \propto q^{-4}$) at $q R \gg 1$.
 
-### 3.5. High-$q$ concentration fluctuations and PNCs
-Implemented options:
-* **Ornstein-Zernike (OZ):** $I_{\text{OZ}}(q) = \frac{A_{\text{OZ}}}{1 + (q \xi_{\text{OZ}})^2}$
-* **Fisher-Burford / Tanaka Viscoelastic Mesh Fluctuations:** $I_{\text{FB}}(q) = \frac{A_{\text{fluc}}}{\left[ 1 + \frac{2}{3\mu} (q \xi_{\text{fluc}})^2 \right]^{\mu/2}}$ ($\mu = 4$ for Porod boundary, $\mu = 2$ for OZ).
-* **Prenucleation Clusters (PNCs/DOLLOPs):** Polydisperse spherical form factor with $R_{\text{pnc}} \in [0.5, 6.4]\ \text{nm}$.
+### 3.5. High-$q$ viscoelastic mesh fluctuations (PNC network dynamics)
+At high momentum transfer ($q \ge 0.35\ \text{nm}^{-1}$), the transient network of hydrated prenucleation cluster (PNC) oligomers exhibits concentration and network mesh fluctuations rather than isolated particle scattering. These fluctuations are modeled via:
+* **Fisher-Burford / Tanaka Viscoelastic Fluctuation Mesh:**
+  $$I_{\text{FB}}(q) = \frac{A_{\text{fluc}}}{\left[ 1 + \frac{2}{3\mu} (q \xi_{\text{fluc}})^2 \right]^{\mu/2}}$$
+  where $\xi_{\text{fluc}}$ is the dynamic correlation length (mesh size of entangled PNC clusters), $A_{\text{fluc}}$ is the forward fluctuation amplitude, and $\mu = 4$ reproduces asymptotic Porod decay ($q^{-4}$) representing interface fluctuations, while $\mu = 2$ corresponds to standard Lorentzian decay.
+* **Ornstein-Zernike (OZ) Fluctuations (ND-i-006, ND-i-009):**
+  $$I_{\text{OZ}}(q) = \frac{A_{\text{OZ}}}{1 + (q \xi_{\text{OZ}})^2}$$
+  representing thermal and concentration fluctuations in the solvent channels between percolated struts.
+
+> **Note on Physical Interpretation:** Prenucleation clusters (PNCs) in percolated post-spinodal regimes do not persist as isolated, rigid spherical globules with sharp density boundaries. Instead, hydrated ion clusters dynamically entangle into a viscoelastic network whose characteristic correlation distance is quantitatively captured by $\xi_{\text{fluc}}$ (or $\xi_{\text{OZ}}$). Consequently, discrete polydisperse spherical models for PNCs are unphysical in the post-spinodal regime and are not used.
 
 ### 3.6. Porod tail and incoherent background
 * **Porod tail (in ND-i-002, ND-i-004):** $I_{\text{porod}}(q) = \frac{A_{\text{porod}}}{q^4}$

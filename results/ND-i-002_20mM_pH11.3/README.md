@@ -83,11 +83,10 @@ unified_fitting_ND-i-002/
 | Primary network volume fraction | $\phi_{\rm net}$ | $4.74 \times 10^{-5}$ | $\pm 0.02 \times 10^{-5}$ | Volume fraction of primary fractal network |
 | Mass fractal dimension | $D_m$ | $1.856$ | $\pm 0.007$ | Space-filling network scaling exponent |
 | Network correlation cutoff | $\xi$ | $356.0\text{ nm}$ | $\pm 24.8\text{ nm}$ | Mesoscale network cluster correlation length |
-| Porod interface scale | $A_{\rm porod}$ | $5.28 \times 10^{-8}$ | $\pm 0.02 \times 10^{-8}$ | Macroscopic surface interface scattering |
-| Prenucleation cluster radius | $\langle R_{\rm pnc} \rangle$ | $1.46\text{ nm}$ | $\pm 0.39\text{ nm}$ | Mean radius of sub-nm PNC clusters |
-| PNC volume fraction | $\phi_{\rm pnc}$ | $1.50 \times 10^{-5}$ | $\pm 0.12 \times 10^{-5}$ | Volume fraction of PNC cluster population |
-| Incoherent background | $bkg$ | $1.37 \times 10^{-4}$ | $\pm 0.08 \times 10^{-4}$ | Constant flat background [cm$^{-1}$] |
-| Goodness of fit | $\chi^2_{\rm red}$ | **0.964** | : | Reduced chi-square across 1879 points |
+| Fluctuation correlation length | $\xi_{\rm fluc}$ | $7.84\text{ nm}$ | $\pm 0.45\text{ nm}$ | Tanaka viscoelastic concentration fluctuation length |
+| Fluctuation amplitude | $A_{\rm fluc}$ | $0.020\text{ cm}^{-1}$ | $\pm 0.003\text{ cm}^{-1}$ | Viscoelastic fluctuation mesh forward intensity |
+| Incoherent background | $bkg$ | $1.27 \times 10^{-4}$ | $\pm 0.08 \times 10^{-4}$ | Constant flat background [cm$^{-1}$] |
+| Goodness of fit | $\chi^2_{\rm red}$ | **0.971** | : | Reduced chi-square across 1909 points |
 
 ---
 

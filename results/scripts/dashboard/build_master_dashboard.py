@@ -975,7 +975,7 @@ def build_master_dashboard():
                 <div style="width: 24%; background: #9333ea;" title="Tanaka PNC mesh: 24%"></div>
               </div>
               <div style="font-size: 0.8rem; color: var(--text-muted);">
-                Discrete ACC spheres suppressed (<strong>0%</strong>). Continuous percolated gel network (<em>D<sub>f</sub> = 1.86</em>, &xi; = 356 nm) coexists with hydrated <strong>Tanaka PNC mesh</strong> (&lang;R<sub>pnc</sub>&rang; = 1.46 nm, &phi;<sub>pnc</sub> = 1.50 &times; 10<sup>-5</sup>).
+                Discrete ACC spheres suppressed (<strong>0%</strong>). Continuous percolated gel network (<em>D<sub>f</sub> = 1.86</em>, &xi; = 352 nm) coexists with hydrated <strong>Tanaka PNC mesh</strong> (&xi;<sub>fluc</sub> &approx; 7.8 nm, A<sub>fluc</sub> = 0.020 cm<sup>-1</sup>).
               </div>
             </div>
 
@@ -1039,7 +1039,7 @@ def build_master_dashboard():
                     <td class="num" style="font-weight: 700; color: #34d399;">75.9%</td>
                     <td class="num" style="font-weight: 700; color: #c084fc;">24.1%</td>
                     <td class="num">0.0% (trace Porod)</td>
-                    <td>Continuous percolated gel network coexisting with Tanaka viscoelastic PNC mesh (R<sub>pnc</sub> = 1.46 nm)</td>
+                    <td>Continuous percolated gel network coexisting with Tanaka viscoelastic PNC mesh (&xi;<sub>fluc</sub> &approx; 7.8 nm)</td>
                   </tr>
                   <tr style="background-color: rgba(234, 88, 12, 0.08);">
                     <td><strong>ND-i-009</strong></td>
@@ -1240,8 +1240,8 @@ def build_master_dashboard():
                 <th class="num">&phi;<sub>large</sub> &times; 10<sup>5</sup></th>
                 <th class="num">&lang;R<sub>acc</sub>&rang; [nm]</th>
                 <th class="num">&phi;<sub>acc</sub> &times; 10<sup>4</sup></th>
-                <th class="num">&lang;R<sub>pnc</sub>&rang; / &xi;<sub>fluc</sub> [nm]</th>
-                <th class="num">&phi;<sub>pnc</sub> &times; 10<sup>4</sup></th>
+                <th class="num">&xi;<sub>fluc</sub> / &xi;<sub>OZ</sub> [nm]</th>
+                <th class="num">A<sub>fluc</sub> / A<sub>OZ</sub> [cm<sup>-1</sup>]</th>
                 <th class="num">&chi;<sup>2</sup><sub>red</sub></th>
               </tr>
             </thead>
@@ -1294,23 +1294,21 @@ def build_master_dashboard():
         e_phi_acc = p.get("std_err_phi_acc") or p.get("std_err_phi", 0.0)
         phi_acc_str = f"{phi_acc*1e4:.2f} &plusmn; {e_phi_acc*1e4:.2f}" if phi_acc > 0 else "&mdash;"
 
-        r_pnc = p.get("R_pnc", 0.0)
-        e_r_pnc = p.get("std_err_R_pnc", 0.0)
-        if sid == "ND-i-009":
-            r_pnc_str = "2.72 &ndash; 2.84 (&xi;<sub>fluc</sub>)"
-        elif r_pnc > 0:
-            r_pnc_str = f"{r_pnc:.2f} &plusmn; {e_r_pnc:.2f}"
+        xi_fluc = p.get("xi_fluc") or p.get("xi_OZ", 0.0)
+        e_xi_fluc = p.get("std_err_xi_fluc") or p.get("std_err_xi_OZ", 0.0)
+        if sid == "ND-i-009" and xi_fluc == 0:
+            xi_fluc_str = "2.72 &ndash; 2.84"
+        elif xi_fluc > 0:
+            xi_fluc_str = f"{xi_fluc:.2f} &plusmn; {e_xi_fluc:.2f}" if e_xi_fluc > 0 else f"{xi_fluc:.2f}"
         else:
-            r_pnc_str = "&mdash;"
+            xi_fluc_str = "&mdash;"
 
-        phi_pnc = p.get("phi_pnc", 0.0)
-        e_phi_pnc = p.get("std_err_phi_pnc", 0.0)
-        if sid == "ND-i-009":
-            phi_pnc_str = "25.9% (Q-inv)"
-        elif phi_pnc > 0:
-            phi_pnc_str = f"{phi_pnc*1e4:.2f} &plusmn; {e_phi_pnc*1e4:.2f}"
+        a_fluc = p.get("A_fluc") or p.get("A_OZ", 0.0)
+        e_a_fluc = p.get("std_err_A_fluc") or p.get("std_err_A_OZ", 0.0)
+        if a_fluc > 0:
+            a_fluc_str = f"{a_fluc:.3f} &plusmn; {e_a_fluc:.3f}" if e_a_fluc > 0 else f"{a_fluc:.3f}"
         else:
-            phi_pnc_str = "&mdash;"
+            a_fluc_str = "&mdash;"
 
         html += f"""              <tr>
                 <td><strong>{sid}</strong></td>
@@ -1325,8 +1323,8 @@ def build_master_dashboard():
                 <td class="num">{phi_l_str}</td>
                 <td class="num">{r_acc_str}</td>
                 <td class="num">{phi_acc_str}</td>
-                <td class="num" style="color: #c084fc;">{r_pnc_str}</td>
-                <td class="num" style="color: #c084fc;">{phi_pnc_str}</td>
+                <td class="num" style="color: #c084fc;">{xi_fluc_str}</td>
+                <td class="num" style="color: #c084fc;">{a_fluc_str}</td>
                 <td class="num" style="color: var(--success); font-weight: 700;">{chi2:.3f}</td>
               </tr>
 """
