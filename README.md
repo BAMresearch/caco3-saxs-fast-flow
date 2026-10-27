@@ -168,23 +168,28 @@ pip install numpy scipy matplotlib pandas lmfit
 All scripts can be executed using the system Python interpreter:
 
 1. **Re-render the standardised composite baseline fits**:
-   ```bash python results/standardize_composite_plots.py
+   ```bash
+   python results/standardize_composite_plots.py
    ```
 
 2. **Regenerate the cross-series trajectory synthesis**:
-   ```bash python results/generate_cross_series_trajectories.py
+   ```bash
+   python results/generate_cross_series_trajectories.py
    ```
 
 3. **Rebuild the vector model transformation diagram**:
-   ```bash python results/generate_model_transformation_diagram.py
+   ```bash
+   python results/generate_model_transformation_diagram.py
    ```
 
 4. **Verify the viscoelastic phase separation consistency**:
-   ```bash python results/verify_vps_framework.py
+   ```bash
+   python results/verify_vps_framework.py
    ```
 
 5. **Recompile the master synthesis dashboards**:
-   ```bash python results/build_master_dashboard.py
+   ```bash
+   python results/build_master_dashboard.py
    ```
 
 ---
