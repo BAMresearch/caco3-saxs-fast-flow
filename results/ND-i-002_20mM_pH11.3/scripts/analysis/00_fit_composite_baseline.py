@@ -182,10 +182,10 @@ def fit_composite_baseline():
     ax_fit.axhline(final_params['bkg'].value, color='#64748b', linestyle=':', linewidth=1.2,
                    label=f'Solvent background ({final_params["bkg"].value:.2e} cm$^{{-1}}$)')
 
-    ax_fit.set_ylabel('Intensity $I(q)$ [cm$^{-1}$]', fontsize=12, fontweight='bold')
-    ax_fit.set_title('ND-i-002: Multi-scale composite baseline fit (20.0 mM CaCO$_3$, pH 11.3, spinodal gelation)\n'
+    ax_fit.set_ylabel(r'Intensity $I(q)$ [$\mathrm{cm}^{-1}$]', fontsize=12)
+    ax_fit.set_title('ND-i-002: multi-scale composite baseline fit (20.0 mM CaCO$_3$, pH 11.3, spinodal gelation)\n'
                      r'Spinodal fractal network + macroscopic droplets + Tanaka PNC mesh ($q \in [0.002, 2.54]\ \mathrm{nm}^{-1}$)',
-                     fontsize=11, fontweight='bold')
+                     fontsize=11)
     ax_fit.legend(loc='upper right', fontsize=8.8, framealpha=0.92)
     ax_fit.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.4)
     ax_fit.set_xlim(0.0018, 2.70)
@@ -198,8 +198,8 @@ def fit_composite_baseline():
     ax_res.plot(q_data, residuals, 'o', color='#475569', markersize=2.2, alpha=0.5)
     ax_res.set_xscale('log')
     ax_res.set_xlim(0.0018, 2.70)
-    ax_res.set_xlabel('Scattering Vector $q$ [nm$^{-1}$]', fontsize=12, fontweight='bold')
-    ax_res.set_ylabel('Res. [$\\sigma$]', fontsize=10, fontweight='bold')
+    ax_res.set_xlabel(r'Scattering vector $q$ [$\mathrm{nm}^{-1}$]', fontsize=12)
+    ax_res.set_ylabel(r'Res. [$\sigma$]', fontsize=10)
     ax_res.set_ylim(-5.0, 5.0)
     ax_res.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.4)
 
