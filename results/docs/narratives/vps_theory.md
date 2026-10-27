@@ -30,13 +30,20 @@ In classical Model B/H spinodal decomposition, phase separation proceeds with co
 
 ## 3. Phase inversion into macroscopic droplets
 
+### 3.1. Capillary pinch-off mechanism
 As the viscoelastic network contracts, elastic stress $\sigma_{ij}$ accumulates along interconnected struts. When elastic tension exceeds the local yield threshold, struts rupture and retract into spherical droplets.
-
-This explains why all spinodal series (ND-i-004, ND-i-002, ND-i-009, ND-i-001, ND-i-005) exhibit a stationary macroscopic droplet population ($\langle R_{\text{large}} \rangle \in [2.2, 3.5]\ \mu\text{m}$) coexisting with the space-filling gel mesh.
 
 Under Rayleigh-Plateau capillary instability:
 
 $$\lambda_{\text{opt}} \approx 9.02 R_{\text{strut}} \implies R_{\text{drop}} \approx 1.89 R_{\text{strut}} \approx 2.8 - 3.5\ \mu\text{m}$$
+
+### 3.2. Droplet stability: elastic cage confinement versus unshielded coalescence
+The uniformity and morphology of the resulting droplet population depend strongly on the mineral volume fraction of the surrounding mass fractal gel:
+1. **Deep spinodal quench (40 mM, ND-i-009 / ND-i-001):** The dense network ($\phi_{\text{net}} \sim 10^{-3}$, $G_{\text{gel}} \approx 64\ \text{Pa}$) acts as an **elastic cage** (in Tanaka VPS theory), trapping detached droplets within the bicontinuous gel mesh. Droplet-droplet collisions are sterically and elastically suppressed, preserving a monomodal, uniform droplet size distribution ($\langle R_{\text{large}} \rangle \approx 2.8 - 3.2\ \mu\text{m}$).
+2. **Marginal spinodal quench (20 mM, ND-i-002):** At the lower boundary of the spinodal envelope, the network volume fraction is substantially lower ($\phi_{\text{net}} \approx 4.7 \times 10^{-5}$), producing tenuous, fragile struts with a low yield stress. Consequently:
+   - Capillary tension and Poiseuille shear stress in the flow cell easily rupture the thin struts prematurely, generating a smaller droplet population ($\langle R_1 \rangle \approx 1.46\ \mu\text{m}$).
+   - The sparse network lacks the elastic plateau modulus needed to provide elastic cage confinement. Released droplets are unshielded and undergo shear-driven and Brownian collisions, rapidly coalescing into a secondary large droplet population ($\langle R_2 \rangle \approx 5.03\ \mu\text{m}$).
+   - Thus, the bimodal droplet distribution is a direct physical consequence of **marginal network stability and the breakdown of elastic cage shielding** near the spinodal threshold.
 
 ---
 

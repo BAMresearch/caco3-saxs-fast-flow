@@ -24,11 +24,15 @@ Across reactant supersaturation and chemical conditions, the six experimental se
 ---
 
 ### 3. Regime 3: spinodal gelation (20.0 mM, ND-i-002, pH 11.3)
-- **Thermodynamic condition:** $\ln S_{\text{ACC}} > \ln S^*$, barrierless liquid-liquid phase separation (LLPS).
-- **Physical model:** Discrete ACC nanospheres disappear entirely ($I_{\text{acc}} \to 0$). Continuous mass fractal gel network forms practically instantaneously ($D_m \approx 1.30 \to 1.97$, composite $D_m = 1.859$, $\xi \approx 350 - 400\text{ nm}$) coexisting with macroscopic phase-separated droplets ($\langle R_{\text{large}} \rangle \approx 5.2 \to 5.9\ \mu\text{m}$).
+- **Thermodynamic condition:** $\ln S_{\text{ACC}} > \ln S^*$, marginal barrierless liquid-liquid phase separation (LLPS) boundary.
+- **Physical model:** Discrete ACC nanospheres disappear entirely ($I_{\text{acc}} \to 0$). Continuous mass fractal gel network forms practically instantaneously ($D_m \approx 1.30 \to 1.97$, composite $D_m = 1.848$, $\xi \approx 355\text{ nm}$) coexisting with a bimodal macroscopic droplet population ($\langle R_1 \rangle \approx 1.46\ \mu\text{m}$ and $\langle R_2 \rangle \approx 5.03\ \mu\text{m}$).
 - **Structural node vs. fluctuation mesh:**
-  - Primary building block nodes: $R_{\text{prim}} \approx 8.5 \to 11.5\text{ nm}$ (mean $10.65\text{ nm}$).
-  - Entangled PNC fluctuation mesh: $\xi_{\text{fluc}} \approx 13.5 \to 15.0\text{ nm}$ ($A_{\text{fluc}} \approx 0.03 \to 0.16\text{ cm}^{-1}$), capturing the high-$q$ excess.
+  - Primary building block nodes: $R_{\text{mean}} \approx 11.38\text{ nm}$ ($\sigma \approx 4.04\text{ nm}$).
+  - Entangled PNC fluctuation mesh: $\xi_{\text{fluc}} \approx 7.63\text{ nm}$ ($A_{\text{fluc}} \approx 0.018\text{ cm}^{-1}$), capturing the high-$q$ excess.
+- **Physical origin of bimodal droplets (marginal network instability):**
+  - Because 20 mM sits directly at the marginal spinodal threshold, the mineral volume fraction allocated to the network is small ($\phi_{\text{net}} \approx 4.68 \times 10^{-5}$), yielding tenuous, compliant struts with low plateau modulus ($G_{\text{gel}} \propto \phi^\mu$).
+  - Capillary tension and Poiseuille shear stress in the flow cell easily rupture these fragile struts prematurely, generating small primary droplets ($\langle R_1 \rangle \approx 1.46\ \mu\text{m}$).
+  - Unlike deep spinodal regimes (40 mM) where a dense network provides an elastic cage that immobilizes droplets, the tenuous 20 mM network cannot shield droplets from flow-induced collisions. Unshielded collisions drive secondary coalescence into a larger droplet population ($\langle R_2 \rangle \approx 5.03\ \mu\text{m}$, $\phi_2 \approx 4.28 \times 10^{-6}$).
 - **Transition trigger:** Further increase in supersaturation accelerates phase separation kinetics, requiring higher time resolution to resolve the early pre-percolation.
 
 ---
