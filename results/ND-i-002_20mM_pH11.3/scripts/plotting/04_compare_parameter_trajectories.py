@@ -49,48 +49,48 @@ def generate_unified_trajectories():
 
     fig = plt.figure(figsize=(14, 10))
     gs = fig.add_gridspec(2, 2, height_ratios=[1.15, 1.0], hspace=0.28, wspace=0.24)
-    fig.suptitle("ND-i-002 Multiscale Kinetic Synthesis: Time-Resolved Phase Separation\n(20 mM CaCO$_3$, pH 11.3, Pure System)", fontsize=13, fontweight='bold', y=0.98)
+    fig.suptitle("ND-i-002 multiscale kinetic synthesis: time-resolved phase separation\n" + r"(20 mM $\mathrm{CaCO}_3$, pH 11.3, pure system)", fontsize=13, y=0.98)
 
     # Panel A: Hierarchy of Structural Length Scales Across 4 Orders of Magnitude
     ax1 = fig.add_subplot(gs[0, :])
     
     # 1. Viscoelastic fluctuation mesh correlation length
-    ax1.plot(t_sd, df_sd['xi_fluc'], 's-', color='#e63946', markersize=3.5, linewidth=1.8, label=r'Viscoelastic Fluctuation Mesh $\xi_{\mathrm{fluc}} \pm 1\sigma$')
+    ax1.plot(t_sd, df_sd['xi_fluc'], 's-', color='#e63946', markersize=3.5, linewidth=1.8, label=r'Viscoelastic fluctuation mesh $\xi_{\mathrm{fluc}} \pm 1\sigma$')
     ax1.fill_between(t_sd, df_sd['xi_fluc'] - df_sd['std_err_xi_fluc'], df_sd['xi_fluc'] + df_sd['std_err_xi_fluc'], color='#e63946', alpha=0.25)
 
     # 2. Primary building blocks
-    ax1.plot(t_sd, df_sd['Rmean'], 'o-', color='#2a9d8f', markersize=3.5, linewidth=1.8, label=r'Primary Building Block $\langle R_{\mathrm{prim}} \rangle \pm 1\sigma$')
+    ax1.plot(t_sd, df_sd['Rmean'], 'o-', color='#2a9d8f', markersize=3.5, linewidth=1.8, label=r'Primary building block $\langle R_{\mathrm{prim}} \rangle \pm 1\sigma$')
     ax1.fill_between(t_sd, df_sd['Rmean'] - df_sd['std_err_Rmean'], df_sd['Rmean'] + df_sd['std_err_Rmean'], color='#2a9d8f', alpha=0.25)
 
     # 3. Mesoscale network correlation length
-    ax1.plot(t_ld, df_ld['xi'], '^--', color='#9d4edd', markersize=3.5, linewidth=1.6, label=r'Network Cutoff $\xi(t) \pm 1\sigma$')
+    ax1.plot(t_ld, df_ld['xi'], '^--', color='#9d4edd', markersize=3.5, linewidth=1.6, label=r'Network cutoff $\xi(t) \pm 1\sigma$')
     ax1.fill_between(t_ld, np.maximum(10.0, df_ld['xi'] - df_ld['std_err_xi']), df_ld['xi'] + df_ld['std_err_xi'], color='#9d4edd', alpha=0.18)
 
     # 4. Large droplet radius
-    ax1.plot(t_ld, df_ld['mean_radius_large'], 'D-', color='#1d3557', markersize=3.5, linewidth=1.8, label=r'Secondary Droplets $\langle R_{\mathrm{large}} \rangle \pm 1\sigma$')
+    ax1.plot(t_ld, df_ld['mean_radius_large'], 'D-', color='#1d3557', markersize=3.5, linewidth=1.8, label=r'Secondary droplets $\langle R_{\mathrm{large}} \rangle \pm 1\sigma$')
     ax1.fill_between(t_ld, df_ld['mean_radius_large'] - df_ld['std_err_mean_radius_large'], df_ld['mean_radius_large'] + df_ld['std_err_mean_radius_large'], color='#1d3557', alpha=0.25)
 
     ax1.set_yscale('log')
     ax1.set_xscale('log')
     ax1.set_ylim(0.8, 10000)
-    ax1.set_ylabel("Length Scale [nm]", fontsize=11, fontweight='bold')
-    ax1.set_xlabel("Reaction Time $t$ [s]", fontsize=11, fontweight='bold')
-    ax1.set_title(r"(A) Hierarchy of Structural Length Scales Across Real Time ($0.060 - 10.88$ s) $\pm 1\sigma$", fontsize=12, fontweight='bold')
+    ax1.set_ylabel("Length scale [nm]", fontsize=11)
+    ax1.set_xlabel("Reaction time $t$ [s]", fontsize=11)
+    ax1.set_title(r"(a) Hierarchy of structural length scales across real time ($0.060 - 10.88$ s) $\pm 1\sigma$", fontsize=12)
     ax1.grid(True, which='both', linestyle='--', alpha=0.5)
     ax1.legend(loc='center right', fontsize=9.5, framealpha=0.92)
 
     # Panel B: Cross-Scale Network Dimension Agreement
     ax2 = fig.add_subplot(gs[1, 0])
-    ax2.plot(t_sd, df_sd['D'], 'o-', color='#d62728', markersize=3.0, linewidth=1.8, label=r'Short Distance ($3.0$ m, local mesh)')
+    ax2.plot(t_sd, df_sd['D'], 'o-', color='#d62728', markersize=3.0, linewidth=1.8, label=r'Short distance ($3.0$ m, local mesh)')
     ax2.fill_between(t_sd, df_sd['D'] - df_sd['std_err_D'], df_sd['D'] + df_sd['std_err_D'], color='#d62728', alpha=0.25, label=r'SD $\pm 1\sigma$ band')
 
-    ax2.plot(t_ld, df_ld['D'], 's-', color='#1f77b4', markersize=3.0, linewidth=1.8, label=r'Long Distance ($31.0$ m, mesoscale mesh)')
+    ax2.plot(t_ld, df_ld['D'], 's-', color='#1f77b4', markersize=3.0, linewidth=1.8, label=r'Long distance ($31.0$ m, mesoscale mesh)')
     ax2.fill_between(t_ld, df_ld['D'] - df_ld['std_err_D'], df_ld['D'] + df_ld['std_err_D'], color='#1f77b4', alpha=0.20, label=r'LD $\pm 1\sigma$ band')
 
-    ax2.set_ylabel(r"Mass Fractal Dimension $D_f$", fontsize=11, fontweight='bold')
-    ax2.set_xlabel("Reaction Time $t$ [s]", fontsize=11, fontweight='bold')
+    ax2.set_ylabel(r"Mass fractal dimension $D_f$", fontsize=11)
+    ax2.set_xlabel("Reaction time $t$ [s]", fontsize=11)
     ax2.set_xscale('log')
-    ax2.set_title(r"(B) Cross-Scale Network Dimension Agreement ($D_f \pm 1\sigma$)", fontsize=12, fontweight='bold')
+    ax2.set_title(r"(b) Cross-scale network dimension agreement ($D_f \pm 1\sigma$)", fontsize=12)
     ax2.grid(True, linestyle='--', alpha=0.5)
     ax2.legend(loc='best', fontsize=9.0)
 
@@ -104,14 +104,15 @@ def generate_unified_trajectories():
     ax3.fill_between(t_ld, (df_ld['total_volume_fraction_large'] - df_ld['std_err_total_volume_fraction_large']) * 1e5,
                      (df_ld['total_volume_fraction_large'] + df_ld['std_err_total_volume_fraction_large']) * 1e5, color='#1d3557', alpha=0.22)
 
-    l3 = ax3_twin.plot(t_sd, df_sd['A_fluc'], '^--', color='#e76f51', markersize=3.0, linewidth=1.6, label=r'Fluct. Amp. $A_{\mathrm{fluc}}$')
+    l3 = ax3_twin.plot(t_sd, df_sd['A_fluc'], '^--', color='#e76f51', markersize=3.0, linewidth=1.6, label=r'Fluct. amp. $A_{\mathrm{fluc}}$')
     ax3_twin.fill_between(t_sd, df_sd['A_fluc'] - df_sd['std_err_A_fluc'], df_sd['A_fluc'] + df_sd['std_err_A_fluc'], color='#e76f51', alpha=0.20)
 
-    ax3.set_ylabel(r"Volume Fraction Scale", fontsize=11, fontweight='bold')
-    ax3_twin.set_ylabel(r"$A_{\mathrm{fluc}}$ [cm$^{-1}$]", fontsize=11, fontweight='bold', color='#e76f51')
-    ax3.set_xlabel("Reaction Time $t$ [s]", fontsize=11, fontweight='bold')
+    ax3.set_ylabel(r"Volume fraction scale", fontsize=11)
+    ax3_twin.set_ylabel(r"$A_{\mathrm{fluc}}$ [$\mathrm{cm}^{-1}$]", fontsize=11, color='#e76f51')
+    ax3.set_xlabel("Reaction time $t$ [s]", fontsize=11)
+    ax3_twin.tick_params(axis='y', labelcolor='#e76f51')
     ax3.set_xscale('log')
-    ax3.set_title(r"(C) Phase Volume Fraction & Fluctuation Kinetics $\pm 1\sigma$", fontsize=12, fontweight='bold')
+    ax3.set_title(r"(c) Phase volume fraction and fluctuation kinetics $\pm 1\sigma$", fontsize=12)
     ax3.grid(True, linestyle='--', alpha=0.5)
     lines = l1 + l2 + l3
     labels = [l.get_label() for l in lines]

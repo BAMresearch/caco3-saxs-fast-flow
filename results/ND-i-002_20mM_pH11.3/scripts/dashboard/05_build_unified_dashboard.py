@@ -330,16 +330,16 @@ def build_dashboard():
     <!-- TAB 1: OVERVIEW & BASELINE -->
     <div id="overview" class="tab-content active">
       <div class="card">
-        <div class="card-title">Full-Range Composite Baseline Anchor Curve ($q \in [0.002, 2.5]\text{{ nm}}^{{-1}}$)</div>
+        <div class="card-title">Full-range composite baseline anchor curve ($q \in [0.002, 2.5]\text{{ nm}}^{{-1}}$)</div>
         <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">
           Stitched synchrotron composite curve spanning over 3 decades of momentum transfer. Decomposed into primary polydisperse
-          building blocks, inter-particle mass fractal network, macroscopic Porod interface, and sub-nanometer PNC clusters.
+          building blocks, inter-particle mass fractal network, macroscopic dense liquid droplets, and sub-nanometer PNC clusters.
         </p>
         <img src="../composite/composite_baseline_fit.png" alt="Composite Baseline Fit" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
       </div>
 
       <div class="card">
-        <div class="card-title">Converged Structural Baseline Parameters (&plusmn;1&sigma;)</div>
+        <div class="card-title">Converged structural baseline parameters (&plusmn;1&sigma;)</div>
         <table class="telemetry-table" style="font-size: 0.9rem;">
           <thead>
             <tr style="border-bottom: 2px solid var(--border);">
@@ -377,9 +377,24 @@ def build_dashboard():
               <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Volume fraction of primary fractal network</td>
             </tr>
             <tr>
+              <td>Secondary Droplet Radius</td><td>&lang;R<sub>large</sub>&rang;</td>
+              <td>{bp.get('mean_radius_large', 0.0):.0f} nm</td><td>&plusmn; {bp.get('std_err_mean_radius_large', 0.0):.0f} nm</td>
+              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Mean radius of macroscopic droplets</td>
+            </tr>
+            <tr>
+              <td>Secondary Droplet Dispersion</td><td>&sigma;<sub>large</sub></td>
+              <td>{bp.get('std_radius_large', 0.0):.0f} nm</td><td>&plusmn; {bp.get('std_err_std_radius_large', 0.0):.0f} nm</td>
+              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Log-normal droplet dispersion width</td>
+            </tr>
+            <tr>
+              <td>Secondary Droplet Fraction</td><td>&phi;<sub>large</sub></td>
+              <td>{bp.get('total_volume_fraction_large', 0.0) * 1e5:.2f} &times; 10<sup>-5</sup></td><td>&plusmn; {bp.get('std_err_total_volume_fraction_large', 0.0) * 1e5:.2f} &times; 10<sup>-5</sup></td>
+              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Volume fraction of macroscopic droplets</td>
+            </tr>
+            <tr>
               <td>Porod Interface Scale</td><td>A<sub>porod</sub></td>
               <td>{bp.get('A_porod', 0.0) * 1e8:.2f} &times; 10<sup>-8</sup></td><td>&plusmn; {bp.get('std_err_A_porod', 0.0) * 1e8:.2f} &times; 10<sup>-8</sup></td>
-              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Macroscopic surface interface scattering</td>
+              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Residual Porod surface interface scattering</td>
             </tr>
             <tr>
               <td>Fluctuation Correlation Length</td><td>&xi;<sub>fluc</sub></td>
@@ -409,7 +424,7 @@ def build_dashboard():
     <!-- TAB 2: UNIFIED TRAJECTORIES -->
     <div id="unified_trajectories" class="tab-content">
       <div class="card">
-        <div class="card-title">Cross-Scale Kinetic Trajectories Synthesis ($t = 0.060\text{{ s}} \to 10.88\text{{ s}}$)</div>
+        <div class="card-title">Cross-scale kinetic trajectories synthesis ($t = 0.060\text{{ s}} \to 10.88\text{{ s}}$)</div>
         <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">
           Cross-scale synthesis combining 3.0 m (WAXS/MAXS) and 31.0 m (SAXS) measurements with shaded &plusmn;1&sigma; uncertainty envelopes.
         </p>
@@ -422,14 +437,14 @@ def build_dashboard():
       <div class="inspector-grid">
         <div class="viewer-panel card">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-            <div class="card-title" style="margin-bottom: 0;">Short-Distance Scattering Pattern Fit (3.0 m Geometry)</div>
+            <div class="card-title" style="margin-bottom: 0;">Short-distance scattering pattern fit (3.0 m geometry)</div>
             <span class="badge" id="sd_frame_badge">Frame 00 (0.060 s)</span>
           </div>
           <img id="sd_img" src="../short_distance/fits/frame_000.png" alt="Short Distance Fit">
         </div>
 
         <div class="card">
-          <div class="card-title">Frame Controller & Telemetry</div>
+          <div class="card-title">Frame controller & telemetry</div>
           
           <div class="slider-box">
             <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
@@ -468,14 +483,14 @@ def build_dashboard():
       <div class="inspector-grid">
         <div class="viewer-panel card">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-            <div class="card-title" style="margin-bottom: 0;">Long-Distance Scattering Pattern Fit (31.0 m Geometry)</div>
+            <div class="card-title" style="margin-bottom: 0;">Long-distance scattering pattern fit (31.0 m geometry)</div>
             <span class="badge" id="ld_frame_badge">Frame 00 (0.060 s)</span>
           </div>
           <img id="ld_img" src="../long_distance/fits/frame_000.png" alt="Long Distance Fit">
         </div>
 
         <div class="card">
-          <div class="card-title">Frame Controller & Telemetry</div>
+          <div class="card-title">Frame controller & telemetry</div>
           
           <div class="slider-box">
             <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
@@ -511,7 +526,7 @@ def build_dashboard():
     <!-- TAB 5: PARAMETER TABLES -->
     <div id="tables" class="tab-content">
       <div class="card">
-        <div class="card-title">Short-Distance Fitted Parameters (3.0 m, 50 Frames)</div>
+        <div class="card-title">Short-distance fitted parameters (3.0 m, 50 frames)</div>
         <div class="data-table-container">
           <table class="data-table">
             <thead>
@@ -553,7 +568,7 @@ def build_dashboard():
       </div>
 
       <div class="card" style="margin-top: 1.5rem;">
-        <div class="card-title">Long-Distance Fitted Parameters (31.0 m, 50 Frames)</div>
+        <div class="card-title">Long-distance fitted parameters (31.0 m, 50 frames)</div>
         <div class="data-table-container">
           <table class="data-table">
             <thead>
@@ -596,7 +611,7 @@ def build_dashboard():
     <!-- TAB 6: THEORY & FORMULATIONS -->
     <div id="theory" class="tab-content">
       <div class="card">
-        <div class="card-title">Multiscale Physical Scattering Formalism</div>
+        <div class="card-title">Multiscale physical scattering formalism</div>
         <p style="color: var(--text-secondary); margin-bottom: 12px;">
           The total experimental scattering intensity \(I(q)\) is modelled across the entire momentum transfer range
           \(q \in [0.002, 2.5]\text{ nm}^{-1}\) as the coherent linear superposition of four structural contributions:
@@ -607,7 +622,7 @@ def build_dashboard():
           \]
         </div>
 
-        <h3 style="font-size: 1.05rem; margin-top: 20px; color: #ffffff;">1. Primary Fractal Network</h3>
+        <h3 style="font-size: 1.05rem; margin-top: 20px; color: #ffffff;">1. Primary fractal network</h3>
         <p style="color: var(--text-secondary); margin-top: 6px;">
           Polydisperse spherical building blocks following a log-normal size distribution \(n(R)\) with inter-particle
           Teixeira mass fractal structure factor \(S(q)\):
@@ -621,7 +636,7 @@ def build_dashboard():
           \]
         </div>
 
-        <h3 style="font-size: 1.05rem; margin-top: 20px; color: #ffffff;">2. Secondary Macroscopic Droplets</h3>
+        <h3 style="font-size: 1.05rem; margin-top: 20px; color: #ffffff;">2. Secondary macroscopic droplets</h3>
         <p style="color: var(--text-secondary); margin-top: 6px;">
           Dilute secondary dense liquid phase droplets with log-normal polydispersity and constant relative dispersion
           \(\sigma_{\mathrm{large}} / \langle R_{\mathrm{large}} \rangle = \text{const}\):
@@ -632,7 +647,7 @@ def build_dashboard():
           \]
         </div>
 
-        <h3 style="font-size: 1.05rem; margin-top: 20px; color: #ffffff;">3. Viscoelastic Network Concentration Fluctuations</h3>
+        <h3 style="font-size: 1.05rem; margin-top: 20px; color: #ffffff;">3. Viscoelastic network concentration fluctuations</h3>
         <p style="color: var(--text-secondary); margin-top: 6px;">
           Dynamic viscoelastic network fluctuations (Fisher-Burford / Tanaka formulation with \(\mu_{\mathrm{fluc}} = 4.0\)) explaining the high-\(q\) excess:
         </p>

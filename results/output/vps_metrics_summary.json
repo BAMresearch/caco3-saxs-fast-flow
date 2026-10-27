@@ -27,11 +27,11 @@
       "concentration_mM": 20.0,
       "pH": 11.3,
       "regime": "Spinodal gelation",
-      "r_prim": "11.46",
-      "dm": "1.859",
-      "xi": "351.6",
-      "r_large_um": "N/A",
-      "chi2_red": "0.971"
+      "r_prim": "11.42",
+      "dm": "1.850",
+      "xi": "410.9",
+      "r_large_um": "2.58",
+      "chi2_red": "0.683"
     },
     {
       "series_id": "ND-i-009",

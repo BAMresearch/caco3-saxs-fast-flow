@@ -255,16 +255,16 @@
     <!-- TAB 1: OVERVIEW & BASELINE -->
     <div id="overview" class="tab-content active">
       <div class="card">
-        <div class="card-title">Full-Range Composite Baseline Anchor Curve ($q \in [0.002, 2.5]	ext{ nm}^{-1}$)</div>
+        <div class="card-title">Full-range composite baseline anchor curve ($q \in [0.002, 2.5]	ext{ nm}^{-1}$)</div>
         <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">
           Stitched synchrotron composite curve spanning over 3 decades of momentum transfer. Decomposed into primary polydisperse
-          building blocks, inter-particle mass fractal network, macroscopic Porod interface, and sub-nanometer PNC clusters.
+          building blocks, inter-particle mass fractal network, macroscopic dense liquid droplets, and sub-nanometer PNC clusters.
         </p>
         <img src="../composite/composite_baseline_fit.png" alt="Composite Baseline Fit" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
       </div>
 
       <div class="card">
-        <div class="card-title">Converged Structural Baseline Parameters (&plusmn;1&sigma;)</div>
+        <div class="card-title">Converged structural baseline parameters (&plusmn;1&sigma;)</div>
         <table class="telemetry-table" style="font-size: 0.9rem;">
           <thead>
             <tr style="border-bottom: 2px solid var(--border);">
@@ -278,52 +278,67 @@
           <tbody>
             <tr>
               <td>Primary Building Block Radius</td><td>&lang;R<sub>prim</sub>&rang;</td>
-              <td>11.46 nm</td><td>&plusmn; 0.12 nm</td>
+              <td>11.42 nm</td><td>&plusmn; 0.10 nm</td>
               <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Mean radius of primary building blocks</td>
             </tr>
             <tr>
               <td>Primary Core Dispersion</td><td>&sigma;<sub>prim</sub></td>
-              <td>4.01 nm</td><td>&plusmn; 0.02 nm</td>
+              <td>4.02 nm</td><td>&plusmn; 0.02 nm</td>
               <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Log-normal dispersion width</td>
             </tr>
             <tr>
               <td>Mass Fractal Dimension</td><td>D<sub>m</sub></td>
-              <td>1.859</td><td>&plusmn; 0.007</td>
+              <td>1.850</td><td>&plusmn; 0.006</td>
               <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Network space-filling scaling exponent</td>
             </tr>
             <tr>
               <td>Network Cutoff Length</td><td>&xi;</td>
-              <td>352 nm</td><td>&plusmn; 24 nm</td>
+              <td>411 nm</td><td>&plusmn; 32 nm</td>
               <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Cluster correlation cutoff length</td>
             </tr>
             <tr>
               <td>Network Volume Fraction</td><td>&phi;<sub>net</sub></td>
-              <td>4.67 &times; 10<sup>-5</sup></td><td>&plusmn; 0.03 &times; 10<sup>-5</sup></td>
+              <td>4.67 &times; 10<sup>-5</sup></td><td>&plusmn; 0.02 &times; 10<sup>-5</sup></td>
               <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Volume fraction of primary fractal network</td>
             </tr>
             <tr>
+              <td>Secondary Droplet Radius</td><td>&lang;R<sub>large</sub>&rang;</td>
+              <td>2577 nm</td><td>&plusmn; 8 nm</td>
+              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Mean radius of macroscopic droplets</td>
+            </tr>
+            <tr>
+              <td>Secondary Droplet Dispersion</td><td>&sigma;<sub>large</sub></td>
+              <td>235 nm</td><td>&plusmn; 9 nm</td>
+              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Log-normal droplet dispersion width</td>
+            </tr>
+            <tr>
+              <td>Secondary Droplet Fraction</td><td>&phi;<sub>large</sub></td>
+              <td>0.44 &times; 10<sup>-5</sup></td><td>&plusmn; 0.03 &times; 10<sup>-5</sup></td>
+              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Volume fraction of macroscopic droplets</td>
+            </tr>
+            <tr>
               <td>Porod Interface Scale</td><td>A<sub>porod</sub></td>
-              <td>5.30 &times; 10<sup>-8</sup></td><td>&plusmn; 0.16 &times; 10<sup>-8</sup></td>
-              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Macroscopic surface interface scattering</td>
+              <td>0.00 &times; 10<sup>-8</sup></td><td>&plusmn; 0.47 &times; 10<sup>-8</sup></td>
+              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Residual Porod surface interface scattering</td>
             </tr>
             <tr>
               <td>Fluctuation Correlation Length</td><td>&xi;<sub>fluc</sub></td>
-              <td>7.84 nm</td><td>&plusmn; 0.45 nm</td>
+              <td>7.74 nm</td><td>&plusmn; 0.37 nm</td>
               <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Viscoelastic concentration fluctuation correlation length</td>
             </tr>
             <tr>
               <td>Fluctuation Amplitude</td><td>A<sub>fluc</sub></td>
-              <td>0.0201 cm<sup>-1</sup></td><td>&plusmn; 0.0034 cm<sup>-1</sup></td>
+              <td>0.0193 cm<sup>-1</sup></td><td>&plusmn; 0.0027 cm<sup>-1</sup></td>
               <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Tanaka fluctuation mesh forward intensity</td>
             </tr>
             <tr>
               <td>Incoherent Background</td><td>bkg</td>
-              <td>1.2744e-04 cm<sup>-1</sup></td><td>&plusmn; 8.2030e-06</td>
+              <td>1.2677e-04 cm<sup>-1</sup></td><td>&plusmn; 6.9092e-06</td>
               <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Flat background from solvent/incoherent scatter</td>
             </tr>
             <tr>
               <td>Goodness of Fit</td><td>&chi;<sup>2</sup><sub>red</sub></td>
-              <td style="color: var(--success); font-weight: 700;">0.971</td><td>&mdash;</td>
+              <td style="color: var(--success); font-weight: 700;">0.683</td><td>&mdash;</td>
               <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Full composite curve reduced chi-squared</td>
             </tr>
           </tbody>
@@ -334,7 +349,7 @@
     <!-- TAB 2: UNIFIED TRAJECTORIES -->
     <div id="unified_trajectories" class="tab-content">
       <div class="card">
-        <div class="card-title">Cross-Scale Kinetic Trajectories Synthesis ($t = 0.060	ext{ s} 	o 10.88	ext{ s}$)</div>
+        <div class="card-title">Cross-scale kinetic trajectories synthesis ($t = 0.060	ext{ s} 	o 10.88	ext{ s}$)</div>
         <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">
           Cross-scale synthesis combining 3.0 m (WAXS/MAXS) and 31.0 m (SAXS) measurements with shaded &plusmn;1&sigma; uncertainty envelopes.
         </p>
@@ -347,14 +362,14 @@
       <div class="inspector-grid">
         <div class="viewer-panel card">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-            <div class="card-title" style="margin-bottom: 0;">Short-Distance Scattering Pattern Fit (3.0 m Geometry)</div>
+            <div class="card-title" style="margin-bottom: 0;">Short-distance scattering pattern fit (3.0 m geometry)</div>
             <span class="badge" id="sd_frame_badge">Frame 00 (0.060 s)</span>
           </div>
           <img id="sd_img" src="../short_distance/fits/frame_000.png" alt="Short Distance Fit">
         </div>
 
         <div class="card">
-          <div class="card-title">Frame Controller & Telemetry</div>
+          <div class="card-title">Frame controller & telemetry</div>
           
           <div class="slider-box">
             <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
@@ -393,14 +408,14 @@
       <div class="inspector-grid">
         <div class="viewer-panel card">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-            <div class="card-title" style="margin-bottom: 0;">Long-Distance Scattering Pattern Fit (31.0 m Geometry)</div>
+            <div class="card-title" style="margin-bottom: 0;">Long-distance scattering pattern fit (31.0 m geometry)</div>
             <span class="badge" id="ld_frame_badge">Frame 00 (0.060 s)</span>
           </div>
           <img id="ld_img" src="../long_distance/fits/frame_000.png" alt="Long Distance Fit">
         </div>
 
         <div class="card">
-          <div class="card-title">Frame Controller & Telemetry</div>
+          <div class="card-title">Frame controller & telemetry</div>
           
           <div class="slider-box">
             <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
@@ -427,7 +442,7 @@
           </table>
 
           <div style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4;">
-            Transferred primary building block core: &lang;R<sub>prim</sub>&rang; = 11.46 nm, &sigma;<sub>prim</sub> = 4.01 nm.
+            Transferred primary building block core: &lang;R<sub>prim</sub>&rang; = 11.42 nm, &sigma;<sub>prim</sub> = 4.02 nm.
           </div>
         </div>
       </div>
@@ -436,7 +451,7 @@
     <!-- TAB 5: PARAMETER TABLES -->
     <div id="tables" class="tab-content">
       <div class="card">
-        <div class="card-title">Short-Distance Fitted Parameters (3.0 m, 50 Frames)</div>
+        <div class="card-title">Short-distance fitted parameters (3.0 m, 50 frames)</div>
         <div class="data-table-container">
           <table class="data-table">
             <thead>
@@ -1060,7 +1075,7 @@
       </div>
 
       <div class="card" style="margin-top: 1.5rem;">
-        <div class="card-title">Long-Distance Fitted Parameters (31.0 m, 50 Frames)</div>
+        <div class="card-title">Long-distance fitted parameters (31.0 m, 50 frames)</div>
         <div class="data-table-container">
           <table class="data-table">
             <thead>
@@ -1080,552 +1095,552 @@
               <tr>
                 <td>00</td>
                 <td>0.060</td>
-                <td>0.440</td>
-                <td>7163 &plusmn; 24</td>
-                <td>428 &plusmn; 4</td>
-                <td>8.45 &plusmn; 1.08</td>
-                <td>2.516 &plusmn; 0.121</td>
-                <td>23 &plusmn; 2</td>
-                <td>1.19 &plusmn; 0.02</td>
+                <td>0.232</td>
+                <td>2597 &plusmn; 14</td>
+                <td>237 &plusmn; 1</td>
+                <td>1.17 &plusmn; 0.09</td>
+                <td>2.178 &plusmn; 0.072</td>
+                <td>30 &plusmn; 0</td>
+                <td>1.18 &plusmn; 0.01</td>
               </tr>
               <tr>
                 <td>01</td>
                 <td>0.075</td>
-                <td>2.443</td>
-                <td>7774 &plusmn; 12</td>
-                <td>391 &plusmn; 2</td>
-                <td>54.18 &plusmn; 4.20</td>
-                <td>2.483 &plusmn; 0.078</td>
-                <td>20 &plusmn; 0</td>
-                <td>0.61 &plusmn; 0.05</td>
+                <td>0.246</td>
+                <td>2126 &plusmn; 9</td>
+                <td>194 &plusmn; 1</td>
+                <td>5.15 &plusmn; 0.28</td>
+                <td>2.090 &plusmn; 0.189</td>
+                <td>30 &plusmn; 23</td>
+                <td>0.59 &plusmn; 0.01</td>
               </tr>
               <tr>
                 <td>02</td>
                 <td>0.091</td>
-                <td>10.001</td>
-                <td>8743 &plusmn; 48</td>
-                <td>333 &plusmn; 10</td>
-                <td>9.10 &plusmn; 2.66</td>
-                <td>2.515 &plusmn; 0.157</td>
-                <td>21 &plusmn; 3</td>
-                <td>0.62 &plusmn; 0.09</td>
+                <td>2.814</td>
+                <td>3963 &plusmn; 55</td>
+                <td>361 &plusmn; 5</td>
+                <td>3.37 &plusmn; 1.15</td>
+                <td>2.225 &plusmn; 0.448</td>
+                <td>30 &plusmn; 0</td>
+                <td>0.58 &plusmn; 0.04</td>
               </tr>
               <tr>
                 <td>03</td>
                 <td>0.108</td>
-                <td>11.921</td>
-                <td>8714 &plusmn; 44</td>
-                <td>338 &plusmn; 8</td>
-                <td>12.90 &plusmn; 3.40</td>
-                <td>2.492 &plusmn; 0.172</td>
-                <td>20 &plusmn; 0</td>
-                <td>0.63 &plusmn; 0.10</td>
+                <td>3.004</td>
+                <td>4020 &plusmn; 55</td>
+                <td>366 &plusmn; 5</td>
+                <td>4.72 &plusmn; 1.77</td>
+                <td>2.152 &plusmn; 0.503</td>
+                <td>30 &plusmn; 0</td>
+                <td>0.60 &plusmn; 0.04</td>
               </tr>
               <tr>
                 <td>04</td>
                 <td>0.126</td>
-                <td>60.804</td>
-                <td>7862 &plusmn; 51</td>
-                <td>395 &plusmn; 9</td>
-                <td>31.17 &plusmn; 9.99</td>
-                <td>2.692 &plusmn; 0.001</td>
-                <td>100 &plusmn; 0</td>
-                <td>0.86 &plusmn; 0.08</td>
+                <td>6.658</td>
+                <td>3392 &plusmn; 35</td>
+                <td>309 &plusmn; 3</td>
+                <td>6.24 &plusmn; 1.33</td>
+                <td>2.600 &plusmn; 0.000</td>
+                <td>372 &plusmn; 51</td>
+                <td>0.80 &plusmn; 0.03</td>
               </tr>
               <tr>
                 <td>05</td>
                 <td>0.146</td>
-                <td>140.429</td>
-                <td>5862 &plusmn; 1</td>
-                <td>529 &plusmn; 24</td>
-                <td>136.81 &plusmn; 89.73</td>
-                <td>2.492 &plusmn; 0.005</td>
-                <td>20 &plusmn; 0</td>
-                <td>0.17 &plusmn; 0.00</td>
+                <td>5.359</td>
+                <td>2522 &plusmn; 0</td>
+                <td>230 &plusmn; 0</td>
+                <td>21.69 &plusmn; 0.00</td>
+                <td>1.300 &plusmn; 0.000</td>
+                <td>30 &plusmn; 0</td>
+                <td>0.78 &plusmn; 0.00</td>
               </tr>
               <tr>
                 <td>06</td>
                 <td>0.167</td>
-                <td>0.564</td>
-                <td>7862 &plusmn; 0</td>
-                <td>396 &plusmn; 3</td>
-                <td>10.05 &plusmn; 0.81</td>
-                <td>2.497 &plusmn; 0.036</td>
-                <td>34 &plusmn; 1</td>
+                <td>0.346</td>
+                <td>3735 &plusmn; 9</td>
+                <td>340 &plusmn; 1</td>
+                <td>4.57 &plusmn; 0.20</td>
+                <td>2.435 &plusmn; 0.083</td>
+                <td>37 &plusmn; 3</td>
                 <td>0.47 &plusmn; 0.01</td>
               </tr>
               <tr>
                 <td>07</td>
                 <td>0.190</td>
-                <td>0.144</td>
-                <td>7476 &plusmn; 57</td>
-                <td>503 &plusmn; 7</td>
-                <td>2.52 &plusmn; 0.54</td>
-                <td>2.412 &plusmn; 0.017</td>
-                <td>46 &plusmn; 1</td>
-                <td>0.42 &plusmn; 0.01</td>
+                <td>0.139</td>
+                <td>4013 &plusmn; 32</td>
+                <td>366 &plusmn; 3</td>
+                <td>0.55 &plusmn; 0.09</td>
+                <td>2.126 &plusmn; 0.033</td>
+                <td>61 &plusmn; 2</td>
+                <td>0.46 &plusmn; 0.01</td>
               </tr>
               <tr>
                 <td>08</td>
                 <td>0.214</td>
-                <td>0.691</td>
-                <td>7424 &plusmn; 27</td>
-                <td>482 &plusmn; 3</td>
-                <td>19.35 &plusmn; 1.99</td>
-                <td>2.420 &plusmn; 0.039</td>
-                <td>36 &plusmn; 2</td>
+                <td>0.266</td>
+                <td>4315 &plusmn; 13</td>
+                <td>393 &plusmn; 1</td>
+                <td>7.21 &plusmn; 0.68</td>
+                <td>2.315 &plusmn; 0.066</td>
+                <td>43 &plusmn; 3</td>
                 <td>0.48 &plusmn; 0.01</td>
               </tr>
               <tr>
                 <td>09</td>
                 <td>0.241</td>
-                <td>0.171</td>
-                <td>8492 &plusmn; 20</td>
-                <td>426 &plusmn; 4</td>
-                <td>3.70 &plusmn; 0.51</td>
-                <td>2.326 &plusmn; 0.018</td>
-                <td>54 &plusmn; 1</td>
-                <td>0.43 &plusmn; 0.01</td>
+                <td>0.163</td>
+                <td>5591 &plusmn; 26</td>
+                <td>510 &plusmn; 2</td>
+                <td>2.49 &plusmn; 0.59</td>
+                <td>2.105 &plusmn; 0.031</td>
+                <td>69 &plusmn; 3</td>
+                <td>0.46 &plusmn; 0.01</td>
               </tr>
               <tr>
                 <td>10</td>
                 <td>0.269</td>
-                <td>2.356</td>
-                <td>8697 &plusmn; 38</td>
-                <td>397 &plusmn; 6</td>
-                <td>8.70 &plusmn; 1.87</td>
-                <td>2.347 &plusmn; 0.071</td>
-                <td>41 &plusmn; 3</td>
-                <td>0.48 &plusmn; 0.02</td>
+                <td>1.160</td>
+                <td>5695 &plusmn; 38</td>
+                <td>519 &plusmn; 3</td>
+                <td>5.29 &plusmn; 3.42</td>
+                <td>2.295 &plusmn; 0.113</td>
+                <td>47 &plusmn; 5</td>
+                <td>0.47 &plusmn; 0.02</td>
               </tr>
               <tr>
                 <td>11</td>
                 <td>0.300</td>
-                <td>6.434</td>
-                <td>9243 &plusmn; 15</td>
-                <td>392 &plusmn; 2</td>
-                <td>50.54 &plusmn; 6.94</td>
-                <td>2.402 &plusmn; 0.125</td>
-                <td>27 &plusmn; 4</td>
-                <td>0.58 &plusmn; 0.06</td>
+                <td>0.933</td>
+                <td>2095 &plusmn; 9</td>
+                <td>191 &plusmn; 1</td>
+                <td>4.34 &plusmn; 0.20</td>
+                <td>2.579 &plusmn; 0.182</td>
+                <td>30 &plusmn; 4</td>
+                <td>0.51 &plusmn; 0.02</td>
               </tr>
               <tr>
                 <td>12</td>
                 <td>0.334</td>
-                <td>0.595</td>
-                <td>9264 &plusmn; 38</td>
-                <td>340 &plusmn; 15</td>
-                <td>1.32 &plusmn; 0.45</td>
-                <td>2.315 &plusmn; 0.032</td>
-                <td>59 &plusmn; 2</td>
-                <td>0.42 &plusmn; 0.01</td>
+                <td>0.427</td>
+                <td>2291 &plusmn; 12</td>
+                <td>209 &plusmn; 1</td>
+                <td>0.34 &plusmn; 0.03</td>
+                <td>2.183 &plusmn; 0.046</td>
+                <td>67 &plusmn; 4</td>
+                <td>0.45 &plusmn; 0.01</td>
               </tr>
               <tr>
                 <td>13</td>
                 <td>0.370</td>
-                <td>0.369</td>
-                <td>8774 &plusmn; 130</td>
-                <td>543 &plusmn; 14</td>
-                <td>3.19 &plusmn; 1.81</td>
-                <td>2.181 &plusmn; 0.023</td>
-                <td>81 &plusmn; 3</td>
-                <td>0.44 &plusmn; 0.01</td>
+                <td>0.169</td>
+                <td>2791 &plusmn; 6</td>
+                <td>254 &plusmn; 1</td>
+                <td>1.00 &plusmn; 0.03</td>
+                <td>2.025 &plusmn; 0.021</td>
+                <td>102 &plusmn; 4</td>
+                <td>0.47 &plusmn; 0.01</td>
               </tr>
               <tr>
                 <td>14</td>
                 <td>0.410</td>
-                <td>0.256</td>
-                <td>8716 &plusmn; 98</td>
-                <td>539 &plusmn; 11</td>
-                <td>3.07 &plusmn; 1.51</td>
-                <td>2.112 &plusmn; 0.019</td>
-                <td>87 &plusmn; 3</td>
-                <td>0.44 &plusmn; 0.01</td>
+                <td>0.101</td>
+                <td>2673 &plusmn; 5</td>
+                <td>244 &plusmn; 0</td>
+                <td>0.79 &plusmn; 0.02</td>
+                <td>2.001 &plusmn; 0.017</td>
+                <td>105 &plusmn; 3</td>
+                <td>0.46 &plusmn; 0.01</td>
               </tr>
               <tr>
                 <td>15</td>
                 <td>0.453</td>
-                <td>0.084</td>
-                <td>8839 &plusmn; 127</td>
-                <td>525 &plusmn; 18</td>
-                <td>0.65 &plusmn; 0.46</td>
-                <td>2.029 &plusmn; 0.010</td>
-                <td>116 &plusmn; 2</td>
-                <td>0.44 &plusmn; 0.00</td>
+                <td>0.081</td>
+                <td>2714 &plusmn; 37</td>
+                <td>247 &plusmn; 3</td>
+                <td>0.08 &plusmn; 0.01</td>
+                <td>1.951 &plusmn; 0.013</td>
+                <td>135 &plusmn; 4</td>
+                <td>0.46 &plusmn; 0.00</td>
               </tr>
               <tr>
                 <td>16</td>
                 <td>0.499</td>
-                <td>0.109</td>
-                <td>8871 &plusmn; 121</td>
-                <td>509 &plusmn; 15</td>
-                <td>0.92 &plusmn; 0.45</td>
-                <td>2.018 &plusmn; 0.011</td>
-                <td>117 &plusmn; 3</td>
-                <td>0.43 &plusmn; 0.00</td>
+                <td>0.092</td>
+                <td>2587 &plusmn; 13</td>
+                <td>236 &plusmn; 1</td>
+                <td>0.21 &plusmn; 0.01</td>
+                <td>1.992 &plusmn; 0.014</td>
+                <td>125 &plusmn; 4</td>
+                <td>0.44 &plusmn; 0.00</td>
               </tr>
               <tr>
                 <td>17</td>
                 <td>0.550</td>
-                <td>0.153</td>
-                <td>8663 &plusmn; 81</td>
-                <td>522 &plusmn; 10</td>
-                <td>1.89 &plusmn; 0.97</td>
-                <td>2.040 &plusmn; 0.014</td>
-                <td>109 &plusmn; 3</td>
-                <td>0.43 &plusmn; 0.00</td>
+                <td>0.105</td>
+                <td>3002 &plusmn; 8</td>
+                <td>274 &plusmn; 1</td>
+                <td>0.60 &plusmn; 0.03</td>
+                <td>2.068 &plusmn; 0.017</td>
+                <td>104 &plusmn; 3</td>
+                <td>0.42 &plusmn; 0.01</td>
               </tr>
               <tr>
                 <td>18</td>
                 <td>0.606</td>
-                <td>0.419</td>
-                <td>8651 &plusmn; 307</td>
-                <td>1348 &plusmn; 31</td>
-                <td>3.99 &plusmn; 2.06</td>
-                <td>2.007 &plusmn; 0.016</td>
-                <td>544 &plusmn; 1</td>
-                <td>0.39 &plusmn; 0.01</td>
+                <td>0.260</td>
+                <td>3343 &plusmn; 10</td>
+                <td>305 &plusmn; 1</td>
+                <td>2.23 &plusmn; 0.13</td>
+                <td>1.932 &plusmn; 0.037</td>
+                <td>5000 &plusmn; 589639</td>
+                <td>0.42 &plusmn; 0.01</td>
               </tr>
               <tr>
                 <td>19</td>
                 <td>0.667</td>
-                <td>0.216</td>
-                <td>8671 &plusmn; 230</td>
-                <td>1400 &plusmn; 23</td>
-                <td>1.74 &plusmn; 1.35</td>
-                <td>1.968 &plusmn; 0.015</td>
-                <td>155 &plusmn; 6</td>
+                <td>0.159</td>
+                <td>3320 &plusmn; 10</td>
+                <td>303 &plusmn; 1</td>
+                <td>0.85 &plusmn; 0.04</td>
+                <td>1.977 &plusmn; 0.018</td>
+                <td>144 &plusmn; 6</td>
                 <td>0.44 &plusmn; 0.01</td>
               </tr>
               <tr>
                 <td>20</td>
                 <td>0.733</td>
-                <td>0.110</td>
-                <td>8674 &plusmn; 165</td>
-                <td>1660 &plusmn; 35</td>
-                <td>0.42 &plusmn; 0.54</td>
-                <td>1.952 &plusmn; 0.011</td>
-                <td>163 &plusmn; 5</td>
+                <td>0.104</td>
+                <td>3151 &plusmn; 22</td>
+                <td>287 &plusmn; 2</td>
+                <td>0.26 &plusmn; 0.03</td>
+                <td>1.947 &plusmn; 0.014</td>
+                <td>163 &plusmn; 6</td>
                 <td>0.41 &plusmn; 0.00</td>
               </tr>
               <tr>
                 <td>21</td>
                 <td>0.805</td>
-                <td>1.949</td>
-                <td>8674 &plusmn; 700</td>
-                <td>1254 &plusmn; 42335</td>
-                <td>0.00 &plusmn; 2.57</td>
-                <td>2.152 &plusmn; 0.002</td>
-                <td>814 &plusmn; 1558</td>
-                <td>0.59 &plusmn; 0.02</td>
+                <td>0.313</td>
+                <td>3635 &plusmn; 36</td>
+                <td>331 &plusmn; 3</td>
+                <td>2.21 &plusmn; 0.36</td>
+                <td>2.600 &plusmn; 0.000</td>
+                <td>779 &plusmn; 411</td>
+                <td>0.38 &plusmn; 0.03</td>
               </tr>
               <tr>
                 <td>22</td>
                 <td>0.884</td>
-                <td>25.437</td>
-                <td>8663 &plusmn; 2460</td>
-                <td>1294 &plusmn; 258</td>
-                <td>2.93 &plusmn; 17.97</td>
-                <td>1.952 &plusmn; 0.001</td>
-                <td>1968 &plusmn; 297471</td>
-                <td>0.19 &plusmn; 0.06</td>
+                <td>0.970</td>
+                <td>3472 &plusmn; 5</td>
+                <td>316 &plusmn; 0</td>
+                <td>44.83 &plusmn; 1.59</td>
+                <td>2.439 &plusmn; 0.252</td>
+                <td>30 &plusmn; 3</td>
+                <td>0.48 &plusmn; 0.02</td>
               </tr>
               <tr>
                 <td>23</td>
                 <td>0.970</td>
-                <td>0.427</td>
-                <td>8643 &plusmn; 310</td>
-                <td>1472 &plusmn; 31</td>
-                <td>4.38 &plusmn; 2.07</td>
-                <td>1.966 &plusmn; 0.019</td>
-                <td>394 &plusmn; 6</td>
+                <td>0.225</td>
+                <td>4097 &plusmn; 14</td>
+                <td>373 &plusmn; 1</td>
+                <td>5.57 &plusmn; 0.52</td>
+                <td>1.953 &plusmn; 0.047</td>
+                <td>5000 &plusmn; 38266</td>
                 <td>0.37 &plusmn; 0.01</td>
               </tr>
               <tr>
                 <td>24</td>
                 <td>1.065</td>
-                <td>0.091</td>
-                <td>8639 &plusmn; 150</td>
-                <td>1442 &plusmn; 16</td>
-                <td>1.05 &plusmn; 0.77</td>
-                <td>1.949 &plusmn; 0.010</td>
-                <td>184 &plusmn; 5</td>
-                <td>0.37 &plusmn; 0.00</td>
+                <td>0.089</td>
+                <td>5558 &plusmn; 67</td>
+                <td>507 &plusmn; 6</td>
+                <td>0.64 &plusmn; 0.34</td>
+                <td>1.936 &plusmn; 0.013</td>
+                <td>191 &plusmn; 7</td>
+                <td>0.38 &plusmn; 0.00</td>
               </tr>
               <tr>
                 <td>25</td>
                 <td>1.168</td>
-                <td>0.096</td>
-                <td>8615 &plusmn; 152</td>
-                <td>890 &plusmn; 16</td>
-                <td>1.71 &plusmn; 1.20</td>
-                <td>1.918 &plusmn; 0.011</td>
-                <td>187 &plusmn; 6</td>
+                <td>0.085</td>
+                <td>4978 &plusmn; 31</td>
+                <td>454 &plusmn; 3</td>
+                <td>1.08 &plusmn; 0.16</td>
+                <td>1.904 &plusmn; 0.014</td>
+                <td>189 &plusmn; 8</td>
                 <td>0.35 &plusmn; 0.00</td>
               </tr>
               <tr>
                 <td>26</td>
                 <td>1.282</td>
-                <td>0.732</td>
-                <td>8484 &plusmn; 416</td>
-                <td>912 &plusmn; 42</td>
-                <td>2.53 &plusmn; 3.39</td>
-                <td>1.982 &plusmn; 0.034</td>
-                <td>117 &plusmn; 9</td>
-                <td>0.33 &plusmn; 0.01</td>
+                <td>0.637</td>
+                <td>4935 &plusmn; 55</td>
+                <td>450 &plusmn; 5</td>
+                <td>1.54 &plusmn; 0.44</td>
+                <td>2.105 &plusmn; 0.059</td>
+                <td>94 &plusmn; 9</td>
+                <td>0.31 &plusmn; 0.01</td>
               </tr>
               <tr>
                 <td>27</td>
                 <td>1.406</td>
-                <td>0.877</td>
-                <td>8750 &plusmn; 453</td>
-                <td>879 &plusmn; 46</td>
-                <td>2.41 &plusmn; 3.62</td>
-                <td>1.997 &plusmn; 0.026</td>
-                <td>587 &plusmn; 1</td>
+                <td>0.812</td>
+                <td>1909 &plusmn; 18</td>
+                <td>174 &plusmn; 2</td>
+                <td>0.25 &plusmn; 0.03</td>
+                <td>1.999 &plusmn; 0.035</td>
+                <td>365 &plusmn; 98</td>
                 <td>0.28 &plusmn; 0.01</td>
               </tr>
               <tr>
                 <td>28</td>
                 <td>1.542</td>
-                <td>2.469</td>
-                <td>8754 &plusmn; 786</td>
-                <td>287 &plusmn; 33401</td>
-                <td>0.00 &plusmn; 5.77</td>
-                <td>1.896 &plusmn; 0.068</td>
-                <td>2178 &plusmn; 37426</td>
-                <td>0.29 &plusmn; 0.02</td>
+                <td>0.988</td>
+                <td>1890 &plusmn; 10</td>
+                <td>172 &plusmn; 1</td>
+                <td>1.08 &plusmn; 0.06</td>
+                <td>2.105 &plusmn; 0.060</td>
+                <td>149 &plusmn; 22</td>
+                <td>0.27 &plusmn; 0.01</td>
               </tr>
               <tr>
                 <td>29</td>
                 <td>1.691</td>
-                <td>0.168</td>
-                <td>8772 &plusmn; 64</td>
-                <td>207 &plusmn; 54</td>
-                <td>0.16 &plusmn; 0.08</td>
-                <td>1.816 &plusmn; 0.014</td>
-                <td>436 &plusmn; 56</td>
-                <td>0.30 &plusmn; 0.00</td>
+                <td>0.064</td>
+                <td>2371 &plusmn; 17</td>
+                <td>216 &plusmn; 2</td>
+                <td>0.10 &plusmn; 0.01</td>
+                <td>1.917 &plusmn; 0.013</td>
+                <td>222 &plusmn; 11</td>
+                <td>0.29 &plusmn; 0.00</td>
               </tr>
               <tr>
                 <td>30</td>
                 <td>1.855</td>
-                <td>10.619</td>
-                <td>9279 &plusmn; 0</td>
-                <td>379 &plusmn; 0</td>
-                <td>98.84 &plusmn; 0.00</td>
-                <td>1.816 &plusmn; 0.000</td>
-                <td>2178 &plusmn; 0</td>
-                <td>0.35 &plusmn; 0.00</td>
+                <td>0.433</td>
+                <td>2019 &plusmn; 5</td>
+                <td>184 &plusmn; 0</td>
+                <td>12.00 &plusmn; 0.30</td>
+                <td>1.719 &plusmn; 0.163</td>
+                <td>5000 &plusmn; 1134</td>
+                <td>0.32 &plusmn; 0.01</td>
               </tr>
               <tr>
                 <td>31</td>
                 <td>2.034</td>
-                <td>0.132</td>
-                <td>10035 &plusmn; 17</td>
-                <td>344 &plusmn; 5</td>
-                <td>1.80 &plusmn; 0.39</td>
-                <td>1.817 &plusmn; 0.014</td>
-                <td>436 &plusmn; 67</td>
-                <td>0.25 &plusmn; 0.00</td>
+                <td>0.099</td>
+                <td>2843 &plusmn; 12</td>
+                <td>259 &plusmn; 1</td>
+                <td>0.36 &plusmn; 0.02</td>
+                <td>1.955 &plusmn; 0.020</td>
+                <td>208 &plusmn; 13</td>
+                <td>0.23 &plusmn; 0.00</td>
               </tr>
               <tr>
                 <td>32</td>
                 <td>2.231</td>
-                <td>0.067</td>
-                <td>10262 &plusmn; 108</td>
-                <td>279 &plusmn; 34</td>
-                <td>0.18 &plusmn; 0.07</td>
-                <td>1.891 &plusmn; 0.010</td>
-                <td>269 &plusmn; 14</td>
-                <td>0.24 &plusmn; 0.00</td>
+                <td>0.064</td>
+                <td>2383 &plusmn; 32</td>
+                <td>217 &plusmn; 3</td>
+                <td>0.05 &plusmn; 0.01</td>
+                <td>1.982 &plusmn; 0.016</td>
+                <td>210 &plusmn; 11</td>
+                <td>0.22 &plusmn; 0.00</td>
               </tr>
               <tr>
                 <td>33</td>
                 <td>2.448</td>
-                <td>0.083</td>
-                <td>10182 &plusmn; 107</td>
-                <td>331 &plusmn; 30</td>
-                <td>0.29 &plusmn; 0.16</td>
-                <td>1.930 &plusmn; 0.012</td>
-                <td>221 &plusmn; 11</td>
-                <td>0.20 &plusmn; 0.00</td>
+                <td>0.078</td>
+                <td>2827 &plusmn; 26</td>
+                <td>258 &plusmn; 2</td>
+                <td>0.14 &plusmn; 0.02</td>
+                <td>1.989 &plusmn; 0.020</td>
+                <td>194 &plusmn; 12</td>
+                <td>0.19 &plusmn; 0.00</td>
               </tr>
               <tr>
                 <td>34</td>
                 <td>2.685</td>
-                <td>0.726</td>
-                <td>10033 &plusmn; 14</td>
-                <td>365 &plusmn; 2</td>
-                <td>8.49 &plusmn; 1.58</td>
-                <td>1.985 &plusmn; 0.041</td>
-                <td>80 &plusmn; 7</td>
-                <td>0.21 &plusmn; 0.01</td>
+                <td>0.388</td>
+                <td>2632 &plusmn; 8</td>
+                <td>240 &plusmn; 1</td>
+                <td>1.16 &plusmn; 0.05</td>
+                <td>2.292 &plusmn; 0.108</td>
+                <td>62 &plusmn; 8</td>
+                <td>0.17 &plusmn; 0.01</td>
               </tr>
               <tr>
                 <td>35</td>
                 <td>2.945</td>
                 <td>0.082</td>
-                <td>9824 &plusmn; 63</td>
-                <td>405 &plusmn; 10</td>
-                <td>0.85 &plusmn; 0.31</td>
-                <td>1.993 &plusmn; 0.012</td>
-                <td>241 &plusmn; 12</td>
+                <td>3392 &plusmn; 68</td>
+                <td>309 &plusmn; 6</td>
+                <td>0.09 &plusmn; 0.03</td>
+                <td>2.012 &plusmn; 0.021</td>
+                <td>226 &plusmn; 16</td>
                 <td>0.17 &plusmn; 0.00</td>
               </tr>
               <tr>
                 <td>36</td>
                 <td>3.231</td>
-                <td>0.187</td>
-                <td>9524 &plusmn; 45</td>
-                <td>446 &plusmn; 5</td>
-                <td>3.22 &plusmn; 0.54</td>
-                <td>2.063 &plusmn; 0.018</td>
-                <td>216 &plusmn; 15</td>
-                <td>0.16 &plusmn; 0.00</td>
+                <td>0.152</td>
+                <td>3868 &plusmn; 12</td>
+                <td>353 &plusmn; 1</td>
+                <td>1.35 &plusmn; 0.09</td>
+                <td>2.170 &plusmn; 0.030</td>
+                <td>184 &plusmn; 14</td>
+                <td>0.14 &plusmn; 0.00</td>
               </tr>
               <tr>
                 <td>37</td>
                 <td>3.545</td>
-                <td>0.063</td>
-                <td>9524 &plusmn; 126</td>
-                <td>461 &plusmn; 5820</td>
-                <td>0.00 &plusmn; 0.00</td>
-                <td>2.038 &plusmn; 0.011</td>
-                <td>194 &plusmn; 8</td>
-                <td>0.13 &plusmn; 0.00</td>
+                <td>0.061</td>
+                <td>4054 &plusmn; 42</td>
+                <td>370 &plusmn; 4</td>
+                <td>0.24 &plusmn; 0.05</td>
+                <td>1.941 &plusmn; 0.022</td>
+                <td>270 &plusmn; 26</td>
+                <td>0.14 &plusmn; 0.00</td>
               </tr>
               <tr>
                 <td>38</td>
                 <td>3.890</td>
-                <td>0.052</td>
-                <td>9509 &plusmn; 114</td>
-                <td>1255 &plusmn; 15</td>
-                <td>0.48 &plusmn; 0.91</td>
-                <td>2.018 &plusmn; 0.010</td>
-                <td>296 &plusmn; 18</td>
-                <td>0.12 &plusmn; 0.00</td>
+                <td>0.049</td>
+                <td>3699 &plusmn; 36</td>
+                <td>337 &plusmn; 3</td>
+                <td>0.18 &plusmn; 0.03</td>
+                <td>1.973 &plusmn; 0.018</td>
+                <td>347 &plusmn; 39</td>
+                <td>0.13 &plusmn; 0.00</td>
               </tr>
               <tr>
                 <td>39</td>
                 <td>4.269</td>
-                <td>0.255</td>
-                <td>9529 &plusmn; 252</td>
-                <td>1256 &plusmn; 26</td>
-                <td>1.05 &plusmn; 2.28</td>
-                <td>2.053 &plusmn; 0.023</td>
-                <td>179 &plusmn; 15</td>
-                <td>0.12 &plusmn; 0.00</td>
+                <td>0.207</td>
+                <td>3666 &plusmn; 16</td>
+                <td>334 &plusmn; 1</td>
+                <td>0.99 &plusmn; 0.07</td>
+                <td>2.215 &plusmn; 0.059</td>
+                <td>132 &plusmn; 14</td>
+                <td>0.10 &plusmn; 0.01</td>
               </tr>
               <tr>
                 <td>40</td>
                 <td>4.686</td>
-                <td>0.061</td>
-                <td>9514 &plusmn; 122</td>
-                <td>1243 &plusmn; 15</td>
-                <td>1.38 &plusmn; 0.43</td>
-                <td>2.096 &plusmn; 0.011</td>
-                <td>331 &plusmn; 28</td>
-                <td>0.09 &plusmn; 0.00</td>
+                <td>0.052</td>
+                <td>3756 &plusmn; 17</td>
+                <td>342 &plusmn; 2</td>
+                <td>0.46 &plusmn; 0.04</td>
+                <td>2.243 &plusmn; 0.024</td>
+                <td>219 &plusmn; 14</td>
+                <td>0.08 &plusmn; 0.00</td>
               </tr>
               <tr>
                 <td>41</td>
                 <td>5.143</td>
-                <td>0.051</td>
-                <td>9522 &plusmn; 114</td>
-                <td>1226 &plusmn; 11</td>
-                <td>1.75 &plusmn; 1.02</td>
-                <td>2.181 &plusmn; 0.009</td>
-                <td>693 &plusmn; 434</td>
-                <td>0.09 &plusmn; 0.00</td>
+                <td>0.045</td>
+                <td>3589 &plusmn; 30</td>
+                <td>327 &plusmn; 3</td>
+                <td>0.26 &plusmn; 0.03</td>
+                <td>2.298 &plusmn; 0.015</td>
+                <td>423 &plusmn; 59</td>
+                <td>0.07 &plusmn; 0.00</td>
               </tr>
               <tr>
                 <td>42</td>
                 <td>5.646</td>
-                <td>0.427</td>
-                <td>9613 &plusmn; 321</td>
-                <td>1219 &plusmn; 32</td>
-                <td>2.94 &plusmn; 3.24</td>
-                <td>2.256 &plusmn; 0.031</td>
-                <td>155 &plusmn; 15</td>
-                <td>0.07 &plusmn; 0.00</td>
+                <td>0.385</td>
+                <td>4056 &plusmn; 26</td>
+                <td>370 &plusmn; 2</td>
+                <td>1.19 &plusmn; 0.16</td>
+                <td>2.600 &plusmn; 0.054</td>
+                <td>115 &plusmn; 14</td>
+                <td>0.05 &plusmn; 0.01</td>
               </tr>
               <tr>
                 <td>43</td>
                 <td>6.199</td>
-                <td>0.114</td>
-                <td>9561 &plusmn; 170</td>
-                <td>1221 &plusmn; 17</td>
-                <td>1.62 &plusmn; 1.51</td>
-                <td>2.347 &plusmn; 0.015</td>
-                <td>244 &plusmn; 14</td>
-                <td>0.07 &plusmn; 0.00</td>
+                <td>0.098</td>
+                <td>4173 &plusmn; 25</td>
+                <td>380 &plusmn; 2</td>
+                <td>0.66 &plusmn; 0.07</td>
+                <td>2.600 &plusmn; 0.000</td>
+                <td>173 &plusmn; 9</td>
+                <td>0.05 &plusmn; 0.00</td>
               </tr>
               <tr>
                 <td>44</td>
                 <td>6.806</td>
-                <td>0.148</td>
-                <td>9571 &plusmn; 201</td>
-                <td>978 &plusmn; 32</td>
-                <td>0.58 &plusmn; 1.17</td>
-                <td>2.547 &plusmn; 0.000</td>
-                <td>442 &plusmn; 57</td>
+                <td>0.140</td>
+                <td>4214 &plusmn; 96</td>
+                <td>384 &plusmn; 9</td>
+                <td>0.22 &plusmn; 0.10</td>
+                <td>2.600 &plusmn; 0.000</td>
+                <td>412 &plusmn; 45</td>
                 <td>0.06 &plusmn; 0.00</td>
               </tr>
               <tr>
                 <td>45</td>
                 <td>7.474</td>
-                <td>0.131</td>
-                <td>9567 &plusmn; 190</td>
-                <td>1121 &plusmn; 126</td>
-                <td>0.11 &plusmn; 1.33</td>
-                <td>2.747 &plusmn; 0.000</td>
-                <td>264 &plusmn; 10</td>
-                <td>0.04 &plusmn; 0.00</td>
+                <td>0.163</td>
+                <td>4007 &plusmn; 200</td>
+                <td>365 &plusmn; 18</td>
+                <td>0.08 &plusmn; 0.09</td>
+                <td>2.600 &plusmn; 0.000</td>
+                <td>313 &plusmn; 23</td>
+                <td>0.06 &plusmn; 0.00</td>
               </tr>
               <tr>
                 <td>46</td>
                 <td>8.208</td>
-                <td>0.157</td>
-                <td>9567 &plusmn; 207</td>
-                <td>1345 &plusmn; 156</td>
-                <td>0.04 &plusmn; 1.87</td>
-                <td>2.947 &plusmn; 0.000</td>
-                <td>251 &plusmn; 7</td>
-                <td>0.04 &plusmn; 0.00</td>
+                <td>0.316</td>
+                <td>3732 &plusmn; 179</td>
+                <td>340 &plusmn; 16</td>
+                <td>0.11 &plusmn; 0.09</td>
+                <td>2.600 &plusmn; 0.000</td>
+                <td>385 &plusmn; 43</td>
+                <td>0.07 &plusmn; 0.00</td>
               </tr>
               <tr>
                 <td>47</td>
                 <td>9.015</td>
-                <td>0.253</td>
-                <td>9567 &plusmn; 252</td>
-                <td>1362 &plusmn; 754</td>
-                <td>0.04 &plusmn; 0.71</td>
-                <td>2.990 &plusmn; 0.000</td>
-                <td>264 &plusmn; 9</td>
-                <td>0.03 &plusmn; 0.00</td>
+                <td>0.493</td>
+                <td>4004 &plusmn; 135</td>
+                <td>365 &plusmn; 12</td>
+                <td>0.21 &plusmn; 0.17</td>
+                <td>2.600 &plusmn; 0.000</td>
+                <td>411 &plusmn; 67</td>
+                <td>0.07 &plusmn; 0.00</td>
               </tr>
               <tr>
                 <td>48</td>
                 <td>9.902</td>
-                <td>0.590</td>
-                <td>9551 &plusmn; 382</td>
-                <td>1314 &plusmn; 38</td>
-                <td>1.42 &plusmn; 3.40</td>
-                <td>2.990 &plusmn; 0.000</td>
-                <td>336 &plusmn; 19</td>
-                <td>0.05 &plusmn; 0.00</td>
+                <td>1.090</td>
+                <td>3601 &plusmn; 108</td>
+                <td>328 &plusmn; 10</td>
+                <td>0.37 &plusmn; 0.18</td>
+                <td>2.600 &plusmn; 0.000</td>
+                <td>452 &plusmn; 132</td>
+                <td>0.08 &plusmn; 0.01</td>
               </tr>
               <tr>
                 <td>49</td>
                 <td>10.877</td>
-                <td>0.919</td>
-                <td>9484 &plusmn; 467</td>
-                <td>1295 &plusmn; 49</td>
-                <td>2.79 &plusmn; 3.94</td>
-                <td>2.990 &plusmn; 0.000</td>
-                <td>307 &plusmn; 21</td>
-                <td>0.04 &plusmn; 0.00</td>
+                <td>1.356</td>
+                <td>3602 &plusmn; 108</td>
+                <td>328 &plusmn; 10</td>
+                <td>0.45 &plusmn; 0.22</td>
+                <td>2.600 &plusmn; 0.000</td>
+                <td>421 &plusmn; 128</td>
+                <td>0.08 &plusmn; 0.01</td>
               </tr>
             </tbody>
           </table>
@@ -1636,7 +1651,7 @@
     <!-- TAB 6: THEORY & FORMULATIONS -->
     <div id="theory" class="tab-content">
       <div class="card">
-        <div class="card-title">Multiscale Physical Scattering Formalism</div>
+        <div class="card-title">Multiscale physical scattering formalism</div>
         <p style="color: var(--text-secondary); margin-bottom: 12px;">
           The total experimental scattering intensity \(I(q)\) is modelled across the entire momentum transfer range
           \(q \in [0.002, 2.5]\text{ nm}^{-1}\) as the coherent linear superposition of four structural contributions:
@@ -1647,7 +1662,7 @@
           \]
         </div>
 
-        <h3 style="font-size: 1.05rem; margin-top: 20px; color: #ffffff;">1. Primary Fractal Network</h3>
+        <h3 style="font-size: 1.05rem; margin-top: 20px; color: #ffffff;">1. Primary fractal network</h3>
         <p style="color: var(--text-secondary); margin-top: 6px;">
           Polydisperse spherical building blocks following a log-normal size distribution \(n(R)\) with inter-particle
           Teixeira mass fractal structure factor \(S(q)\):
@@ -1661,7 +1676,7 @@
           \]
         </div>
 
-        <h3 style="font-size: 1.05rem; margin-top: 20px; color: #ffffff;">2. Secondary Macroscopic Droplets</h3>
+        <h3 style="font-size: 1.05rem; margin-top: 20px; color: #ffffff;">2. Secondary macroscopic droplets</h3>
         <p style="color: var(--text-secondary); margin-top: 6px;">
           Dilute secondary dense liquid phase droplets with log-normal polydispersity and constant relative dispersion
           \(\sigma_{\mathrm{large}} / \langle R_{\mathrm{large}} \rangle = \text{const}\):
@@ -1672,7 +1687,7 @@
           \]
         </div>
 
-        <h3 style="font-size: 1.05rem; margin-top: 20px; color: #ffffff;">3. Viscoelastic Network Concentration Fluctuations</h3>
+        <h3 style="font-size: 1.05rem; margin-top: 20px; color: #ffffff;">3. Viscoelastic network concentration fluctuations</h3>
         <p style="color: var(--text-secondary); margin-top: 6px;">
           Dynamic viscoelastic network fluctuations (Fisher-Burford / Tanaka formulation with \(\mu_{\mathrm{fluc}} = 4.0\)) explaining the high-\(q\) excess:
         </p>
@@ -1687,7 +1702,7 @@
 
   <script>
     const shortData = {"0": {"time": "0.060", "chi2": "0.314", "Rmean": "12.42 \u00b1 0.18", "stdDev": "4.08 \u00b1 0.02", "D": "1.300 \u00b1 0.000", "phi": "0.45 \u00b1 0.02", "A_fluc": "0.1602 \u00b1 0.1291", "xi_fluc": "15.00 \u00b1 0.01", "bkg": "0.0003 \u00b1 0.0000"}, "1": {"time": "0.075", "chi2": "0.293", "Rmean": "11.42 \u00b1 0.00", "stdDev": "4.40 \u00b1 0.01", "D": "1.339 \u00b1 0.004", "phi": "0.40 \u00b1 0.00", "A_fluc": "0.1315 \u00b1 0.0066", "xi_fluc": "14.92 \u00b1 0.12", "bkg": "0.0003 \u00b1 0.0000"}, "2": {"time": "0.091", "chi2": "0.388", "Rmean": "10.42 \u00b1 0.00", "stdDev": "4.47 \u00b1 0.01", "D": "1.389 \u00b1 0.000", "phi": "0.43 \u00b1 0.00", "A_fluc": "0.0998 \u00b1 0.0075", "xi_fluc": "14.84 \u00b1 0.13", "bkg": "0.0003 \u00b1 0.0000"}, "3": {"time": "0.108", "chi2": "0.400", "Rmean": "9.57 \u00b1 0.08", "stdDev": "4.41 \u00b1 0.02", "D": "1.439 \u00b1 0.000", "phi": "0.46 \u00b1 0.00", "A_fluc": "0.0532 \u00b1 0.0076", "xi_fluc": "14.78 \u00b1 0.13", "bkg": "0.0004 \u00b1 0.0000"}, "4": {"time": "0.126", "chi2": "0.480", "Rmean": "8.94 \u00b1 0.09", "stdDev": "4.36 \u00b1 0.02", "D": "1.489 \u00b1 0.000", "phi": "0.47 \u00b1 0.00", "A_fluc": "0.0302 \u00b1 0.0086", "xi_fluc": "14.74 \u00b1 0.14", "bkg": "0.0004 \u00b1 0.0000"}, "5": {"time": "0.146", "chi2": "0.570", "Rmean": "8.53 \u00b1 0.10", "stdDev": "4.25 \u00b1 0.02", "D": "1.539 \u00b1 0.000", "phi": "0.49 \u00b1 0.00", "A_fluc": "0.0001 \u00b1 0.0082", "xi_fluc": "14.74 \u00b1 0.16", "bkg": "0.0004 \u00b1 0.0000"}, "6": {"time": "0.167", "chi2": "0.534", "Rmean": "8.65 \u00b1 0.10", "stdDev": "4.23 \u00b1 0.02", "D": "1.589 \u00b1 0.000", "phi": "0.49 \u00b1 0.00", "A_fluc": "0.0001 \u00b1 0.0000", "xi_fluc": "14.74 \u00b1 0.15", "bkg": "0.0004 \u00b1 0.0000"}, "7": {"time": "0.190", "chi2": "0.460", "Rmean": "8.49 \u00b1 0.09", "stdDev": "4.19 \u00b1 0.02", "D": "1.639 \u00b1 0.000", "phi": "0.49 \u00b1 0.00", "A_fluc": "0.0001 \u00b1 0.0000", "xi_fluc": "14.74 \u00b1 0.14", "bkg": "0.0004 \u00b1 0.0000"}, "8": {"time": "0.214", "chi2": "0.492", "Rmean": "8.47 \u00b1 0.09", "stdDev": "4.14 \u00b1 0.02", "D": "1.689 \u00b1 0.000", "phi": "0.49 \u00b1 0.00", "A_fluc": "0.0001 \u00b1 0.0000", "xi_fluc": "14.74 \u00b1 0.14", "bkg": "0.0004 \u00b1 0.0000"}, "9": {"time": "0.241", "chi2": "0.434", "Rmean": "8.75 \u00b1 0.09", "stdDev": "4.13 \u00b1 0.02", "D": "1.739 \u00b1 0.000", "phi": "0.49 \u00b1 0.00", "A_fluc": "0.0001 \u00b1 0.0000", "xi_fluc": "14.74 \u00b1 0.14", "bkg": "0.0004 \u00b1 0.0000"}, "10": {"time": "0.269", "chi2": "0.340", "Rmean": "9.18 \u00b1 0.07", "stdDev": "4.09 \u00b1 0.02", "D": "1.789 \u00b1 0.000", "phi": "0.49 \u00b1 0.00", "A_fluc": "0.0001 \u00b1 0.0000", "xi_fluc": "14.74 \u00b1 0.12", "bkg": "0.0004 \u00b1 0.0000"}, "11": {"time": "0.300", "chi2": "0.243", "Rmean": "9.35 \u00b1 0.06", "stdDev": "4.08 \u00b1 0.01", "D": "1.832 \u00b1 0.003", "phi": "0.49 \u00b1 0.00", "A_fluc": "0.0012 \u00b1 0.0061", "xi_fluc": "14.74 \u00b1 0.10", "bkg": "0.0004 \u00b1 0.0000"}, "12": {"time": "0.334", "chi2": "0.250", "Rmean": "9.63 \u00b1 0.06", "stdDev": "4.04 \u00b1 0.01", "D": "1.862 \u00b1 0.003", "phi": "0.49 \u00b1 0.00", "A_fluc": "0.0071 \u00b1 0.0059", "xi_fluc": "14.73 \u00b1 0.10", "bkg": "0.0004 \u00b1 0.0000"}, "13": {"time": "0.370", "chi2": "0.205", "Rmean": "9.74 \u00b1 0.05", "stdDev": "4.08 \u00b1 0.01", "D": "1.888 \u00b1 0.003", "phi": "0.48 \u00b1 0.00", "A_fluc": "0.0328 \u00b1 0.0051", "xi_fluc": "14.70 \u00b1 0.09", "bkg": "0.0004 \u00b1 0.0000"}, "14": {"time": "0.410", "chi2": "0.210", "Rmean": "9.96 \u00b1 0.05", "stdDev": "4.05 \u00b1 0.01", "D": "1.916 \u00b1 0.003", "phi": "0.49 \u00b1 0.00", "A_fluc": "0.0314 \u00b1 0.0050", "xi_fluc": "14.66 \u00b1 0.09", "bkg": "0.0004 \u00b1 0.0000"}, "15": {"time": "0.453", "chi2": "0.194", "Rmean": "10.11 \u00b1 0.05", "stdDev": "4.10 \u00b1 0.01", "D": "1.929 \u00b1 0.003", "phi": "0.48 \u00b1 0.00", "A_fluc": "0.0565 \u00b1 0.0046", "xi_fluc": "14.61 \u00b1 0.09", "bkg": "0.0004 \u00b1 0.0000"}, "16": {"time": "0.499", "chi2": "0.207", "Rmean": "10.27 \u00b1 0.05", "stdDev": "4.06 \u00b1 0.01", "D": "1.940 \u00b1 0.003", "phi": "0.48 \u00b1 0.00", "A_fluc": "0.0525 \u00b1 0.0047", "xi_fluc": "14.57 \u00b1 0.09", "bkg": "0.0004 \u00b1 0.0000"}, "17": {"time": "0.550", "chi2": "0.191", "Rmean": "10.52 \u00b1 0.05", "stdDev": "4.06 \u00b1 0.01", "D": "1.949 \u00b1 0.003", "phi": "0.47 \u00b1 0.00", "A_fluc": "0.0652 \u00b1 0.0044", "xi_fluc": "14.53 \u00b1 0.09", "bkg": "0.0004 \u00b1 0.0000"}, "18": {"time": "0.606", "chi2": "0.170", "Rmean": "10.76 \u00b1 0.05", "stdDev": "4.06 \u00b1 0.01", "D": "1.957 \u00b1 0.002", "phi": "0.47 \u00b1 0.00", "A_fluc": "0.0751 \u00b1 0.0040", "xi_fluc": "14.48 \u00b1 0.08", "bkg": "0.0004 \u00b1 0.0000"}, "19": {"time": "0.667", "chi2": "0.177", "Rmean": "10.87 \u00b1 0.05", "stdDev": "4.08 \u00b1 0.01", "D": "1.962 \u00b1 0.002", "phi": "0.46 \u00b1 0.00", "A_fluc": "0.0830 \u00b1 0.0040", "xi_fluc": "14.44 \u00b1 0.08", "bkg": "0.0003 \u00b1 0.0000"}, "20": {"time": "0.733", "chi2": "0.150", "Rmean": "11.02 \u00b1 0.04", "stdDev": "4.04 \u00b1 0.01", "D": "1.971 \u00b1 0.002", "phi": "0.46 \u00b1 0.00", "A_fluc": "0.0810 \u00b1 0.0036", "xi_fluc": "14.39 \u00b1 0.08", "bkg": "0.0004 \u00b1 0.0000"}, "21": {"time": "0.805", "chi2": "0.155", "Rmean": "11.06 \u00b1 0.04", "stdDev": "4.05 \u00b1 0.01", "D": "1.968 \u00b1 0.002", "phi": "0.46 \u00b1 0.00", "A_fluc": "0.0834 \u00b1 0.0037", "xi_fluc": "14.35 \u00b1 0.08", "bkg": "0.0004 \u00b1 0.0000"}, "22": {"time": "0.884", "chi2": "0.166", "Rmean": "11.04 \u00b1 0.05", "stdDev": "4.05 \u00b1 0.01", "D": "1.976 \u00b1 0.002", "phi": "0.46 \u00b1 0.00", "A_fluc": "0.0898 \u00b1 0.0038", "xi_fluc": "14.29 \u00b1 0.08", "bkg": "0.0004 \u00b1 0.0000"}, "23": {"time": "0.970", "chi2": "0.195", "Rmean": "10.95 \u00b1 0.05", "stdDev": "4.10 \u00b1 0.01", "D": "1.967 \u00b1 0.003", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.0937 \u00b1 0.0042", "xi_fluc": "14.28 \u00b1 0.09", "bkg": "0.0003 \u00b1 0.0000"}, "24": {"time": "1.065", "chi2": "0.196", "Rmean": "11.05 \u00b1 0.05", "stdDev": "4.04 \u00b1 0.01", "D": "1.969 \u00b1 0.003", "phi": "0.46 \u00b1 0.00", "A_fluc": "0.0823 \u00b1 0.0040", "xi_fluc": "14.24 \u00b1 0.09", "bkg": "0.0003 \u00b1 0.0000"}, "25": {"time": "1.168", "chi2": "0.170", "Rmean": "11.07 \u00b1 0.05", "stdDev": "4.08 \u00b1 0.01", "D": "1.969 \u00b1 0.002", "phi": "0.46 \u00b1 0.00", "A_fluc": "0.0896 \u00b1 0.0038", "xi_fluc": "14.21 \u00b1 0.08", "bkg": "0.0004 \u00b1 0.0000"}, "26": {"time": "1.282", "chi2": "0.169", "Rmean": "11.15 \u00b1 0.05", "stdDev": "4.10 \u00b1 0.01", "D": "1.973 \u00b1 0.002", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.0955 \u00b1 0.0037", "xi_fluc": "14.17 \u00b1 0.08", "bkg": "0.0003 \u00b1 0.0000"}, "27": {"time": "1.406", "chi2": "0.173", "Rmean": "11.21 \u00b1 0.05", "stdDev": "4.07 \u00b1 0.01", "D": "1.974 \u00b1 0.002", "phi": "0.46 \u00b1 0.00", "A_fluc": "0.0941 \u00b1 0.0037", "xi_fluc": "14.12 \u00b1 0.08", "bkg": "0.0004 \u00b1 0.0000"}, "28": {"time": "1.542", "chi2": "0.187", "Rmean": "11.31 \u00b1 0.05", "stdDev": "4.05 \u00b1 0.01", "D": "1.958 \u00b1 0.003", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.0973 \u00b1 0.0039", "xi_fluc": "14.13 \u00b1 0.09", "bkg": "0.0003 \u00b1 0.0000"}, "29": {"time": "1.691", "chi2": "0.174", "Rmean": "11.26 \u00b1 0.05", "stdDev": "4.08 \u00b1 0.01", "D": "1.965 \u00b1 0.002", "phi": "0.46 \u00b1 0.00", "A_fluc": "0.0936 \u00b1 0.0037", "xi_fluc": "14.06 \u00b1 0.08", "bkg": "0.0003 \u00b1 0.0000"}, "30": {"time": "1.855", "chi2": "0.211", "Rmean": "11.29 \u00b1 0.05", "stdDev": "4.06 \u00b1 0.01", "D": "1.970 \u00b1 0.003", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.0910 \u00b1 0.0040", "xi_fluc": "14.00 \u00b1 0.09", "bkg": "0.0004 \u00b1 0.0000"}, "31": {"time": "2.034", "chi2": "0.172", "Rmean": "11.29 \u00b1 0.05", "stdDev": "4.10 \u00b1 0.01", "D": "1.962 \u00b1 0.002", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.1007 \u00b1 0.0037", "xi_fluc": "14.00 \u00b1 0.08", "bkg": "0.0003 \u00b1 0.0000"}, "32": {"time": "2.231", "chi2": "0.183", "Rmean": "11.23 \u00b1 0.05", "stdDev": "4.07 \u00b1 0.01", "D": "1.956 \u00b1 0.003", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.0886 \u00b1 0.0037", "xi_fluc": "13.99 \u00b1 0.09", "bkg": "0.0004 \u00b1 0.0000"}, "33": {"time": "2.448", "chi2": "0.176", "Rmean": "11.31 \u00b1 0.05", "stdDev": "4.06 \u00b1 0.01", "D": "1.958 \u00b1 0.002", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.0878 \u00b1 0.0036", "xi_fluc": "13.95 \u00b1 0.08", "bkg": "0.0003 \u00b1 0.0000"}, "34": {"time": "2.685", "chi2": "0.181", "Rmean": "11.21 \u00b1 0.05", "stdDev": "4.10 \u00b1 0.01", "D": "1.957 \u00b1 0.002", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.0902 \u00b1 0.0037", "xi_fluc": "13.92 \u00b1 0.08", "bkg": "0.0003 \u00b1 0.0000"}, "35": {"time": "2.945", "chi2": "0.171", "Rmean": "11.19 \u00b1 0.05", "stdDev": "4.08 \u00b1 0.01", "D": "1.964 \u00b1 0.002", "phi": "0.46 \u00b1 0.00", "A_fluc": "0.0845 \u00b1 0.0035", "xi_fluc": "13.86 \u00b1 0.08", "bkg": "0.0004 \u00b1 0.0000"}, "36": {"time": "3.231", "chi2": "0.166", "Rmean": "11.28 \u00b1 0.05", "stdDev": "4.07 \u00b1 0.01", "D": "1.954 \u00b1 0.002", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.0928 \u00b1 0.0035", "xi_fluc": "13.86 \u00b1 0.08", "bkg": "0.0003 \u00b1 0.0000"}, "37": {"time": "3.545", "chi2": "0.179", "Rmean": "11.19 \u00b1 0.05", "stdDev": "4.08 \u00b1 0.01", "D": "1.957 \u00b1 0.002", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.0839 \u00b1 0.0035", "xi_fluc": "13.81 \u00b1 0.08", "bkg": "0.0004 \u00b1 0.0000"}, "38": {"time": "3.890", "chi2": "0.184", "Rmean": "11.28 \u00b1 0.05", "stdDev": "4.08 \u00b1 0.01", "D": "1.950 \u00b1 0.003", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.0900 \u00b1 0.0036", "xi_fluc": "13.79 \u00b1 0.09", "bkg": "0.0003 \u00b1 0.0000"}, "39": {"time": "4.269", "chi2": "0.168", "Rmean": "11.24 \u00b1 0.05", "stdDev": "4.09 \u00b1 0.01", "D": "1.946 \u00b1 0.002", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.0903 \u00b1 0.0034", "xi_fluc": "13.78 \u00b1 0.08", "bkg": "0.0003 \u00b1 0.0000"}, "40": {"time": "4.686", "chi2": "0.189", "Rmean": "11.31 \u00b1 0.05", "stdDev": "4.06 \u00b1 0.01", "D": "1.946 \u00b1 0.003", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.0867 \u00b1 0.0036", "xi_fluc": "13.74 \u00b1 0.09", "bkg": "0.0004 \u00b1 0.0000"}, "41": {"time": "5.143", "chi2": "0.170", "Rmean": "11.34 \u00b1 0.05", "stdDev": "4.09 \u00b1 0.01", "D": "1.950 \u00b1 0.002", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.0921 \u00b1 0.0034", "xi_fluc": "13.70 \u00b1 0.08", "bkg": "0.0003 \u00b1 0.0000"}, "42": {"time": "5.646", "chi2": "0.184", "Rmean": "11.27 \u00b1 0.05", "stdDev": "4.10 \u00b1 0.01", "D": "1.950 \u00b1 0.003", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.0904 \u00b1 0.0035", "xi_fluc": "13.67 \u00b1 0.09", "bkg": "0.0004 \u00b1 0.0000"}, "43": {"time": "6.199", "chi2": "0.188", "Rmean": "11.22 \u00b1 0.05", "stdDev": "4.07 \u00b1 0.01", "D": "1.953 \u00b1 0.003", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.0797 \u00b1 0.0034", "xi_fluc": "13.63 \u00b1 0.09", "bkg": "0.0004 \u00b1 0.0000"}, "44": {"time": "6.806", "chi2": "0.172", "Rmean": "11.26 \u00b1 0.05", "stdDev": "4.06 \u00b1 0.01", "D": "1.946 \u00b1 0.002", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.0850 \u00b1 0.0034", "xi_fluc": "13.62 \u00b1 0.08", "bkg": "0.0003 \u00b1 0.0000"}, "45": {"time": "7.474", "chi2": "0.181", "Rmean": "11.27 \u00b1 0.05", "stdDev": "4.06 \u00b1 0.01", "D": "1.949 \u00b1 0.002", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.0863 \u00b1 0.0034", "xi_fluc": "13.57 \u00b1 0.08", "bkg": "0.0003 \u00b1 0.0000"}, "46": {"time": "8.208", "chi2": "0.174", "Rmean": "11.37 \u00b1 0.05", "stdDev": "4.05 \u00b1 0.01", "D": "1.946 \u00b1 0.002", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.0861 \u00b1 0.0033", "xi_fluc": "13.53 \u00b1 0.08", "bkg": "0.0003 \u00b1 0.0000"}, "47": {"time": "9.015", "chi2": "0.204", "Rmean": "11.32 \u00b1 0.05", "stdDev": "4.09 \u00b1 0.01", "D": "1.934 \u00b1 0.003", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.0862 \u00b1 0.0036", "xi_fluc": "13.53 \u00b1 0.09", "bkg": "0.0003 \u00b1 0.0000"}, "48": {"time": "9.902", "chi2": "0.180", "Rmean": "11.31 \u00b1 0.05", "stdDev": "4.03 \u00b1 0.01", "D": "1.939 \u00b1 0.002", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.0795 \u00b1 0.0033", "xi_fluc": "13.49 \u00b1 0.08", "bkg": "0.0003 \u00b1 0.0000"}, "49": {"time": "10.877", "chi2": "0.191", "Rmean": "11.23 \u00b1 0.05", "stdDev": "4.09 \u00b1 0.01", "D": "1.937 \u00b1 0.003", "phi": "0.45 \u00b1 0.00", "A_fluc": "0.0806 \u00b1 0.0034", "xi_fluc": "13.46 \u00b1 0.09", "bkg": "0.0003 \u00b1 0.0000"}};
-    const longData = {"0": {"time": "0.060", "chi2": "0.440", "mean_radius_large": "7163 \u00b1 24", "std_radius_large": "428 \u00b1 4", "total_volume_fraction_large": "8.45 \u00b1 1.08", "D": "2.516 \u00b1 0.121", "xi": "23 \u00b1 2", "phi": "1.19 \u00b1 0.02"}, "1": {"time": "0.075", "chi2": "2.443", "mean_radius_large": "7774 \u00b1 12", "std_radius_large": "391 \u00b1 2", "total_volume_fraction_large": "54.18 \u00b1 4.20", "D": "2.483 \u00b1 0.078", "xi": "20 \u00b1 0", "phi": "0.61 \u00b1 0.05"}, "2": {"time": "0.091", "chi2": "10.001", "mean_radius_large": "8743 \u00b1 48", "std_radius_large": "333 \u00b1 10", "total_volume_fraction_large": "9.10 \u00b1 2.66", "D": "2.515 \u00b1 0.157", "xi": "21 \u00b1 3", "phi": "0.62 \u00b1 0.09"}, "3": {"time": "0.108", "chi2": "11.921", "mean_radius_large": "8714 \u00b1 44", "std_radius_large": "338 \u00b1 8", "total_volume_fraction_large": "12.90 \u00b1 3.40", "D": "2.492 \u00b1 0.172", "xi": "20 \u00b1 0", "phi": "0.63 \u00b1 0.10"}, "4": {"time": "0.126", "chi2": "60.804", "mean_radius_large": "7862 \u00b1 51", "std_radius_large": "395 \u00b1 9", "total_volume_fraction_large": "31.17 \u00b1 9.99", "D": "2.692 \u00b1 0.001", "xi": "100 \u00b1 0", "phi": "0.86 \u00b1 0.08"}, "5": {"time": "0.146", "chi2": "140.429", "mean_radius_large": "5862 \u00b1 1", "std_radius_large": "529 \u00b1 24", "total_volume_fraction_large": "136.81 \u00b1 89.73", "D": "2.492 \u00b1 0.005", "xi": "20 \u00b1 0", "phi": "0.17 \u00b1 0.00"}, "6": {"time": "0.167", "chi2": "0.564", "mean_radius_large": "7862 \u00b1 0", "std_radius_large": "396 \u00b1 3", "total_volume_fraction_large": "10.05 \u00b1 0.81", "D": "2.497 \u00b1 0.036", "xi": "34 \u00b1 1", "phi": "0.47 \u00b1 0.01"}, "7": {"time": "0.190", "chi2": "0.144", "mean_radius_large": "7476 \u00b1 57", "std_radius_large": "503 \u00b1 7", "total_volume_fraction_large": "2.52 \u00b1 0.54", "D": "2.412 \u00b1 0.017", "xi": "46 \u00b1 1", "phi": "0.42 \u00b1 0.01"}, "8": {"time": "0.214", "chi2": "0.691", "mean_radius_large": "7424 \u00b1 27", "std_radius_large": "482 \u00b1 3", "total_volume_fraction_large": "19.35 \u00b1 1.99", "D": "2.420 \u00b1 0.039", "xi": "36 \u00b1 2", "phi": "0.48 \u00b1 0.01"}, "9": {"time": "0.241", "chi2": "0.171", "mean_radius_large": "8492 \u00b1 20", "std_radius_large": "426 \u00b1 4", "total_volume_fraction_large": "3.70 \u00b1 0.51", "D": "2.326 \u00b1 0.018", "xi": "54 \u00b1 1", "phi": "0.43 \u00b1 0.01"}, "10": {"time": "0.269", "chi2": "2.356", "mean_radius_large": "8697 \u00b1 38", "std_radius_large": "397 \u00b1 6", "total_volume_fraction_large": "8.70 \u00b1 1.87", "D": "2.347 \u00b1 0.071", "xi": "41 \u00b1 3", "phi": "0.48 \u00b1 0.02"}, "11": {"time": "0.300", "chi2": "6.434", "mean_radius_large": "9243 \u00b1 15", "std_radius_large": "392 \u00b1 2", "total_volume_fraction_large": "50.54 \u00b1 6.94", "D": "2.402 \u00b1 0.125", "xi": "27 \u00b1 4", "phi": "0.58 \u00b1 0.06"}, "12": {"time": "0.334", "chi2": "0.595", "mean_radius_large": "9264 \u00b1 38", "std_radius_large": "340 \u00b1 15", "total_volume_fraction_large": "1.32 \u00b1 0.45", "D": "2.315 \u00b1 0.032", "xi": "59 \u00b1 2", "phi": "0.42 \u00b1 0.01"}, "13": {"time": "0.370", "chi2": "0.369", "mean_radius_large": "8774 \u00b1 130", "std_radius_large": "543 \u00b1 14", "total_volume_fraction_large": "3.19 \u00b1 1.81", "D": "2.181 \u00b1 0.023", "xi": "81 \u00b1 3", "phi": "0.44 \u00b1 0.01"}, "14": {"time": "0.410", "chi2": "0.256", "mean_radius_large": "8716 \u00b1 98", "std_radius_large": "539 \u00b1 11", "total_volume_fraction_large": "3.07 \u00b1 1.51", "D": "2.112 \u00b1 0.019", "xi": "87 \u00b1 3", "phi": "0.44 \u00b1 0.01"}, "15": {"time": "0.453", "chi2": "0.084", "mean_radius_large": "8839 \u00b1 127", "std_radius_large": "525 \u00b1 18", "total_volume_fraction_large": "0.65 \u00b1 0.46", "D": "2.029 \u00b1 0.010", "xi": "116 \u00b1 2", "phi": "0.44 \u00b1 0.00"}, "16": {"time": "0.499", "chi2": "0.109", "mean_radius_large": "8871 \u00b1 121", "std_radius_large": "509 \u00b1 15", "total_volume_fraction_large": "0.92 \u00b1 0.45", "D": "2.018 \u00b1 0.011", "xi": "117 \u00b1 3", "phi": "0.43 \u00b1 0.00"}, "17": {"time": "0.550", "chi2": "0.153", "mean_radius_large": "8663 \u00b1 81", "std_radius_large": "522 \u00b1 10", "total_volume_fraction_large": "1.89 \u00b1 0.97", "D": "2.040 \u00b1 0.014", "xi": "109 \u00b1 3", "phi": "0.43 \u00b1 0.00"}, "18": {"time": "0.606", "chi2": "0.419", "mean_radius_large": "8651 \u00b1 307", "std_radius_large": "1348 \u00b1 31", "total_volume_fraction_large": "3.99 \u00b1 2.06", "D": "2.007 \u00b1 0.016", "xi": "544 \u00b1 1", "phi": "0.39 \u00b1 0.01"}, "19": {"time": "0.667", "chi2": "0.216", "mean_radius_large": "8671 \u00b1 230", "std_radius_large": "1400 \u00b1 23", "total_volume_fraction_large": "1.74 \u00b1 1.35", "D": "1.968 \u00b1 0.015", "xi": "155 \u00b1 6", "phi": "0.44 \u00b1 0.01"}, "20": {"time": "0.733", "chi2": "0.110", "mean_radius_large": "8674 \u00b1 165", "std_radius_large": "1660 \u00b1 35", "total_volume_fraction_large": "0.42 \u00b1 0.54", "D": "1.952 \u00b1 0.011", "xi": "163 \u00b1 5", "phi": "0.41 \u00b1 0.00"}, "21": {"time": "0.805", "chi2": "1.949", "mean_radius_large": "8674 \u00b1 700", "std_radius_large": "1254 \u00b1 42335", "total_volume_fraction_large": "0.00 \u00b1 2.57", "D": "2.152 \u00b1 0.002", "xi": "814 \u00b1 1558", "phi": "0.59 \u00b1 0.02"}, "22": {"time": "0.884", "chi2": "25.437", "mean_radius_large": "8663 \u00b1 2460", "std_radius_large": "1294 \u00b1 258", "total_volume_fraction_large": "2.93 \u00b1 17.97", "D": "1.952 \u00b1 0.001", "xi": "1968 \u00b1 297471", "phi": "0.19 \u00b1 0.06"}, "23": {"time": "0.970", "chi2": "0.427", "mean_radius_large": "8643 \u00b1 310", "std_radius_large": "1472 \u00b1 31", "total_volume_fraction_large": "4.38 \u00b1 2.07", "D": "1.966 \u00b1 0.019", "xi": "394 \u00b1 6", "phi": "0.37 \u00b1 0.01"}, "24": {"time": "1.065", "chi2": "0.091", "mean_radius_large": "8639 \u00b1 150", "std_radius_large": "1442 \u00b1 16", "total_volume_fraction_large": "1.05 \u00b1 0.77", "D": "1.949 \u00b1 0.010", "xi": "184 \u00b1 5", "phi": "0.37 \u00b1 0.00"}, "25": {"time": "1.168", "chi2": "0.096", "mean_radius_large": "8615 \u00b1 152", "std_radius_large": "890 \u00b1 16", "total_volume_fraction_large": "1.71 \u00b1 1.20", "D": "1.918 \u00b1 0.011", "xi": "187 \u00b1 6", "phi": "0.35 \u00b1 0.00"}, "26": {"time": "1.282", "chi2": "0.732", "mean_radius_large": "8484 \u00b1 416", "std_radius_large": "912 \u00b1 42", "total_volume_fraction_large": "2.53 \u00b1 3.39", "D": "1.982 \u00b1 0.034", "xi": "117 \u00b1 9", "phi": "0.33 \u00b1 0.01"}, "27": {"time": "1.406", "chi2": "0.877", "mean_radius_large": "8750 \u00b1 453", "std_radius_large": "879 \u00b1 46", "total_volume_fraction_large": "2.41 \u00b1 3.62", "D": "1.997 \u00b1 0.026", "xi": "587 \u00b1 1", "phi": "0.28 \u00b1 0.01"}, "28": {"time": "1.542", "chi2": "2.469", "mean_radius_large": "8754 \u00b1 786", "std_radius_large": "287 \u00b1 33401", "total_volume_fraction_large": "0.00 \u00b1 5.77", "D": "1.896 \u00b1 0.068", "xi": "2178 \u00b1 37426", "phi": "0.29 \u00b1 0.02"}, "29": {"time": "1.691", "chi2": "0.168", "mean_radius_large": "8772 \u00b1 64", "std_radius_large": "207 \u00b1 54", "total_volume_fraction_large": "0.16 \u00b1 0.08", "D": "1.816 \u00b1 0.014", "xi": "436 \u00b1 56", "phi": "0.30 \u00b1 0.00"}, "30": {"time": "1.855", "chi2": "10.619", "mean_radius_large": "9279 \u00b1 0", "std_radius_large": "379 \u00b1 0", "total_volume_fraction_large": "98.84 \u00b1 0.00", "D": "1.816 \u00b1 0.000", "xi": "2178 \u00b1 0", "phi": "0.35 \u00b1 0.00"}, "31": {"time": "2.034", "chi2": "0.132", "mean_radius_large": "10035 \u00b1 17", "std_radius_large": "344 \u00b1 5", "total_volume_fraction_large": "1.80 \u00b1 0.39", "D": "1.817 \u00b1 0.014", "xi": "436 \u00b1 67", "phi": "0.25 \u00b1 0.00"}, "32": {"time": "2.231", "chi2": "0.067", "mean_radius_large": "10262 \u00b1 108", "std_radius_large": "279 \u00b1 34", "total_volume_fraction_large": "0.18 \u00b1 0.07", "D": "1.891 \u00b1 0.010", "xi": "269 \u00b1 14", "phi": "0.24 \u00b1 0.00"}, "33": {"time": "2.448", "chi2": "0.083", "mean_radius_large": "10182 \u00b1 107", "std_radius_large": "331 \u00b1 30", "total_volume_fraction_large": "0.29 \u00b1 0.16", "D": "1.930 \u00b1 0.012", "xi": "221 \u00b1 11", "phi": "0.20 \u00b1 0.00"}, "34": {"time": "2.685", "chi2": "0.726", "mean_radius_large": "10033 \u00b1 14", "std_radius_large": "365 \u00b1 2", "total_volume_fraction_large": "8.49 \u00b1 1.58", "D": "1.985 \u00b1 0.041", "xi": "80 \u00b1 7", "phi": "0.21 \u00b1 0.01"}, "35": {"time": "2.945", "chi2": "0.082", "mean_radius_large": "9824 \u00b1 63", "std_radius_large": "405 \u00b1 10", "total_volume_fraction_large": "0.85 \u00b1 0.31", "D": "1.993 \u00b1 0.012", "xi": "241 \u00b1 12", "phi": "0.17 \u00b1 0.00"}, "36": {"time": "3.231", "chi2": "0.187", "mean_radius_large": "9524 \u00b1 45", "std_radius_large": "446 \u00b1 5", "total_volume_fraction_large": "3.22 \u00b1 0.54", "D": "2.063 \u00b1 0.018", "xi": "216 \u00b1 15", "phi": "0.16 \u00b1 0.00"}, "37": {"time": "3.545", "chi2": "0.063", "mean_radius_large": "9524 \u00b1 126", "std_radius_large": "461 \u00b1 5820", "total_volume_fraction_large": "0.00 \u00b1 0.00", "D": "2.038 \u00b1 0.011", "xi": "194 \u00b1 8", "phi": "0.13 \u00b1 0.00"}, "38": {"time": "3.890", "chi2": "0.052", "mean_radius_large": "9509 \u00b1 114", "std_radius_large": "1255 \u00b1 15", "total_volume_fraction_large": "0.48 \u00b1 0.91", "D": "2.018 \u00b1 0.010", "xi": "296 \u00b1 18", "phi": "0.12 \u00b1 0.00"}, "39": {"time": "4.269", "chi2": "0.255", "mean_radius_large": "9529 \u00b1 252", "std_radius_large": "1256 \u00b1 26", "total_volume_fraction_large": "1.05 \u00b1 2.28", "D": "2.053 \u00b1 0.023", "xi": "179 \u00b1 15", "phi": "0.12 \u00b1 0.00"}, "40": {"time": "4.686", "chi2": "0.061", "mean_radius_large": "9514 \u00b1 122", "std_radius_large": "1243 \u00b1 15", "total_volume_fraction_large": "1.38 \u00b1 0.43", "D": "2.096 \u00b1 0.011", "xi": "331 \u00b1 28", "phi": "0.09 \u00b1 0.00"}, "41": {"time": "5.143", "chi2": "0.051", "mean_radius_large": "9522 \u00b1 114", "std_radius_large": "1226 \u00b1 11", "total_volume_fraction_large": "1.75 \u00b1 1.02", "D": "2.181 \u00b1 0.009", "xi": "693 \u00b1 434", "phi": "0.09 \u00b1 0.00"}, "42": {"time": "5.646", "chi2": "0.427", "mean_radius_large": "9613 \u00b1 321", "std_radius_large": "1219 \u00b1 32", "total_volume_fraction_large": "2.94 \u00b1 3.24", "D": "2.256 \u00b1 0.031", "xi": "155 \u00b1 15", "phi": "0.07 \u00b1 0.00"}, "43": {"time": "6.199", "chi2": "0.114", "mean_radius_large": "9561 \u00b1 170", "std_radius_large": "1221 \u00b1 17", "total_volume_fraction_large": "1.62 \u00b1 1.51", "D": "2.347 \u00b1 0.015", "xi": "244 \u00b1 14", "phi": "0.07 \u00b1 0.00"}, "44": {"time": "6.806", "chi2": "0.148", "mean_radius_large": "9571 \u00b1 201", "std_radius_large": "978 \u00b1 32", "total_volume_fraction_large": "0.58 \u00b1 1.17", "D": "2.547 \u00b1 0.000", "xi": "442 \u00b1 57", "phi": "0.06 \u00b1 0.00"}, "45": {"time": "7.474", "chi2": "0.131", "mean_radius_large": "9567 \u00b1 190", "std_radius_large": "1121 \u00b1 126", "total_volume_fraction_large": "0.11 \u00b1 1.33", "D": "2.747 \u00b1 0.000", "xi": "264 \u00b1 10", "phi": "0.04 \u00b1 0.00"}, "46": {"time": "8.208", "chi2": "0.157", "mean_radius_large": "9567 \u00b1 207", "std_radius_large": "1345 \u00b1 156", "total_volume_fraction_large": "0.04 \u00b1 1.87", "D": "2.947 \u00b1 0.000", "xi": "251 \u00b1 7", "phi": "0.04 \u00b1 0.00"}, "47": {"time": "9.015", "chi2": "0.253", "mean_radius_large": "9567 \u00b1 252", "std_radius_large": "1362 \u00b1 754", "total_volume_fraction_large": "0.04 \u00b1 0.71", "D": "2.990 \u00b1 0.000", "xi": "264 \u00b1 9", "phi": "0.03 \u00b1 0.00"}, "48": {"time": "9.902", "chi2": "0.590", "mean_radius_large": "9551 \u00b1 382", "std_radius_large": "1314 \u00b1 38", "total_volume_fraction_large": "1.42 \u00b1 3.40", "D": "2.990 \u00b1 0.000", "xi": "336 \u00b1 19", "phi": "0.05 \u00b1 0.00"}, "49": {"time": "10.877", "chi2": "0.919", "mean_radius_large": "9484 \u00b1 467", "std_radius_large": "1295 \u00b1 49", "total_volume_fraction_large": "2.79 \u00b1 3.94", "D": "2.990 \u00b1 0.000", "xi": "307 \u00b1 21", "phi": "0.04 \u00b1 0.00"}};
+    const longData = {"0": {"time": "0.060", "chi2": "0.232", "mean_radius_large": "2597 \u00b1 14", "std_radius_large": "237 \u00b1 1", "total_volume_fraction_large": "1.17 \u00b1 0.09", "D": "2.178 \u00b1 0.072", "xi": "30 \u00b1 0", "phi": "1.18 \u00b1 0.01"}, "1": {"time": "0.075", "chi2": "0.246", "mean_radius_large": "2126 \u00b1 9", "std_radius_large": "194 \u00b1 1", "total_volume_fraction_large": "5.15 \u00b1 0.28", "D": "2.090 \u00b1 0.189", "xi": "30 \u00b1 23", "phi": "0.59 \u00b1 0.01"}, "2": {"time": "0.091", "chi2": "2.814", "mean_radius_large": "3963 \u00b1 55", "std_radius_large": "361 \u00b1 5", "total_volume_fraction_large": "3.37 \u00b1 1.15", "D": "2.225 \u00b1 0.448", "xi": "30 \u00b1 0", "phi": "0.58 \u00b1 0.04"}, "3": {"time": "0.108", "chi2": "3.004", "mean_radius_large": "4020 \u00b1 55", "std_radius_large": "366 \u00b1 5", "total_volume_fraction_large": "4.72 \u00b1 1.77", "D": "2.152 \u00b1 0.503", "xi": "30 \u00b1 0", "phi": "0.60 \u00b1 0.04"}, "4": {"time": "0.126", "chi2": "6.658", "mean_radius_large": "3392 \u00b1 35", "std_radius_large": "309 \u00b1 3", "total_volume_fraction_large": "6.24 \u00b1 1.33", "D": "2.600 \u00b1 0.000", "xi": "372 \u00b1 51", "phi": "0.80 \u00b1 0.03"}, "5": {"time": "0.146", "chi2": "5.359", "mean_radius_large": "2522 \u00b1 0", "std_radius_large": "230 \u00b1 0", "total_volume_fraction_large": "21.69 \u00b1 0.00", "D": "1.300 \u00b1 0.000", "xi": "30 \u00b1 0", "phi": "0.78 \u00b1 0.00"}, "6": {"time": "0.167", "chi2": "0.346", "mean_radius_large": "3735 \u00b1 9", "std_radius_large": "340 \u00b1 1", "total_volume_fraction_large": "4.57 \u00b1 0.20", "D": "2.435 \u00b1 0.083", "xi": "37 \u00b1 3", "phi": "0.47 \u00b1 0.01"}, "7": {"time": "0.190", "chi2": "0.139", "mean_radius_large": "4013 \u00b1 32", "std_radius_large": "366 \u00b1 3", "total_volume_fraction_large": "0.55 \u00b1 0.09", "D": "2.126 \u00b1 0.033", "xi": "61 \u00b1 2", "phi": "0.46 \u00b1 0.01"}, "8": {"time": "0.214", "chi2": "0.266", "mean_radius_large": "4315 \u00b1 13", "std_radius_large": "393 \u00b1 1", "total_volume_fraction_large": "7.21 \u00b1 0.68", "D": "2.315 \u00b1 0.066", "xi": "43 \u00b1 3", "phi": "0.48 \u00b1 0.01"}, "9": {"time": "0.241", "chi2": "0.163", "mean_radius_large": "5591 \u00b1 26", "std_radius_large": "510 \u00b1 2", "total_volume_fraction_large": "2.49 \u00b1 0.59", "D": "2.105 \u00b1 0.031", "xi": "69 \u00b1 3", "phi": "0.46 \u00b1 0.01"}, "10": {"time": "0.269", "chi2": "1.160", "mean_radius_large": "5695 \u00b1 38", "std_radius_large": "519 \u00b1 3", "total_volume_fraction_large": "5.29 \u00b1 3.42", "D": "2.295 \u00b1 0.113", "xi": "47 \u00b1 5", "phi": "0.47 \u00b1 0.02"}, "11": {"time": "0.300", "chi2": "0.933", "mean_radius_large": "2095 \u00b1 9", "std_radius_large": "191 \u00b1 1", "total_volume_fraction_large": "4.34 \u00b1 0.20", "D": "2.579 \u00b1 0.182", "xi": "30 \u00b1 4", "phi": "0.51 \u00b1 0.02"}, "12": {"time": "0.334", "chi2": "0.427", "mean_radius_large": "2291 \u00b1 12", "std_radius_large": "209 \u00b1 1", "total_volume_fraction_large": "0.34 \u00b1 0.03", "D": "2.183 \u00b1 0.046", "xi": "67 \u00b1 4", "phi": "0.45 \u00b1 0.01"}, "13": {"time": "0.370", "chi2": "0.169", "mean_radius_large": "2791 \u00b1 6", "std_radius_large": "254 \u00b1 1", "total_volume_fraction_large": "1.00 \u00b1 0.03", "D": "2.025 \u00b1 0.021", "xi": "102 \u00b1 4", "phi": "0.47 \u00b1 0.01"}, "14": {"time": "0.410", "chi2": "0.101", "mean_radius_large": "2673 \u00b1 5", "std_radius_large": "244 \u00b1 0", "total_volume_fraction_large": "0.79 \u00b1 0.02", "D": "2.001 \u00b1 0.017", "xi": "105 \u00b1 3", "phi": "0.46 \u00b1 0.01"}, "15": {"time": "0.453", "chi2": "0.081", "mean_radius_large": "2714 \u00b1 37", "std_radius_large": "247 \u00b1 3", "total_volume_fraction_large": "0.08 \u00b1 0.01", "D": "1.951 \u00b1 0.013", "xi": "135 \u00b1 4", "phi": "0.46 \u00b1 0.00"}, "16": {"time": "0.499", "chi2": "0.092", "mean_radius_large": "2587 \u00b1 13", "std_radius_large": "236 \u00b1 1", "total_volume_fraction_large": "0.21 \u00b1 0.01", "D": "1.992 \u00b1 0.014", "xi": "125 \u00b1 4", "phi": "0.44 \u00b1 0.00"}, "17": {"time": "0.550", "chi2": "0.105", "mean_radius_large": "3002 \u00b1 8", "std_radius_large": "274 \u00b1 1", "total_volume_fraction_large": "0.60 \u00b1 0.03", "D": "2.068 \u00b1 0.017", "xi": "104 \u00b1 3", "phi": "0.42 \u00b1 0.01"}, "18": {"time": "0.606", "chi2": "0.260", "mean_radius_large": "3343 \u00b1 10", "std_radius_large": "305 \u00b1 1", "total_volume_fraction_large": "2.23 \u00b1 0.13", "D": "1.932 \u00b1 0.037", "xi": "5000 \u00b1 589639", "phi": "0.42 \u00b1 0.01"}, "19": {"time": "0.667", "chi2": "0.159", "mean_radius_large": "3320 \u00b1 10", "std_radius_large": "303 \u00b1 1", "total_volume_fraction_large": "0.85 \u00b1 0.04", "D": "1.977 \u00b1 0.018", "xi": "144 \u00b1 6", "phi": "0.44 \u00b1 0.01"}, "20": {"time": "0.733", "chi2": "0.104", "mean_radius_large": "3151 \u00b1 22", "std_radius_large": "287 \u00b1 2", "total_volume_fraction_large": "0.26 \u00b1 0.03", "D": "1.947 \u00b1 0.014", "xi": "163 \u00b1 6", "phi": "0.41 \u00b1 0.00"}, "21": {"time": "0.805", "chi2": "0.313", "mean_radius_large": "3635 \u00b1 36", "std_radius_large": "331 \u00b1 3", "total_volume_fraction_large": "2.21 \u00b1 0.36", "D": "2.600 \u00b1 0.000", "xi": "779 \u00b1 411", "phi": "0.38 \u00b1 0.03"}, "22": {"time": "0.884", "chi2": "0.970", "mean_radius_large": "3472 \u00b1 5", "std_radius_large": "316 \u00b1 0", "total_volume_fraction_large": "44.83 \u00b1 1.59", "D": "2.439 \u00b1 0.252", "xi": "30 \u00b1 3", "phi": "0.48 \u00b1 0.02"}, "23": {"time": "0.970", "chi2": "0.225", "mean_radius_large": "4097 \u00b1 14", "std_radius_large": "373 \u00b1 1", "total_volume_fraction_large": "5.57 \u00b1 0.52", "D": "1.953 \u00b1 0.047", "xi": "5000 \u00b1 38266", "phi": "0.37 \u00b1 0.01"}, "24": {"time": "1.065", "chi2": "0.089", "mean_radius_large": "5558 \u00b1 67", "std_radius_large": "507 \u00b1 6", "total_volume_fraction_large": "0.64 \u00b1 0.34", "D": "1.936 \u00b1 0.013", "xi": "191 \u00b1 7", "phi": "0.38 \u00b1 0.00"}, "25": {"time": "1.168", "chi2": "0.085", "mean_radius_large": "4978 \u00b1 31", "std_radius_large": "454 \u00b1 3", "total_volume_fraction_large": "1.08 \u00b1 0.16", "D": "1.904 \u00b1 0.014", "xi": "189 \u00b1 8", "phi": "0.35 \u00b1 0.00"}, "26": {"time": "1.282", "chi2": "0.637", "mean_radius_large": "4935 \u00b1 55", "std_radius_large": "450 \u00b1 5", "total_volume_fraction_large": "1.54 \u00b1 0.44", "D": "2.105 \u00b1 0.059", "xi": "94 \u00b1 9", "phi": "0.31 \u00b1 0.01"}, "27": {"time": "1.406", "chi2": "0.812", "mean_radius_large": "1909 \u00b1 18", "std_radius_large": "174 \u00b1 2", "total_volume_fraction_large": "0.25 \u00b1 0.03", "D": "1.999 \u00b1 0.035", "xi": "365 \u00b1 98", "phi": "0.28 \u00b1 0.01"}, "28": {"time": "1.542", "chi2": "0.988", "mean_radius_large": "1890 \u00b1 10", "std_radius_large": "172 \u00b1 1", "total_volume_fraction_large": "1.08 \u00b1 0.06", "D": "2.105 \u00b1 0.060", "xi": "149 \u00b1 22", "phi": "0.27 \u00b1 0.01"}, "29": {"time": "1.691", "chi2": "0.064", "mean_radius_large": "2371 \u00b1 17", "std_radius_large": "216 \u00b1 2", "total_volume_fraction_large": "0.10 \u00b1 0.01", "D": "1.917 \u00b1 0.013", "xi": "222 \u00b1 11", "phi": "0.29 \u00b1 0.00"}, "30": {"time": "1.855", "chi2": "0.433", "mean_radius_large": "2019 \u00b1 5", "std_radius_large": "184 \u00b1 0", "total_volume_fraction_large": "12.00 \u00b1 0.30", "D": "1.719 \u00b1 0.163", "xi": "5000 \u00b1 1134", "phi": "0.32 \u00b1 0.01"}, "31": {"time": "2.034", "chi2": "0.099", "mean_radius_large": "2843 \u00b1 12", "std_radius_large": "259 \u00b1 1", "total_volume_fraction_large": "0.36 \u00b1 0.02", "D": "1.955 \u00b1 0.020", "xi": "208 \u00b1 13", "phi": "0.23 \u00b1 0.00"}, "32": {"time": "2.231", "chi2": "0.064", "mean_radius_large": "2383 \u00b1 32", "std_radius_large": "217 \u00b1 3", "total_volume_fraction_large": "0.05 \u00b1 0.01", "D": "1.982 \u00b1 0.016", "xi": "210 \u00b1 11", "phi": "0.22 \u00b1 0.00"}, "33": {"time": "2.448", "chi2": "0.078", "mean_radius_large": "2827 \u00b1 26", "std_radius_large": "258 \u00b1 2", "total_volume_fraction_large": "0.14 \u00b1 0.02", "D": "1.989 \u00b1 0.020", "xi": "194 \u00b1 12", "phi": "0.19 \u00b1 0.00"}, "34": {"time": "2.685", "chi2": "0.388", "mean_radius_large": "2632 \u00b1 8", "std_radius_large": "240 \u00b1 1", "total_volume_fraction_large": "1.16 \u00b1 0.05", "D": "2.292 \u00b1 0.108", "xi": "62 \u00b1 8", "phi": "0.17 \u00b1 0.01"}, "35": {"time": "2.945", "chi2": "0.082", "mean_radius_large": "3392 \u00b1 68", "std_radius_large": "309 \u00b1 6", "total_volume_fraction_large": "0.09 \u00b1 0.03", "D": "2.012 \u00b1 0.021", "xi": "226 \u00b1 16", "phi": "0.17 \u00b1 0.00"}, "36": {"time": "3.231", "chi2": "0.152", "mean_radius_large": "3868 \u00b1 12", "std_radius_large": "353 \u00b1 1", "total_volume_fraction_large": "1.35 \u00b1 0.09", "D": "2.170 \u00b1 0.030", "xi": "184 \u00b1 14", "phi": "0.14 \u00b1 0.00"}, "37": {"time": "3.545", "chi2": "0.061", "mean_radius_large": "4054 \u00b1 42", "std_radius_large": "370 \u00b1 4", "total_volume_fraction_large": "0.24 \u00b1 0.05", "D": "1.941 \u00b1 0.022", "xi": "270 \u00b1 26", "phi": "0.14 \u00b1 0.00"}, "38": {"time": "3.890", "chi2": "0.049", "mean_radius_large": "3699 \u00b1 36", "std_radius_large": "337 \u00b1 3", "total_volume_fraction_large": "0.18 \u00b1 0.03", "D": "1.973 \u00b1 0.018", "xi": "347 \u00b1 39", "phi": "0.13 \u00b1 0.00"}, "39": {"time": "4.269", "chi2": "0.207", "mean_radius_large": "3666 \u00b1 16", "std_radius_large": "334 \u00b1 1", "total_volume_fraction_large": "0.99 \u00b1 0.07", "D": "2.215 \u00b1 0.059", "xi": "132 \u00b1 14", "phi": "0.10 \u00b1 0.01"}, "40": {"time": "4.686", "chi2": "0.052", "mean_radius_large": "3756 \u00b1 17", "std_radius_large": "342 \u00b1 2", "total_volume_fraction_large": "0.46 \u00b1 0.04", "D": "2.243 \u00b1 0.024", "xi": "219 \u00b1 14", "phi": "0.08 \u00b1 0.00"}, "41": {"time": "5.143", "chi2": "0.045", "mean_radius_large": "3589 \u00b1 30", "std_radius_large": "327 \u00b1 3", "total_volume_fraction_large": "0.26 \u00b1 0.03", "D": "2.298 \u00b1 0.015", "xi": "423 \u00b1 59", "phi": "0.07 \u00b1 0.00"}, "42": {"time": "5.646", "chi2": "0.385", "mean_radius_large": "4056 \u00b1 26", "std_radius_large": "370 \u00b1 2", "total_volume_fraction_large": "1.19 \u00b1 0.16", "D": "2.600 \u00b1 0.054", "xi": "115 \u00b1 14", "phi": "0.05 \u00b1 0.01"}, "43": {"time": "6.199", "chi2": "0.098", "mean_radius_large": "4173 \u00b1 25", "std_radius_large": "380 \u00b1 2", "total_volume_fraction_large": "0.66 \u00b1 0.07", "D": "2.600 \u00b1 0.000", "xi": "173 \u00b1 9", "phi": "0.05 \u00b1 0.00"}, "44": {"time": "6.806", "chi2": "0.140", "mean_radius_large": "4214 \u00b1 96", "std_radius_large": "384 \u00b1 9", "total_volume_fraction_large": "0.22 \u00b1 0.10", "D": "2.600 \u00b1 0.000", "xi": "412 \u00b1 45", "phi": "0.06 \u00b1 0.00"}, "45": {"time": "7.474", "chi2": "0.163", "mean_radius_large": "4007 \u00b1 200", "std_radius_large": "365 \u00b1 18", "total_volume_fraction_large": "0.08 \u00b1 0.09", "D": "2.600 \u00b1 0.000", "xi": "313 \u00b1 23", "phi": "0.06 \u00b1 0.00"}, "46": {"time": "8.208", "chi2": "0.316", "mean_radius_large": "3732 \u00b1 179", "std_radius_large": "340 \u00b1 16", "total_volume_fraction_large": "0.11 \u00b1 0.09", "D": "2.600 \u00b1 0.000", "xi": "385 \u00b1 43", "phi": "0.07 \u00b1 0.00"}, "47": {"time": "9.015", "chi2": "0.493", "mean_radius_large": "4004 \u00b1 135", "std_radius_large": "365 \u00b1 12", "total_volume_fraction_large": "0.21 \u00b1 0.17", "D": "2.600 \u00b1 0.000", "xi": "411 \u00b1 67", "phi": "0.07 \u00b1 0.00"}, "48": {"time": "9.902", "chi2": "1.090", "mean_radius_large": "3601 \u00b1 108", "std_radius_large": "328 \u00b1 10", "total_volume_fraction_large": "0.37 \u00b1 0.18", "D": "2.600 \u00b1 0.000", "xi": "452 \u00b1 132", "phi": "0.08 \u00b1 0.01"}, "49": {"time": "10.877", "chi2": "1.356", "mean_radius_large": "3602 \u00b1 108", "std_radius_large": "328 \u00b1 10", "total_volume_fraction_large": "0.45 \u00b1 0.22", "D": "2.600 \u00b1 0.000", "xi": "421 \u00b1 128", "phi": "0.08 \u00b1 0.01"}};
 
     let sdTimer = null;
     let ldTimer = null;

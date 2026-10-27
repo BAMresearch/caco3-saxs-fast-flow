@@ -30,7 +30,7 @@ The experimental data across six series (10 mM to 40 mM) demonstrate that phase 
 | :--- | :---: | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **ND-i-003** | 10.0 mM | 11.3 | Sub-spinodal nucleation | 138.8 (ACC) | N/A | N/A | 2.63 | 0.966 |
 | **ND-i-004** | 15.0 mM | 11.3 | Crossover boundary | 4.94 | 2.850 | 108.7 | N/A | 1.309 |
-| **ND-i-002** | 20.0 mM | 11.3 | Spinodal gelation | 11.46 | 1.859 | 351.6 | N/A | 0.971 |
+| **ND-i-002** | 20.0 mM | 11.3 | Spinodal gelation | 11.42 | 1.850 | 410.9 | 2.58 | 0.683 |
 | **ND-i-009** | 40.0 mM | 10.0 | Primary pure 40 mM benchmark | 9.40 | 1.978 | 248.2 | 3.20 | 3.218 |
 | **ND-i-001** | 40.0 mM | 11.3 | Rapid quench spinodal | 15.43 | 2.265 | 923.1 | 3.04 | 0.718 |
 | **ND-i-005** | 40.0 mM | 11.3 | Additive perturbation branch | 2.40 | 1.966 | 4014.7 | 3.47 | 4.470 |

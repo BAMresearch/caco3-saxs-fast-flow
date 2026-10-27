@@ -1,7 +1,7 @@
 # Multi-scale in-situ SAXS analysis of calcium carbonate precipitation
 
 
-Publication repository and unified multi-scale kinetic modelling scripts for time-resolved synchrotron Small-Angle X-ray Scattering (SAXS) measurements of calcium carbonate ($\mathrm{CaCO}_3$) precipitation collected at the **ESRF ID02 High-Brilliance TRUSAXS / USAXS / SAXS beamline** (European Synchrotron Radiation Facility, Grenoble, France).
+Publication repository and unified multi-scale kinetic modelling scripts for time-resolved synchrotron Small-Angle X-ray Scattering (SAXS) measurements of calcium carbonate ($\mathrm{CaCO}_3$) precipitation collected at the **ESRF ID02 SAXS beamline** (European Synchrotron Radiation Facility, Grenoble, France).
 
 The project resolves the structural hierarchy and kinetic pathway across four decades in momentum transfer ($q \in [0.002, 2.54]\ \mathrm{nm}^{-1}$, real-space dimensions $2.5\ \mathrm{nm}$ to $3.1\ \mu\mathrm{m}$) and milliseconds to seconds in reaction time ($t = 0.045\ \mathrm{s}$ to $10.88\ \mathrm{s}$), discriminating between sub-spinodal nucleation of amorphous calcium carbonate (ACC) nanospheres, continuous spinodal gelation of viscoelastic mass-fractal networks, and prenucleation cluster (PNC) fluctuation mesh dynamics.
 

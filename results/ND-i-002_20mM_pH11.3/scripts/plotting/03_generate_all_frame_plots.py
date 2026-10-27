@@ -67,19 +67,19 @@ def plot_single_short_frame(args):
     I_bkg = np.full_like(q_dense, bkg)
     I_tot = I_prim + I_fluc + I_bkg
 
-    ax_main.errorbar(q_v, y_v, yerr=dy_v, fmt='o', color='#334155', markersize=2.2, alpha=0.35, elinewidth=0.5, capsize=0, label=f'Data (t = {t_s:.3f} s)')
-    ax_main.plot(q_dense, I_tot, color='#dc2626', linewidth=2.0, label=f'Full Model ($\\chi^2 = {redchi:.2f}$)')
+    ax_main.errorbar(q_v, y_v, yerr=dy_v, fmt='o', color='#334155', markersize=2.2, alpha=0.35, elinewidth=0.5, capsize=0, label=f'Data ($t = {t_s:.3f}$ s)')
+    ax_main.plot(q_dense, I_tot, color='#dc2626', linewidth=2.0, label=f'Full model ($\\chi^2 = {redchi:.2f}$)')
     ax_main.plot(q_dense, I_prim, color='#16a34a', linestyle='--', linewidth=1.3,
-                 label=f'Primary Fractal ($\\langle R \\rangle = {Rmean:.1f}$ nm, $D_f = {D_val:.2f}$)')
+                 label=f'Primary fractal ($\\langle R \\rangle = {Rmean:.1f}$ nm, $D_f = {D_val:.2f}$)')
     ax_main.plot(q_dense, I_fluc, color='#2563eb', linestyle=':', linewidth=1.4,
-                 label=f'Viscoelastic Fluctuation ($A = {A_fluc:.3f}$, $\\xi_{{\\mathrm{{fluc}}}} = {xi_fluc:.1f}$ nm)')
+                 label=f'Viscoelastic fluctuation ($A = {A_fluc:.3f}$, $\\xi_{{\\mathrm{{fluc}}}} = {xi_fluc:.1f}$ nm)')
 
     ax_main.set_xscale('log')
     ax_main.set_yscale('log')
     ax_main.set_xlim(0.02, 2.65)
     ax_main.set_ylim(2e-4, 5e2)
-    ax_main.set_ylabel("Intensity $I(q)$ [cm$^{-1}$]", fontsize=11, fontweight='bold')
-    ax_main.set_title(f"ND-i-002 Short Distance Frame {f_idx:02d} (t = {t_s:.3f} s): Multiscale Model", fontsize=11, fontweight='bold')
+    ax_main.set_ylabel(r"Intensity $I(q)$ [$\mathrm{cm}^{-1}$]", fontsize=11)
+    ax_main.set_title(f"ND-i-002 short distance frame {f_idx:02d} ($t = {t_s:.3f}$ s): multiscale model", fontsize=11)
     ax_main.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.4)
     ax_main.legend(loc='lower left', fontsize=8.5, framealpha=0.92)
 
@@ -90,8 +90,8 @@ def plot_single_short_frame(args):
     ax_res.set_xscale('log')
     ax_res.set_xlim(0.02, 2.65)
     ax_res.set_ylim(-4.5, 4.5)
-    ax_res.set_xlabel("Scattering Vector $q$ [nm$^{-1}$]", fontsize=11, fontweight='bold')
-    ax_res.set_ylabel("Res. [$\\sigma$]", fontsize=9.5, fontweight='bold')
+    ax_res.set_xlabel(r"Scattering vector $q$ [$\mathrm{nm}^{-1}$]", fontsize=11)
+    ax_res.set_ylabel(r"Res. [$\sigma$]", fontsize=9.5)
     ax_res.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.4)
 
     plt.tight_layout()
@@ -131,19 +131,19 @@ def plot_single_long_frame(args):
     I_fluc = calc_fb_intensity(q_dense, A_fluc, xi_fluc, mu_fluc=4.0)
     I_tot = I_prim + I_large + I_porod + I_fluc
 
-    ax_main.errorbar(q_v, y_v, yerr=dy_v, fmt='o', color='#334155', markersize=2.2, alpha=0.35, elinewidth=0.5, capsize=0, label=f'Data (t = {t_s:.3f} s)')
-    ax_main.plot(q_dense, I_tot, color='#dc2626', linewidth=2.0, label=f'Full Model ($\\chi^2 = {redchi:.2f}$)')
+    ax_main.errorbar(q_v, y_v, yerr=dy_v, fmt='o', color='#334155', markersize=2.2, alpha=0.35, elinewidth=0.5, capsize=0, label=f'Data ($t = {t_s:.3f}$ s)')
+    ax_main.plot(q_dense, I_tot, color='#dc2626', linewidth=2.0, label=f'Full model ($\\chi^2 = {redchi:.2f}$)')
     ax_main.plot(q_dense, I_large + I_porod, color='#7c3aed', linestyle='-.', linewidth=1.4,
                  label=f'Droplets/Porod ($\\langle R \\rangle = {R_large:.0f}$ nm, $\\sigma = {std_large:.0f}$ nm)')
     ax_main.plot(q_dense, I_prim, color='#16a34a', linestyle='--', linewidth=1.3,
-                 label=f'Network Fractal ($\\xi = {xi_net:.0f}$ nm, $D_f = {D_val:.2f}$)')
+                 label=f'Network fractal ($\\xi = {xi_net:.0f}$ nm, $D_f = {D_val:.2f}$)')
 
     ax_main.set_xscale('log')
     ax_main.set_yscale('log')
     ax_main.set_xlim(0.0018, 0.25)
     ax_main.set_ylim(max(1e-3, y_v.min() * 0.3), y_v.max() * 2.5)
-    ax_main.set_ylabel("Intensity $I(q)$ [cm$^{-1}$]", fontsize=11, fontweight='bold')
-    ax_main.set_title(f"ND-i-002 Long Distance Frame {f_idx:02d} (t = {t_s:.3f} s): Multiscale Model", fontsize=11, fontweight='bold')
+    ax_main.set_ylabel(r"Intensity $I(q)$ [$\mathrm{cm}^{-1}$]", fontsize=11)
+    ax_main.set_title(f"ND-i-002 long distance frame {f_idx:02d} ($t = {t_s:.3f}$ s): multiscale model", fontsize=11)
     ax_main.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.4)
     ax_main.legend(loc='lower left', fontsize=8.5, framealpha=0.92)
 
@@ -154,8 +154,8 @@ def plot_single_long_frame(args):
     ax_res.set_xscale('log')
     ax_res.set_xlim(0.0018, 0.25)
     ax_res.set_ylim(-4.5, 4.5)
-    ax_res.set_xlabel("Scattering Vector $q$ [nm$^{-1}$]", fontsize=11, fontweight='bold')
-    ax_res.set_ylabel("Res. [$\\sigma$]", fontsize=9.5, fontweight='bold')
+    ax_res.set_xlabel(r"Scattering vector $q$ [$\mathrm{nm}^{-1}$]", fontsize=11)
+    ax_res.set_ylabel(r"Res. [$\sigma$]", fontsize=9.5)
     ax_res.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.4)
 
     plt.tight_layout()
