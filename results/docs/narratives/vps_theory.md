@@ -45,3 +45,48 @@ Unlike Arrested Spinodal Decomposition, which permanently freezes domain growth 
 1. Continuous structural evolution and progressive volume shrinking without sudden structural freezing.
 2. Dynamic stress relaxation through mechanical rupture rather than kinetic trapping.
 3. Coexistence of an open percolating gel mesh with liquid macroscopic droplets.
+
+---
+
+## 5. Bridging Nanoscale Scattering Invariants to Macroscopic Rheology
+
+The dynamic asymmetry parameter $\alpha = (\zeta_p / \zeta_s) - 1 \gg 0$ in Tanaka's two-fluid model can be quantitatively evaluated by coupling structural parameters extracted from the SAXS data to viscoelastic scaling relations.
+
+### 5.1 Hierarchical Length Scales and Moduli
+The multi-scale scattering model reveals two distinct mesh correlation scales:
+1. **Inter-Strand Network Pore Mesh ($\xi_{\text{pore}} \approx 40\text{ nm}$):**
+   The open space-filling mass fractal network ($D_m \approx 1.88 - 1.93$) possesses an internal pore correlation length of $\xi_{\text{pore}} \approx 40\text{ nm}$, corresponding to an inorganic phase volume fraction of $\phi \approx 12 - 14\%$ (a swollen gel containing $\sim 87\%$ trapped solvent). The cooperative diffusion coefficient of the solvent through this mesh is:
+   $$D_{\text{coop}} = \frac{k_B T}{6\pi \eta_s \xi_{\text{pore}}} \approx \frac{4.11 \times 10^{-21}\text{ J}}{6\pi (0.89 \times 10^{-3}\text{ Pa}\cdot\text{s}) (40 \times 10^{-9}\text{ m})} \approx 6.1 \times 10^{-12}\text{ m}^2/\text{s}$$
+   The macroscopic elastic plateau shear modulus of the swollen gel network scales as:
+   $$G_{\text{gel}} \approx \frac{k_B T}{\xi_{\text{pore}}^3} \approx \frac{4.11 \times 10^{-21}\text{ J}}{(40 \times 10^{-9}\text{ m})^3} \approx 64\text{ Pa}$$
+
+2. **Intra-Strand PNC Fluctuation Mesh ($\xi_{\text{fluc}} \approx 2.8\text{ nm}$):**
+   Within the dense network strands, high-$q$ concentration fluctuations probe the entangled prenucleation cluster (DOLLOP) mesh ($\xi_{\text{fluc}} = 2.7 - 2.8\text{ nm}$). The local mechanical stiffness of individual struts scales as:
+   $$G_{\text{strand}} \approx \frac{k_B T}{\xi_{\text{fluc}}^3} \approx \frac{4.11 \times 10^{-21}\text{ J}}{(2.8 \times 10^{-9}\text{ m})^3} \approx 1.87 \times 10^5\text{ Pa} \approx 180\text{ kPa}$$
+   This dual-modulus hierarchy explains how individual struts are sufficiently rigid to resist immediate capillary coalescence, while the macroscopic percolating gel remains soft and compliant.
+
+---
+
+### 5.2 Macroscopic Relaxation Time and Effective Viscosity
+Because no spinodal correlation peak $q_m$ is detected down to the low-$q$ instrumental resolution limit ($q_{\text{min}} = 0.002\text{ nm}^{-1}$), the characteristic domain spacing and viscoelastic length scale must strictly exceed the real-space resolution boundary:
+$$d_{\text{max}} = \frac{2\pi}{q_{\text{min}}} \approx 3.14\ \mu\text{m} \implies \xi_{\text{ve}} > 3.14\ \mu\text{m}$$
+
+Combining $\xi_{\text{ve}} > 3.14\ \mu\text{m}$ with the cooperative diffusion coefficient $D_{\text{coop}} \approx 6.1 \times 10^{-12}\text{ m}^2/\text{s}$ yields a lower bound for the structural stress relaxation time:
+$$\tau_r = \frac{\xi_{\text{ve}}^2}{D_{\text{coop}}} > \frac{(3.14 \times 10^{-6}\text{ m})^2}{6.1 \times 10^{-12}\text{ m}^2/\text{s}} \approx 1.6 - 1.8\text{ s}$$
+
+This relaxation time is orders of magnitude longer than the molecular rearrangement time of bulk water ($\sim 10^{-11}\text{ s}$), formally proving extreme dynamic asymmetry. 
+
+The effective zero-shear viscosity of the transient dense phase is:
+$$\eta_{\text{eff}} \approx G_{\text{gel}} \tau_r > (64\text{ Pa}) \times (1.8\text{ s}) \approx 115\text{ Pa}\cdot\text{s}$$
+This value is more than five orders of magnitude ($> 10^5$) higher than the viscosity of bulk water ($\eta_{\text{water}} \approx 10^{-3}\text{ Pa}\cdot\text{s}$), quantifying the physical basis of kinetic arrest during liquid-liquid spinodal demixing.
+
+---
+
+### 5.3 Absence of a Spinodal Correlation Peak ($q_m < q_{\text{min}}$)
+In classical fluid spinodal decomposition (Cahn-Hilliard / Model H), a scattering correlation peak $q_m(t)$ emerges at intermediate $q$ and shifts to lower $q$ as bicontinuous domains coarsen. In our time-resolved SAXS spectra, no such peak is observed.
+
+This absence directly corroborates the VPS mechanism:
+1. The dynamic asymmetry slows down domain growth at early times, locking domain periodicity at scales $\Lambda > 3.14\ \mu\text{m}$.
+2. The entire accessible SAXS window ($q \in [0.002, 0.4]\text{ nm}^{-1}$) probes the *internal structure* of the sponge-like bicontinuous network, rather than the inter-domain periodicity.
+3. Rather than macroscopic hydrodynamic coarsening, stress relaxation proceeds via **volume shrinking** ($D_m$ densification at invariant $R_{\text{prim}}$) and localized strut rupture into coexisting spherical droplets ($\langle R_{\text{large}} \rangle \approx 2.2 - 3.5\ \mu\text{m}$).
+
