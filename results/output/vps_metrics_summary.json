@@ -75,7 +75,8 @@
     "D_m_initial": 1.1000000000000003,
     "D_m_final": 1.8671576271863,
     "D_m_delta": 0.7671576271862997,
-    "R_prim_constant_nm": 2.8,
+    "R_prim_constant_nm": 8.34,
+    "xi_fluc_mean_nm": 2.76,
     "frames_count": 350
   },
   "length_scale_hierarchy": {
@@ -95,17 +96,17 @@
       "R_large_nm": 7163.0
     },
     "ND-i-009": {
-      "R_prim": 2.8,
+      "R_prim": 8.34,
       "xi": 500.0,
       "R_large_nm": 2904.0
     },
     "ND-i-001": {
-      "R_prim": 3.5,
+      "R_prim": 6.39,
       "xi": 735.0,
       "R_large_nm": 3015.0
     },
     "ND-i-005": {
-      "R_prim": 6.59,
+      "R_prim": 8.25,
       "xi": 1194.0,
       "R_large_nm": 3530.0
     }

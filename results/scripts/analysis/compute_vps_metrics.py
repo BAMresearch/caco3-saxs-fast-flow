@@ -196,7 +196,8 @@ def compute_vps_metrics():
             'D_m_initial': float(d9['D'].iloc[0]),
             'D_m_final': float(d9['D'].iloc[-1]),
             'D_m_delta': float(d9['D'].iloc[-1] - d9['D'].iloc[0]),
-            'R_prim_constant_nm': 2.80,
+            'R_prim_constant_nm': 8.34,
+            'xi_fluc_mean_nm': 2.76,
             'frames_count': len(d9)
         }
 
@@ -207,9 +208,9 @@ def compute_vps_metrics():
             'ND-i-003': {'R_prim': 0.0, 'xi': 0.0, 'R_large_nm': 2167.0},
             'ND-i-004': {'R_prim': 4.94, 'xi': 108.7, 'R_large_nm': 2800.0},
             'ND-i-002': {'R_prim': 11.24, 'xi': 356.0, 'R_large_nm': 7163.0},
-            'ND-i-009': {'R_prim': 2.80, 'xi': 500.0, 'R_large_nm': 2904.0},
-            'ND-i-001': {'R_prim': 3.50, 'xi': 735.0, 'R_large_nm': 3015.0},
-            'ND-i-005': {'R_prim': 6.59, 'xi': 1194.0, 'R_large_nm': 3530.0}
+            'ND-i-009': {'R_prim': 8.34, 'xi': 500.0, 'R_large_nm': 2904.0},
+            'ND-i-001': {'R_prim': 6.39, 'xi': 735.0, 'R_large_nm': 3015.0},
+            'ND-i-005': {'R_prim': 8.25, 'xi': 1194.0, 'R_large_nm': 3530.0}
         }
     }
 

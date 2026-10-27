@@ -1,7 +1,7 @@
 # Multi-Scale SAXS Kinetic Analysis Suite: Architecture & Workflow Guide
 
-Data Processing Responsible: Tomasz Stawski (`tomasz.stawski@bam.de`)  
-Federal Institute for Materials Research and Testing (BAM), Berlin, Germany
+Data Processing Responsible: Tomasz M. Stawski (`tomasz.stawski@bam.de`)  
+Federal Institute for Materials Research and Testing (BAM)
 
 ---
 

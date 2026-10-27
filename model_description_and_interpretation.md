@@ -1,10 +1,7 @@
 # Small-angle X-ray scattering (SAXS) model description and physical interpretation
 
 **Title:** Multi-scale SAXS analysis of calcium carbonate precipitation: phase separation regimes, viscoelastic network dynamics, and model continuum  
-**Target section:** Theoretical model formulation, kinetic regimes and fitting parameter synthesis  
-**Data processing responsible:** Tomasz Stawski (*Federal Institute for Materials Research and Testing (BAM), Berlin, Germany*)  
-**Contact:** `tomasz.stawski@bam.de`  
-**License:** Standard MIT License ([LICENSE](LICENSE))  
+**Target section:** Theoretical model formulation, kinetic regimes and fitting parameter synthesis   
 
 **Associated project artifacts:**
 * Interactive Master Dashboard: [results/index.html](results/index.html) and [results/dashboard/index.html](results/dashboard/index.html)
@@ -217,6 +214,6 @@ Even though the droplets represent only $\approx 16.7\%$ of total mineral volume
 
 ## 9. License and attribution
 
-* **Data processing responsible:** Tomasz Stawski (`tomasz.stawski@bam.de`), Federal Institute for Materials Research and Testing (BAM), Unter den Eichen 87, 12205 Berlin, Germany.
+* **Data processing responsible:** Tomasz M. Stawski (`tomasz.stawski@bam.de`), Federal Institute for Materials Research and Testing (BAM)
 * **Beamtime proposal:** ESRF Proposal CH-6828 (*Time-resolved Small-Angle X-ray Scattering on Non-Classical Nucleation Pathways of Calcium Carbonate*).
 * **License:** This work is licensed under the terms of the standard [MIT License](LICENSE).

@@ -21,9 +21,10 @@ In our scattering data, the multi-scale hierarchy verifies this crossover:
 ## 2. Quantitative Proof of Volume Shrinking (ND-i-009 Benchmark)
 
 In classical Model B/H spinodal decomposition, phase separation proceeds with constant phase volumes. In contrast, Viscoelastic Phase Separation requires **volume shrinking** of the transient network, accompanied by solvent expulsion. In ND-i-009 (351 frames, 15 ms cadence):
-- **Primary building block radius is invariant:** $R_{\text{prim}} = 2.80\text{ nm}$ throughout the entire reaction run.
+- **Primary building block radius is invariant:** $R_{\text{prim}} \approx 8.35 \to 8.69\text{ nm}$ (mean $8.34\text{ nm}$, composite $9.40\text{ nm}$) throughout the entire reaction run, while the entangled PNC fluctuation mesh correlation length drifts smoothly as $\xi_{\text{fluc}} \approx 2.72 \to 2.84\text{ nm}$.
 - **Network fractal dimension increases monotonically:** $D_m$ drifts from $1.881$ to $1.925$.
 - **Densification mechanism:** The increase in $D_m$ at constant node radius directly represents the compaction and densification of the network strands, confirming Tanaka volume shrinking.
+
 
 ---
 
@@ -83,7 +84,7 @@ This value is more than five orders of magnitude ($> 10^5$) higher than the visc
 ---
 
 ### 5.3 Absence of a Spinodal Correlation Peak ($q_m < q_{\text{min}}$)
-In classical fluid spinodal decomposition (Cahn-Hilliard / Model H), a scattering correlation peak $q_m(t)$ emerges at intermediate $q$ and shifts to lower $q$ as bicontinuous domains coarsen. In our time-resolved SAXS spectra, no such peak is observed.
+In classical fluid spinodal decomposition (Cahn-Hilliard / Model H), a scattering correlation peak $q_m(t)$ emerges at intermediate $q$ and shifts to lower $q$ as bicontinuous domains coarsen. In our time-resolved SAXS patterns, no such peak is observed.
 
 This absence directly corroborates the VPS mechanism:
 1. The dynamic asymmetry slows down domain growth at early times, locking domain periodicity at scales $\Lambda > 3.14\ \mu\text{m}$.

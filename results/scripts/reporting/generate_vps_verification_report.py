@@ -77,7 +77,7 @@ def generate_report():
     report = []
     report.append("# Viscoelastic Phase Separation (VPS) Framework Verification Report")
     report.append("")
-    report.append("**Data processing responsible:** Tomasz Stawski (tomasz.stawski@bam.de)")
+    report.append("**Data processing responsible:** Tomasz M. Stawski (tomasz.stawski@bam.de)")
     report.append("**Theoretical framework:** Viscoelastic phase separation (VPS)")
     report.append("")
     report.append("---")

@@ -81,7 +81,7 @@ def generate_vps_synthesis_plot(data=None):
     labels = ['10 mM\n(ND-003)', '15 mM\n(ND-004)', '20 mM\n(ND-002)', '40 mM pH10\n(ND-009)', '40 mM pH11.3\n(ND-001)', '40 mM +Co\n(ND-005)']
     x = np.arange(len(series_keys))
 
-    r_prim_vals = [0.0, 4.94, 11.24, 2.80, 3.50, 6.59]
+    r_prim_vals = [0.0, 4.94, 11.24, 8.34, 6.39, 8.25]
     xi_vals = [0.0, 108.7, 356.0, 500.0, 735.0, 1194.0]
     r_large_vals = [2167.0, 2800.0, 7163.0, 2904.0, 3015.0, 3530.0]
 

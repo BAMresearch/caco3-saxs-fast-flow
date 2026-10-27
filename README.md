@@ -1,18 +1,9 @@
 # Multi-scale in-situ SAXS analysis of calcium carbonate precipitation
 
-[![Light Source](https://img.shields.io/badge/Light%20Source-ESRF%20(Grenoble)-blue)](https://www.esrf.fr/)
-[![Beamline](https://img.shields.io/badge/Beamline-ID02%20(TRUSAXS)-indigo)](https://www.esrf.fr/UsersAndScience/Experiments/TBS/ID02)
-[![Energy](https://img.shields.io/badge/Beam%20Energy-12.23%20keV-orange)]()
-[![Wavelength](https://img.shields.io/badge/%CE%BB-0.10138%20nm-amber)]()
-[![Detector](https://img.shields.io/badge/Detector-Dectris%20Eiger2%204M-green)]()
-[![q-range](https://img.shields.io/badge/q--range-0.002%20to%202.54%20nm%E2%88%921-teal)]()
-[![Camera Lengths](https://img.shields.io/badge/Geometries-3.0%20m%20(2.9997%20m)%20%7C%2031.0%20m%20(30.7059%20m)-purple)]()
-[![Analysis Register](https://img.shields.io/badge/Standard-Unified%20Physicochemical%20Register-slate)]()
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-Publication repository and unified multi-scale kinetic modelling suite for time-resolved synchrotron Small-Angle X-ray Scattering (SAXS) measurements of calcium carbonate ($\mathrm{CaCO}_3$) precipitation collected at the **ESRF ID02 High-Brilliance TRUSAXS / USAXS / SAXS beamline** (European Synchrotron Radiation Facility, Grenoble, France).
+Publication repository and unified multi-scale kinetic modelling scripts for time-resolved synchrotron Small-Angle X-ray Scattering (SAXS) measurements of calcium carbonate ($\mathrm{CaCO}_3$) precipitation collected at the **ESRF ID02 High-Brilliance TRUSAXS / USAXS / SAXS beamline** (European Synchrotron Radiation Facility, Grenoble, France).
 
-The project resolves the structural hierarchy and kinetic pathway across four decades in momentum transfer ($q \in [0.002, 2.54]\ \mathrm{nm}^{-1}$, real-space dimensions $2.5\ \mathrm{nm}$ to $3.1\ \mu\mathrm{m}$) and milliseconds to seconds in reaction time ($t = 0.045\ \mathrm{s}$ to $10.88\ \mathrm{s}$), discriminating between sub-spinodal nucleation of amorphous calcium carbonate (ACC) nanospheres, continuous spinodal gelation of viscoelastic mass-fractal networks, and Tanaka prenucleation cluster (PNC) fluctuation mesh dynamics.
+The project resolves the structural hierarchy and kinetic pathway across four decades in momentum transfer ($q \in [0.002, 2.54]\ \mathrm{nm}^{-1}$, real-space dimensions $2.5\ \mathrm{nm}$ to $3.1\ \mu\mathrm{m}$) and milliseconds to seconds in reaction time ($t = 0.045\ \mathrm{s}$ to $10.88\ \mathrm{s}$), discriminating between sub-spinodal nucleation of amorphous calcium carbonate (ACC) nanospheres, continuous spinodal gelation of viscoelastic mass-fractal networks, and prenucleation cluster (PNC) fluctuation mesh dynamics.
 
 ---
 
@@ -54,7 +45,7 @@ The project resolves the structural hierarchy and kinetic pathway across four de
 
 ## Reaction series and experimental matrix
 
-The experimental campaign systematically investigates the boundary between classical nucleation and non-classical spinodal decomposition across concentration, pH, and additive perturbation:
+The experimental beamtime systematically investigates the boundary between classical nucleation and non-classical spinodal decomposition across concentration, pH, and additive perturbation:
 
 | Series ID | Calcium reagent | Carbonate reagent | Buffer / initial pH | Physical regime | Converged model description |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -83,7 +74,7 @@ $$S(q, D_f, \xi) = 1 + \frac{D_f \Gamma(D_f - 1)}{\left[1 + \frac{1}{(q\xi)^2}\r
 Observed exclusively in the sub-spinodal regime ($10\ \mathrm{mM}$, ND-i-003) where dynamic network percolation is absent:
 $$I_{\mathrm{ACC}}(q) = (\Delta\rho)^2 \phi_{\mathrm{ACC}} \int_0^\infty n_{\mathrm{ACC}}(R) V(R) P_{\mathrm{sphere}}(q, R)\, dR$$
 
-### 3. Tanaka prenucleation cluster / fluctuation mesh ($I_{\mathrm{fluc}}$)
+### 3. Prenucleation cluster / fluctuation mesh ($I_{\mathrm{fluc}}$)
 Dynamic concentration fluctuations within the semi-dilute solvent mesh, modelled using the generalized Fisher-Burford / Tanaka formulation ($\mu_{\mathrm{fluc}} = 4.0$):
 $$I_{\mathrm{fluc}}(q) = \frac{A_{\mathrm{fluc}}}{\left[1 + (q \xi_{\mathrm{fluc}})^2\right]^{\mu_{\mathrm{fluc}} / 2}}$$
 where $\xi_{\mathrm{fluc}} \approx 2.7 - 3.1\ \mathrm{nm}$ corresponds to the characteristic correlation length of the prenucleation coordination mesh.
@@ -96,7 +87,7 @@ $$I_{\mathrm{droplet}}(q) = \frac{K_{\mathrm{Porod}}}{q^4} \quad \text{or} \quad
 
 ## Standardised component palette and visual register
 
-To guarantee rigorous cross-series reproducibility, all diagrams, scripts, baseline galleries, and dashboards adhere strictly to the project-wide invariant visual register:
+The following table summarises the model components palette and visual register:
 
 | Model component | Hex code | Colour sample | Stroke style | Technical representation |
 | :--- | :--- | :--- | :--- | :--- |
@@ -112,7 +103,7 @@ To guarantee rigorous cross-series reproducibility, all diagrams, scripts, basel
 
 ## Master dashboards and publication diagrams
 
-Interactive tools and high-resolution publication assets are precompiled and directly accessible:
+Interactive tools and SI assets are precompiled and directly accessible:
 
 1. **Master synthesis dashboard**:
    - Web application: [`results/index.html`](results/index.html) and [`results/dashboard/index.html`](results/dashboard/index.html)
@@ -177,38 +168,33 @@ pip install numpy scipy matplotlib pandas lmfit
 All scripts can be executed using the system Python interpreter:
 
 1. **Re-render the standardised composite baseline fits**:
-   ```bash
-   /home/tomek/anaconda3/bin/python results/standardize_composite_plots.py
+   ```bash python results/standardize_composite_plots.py
    ```
 
 2. **Regenerate the cross-series trajectory synthesis**:
-   ```bash
-   /home/tomek/anaconda3/bin/python results/generate_cross_series_trajectories.py
+   ```bash python results/generate_cross_series_trajectories.py
    ```
 
 3. **Rebuild the vector model transformation diagram**:
-   ```bash
-   /home/tomek/anaconda3/bin/python results/generate_model_transformation_diagram.py
+   ```bash python results/generate_model_transformation_diagram.py
    ```
 
 4. **Verify the viscoelastic phase separation consistency**:
-   ```bash
-   /home/tomek/anaconda3/bin/python results/verify_vps_framework.py
+   ```bash python results/verify_vps_framework.py
    ```
 
 5. **Recompile the master synthesis dashboards**:
-   ```bash
-   /home/tomek/anaconda3/bin/python results/build_master_dashboard.py
+   ```bash python results/build_master_dashboard.py
    ```
 
 ---
 
 ## Data processing and citation
 
-- **Data processing responsible**: Tomasz Stawski
-- **Affiliation**: Federal Institute for Materials Research and Testing (BAM), Unter den Eichen 87, 12205 Berlin, Germany
+- **Data processing responsible**: Tomasz M. Stawski
+- **Affiliation**: Federal Institute for Materials Research and Testing (BAM)
 - **Contact**: `tomasz.stawski@bam.de`
-- **Beamtime Affiliation**: ESRF - The European Synchrotron, 71 Avenue des Martyrs, 38000 Grenoble, France (Proposal CH-6828)
+- **Beamtime**: ESRF - The European Synchrotron (Proposal CH-6828)
 - **Primary Beamline Reference**:
   > Narayanan, T., Sztucki, M., Van Vaerenbergh, P., Léonardon, J., Gorini, J., Claustre, L., Sever, F., Morse, J., & Boesecke, P. (2018). *The ID02 high-brilliance small-angle X-ray scattering beamline at the ESRF*. **Journal of Applied Crystallography**, 51(6), 1511–1524.
 
