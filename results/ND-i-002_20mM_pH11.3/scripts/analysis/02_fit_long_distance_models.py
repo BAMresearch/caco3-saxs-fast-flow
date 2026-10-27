@@ -72,13 +72,17 @@ def fit_long_distance_series():
     with open(BASELINE_JSON, 'r') as f:
         bp = json.load(f)
 
-    r_large_base = bp.get('mean_radius_large', 2577.0)
-    std_large_base = bp.get('std_radius_large', 235.0)
+    r_large_base = bp.get('mean_radius_large', 1460.0)
+    std_large_base = bp.get('std_radius_large', 104.4)
     const_poly_ratio = std_large_base / max(1.0, r_large_base)
+
+    r_large_2_base = bp.get('mean_radius_large_2', 5034.0)
+    std_large_2_base = bp.get('std_radius_large_2', 398.1)
+    const_poly_ratio_2 = std_large_2_base / max(1.0, r_large_2_base)
 
     print(f"Loaded {n_frames} frames from metadata (t: {df_meta['time_seconds'].min():.4f}s to {df_meta['time_seconds'].max():.4f}s)")
     print(f"Transferred primary particle dimensions: Rmean = {transferred_Rmean:.2f} nm, stdDev = {transferred_stdDev:.2f} nm")
-    print(f"Droplet baseline anchor: R_large = {r_large_base:.1f} nm, poly_ratio = {const_poly_ratio:.4f}")
+    print(f"Bimodal droplet anchor: R1 = {r_large_base:.1f} nm (ratio: {const_poly_ratio:.4f}), R2 = {r_large_2_base:.1f} nm (ratio: {const_poly_ratio_2:.4f})")
 
     # 2. Sequential Fitting Loop
     fitted_records = []
@@ -120,21 +124,33 @@ def fit_long_distance_series():
         if prev_params is None:
             p.add('phi', value=bp.get('phi', 4.67e-5), min=1e-7, max=0.01, vary=True)
             p.add('D', value=bp.get('D', 1.85), min=1.3, max=2.6, vary=True)
-            p.add('xi', value=bp.get('xi', 410.0), min=30.0, max=5000.0, vary=True)
-            p.add('mean_radius_large', value=r_large_base, min=1500.0, max=6000.0, vary=True)
+            p.add('xi', value=bp.get('xi', 355.0), min=30.0, max=5000.0, vary=True)
+            # Mode 1 primary droplets
+            p.add('mean_radius_large', value=r_large_base, min=800.0, max=2800.0, vary=True)
             p.add('poly_ratio', value=const_poly_ratio, vary=False)
             p.add('std_radius_large', expr=f'mean_radius_large * {const_poly_ratio}')
-            p.add('total_volume_fraction_large', value=bp.get('total_volume_fraction_large', 4.4e-6), min=1e-8, max=0.01, vary=True)
-            p.add('A_porod', value=1e-7, min=0.0, max=1e-3, vary=True)
+            p.add('total_volume_fraction_large', value=bp.get('total_volume_fraction_large', 1.8e-6), min=1e-8, max=0.01, vary=True)
+            # Mode 2 coalesced giant droplets
+            p.add('mean_radius_large_2', value=r_large_2_base, min=2800.0, max=10000.0, vary=True)
+            p.add('poly_ratio_2', value=const_poly_ratio_2, vary=False)
+            p.add('std_radius_large_2', expr=f'mean_radius_large_2 * {const_poly_ratio_2}')
+            p.add('total_volume_fraction_large_2', value=bp.get('total_volume_fraction_large_2', 3.5e-6), min=1e-8, max=0.01, vary=True)
+            p.add('A_porod', value=1e-8, min=0.0, max=1e-3, vary=True)
             p.add('exp_porod', value=4.0, vary=False)
         else:
             p.add('phi', value=prev_params['phi'].value, min=1e-7, max=0.01, vary=True)
             p.add('D', value=prev_params['D'].value, min=1.3, max=2.6, vary=True)
             p.add('xi', value=max(50.0, prev_params['xi'].value), min=30.0, max=5000.0, vary=True)
-            p.add('mean_radius_large', value=prev_params['mean_radius_large'].value, min=1500.0, max=6000.0, vary=True)
+            # Mode 1
+            p.add('mean_radius_large', value=prev_params['mean_radius_large'].value, min=800.0, max=2800.0, vary=True)
             p.add('poly_ratio', value=const_poly_ratio, vary=False)
             p.add('std_radius_large', expr=f'mean_radius_large * {const_poly_ratio}')
-            p.add('total_volume_fraction_large', value=prev_params['total_volume_fraction_large'].value, min=1e-8, max=0.01, vary=True)
+            p.add('total_volume_fraction_large', value=max(1e-8, prev_params['total_volume_fraction_large'].value), min=1e-8, max=0.01, vary=True)
+            # Mode 2
+            p.add('mean_radius_large_2', value=prev_params['mean_radius_large_2'].value, min=2800.0, max=10000.0, vary=True)
+            p.add('poly_ratio_2', value=const_poly_ratio_2, vary=False)
+            p.add('std_radius_large_2', expr=f'mean_radius_large_2 * {const_poly_ratio_2}')
+            p.add('total_volume_fraction_large_2', value=max(1e-8, prev_params['total_volume_fraction_large_2'].value), min=1e-8, max=0.01, vary=True)
             p.add('A_porod', value=max(1e-9, prev_params['A_porod'].value), min=0.0, max=1e-3, vary=True)
             p.add('exp_porod', value=4.0, vary=False)
 
@@ -146,7 +162,8 @@ def fit_long_distance_series():
 
         # Covariance matrix calculation
         p_cov = out_fit.params.copy()
-        for k in ['phi', 'D', 'xi', 'mean_radius_large', 'total_volume_fraction_large', 'A_porod']:
+        for k in ['phi', 'D', 'xi', 'mean_radius_large', 'total_volume_fraction_large',
+                  'mean_radius_large_2', 'total_volume_fraction_large_2', 'A_porod']:
             if k in p_cov:
                 p_cov[k].vary = True
         try:
@@ -158,9 +175,10 @@ def fit_long_distance_series():
         # Calculate full curve & chi2
         fit_y = calc_model_intensity(final_p, q, include_large_spheres=True, include_oz=True, integration_steps=120)
         fit_y_v = fit_y[mask]
-        chi2_red = float(np.sum(((y_fit - fit_y_v) / dy_fit) ** 2) / max(1, len(y_fit) - 6))
+        chi2_red = float(np.sum(((y_fit - fit_y_v) / dy_fit) ** 2) / max(1, len(y_fit) - 8))
 
         r_large_err = float(final_p['mean_radius_large'].stderr) if final_p['mean_radius_large'].stderr is not None else 0.0
+        r_large_2_err = float(final_p['mean_radius_large_2'].stderr) if final_p['mean_radius_large_2'].stderr is not None else 0.0
         rec = {
             'frame_index': f_idx,
             'time_seconds': t_sec,
@@ -178,6 +196,12 @@ def fit_long_distance_series():
             'std_err_std_radius_large': r_large_err * const_poly_ratio,
             'total_volume_fraction_large': final_p['total_volume_fraction_large'].value,
             'std_err_total_volume_fraction_large': float(final_p['total_volume_fraction_large'].stderr) if final_p['total_volume_fraction_large'].stderr is not None else 0.0,
+            'mean_radius_large_2': final_p['mean_radius_large_2'].value,
+            'std_err_mean_radius_large_2': r_large_2_err,
+            'std_radius_large_2': final_p['std_radius_large_2'].value,
+            'std_err_std_radius_large_2': r_large_2_err * const_poly_ratio_2,
+            'total_volume_fraction_large_2': final_p['total_volume_fraction_large_2'].value,
+            'std_err_total_volume_fraction_large_2': float(final_p['total_volume_fraction_large_2'].stderr) if final_p['total_volume_fraction_large_2'].stderr is not None else 0.0,
             'A_porod': final_p['A_porod'].value,
             'std_err_A_porod': float(final_p['A_porod'].stderr) if final_p['A_porod'].stderr is not None else 0.0,
             'Rmean_transferred': transferred_Rmean,
@@ -190,7 +214,7 @@ def fit_long_distance_series():
         prev_params = final_p
 
         if f_idx % 10 == 0 or f_idx == n_frames - 1:
-            print(f"  Frame {f_idx:02d} (t = {t_sec:.3f} s): chi2 = {chi2_red:.3f} | R_large = {final_p['mean_radius_large'].value:.0f} nm, D = {final_p['D'].value:.3f}, xi = {final_p['xi'].value:.0f} nm")
+            print(f"  Frame {f_idx:02d} (t = {t_sec:.3f} s): chi2 = {chi2_red:.3f} | R1 = {final_p['mean_radius_large'].value:.0f} nm, R2 = {final_p['mean_radius_large_2'].value:.0f} nm, D = {final_p['D'].value:.3f}, xi = {final_p['xi'].value:.0f} nm")
 
     # 3. Save Output Tables
     df_params = pd.DataFrame(fitted_records)
@@ -208,30 +232,34 @@ def fit_long_distance_series():
     fig, axes = plt.subplots(2, 2, figsize=(13, 9.5), sharex=True)
     t = df_params['time_seconds']
 
-    # Panel A: Secondary Droplet Radius & Volume Fraction
+    # Panel A: Secondary Droplet Radii & Volume Fractions
     ax_a = axes[0, 0]
     ax_a_sub = ax_a.twinx()
-    l1 = ax_a.plot(t, df_params['mean_radius_large'], 'o-', color='#1f77b4', markersize=3.5, linewidth=1.8, label=r'Droplet radius $\langle R_{\mathrm{large}} \rangle$')
+    l1 = ax_a.plot(t, df_params['mean_radius_large'], 'o-', color='#1f77b4', markersize=3.5, linewidth=1.8, label=r'Primary droplets $\langle R_1 \rangle$')
     ax_a.fill_between(t, df_params['mean_radius_large'] - df_params['std_err_mean_radius_large'],
                       df_params['mean_radius_large'] + df_params['std_err_mean_radius_large'], color='#1f77b4', alpha=0.25)
-    l2 = ax_a_sub.plot(t, df_params['total_volume_fraction_large'] * 1e5, 's--', color='#e377c2', markersize=3.5, linewidth=1.8, label=r'Droplet fraction $\phi_{\mathrm{large}} \times 10^5$')
-    ax_a_sub.fill_between(t, (df_params['total_volume_fraction_large'] - df_params['std_err_total_volume_fraction_large']) * 1e5,
-                          (df_params['total_volume_fraction_large'] + df_params['std_err_total_volume_fraction_large']) * 1e5, color='#e377c2', alpha=0.25)
-    ax_a.set_ylabel(r"Droplet radius $\langle R_{\mathrm{large}} \rangle$ [nm]", fontsize=11, fontweight='bold', color='#1f77b4')
-    ax_a_sub.set_ylabel(r"$\phi_{\mathrm{large}} \times 10^5$", fontsize=11, fontweight='bold', color='#e377c2')
-    ax_a.set_title("(a) Secondary liquid droplet evolution", fontsize=11, fontweight='bold')
+    l2 = ax_a.plot(t, df_params['mean_radius_large_2'], '*-', color='#0284c7', markersize=4.0, linewidth=1.8, label=r'Coalesced droplets $\langle R_2 \rangle$')
+    ax_a.fill_between(t, df_params['mean_radius_large_2'] - df_params['std_err_mean_radius_large_2'],
+                      df_params['mean_radius_large_2'] + df_params['std_err_mean_radius_large_2'], color='#0284c7', alpha=0.20)
+    
+    tot_phi_drop = (df_params['total_volume_fraction_large'] + df_params['total_volume_fraction_large_2']) * 1e5
+    l3 = ax_a_sub.plot(t, tot_phi_drop, 's--', color='#e377c2', markersize=3.5, linewidth=1.8, label=r'Total droplet $\phi_{\mathrm{drop}} \times 10^5$')
+    
+    ax_a.set_ylabel(r"Droplet radii [nm]", fontsize=11, color='#1f77b4')
+    ax_a_sub.set_ylabel(r"$\phi_{\mathrm{drop}} \times 10^5$", fontsize=11, color='#e377c2')
+    ax_a.set_title("(a) Secondary bimodal liquid droplet evolution", fontsize=11)
     ax_a.grid(True, alpha=0.3)
-    lines = l1 + l2
+    lines = l1 + l2 + l3
     labels = [l.get_label() for l in lines]
-    ax_a.legend(lines, labels, loc='best', fontsize=9)
+    ax_a.legend(lines, labels, loc='best', fontsize=8.5)
 
     # Panel B: Mass Fractal Dimension Df
     ax_b = axes[0, 1]
     ax_b.plot(t, df_params['D'], 'o-', color='#d62728', markersize=3.5, linewidth=1.8, label=r'Fractal dimension $D_f$')
     ax_b.fill_between(t, df_params['D'] - df_params['std_err_D'], df_params['D'] + df_params['std_err_D'],
                       color='#d62728', alpha=0.25)
-    ax_b.set_ylabel(r"Mass fractal dimension $D_f$", fontsize=11, fontweight='bold')
-    ax_b.set_title(r"(b) Mesoscale network fractal dimension $D_f(t)$", fontsize=11, fontweight='bold')
+    ax_b.set_ylabel(r"Mass fractal dimension $D_f$", fontsize=11)
+    ax_b.set_title(r"(b) Mesoscale network fractal dimension $D_f(t)$", fontsize=11)
     ax_b.grid(True, alpha=0.3)
     ax_b.legend(loc='best', fontsize=9)
 
@@ -240,26 +268,25 @@ def fit_long_distance_series():
     ax_c.plot(t, df_params['xi'], '^-', color='#9467bd', markersize=3.5, linewidth=1.8, label=r'Correlation cutoff $\xi(t)$')
     ax_c.fill_between(t, np.maximum(10.0, df_params['xi'] - df_params['std_err_xi']),
                       df_params['xi'] + df_params['std_err_xi'], color='#9467bd', alpha=0.25)
-    ax_c.set_ylabel(r"Cutoff length $\xi$ [nm]", fontsize=11, fontweight='bold')
-    ax_c.set_xlabel("Reaction time [s]", fontsize=11, fontweight='bold')
-    ax_c.set_title(r"(c) Mesoscale network correlation cutoff $\xi(t)$", fontsize=11, fontweight='bold')
+    ax_c.set_ylabel(r"Cutoff length $\xi$ [nm]", fontsize=11)
+    ax_c.set_xlabel("Reaction time [s]", fontsize=11)
+    ax_c.set_title(r"(c) Mesoscale network correlation cutoff $\xi(t)$", fontsize=11)
     ax_c.grid(True, alpha=0.3)
     ax_c.legend(loc='best', fontsize=9)
 
     # Panel D: Goodness of Fit (chi2_red)
     ax_d = axes[1, 1]
     ax_d.plot(t, df_params['chi2_red'], 'o-', color='#ff7f0e', markersize=3.5, linewidth=1.8, label=r'Reduced $\chi^2_{\mathrm{red}}$')
-    ax_d.set_ylabel(r"Reduced $\chi^2_{\mathrm{red}}$", fontsize=11, fontweight='bold')
-    ax_d.set_xlabel("Reaction time [s]", fontsize=11, fontweight='bold')
-    ax_d.set_title(r"(d) Goodness of fit ($\chi^2_{\mathrm{red}}$)", fontsize=11, fontweight='bold')
+    ax_d.set_ylabel(r"Reduced $\chi^2_{\mathrm{red}}$", fontsize=11)
+    ax_d.set_xlabel("Reaction time [s]", fontsize=11)
+    ax_d.set_title(r"(d) Goodness of fit ($\chi^2_{\mathrm{red}}$)", fontsize=11)
     ax_d.grid(True, alpha=0.3)
     ax_d.legend(loc='best', fontsize=9)
 
-    plt.suptitle("ND-i-002: Long-distance SAXS kinetic trajectories (20 mM CaCO$_3$, pH 11.3, pure)\n"
-                 r"Mesoscale network and secondary droplet kinetics with $\pm 1\sigma$ experimental uncertainties", fontsize=12, fontweight='bold')
+    plt.suptitle("ND-i-002: long-distance SAXS kinetic trajectories (20 mM CaCO$_3$, pH 11.3, pure)\n"
+                 r"Mesoscale network and bimodal secondary droplet kinetics with $\pm 1\sigma$ experimental uncertainties", fontsize=12)
     plt.tight_layout()
     plot_path = os.path.join(OUT_DIR, 'trajectories.png')
-    plt.savefig(plot_path, dpi=300)
     plt.close()
     print(f"Saved trajectory figure: {plot_path}")
 

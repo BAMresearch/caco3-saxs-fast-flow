@@ -62,6 +62,9 @@ def build_dashboard():
             'mean_radius_large': f"{float(r['mean_radius_large']):.0f} ± {float(r.get('std_err_mean_radius_large', 0.0)):.0f}",
             'std_radius_large': f"{float(r['std_radius_large']):.0f} ± {float(r.get('std_err_std_radius_large', 0.0)):.0f}",
             'total_volume_fraction_large': f"{float(r['total_volume_fraction_large']) * 1e5:.2f} ± {float(r.get('std_err_total_volume_fraction_large', 0.0)) * 1e5:.2f}",
+            'mean_radius_large_2': f"{float(r.get('mean_radius_large_2', 0.0)):.0f} ± {float(r.get('std_err_mean_radius_large_2', 0.0)):.0f}",
+            'std_radius_large_2': f"{float(r.get('std_radius_large_2', 0.0)):.0f} ± {float(r.get('std_err_std_radius_large_2', 0.0)):.0f}",
+            'total_volume_fraction_large_2': f"{float(r.get('total_volume_fraction_large_2', 0.0)) * 1e5:.2f} ± {float(r.get('std_err_total_volume_fraction_large_2', 0.0)) * 1e5:.2f}",
             'D': f"{float(r['D']):.3f} ± {float(r.get('std_err_D', 0.0)):.3f}",
             'xi': f"{float(r['xi']):.0f} ± {float(r.get('std_err_xi', 0.0)):.0f}",
             'phi': f"{float(r['phi']) * 1e4:.2f} ± {float(r.get('std_err_phi', 0.0)) * 1e4:.2f}"
@@ -330,10 +333,10 @@ def build_dashboard():
     <!-- TAB 1: OVERVIEW & BASELINE -->
     <div id="overview" class="tab-content active">
       <div class="card">
-        <div class="card-title">Full-range composite baseline anchor curve ($q \in [0.002, 2.5]\text{{ nm}}^{{-1}}$)</div>
+        <div class="card-title">Full-range composite baseline anchor curve ($q \\in [0.002, 2.5]\\text{{ nm}}^{{-1}}$)</div>
         <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">
           Stitched synchrotron composite curve spanning over 3 decades of momentum transfer. Decomposed into primary polydisperse
-          building blocks, inter-particle mass fractal network, macroscopic dense liquid droplets, and sub-nanometer PNC clusters.
+          building blocks, inter-particle mass fractal network, bimodal macroscopic dense liquid droplets, and sub-nanometer PNC clusters.
         </p>
         <img src="../composite/composite_baseline_fit.png" alt="Composite Baseline Fit" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
       </div>
@@ -377,19 +380,34 @@ def build_dashboard():
               <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Volume fraction of primary fractal network</td>
             </tr>
             <tr>
-              <td>Secondary Droplet Radius</td><td>&lang;R<sub>large</sub>&rang;</td>
+              <td>Primary Droplet Radius (Mode 1)</td><td>&lang;R<sub>1</sub>&rang;</td>
               <td>{bp.get('mean_radius_large', 0.0):.0f} nm</td><td>&plusmn; {bp.get('std_err_mean_radius_large', 0.0):.0f} nm</td>
-              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Mean radius of macroscopic droplets</td>
+              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Mean radius of primary dense liquid droplets</td>
             </tr>
             <tr>
-              <td>Secondary Droplet Dispersion</td><td>&sigma;<sub>large</sub></td>
+              <td>Primary Droplet Dispersion (Mode 1)</td><td>&sigma;<sub>1</sub></td>
               <td>{bp.get('std_radius_large', 0.0):.0f} nm</td><td>&plusmn; {bp.get('std_err_std_radius_large', 0.0):.0f} nm</td>
-              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Log-normal droplet dispersion width</td>
+              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Log-normal droplet dispersion width (Mode 1)</td>
             </tr>
             <tr>
-              <td>Secondary Droplet Fraction</td><td>&phi;<sub>large</sub></td>
+              <td>Primary Droplet Fraction (Mode 1)</td><td>&phi;<sub>1</sub></td>
               <td>{bp.get('total_volume_fraction_large', 0.0) * 1e5:.2f} &times; 10<sup>-5</sup></td><td>&plusmn; {bp.get('std_err_total_volume_fraction_large', 0.0) * 1e5:.2f} &times; 10<sup>-5</sup></td>
-              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Volume fraction of macroscopic droplets</td>
+              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Volume fraction of primary macroscopic droplets</td>
+            </tr>
+            <tr>
+              <td>Coalesced Giant Droplet Radius (Mode 2)</td><td>&lang;R<sub>2</sub>&rang;</td>
+              <td>{bp.get('mean_radius_large_2', 0.0):.0f} nm</td><td>&plusmn; {bp.get('std_err_mean_radius_large_2', 0.0):.0f} nm</td>
+              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Mean radius of shear-coalesced giant droplets</td>
+            </tr>
+            <tr>
+              <td>Coalesced Droplet Dispersion (Mode 2)</td><td>&sigma;<sub>2</sub></td>
+              <td>{bp.get('std_radius_large_2', 0.0):.0f} nm</td><td>&plusmn; {bp.get('std_err_std_radius_large_2', 0.0):.0f} nm</td>
+              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Log-normal droplet dispersion width (Mode 2)</td>
+            </tr>
+            <tr>
+              <td>Coalesced Droplet Fraction (Mode 2)</td><td>&phi;<sub>2</sub></td>
+              <td>{bp.get('total_volume_fraction_large_2', 0.0) * 1e5:.2f} &times; 10<sup>-5</sup></td><td>&plusmn; {bp.get('std_err_total_volume_fraction_large_2', 0.0) * 1e5:.2f} &times; 10<sup>-5</sup></td>
+              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Volume fraction of shear-coalesced giant droplets</td>
             </tr>
             <tr>
               <td>Porod Interface Scale</td><td>A<sub>porod</sub></td>
@@ -399,7 +417,6 @@ def build_dashboard():
             <tr>
               <td>Fluctuation Correlation Length</td><td>&xi;<sub>fluc</sub></td>
               <td>{bp.get('xi_fluc', 7.84):.2f} nm</td><td>&plusmn; {bp.get('std_err_xi_fluc', 0.0):.2f} nm</td>
-              <td style="text-align: left; padding-left: 1.5rem; color: var(--text-secondary);">Viscoelastic concentration fluctuation correlation length</td>
             </tr>
             <tr>
               <td>Fluctuation Amplitude</td><td>A<sub>fluc</sub></td>
@@ -508,9 +525,10 @@ def build_dashboard():
 
           <table class="telemetry-table">
             <tr><th>Goodness of Fit &chi;<sup>2</sup><sub>red</sub></th><td id="ld_chi2">-</td></tr>
-            <tr><th>Droplet Radius &lang;R<sub>large</sub>&rang;</th><td id="ld_Rlarge">-</td></tr>
-            <tr><th>Droplet Dispersion &sigma;<sub>large</sub></th><td id="ld_stdLarge">-</td></tr>
-            <tr><th>Droplet Fraction &phi;<sub>large</sub> &times; 10<sup>5</sup></th><td id="ld_philarge">-</td></tr>
+            <tr><th>Primary Droplets &lang;R<sub>1</sub>&rang;</th><td id="ld_Rlarge">-</td></tr>
+            <tr><th>Primary Fraction &phi;<sub>1</sub> &times; 10<sup>5</sup></th><td id="ld_philarge">-</td></tr>
+            <tr><th>Coalesced Droplets &lang;R<sub>2</sub>&rang;</th><td id="ld_Rlarge2">-</td></tr>
+            <tr><th>Coalesced Fraction &phi;<sub>2</sub> &times; 10<sup>5</sup></th><td id="ld_philarge2">-</td></tr>
             <tr><th>Fractal Dimension D<sub>f</sub></th><td id="ld_D">-</td></tr>
             <tr><th>Network Cutoff &xi;</th><td id="ld_xi">-</td></tr>
             <tr><th>Primary Fraction &phi;<sub>prim</sub> &times; 10<sup>4</sup></th><td id="ld_phi">-</td></tr>
@@ -576,9 +594,10 @@ def build_dashboard():
                 <th>Frame</th>
                 <th>Time [s]</th>
                 <th>&chi;<sup>2</sup><sub>red</sub></th>
-                <th>&lang;R<sub>large</sub>&rang; [nm]</th>
-                <th>&sigma;<sub>large</sub> [nm]</th>
-                <th>&phi;<sub>large</sub> &times; 10<sup>5</sup></th>
+                <th>&lang;R<sub>1</sub>&rang; [nm]</th>
+                <th>&phi;<sub>1</sub> &times; 10<sup>5</sup></th>
+                <th>&lang;R<sub>2</sub>&rang; [nm]</th>
+                <th>&phi;<sub>2</sub> &times; 10<sup>5</sup></th>
                 <th>D<sub>f</sub></th>
                 <th>&xi; [nm]</th>
                 <th>&phi;<sub>prim</sub> &times; 10<sup>4</sup></th>
@@ -594,8 +613,9 @@ def build_dashboard():
                 <td>{float(r['time_seconds']):.3f}</td>
                 <td>{float(r['chi2_red']):.3f}</td>
                 <td>{float(r['mean_radius_large']):.0f} &plusmn; {float(r.get('std_err_mean_radius_large', 0.0)):.0f}</td>
-                <td>{float(r['std_radius_large']):.0f} &plusmn; {float(r.get('std_err_std_radius_large', 0.0)):.0f}</td>
-                <td>{float(r['total_volume_fraction_large']) * 1e5:.2f} &plusmn; {float(r.get('std_err_total_volume_fraction_large', 0.0)) * 1e5:.2f}</td>
+                <td>{float(r['total_volume_fraction_large']) * 1e5:.2f}</td>
+                <td>{float(r.get('mean_radius_large_2', 0.0)):.0f} &plusmn; {float(r.get('std_err_mean_radius_large_2', 0.0)):.0f}</td>
+                <td>{float(r.get('total_volume_fraction_large_2', 0.0)) * 1e5:.2f}</td>
                 <td>{float(r['D']):.3f} &plusmn; {float(r.get('std_err_D', 0.0)):.3f}</td>
                 <td>{float(r['xi']):.0f} &plusmn; {float(r.get('std_err_xi', 0.0)):.0f}</td>
                 <td>{float(r['phi']) * 1e4:.2f} &plusmn; {float(r.get('std_err_phi', 0.0)) * 1e4:.2f}</td>
@@ -618,7 +638,7 @@ def build_dashboard():
         </p>
         <div class="equation-box">
           \[
-          I_{\mathrm{tot}}(q) = I_{\mathrm{prim}}(q) + I_{\mathrm{large}}(q) + I_{\mathrm{fluc}}(q) + I_{\mathrm{bkg}}
+          I_{\mathrm{tot}}(q) = I_{\mathrm{prim}}(q) + I_{\mathrm{drop}}(q) + I_{\mathrm{fluc}}(q) + I_{\mathrm{bkg}}
           \]
         </div>
 
@@ -636,14 +656,17 @@ def build_dashboard():
           \]
         </div>
 
-        <h3 style="font-size: 1.05rem; margin-top: 20px; color: #ffffff;">2. Secondary macroscopic droplets</h3>
+        <h3 style="font-size: 1.05rem; margin-top: 20px; color: #ffffff;">2. Secondary bimodal macroscopic droplets</h3>
         <p style="color: var(--text-secondary); margin-top: 6px;">
-          Dilute secondary dense liquid phase droplets with log-normal polydispersity and constant relative dispersion
-          \(\sigma_{\mathrm{large}} / \langle R_{\mathrm{large}} \rangle = \text{const}\):
+          Under spinodal liquid-liquid phase separation in capillary flow, droplets exhibit a bimodal size distribution
+          comprising primary dense liquid droplets (\(R_1 \sim 1.46\ \mu\mathrm{m}\)) coexisting with shear-coalesced giant droplets (\(R_2 \sim 5.03\ \mu\mathrm{m}\)):
         </p>
         <div class="equation-box">
           \[
-          I_{\mathrm{large}}(q) = (\Delta\rho)^2 \int_0^\infty n_{\mathrm{large}}(R) V^2(R) P(q, R) \, dR
+          I_{\mathrm{drop}}(q) = I_{\mathrm{drop}, 1}(q) + I_{\mathrm{drop}, 2}(q)
+          \]
+          \[
+          I_{\mathrm{drop}, i}(q) = (\Delta\rho)^2 \int_0^\infty n_i(R) V^2(R) P(q, R) \, dR \quad (i = 1, 2)
           \]
         </div>
 
@@ -738,8 +761,9 @@ def build_dashboard():
 
       document.getElementById('ld_chi2').innerText = d.chi2;
       document.getElementById('ld_Rlarge').innerText = d.mean_radius_large + ' nm';
-      document.getElementById('ld_stdLarge').innerText = d.std_radius_large + ' nm';
       document.getElementById('ld_philarge').innerText = d.total_volume_fraction_large;
+      document.getElementById('ld_Rlarge2').innerText = (d.mean_radius_large_2 || '-') + ' nm';
+      document.getElementById('ld_philarge2').innerText = d.total_volume_fraction_large_2 || '-';
       document.getElementById('ld_D').innerText = d.D;
       document.getElementById('ld_xi').innerText = d.xi + ' nm';
       document.getElementById('ld_phi').innerText = d.phi;

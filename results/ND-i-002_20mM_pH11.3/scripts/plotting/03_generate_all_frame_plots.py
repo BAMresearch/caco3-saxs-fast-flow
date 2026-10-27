@@ -124,9 +124,20 @@ def plot_single_long_frame(args):
     xi_fluc = float(row_dict.get('xi_fluc_transferred', 2.5))
 
     A_porod = float(row_dict.get('A_porod', 0.0))
+    R_large_2 = float(row_dict.get('mean_radius_large_2', 0.0))
+    std_large_2 = float(row_dict.get('std_radius_large_2', 0.0))
+    phi_large_2 = float(row_dict.get('total_volume_fraction_large_2', 0.0))
+
     q_dense = np.logspace(np.log10(0.0018), np.log10(0.25), 250)
     I_prim = calc_primary_fractal_intensity(q_dense, Rmean, stdDev, phi_val, D_val, xi_net, rho2=RHO2_CALIBRATED, integration_steps=100)
     I_large = calc_large_sphere_intensity(q_dense, R_large, std_large, phi_large, rho2=RHO2_CALIBRATED, integration_steps=100)
+    if phi_large_2 > 0 and R_large_2 > 0:
+        I_large_2 = calc_large_sphere_intensity(q_dense, R_large_2, std_large_2, phi_large_2, rho2=RHO2_CALIBRATED, integration_steps=100)
+        I_large = I_large + I_large_2
+        drop_label = f'Bimodal droplets ($\\langle R_1 \\rangle = {R_large:.0f}$ nm, $\\langle R_2 \\rangle = {R_large_2:.0f}$ nm)'
+    else:
+        drop_label = f'Droplets/Porod ($\\langle R \\rangle = {R_large:.0f}$ nm, $\\sigma = {std_large:.0f}$ nm)'
+
     I_porod = calc_porod_intensity(q_dense, A_porod, 4.0) if A_porod > 0 else np.zeros_like(q_dense)
     I_fluc = calc_fb_intensity(q_dense, A_fluc, xi_fluc, mu_fluc=4.0)
     I_tot = I_prim + I_large + I_porod + I_fluc
@@ -134,7 +145,7 @@ def plot_single_long_frame(args):
     ax_main.errorbar(q_v, y_v, yerr=dy_v, fmt='o', color='#334155', markersize=2.2, alpha=0.35, elinewidth=0.5, capsize=0, label=f'Data ($t = {t_s:.3f}$ s)')
     ax_main.plot(q_dense, I_tot, color='#dc2626', linewidth=2.0, label=f'Full model ($\\chi^2 = {redchi:.2f}$)')
     ax_main.plot(q_dense, I_large + I_porod, color='#7c3aed', linestyle='-.', linewidth=1.4,
-                 label=f'Droplets/Porod ($\\langle R \\rangle = {R_large:.0f}$ nm, $\\sigma = {std_large:.0f}$ nm)')
+                 label=drop_label)
     ax_main.plot(q_dense, I_prim, color='#16a34a', linestyle='--', linewidth=1.3,
                  label=f'Network fractal ($\\xi = {xi_net:.0f}$ nm, $D_f = {D_val:.2f}$)')
 

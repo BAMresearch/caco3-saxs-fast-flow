@@ -71,10 +71,14 @@ def fit_composite_baseline():
     p.add('D', value=1.85, min=1.4, max=2.5, vary=True)
     p.add('xi', value=350.0, min=50.0, max=5000.0, vary=True)
 
-    # 2. Secondary macroscopic droplets
-    p.add('mean_radius_large', value=2600.0, min=800.0, max=10000.0, vary=True)
-    p.add('std_radius_large', value=250.0, min=50.0, max=3000.0, vary=True)
-    p.add('total_volume_fraction_large', value=5e-6, min=1e-8, max=0.01, vary=True)
+    # 2. Secondary macroscopic droplets (bimodal population: primary droplets + coalesced giant droplets)
+    p.add('mean_radius_large', value=1450.0, min=800.0, max=2800.0, vary=True)
+    p.add('std_radius_large', value=105.0, min=20.0, max=800.0, vary=True)
+    p.add('total_volume_fraction_large', value=1.8e-6, min=1e-8, max=0.01, vary=True)
+
+    p.add('mean_radius_large_2', value=5040.0, min=2800.0, max=10000.0, vary=True)
+    p.add('std_radius_large_2', value=440.0, min=50.0, max=2000.0, vary=True)
+    p.add('total_volume_fraction_large_2', value=3.5e-6, min=1e-8, max=0.01, vary=True)
 
     # 3. Macroscopic Porod surface tail
     p.add('A_porod', value=1e-8, min=0.0, max=0.01, vary=True)
@@ -93,10 +97,15 @@ def fit_composite_baseline():
             pars['phi'].value, pars['D'].value, pars['xi'].value,
             rho2=RHO2_CALIBRATED, integration_steps=80
         )
-        I_large = calc_large_sphere_intensity(
+        I_large_1 = calc_large_sphere_intensity(
             q_eval, pars['mean_radius_large'].value, pars['std_radius_large'].value,
             pars['total_volume_fraction_large'].value, rho2=RHO2_CALIBRATED, integration_steps=80
         )
+        I_large_2 = calc_large_sphere_intensity(
+            q_eval, pars['mean_radius_large_2'].value, pars['std_radius_large_2'].value,
+            pars['total_volume_fraction_large_2'].value, rho2=RHO2_CALIBRATED, integration_steps=80
+        )
+        I_large = I_large_1 + I_large_2
         I_por = calc_porod_intensity(q_eval, pars['A_porod'].value, 4.0) if pars['A_porod'].value > 0 else 0.0
         I_fluc = calc_fb_intensity(
             q_eval, pars['A_fluc'].value, pars['xi_fluc'].value,
@@ -113,7 +122,7 @@ def fit_composite_baseline():
     final_params = out.params
 
     c_final = model_eval(final_params, q_data)
-    dof = max(1, len(q_data) - 10)
+    dof = max(1, len(q_data) - 13)
     red_chi2 = np.sum(((y_data - c_final) / dy_fit) ** 2) / dof
     red_chi2_raw = np.sum(((y_data - c_final) / dy_data) ** 2) / dof
 
@@ -150,10 +159,15 @@ def fit_composite_baseline():
         final_params['phi'].value, final_params['D'].value, final_params['xi'].value,
         rho2=RHO2_CALIBRATED, integration_steps=120
     )
-    I_large_dense = calc_large_sphere_intensity(
+    I_large_1_dense = calc_large_sphere_intensity(
         q_dense, final_params['mean_radius_large'].value, final_params['std_radius_large'].value,
         final_params['total_volume_fraction_large'].value, rho2=RHO2_CALIBRATED, integration_steps=120
     )
+    I_large_2_dense = calc_large_sphere_intensity(
+        q_dense, final_params['mean_radius_large_2'].value, final_params['std_radius_large_2'].value,
+        final_params['total_volume_fraction_large_2'].value, rho2=RHO2_CALIBRATED, integration_steps=120
+    )
+    I_large_dense = I_large_1_dense + I_large_2_dense
     I_por_dense = calc_porod_intensity(q_dense, final_params['A_porod'].value, 4.0) if final_params['A_porod'].value > 0 else np.zeros_like(q_dense)
     I_fluc_dense = calc_fb_intensity(
         q_dense, final_params['A_fluc'].value, final_params['xi_fluc'].value,
@@ -176,7 +190,7 @@ def fit_composite_baseline():
     ax_fit.loglog(q_dense, I_net_dense, color='#059669', linestyle='--', linewidth=1.8,
                   label=f'Spinodal fractal network ($R = {final_params["Rmean"].value:.1f}$ nm, $D_m = {final_params["D"].value:.2f}$, $\\xi = {final_params["xi"].value:.0f}$ nm)')
     ax_fit.loglog(q_dense, I_large_dense + I_por_dense, color='#d97706', linestyle='-.', linewidth=1.8,
-                  label=f'Macroscopic droplets / Porod tail ($\\langle R \\rangle = {final_params["mean_radius_large"].value:.0f}$ nm, $\\phi = {final_params["total_volume_fraction_large"].value:.2e}$)')
+                  label=f'Bimodal macroscopic droplets ($\\langle R_1 \\rangle = {final_params["mean_radius_large"].value:.0f}$ nm, $\\langle R_2 \\rangle = {final_params["mean_radius_large_2"].value:.0f}$ nm)')
     ax_fit.loglog(q_dense, I_fluc_dense, color='#9333ea', linestyle=':', linewidth=1.8,
                   label=f'Tanaka viscoelastic fluctuation mesh ($\\xi_{{\\rm fluc}} = {final_params["xi_fluc"].value:.2f}$ nm, $A_{{\\rm fluc}} = {final_params["A_fluc"].value:.2e}$ cm$^{{-1}}$)')
     ax_fit.axhline(final_params['bkg'].value, color='#64748b', linestyle=':', linewidth=1.2,
@@ -184,7 +198,7 @@ def fit_composite_baseline():
 
     ax_fit.set_ylabel(r'Intensity $I(q)$ [$\mathrm{cm}^{-1}$]', fontsize=12)
     ax_fit.set_title('ND-i-002: multi-scale composite baseline fit (20.0 mM CaCO$_3$, pH 11.3, spinodal gelation)\n'
-                     r'Spinodal fractal network + macroscopic droplets + Tanaka PNC mesh ($q \in [0.002, 2.54]\ \mathrm{nm}^{-1}$)',
+                     r'Spinodal fractal network + bimodal macroscopic droplets + Tanaka PNC mesh ($q \in [0.002, 2.54]\ \mathrm{nm}^{-1}$)',
                      fontsize=11)
     ax_fit.legend(loc='upper right', fontsize=8.8, framealpha=0.92)
     ax_fit.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.4)

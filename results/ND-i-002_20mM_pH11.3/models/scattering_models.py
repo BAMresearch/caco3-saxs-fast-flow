@@ -208,6 +208,15 @@ def calc_model_intensity(params, q, include_large_spheres=True, include_oz=True,
             I_large = calc_large_sphere_intensity(q, R_large, std_large, phi_large, rho2=rho2, integration_steps=integration_steps)
             I_total += I_large
 
+    # Secondary coalesced droplet mode (Mode 2 giant droplets)
+    if include_large_spheres and 'total_volume_fraction_large_2' in params:
+        phi_large_2 = params['total_volume_fraction_large_2'].value if hasattr(params['total_volume_fraction_large_2'], 'value') else params['total_volume_fraction_large_2']
+        if phi_large_2 > 0:
+            R_large_2 = params['mean_radius_large_2'].value if hasattr(params['mean_radius_large_2'], 'value') else params['mean_radius_large_2']
+            std_large_2 = params['std_radius_large_2'].value if hasattr(params['std_radius_large_2'], 'value') else params['std_radius_large_2']
+            I_large_2 = calc_large_sphere_intensity(q, R_large_2, std_large_2, phi_large_2, rho2=rho2, integration_steps=integration_steps)
+            I_total += I_large_2
+
     # Macroscopic Porod surface scattering component (for giant objects / precipitates with Guinier knee < q_min)
     if 'A_porod' in params:
         A_porod = params['A_porod'].value if hasattr(params['A_porod'], 'value') else params['A_porod']
@@ -256,6 +265,13 @@ def decompose_model_components(params, q, integration_steps=300):
             R_large = params['mean_radius_large'].value if hasattr(params['mean_radius_large'], 'value') else params['mean_radius_large']
             std_large = params['std_radius_large'].value if hasattr(params['std_radius_large'], 'value') else params['std_radius_large']
             I_large = calc_large_sphere_intensity(q, R_large, std_large, phi_large, rho2=rho2, integration_steps=integration_steps)
+
+    if 'total_volume_fraction_large_2' in params:
+        phi_large_2 = params['total_volume_fraction_large_2'].value if hasattr(params['total_volume_fraction_large_2'], 'value') else params['total_volume_fraction_large_2']
+        if phi_large_2 > 0:
+            R_large_2 = params['mean_radius_large_2'].value if hasattr(params['mean_radius_large_2'], 'value') else params['mean_radius_large_2']
+            std_large_2 = params['std_radius_large_2'].value if hasattr(params['std_radius_large_2'], 'value') else params['std_radius_large_2']
+            I_large = I_large + calc_large_sphere_intensity(q, R_large_2, std_large_2, phi_large_2, rho2=rho2, integration_steps=integration_steps)
 
     if 'A_porod' in params:
         A_porod = params['A_porod'].value if hasattr(params['A_porod'], 'value') else params['A_porod']

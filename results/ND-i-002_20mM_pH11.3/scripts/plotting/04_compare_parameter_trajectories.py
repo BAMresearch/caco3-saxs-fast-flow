@@ -66,18 +66,22 @@ def generate_unified_trajectories():
     ax1.plot(t_ld, df_ld['xi'], '^--', color='#9d4edd', markersize=3.5, linewidth=1.6, label=r'Network cutoff $\xi(t) \pm 1\sigma$')
     ax1.fill_between(t_ld, np.maximum(10.0, df_ld['xi'] - df_ld['std_err_xi']), df_ld['xi'] + df_ld['std_err_xi'], color='#9d4edd', alpha=0.18)
 
-    # 4. Large droplet radius
-    ax1.plot(t_ld, df_ld['mean_radius_large'], 'D-', color='#1d3557', markersize=3.5, linewidth=1.8, label=r'Secondary droplets $\langle R_{\mathrm{large}} \rangle \pm 1\sigma$')
+    # 4. Large droplet radii (bimodal)
+    ax1.plot(t_ld, df_ld['mean_radius_large'], 'D-', color='#1d3557', markersize=3.5, linewidth=1.8, label=r'Primary droplets $\langle R_1 \rangle \pm 1\sigma$')
     ax1.fill_between(t_ld, df_ld['mean_radius_large'] - df_ld['std_err_mean_radius_large'], df_ld['mean_radius_large'] + df_ld['std_err_mean_radius_large'], color='#1d3557', alpha=0.25)
+
+    if 'mean_radius_large_2' in df_ld.columns:
+        ax1.plot(t_ld, df_ld['mean_radius_large_2'], '*-', color='#0284c7', markersize=4.0, linewidth=1.8, label=r'Coalesced giant droplets $\langle R_2 \rangle \pm 1\sigma$')
+        ax1.fill_between(t_ld, df_ld['mean_radius_large_2'] - df_ld['std_err_mean_radius_large_2'], df_ld['mean_radius_large_2'] + df_ld['std_err_mean_radius_large_2'], color='#0284c7', alpha=0.20)
 
     ax1.set_yscale('log')
     ax1.set_xscale('log')
-    ax1.set_ylim(0.8, 10000)
+    ax1.set_ylim(0.8, 12000)
     ax1.set_ylabel("Length scale [nm]", fontsize=11)
     ax1.set_xlabel("Reaction time $t$ [s]", fontsize=11)
     ax1.set_title(r"(a) Hierarchy of structural length scales across real time ($0.060 - 10.88$ s) $\pm 1\sigma$", fontsize=12)
     ax1.grid(True, which='both', linestyle='--', alpha=0.5)
-    ax1.legend(loc='center right', fontsize=9.5, framealpha=0.92)
+    ax1.legend(loc='center right', fontsize=9.0, framealpha=0.92)
 
     # Panel B: Cross-Scale Network Dimension Agreement
     ax2 = fig.add_subplot(gs[1, 0])
@@ -100,9 +104,13 @@ def generate_unified_trajectories():
     l1 = ax3.plot(t_sd, df_sd['phi'] * 1e4, 'o-', color='#2a9d8f', markersize=3.0, linewidth=1.8, label=r'Primary $\phi_{\mathrm{prim}} \times 10^4$')
     ax3.fill_between(t_sd, (df_sd['phi'] - df_sd['std_err_phi']) * 1e4, (df_sd['phi'] + df_sd['std_err_phi']) * 1e4, color='#2a9d8f', alpha=0.22)
 
-    l2 = ax3.plot(t_ld, df_ld['total_volume_fraction_large'] * 1e5, 'D-', color='#1d3557', markersize=3.0, linewidth=1.8, label=r'Droplet $\phi_{\mathrm{large}} \times 10^5$')
-    ax3.fill_between(t_ld, (df_ld['total_volume_fraction_large'] - df_ld['std_err_total_volume_fraction_large']) * 1e5,
-                     (df_ld['total_volume_fraction_large'] + df_ld['std_err_total_volume_fraction_large']) * 1e5, color='#1d3557', alpha=0.22)
+    if 'total_volume_fraction_large_2' in df_ld.columns:
+        tot_drop_phi = (df_ld['total_volume_fraction_large'] + df_ld['total_volume_fraction_large_2']) * 1e5
+        l2 = ax3.plot(t_ld, tot_drop_phi, 'D-', color='#1d3557', markersize=3.0, linewidth=1.8, label=r'Total droplets $\phi_{\mathrm{drop}} \times 10^5$')
+    else:
+        l2 = ax3.plot(t_ld, df_ld['total_volume_fraction_large'] * 1e5, 'D-', color='#1d3557', markersize=3.0, linewidth=1.8, label=r'Droplet $\phi_{\mathrm{large}} \times 10^5$')
+        ax3.fill_between(t_ld, (df_ld['total_volume_fraction_large'] - df_ld['std_err_total_volume_fraction_large']) * 1e5,
+                         (df_ld['total_volume_fraction_large'] + df_ld['std_err_total_volume_fraction_large']) * 1e5, color='#1d3557', alpha=0.22)
 
     l3 = ax3_twin.plot(t_sd, df_sd['A_fluc'], '^--', color='#e76f51', markersize=3.0, linewidth=1.6, label=r'Fluct. amp. $A_{\mathrm{fluc}}$')
     ax3_twin.fill_between(t_sd, df_sd['A_fluc'] - df_sd['std_err_A_fluc'], df_sd['A_fluc'] + df_sd['std_err_A_fluc'], color='#e76f51', alpha=0.20)

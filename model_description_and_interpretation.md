@@ -33,9 +33,9 @@ Under stopped-flow rapid-mixing conditions at the ESRF ID02 beamline ($q \in [0.
 
 ### Regime 3: spinodal gelation (20.0 mM, ND-i-002, pH 11.3)
 * **Thermodynamic Condition:** Barrierless liquid-liquid demixing ($\ln S_{\text{ACC}} > \ln S^*$).
-* **Observed Scattering Morphology:** Discrete ACC spheres disappear entirely ($\phi_{\text{sph}} \to 0$). Small building units form practically instantaneously without induction delay, establishing a characteristic knee at $q \approx 0.1\ \text{nm}^{-1}$. Evolution is confined to low $q$ where the fractal network expands.
-* **Fitted Physical Model:** Percolated mass fractal network ($R_{\text{mean}} = 11.46 \pm 0.12\ \text{nm}$, $\text{stdDev} = 4.01 \pm 0.02\ \text{nm}$, $\phi = 4.74 \times 10^{-5}$, $D_m = 1.859 \pm 0.007$, $\xi = 351.6 \pm 24.0\ \text{nm}$), Tanaka viscoelastic fluctuation mesh ($\xi_{\text{fluc}} = 7.84 \pm 0.45\ \text{nm}$, $A_{\text{fluc}} = 0.020 \pm 0.003\ \text{cm}^{-1}$), and Porod tail ($A_{\text{porod}} = 5.28 \times 10^{-8}$).
-* **Statistical Quality:** $\chi^2_{\text{red}} = 0.971$.
+* **Observed Scattering Morphology:** Discrete ACC spheres disappear entirely ($\phi_{\text{sph}} \to 0$). Small building units form practically instantaneously without induction delay, establishing a characteristic knee at $q \approx 0.1\ \text{nm}^{-1}$. Evolution is confined to low $q$ where the fractal network expands. Coexisting macroscopic droplets exhibit a bimodal distribution: primary dense liquid droplets ($R_1 \approx 1.46\ \mu\text{m}$) and shear-coalesced giant droplets ($R_2 \approx 5.03\ \mu\text{m}$).
+* **Fitted Physical Model:** Percolated mass fractal network ($R_{\text{mean}} = 11.38 \pm 0.12\ \text{nm}$, $\text{stdDev} = 4.04 \pm 0.02\ \text{nm}$, $\phi = 4.70 \times 10^{-5}$, $D_m = 1.848 \pm 0.007$, $\xi = 355.2 \pm 24.0\ \text{nm}$), coexisting bimodal macroscopic droplets ($R_1 = 1.46\ \mu\text{m}$, $\sigma_1 = 0.10\ \mu\text{m}$, $\phi_1 = 1.84 \times 10^{-6}$; $R_2 = 5.03\ \mu\text{m}$, $\sigma_2 = 0.40\ \mu\text{m}$, $\phi_2 = 3.51 \times 10^{-6}$), and Tanaka viscoelastic fluctuation mesh ($\xi_{\text{fluc}} = 7.63 \pm 0.45\ \text{nm}$, $A_{\text{fluc}} = 0.0185 \pm 0.003\ \text{cm}^{-1}$).
+* **Statistical Quality:** $\chi^2_{\text{red}} = 0.465$ (overall composite fit), with low-$q$ $\chi^2_{\text{red}}$ dropping from 7.57 to 1.38 and maximum low-$q$ residuals $< 2.9\sigma$.
 
 ### Regime 4: deep spinodal LLPS and viscoelastic phase separation benchmark (40.0 mM pure CaCO3, ND-i-009 & ND-i-001)
 * **ND-i-009 (40.0 mM, pure, pH 10.0 Benchmark):**
@@ -58,7 +58,7 @@ The calibrated parameters extracted directly from the composite baseline fitting
 | :--- | :---: | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **ND-i-003** | 10.0 mM | 11.3 | Sub-spinodal nucleation | 138.8 (ACC) | N/A ($S=1$) | N/A | 2.63 | N/A | N/A | 0.966 |
 | **ND-i-004** | 15.0 mM | 11.3 | Crossover boundary | 4.94 | 2.850 | 108.7 | N/A (Porod) | N/A | N/A | 1.309 |
-| **ND-i-002** | 20.0 mM | 11.3 | Spinodal gelation | 11.46 | 1.859 | 351.6 | N/A (Porod) | 7.84 | 0.020 | 0.971 |
+| **ND-i-002** | 20.0 mM | 11.3 | Spinodal gelation | 11.38 | 1.848 | 355.2 | 1.46 / 5.03 (bimodal) | 7.63 | 0.0185 | 0.465 |
 | **ND-i-009** | 40.0 mM | 10.0 | Primary pure 40 mM benchmark | 9.40 | 1.978 | 248.2 | 3.20 | 2.72 &ndash; 2.84 | 0.050 (OZ) | 3.218 |
 | **ND-i-001** | 40.0 mM | 11.3 | Rapid quench spinodal | 15.43 | 2.265 | 923.1 | 3.04 | 15.00 | 4.506 | 0.718 |
 | **ND-i-005** | 40.0 mM | 11.3 | Additive perturbation branch | 2.40 | 1.966 | 4014.7 | 3.47 | 1.82 | 0.0028 | 4.470 |

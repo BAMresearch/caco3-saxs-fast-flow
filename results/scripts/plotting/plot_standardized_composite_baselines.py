@@ -235,6 +235,16 @@ def plot_nd_i_002():
         q_dense, p['mean_radius_large'], p['std_radius_large'], p['total_volume_fraction_large'],
         rho2=m02.RHO2_CALIBRATED, integration_steps=150
     )
+    if 'mean_radius_large_2' in p and p.get('total_volume_fraction_large_2', 0) > 0:
+        I_large_2_dense = m02.calc_large_sphere_intensity(
+            q_dense, p['mean_radius_large_2'], p['std_radius_large_2'], p['total_volume_fraction_large_2'],
+            rho2=m02.RHO2_CALIBRATED, integration_steps=150
+        )
+        I_large_dense = I_large_dense + I_large_2_dense
+        drop_lbl = f'Bimodal macroscopic droplets ($\\langle R_1 \\rangle = {p["mean_radius_large"]:.0f}$ nm, $\\langle R_2 \\rangle = {p["mean_radius_large_2"]:.0f}$ nm)'
+    else:
+        drop_lbl = f'Macroscopic droplets / Porod tail ($\\langle R \\rangle = {p["mean_radius_large"]:.0f}$ nm, $\\phi = {p["total_volume_fraction_large"]:.2e}$)'
+
     I_por_dense = m02.calc_porod_intensity(q_dense, p.get('A_porod', 0.0), 4.0) if p.get('A_porod', 0.0) > 0 else np.zeros_like(q_dense)
     I_fluc_dense = m02.calc_fb_intensity(
         q_dense, p['A_fluc'], p['xi_fluc'], mu_fluc=p.get('mu_fluc', 4.0)
@@ -244,6 +254,10 @@ def plot_nd_i_002():
 
     I_net_d = m02.calc_primary_fractal_intensity(q_data, p['Rmean'], p['stdDev'], p['phi'], p['D'], p['xi'], rho2=m02.RHO2_CALIBRATED)
     I_large_d = m02.calc_large_sphere_intensity(q_data, p['mean_radius_large'], p['std_radius_large'], p['total_volume_fraction_large'], rho2=m02.RHO2_CALIBRATED)
+    if 'mean_radius_large_2' in p and p.get('total_volume_fraction_large_2', 0) > 0:
+        I_large_2_d = m02.calc_large_sphere_intensity(q_data, p['mean_radius_large_2'], p['std_radius_large_2'], p['total_volume_fraction_large_2'], rho2=m02.RHO2_CALIBRATED)
+        I_large_d = I_large_d + I_large_2_d
+
     I_por_d = m02.calc_porod_intensity(q_data, p.get('A_porod', 0.0), 4.0) if p.get('A_porod', 0.0) > 0 else np.zeros_like(q_data)
     I_fluc_d = m02.calc_fb_intensity(q_data, p['A_fluc'], p['xi_fluc'], mu_fluc=p.get('mu_fluc', 4.0))
     c_final = I_net_d + I_large_d + I_por_d + I_fluc_d + p['bkg']
@@ -260,7 +274,7 @@ def plot_nd_i_002():
     ax_fit.loglog(q_dense, I_net_dense, color=SAXS_COLORS['fractal_network'], linestyle='--', linewidth=1.8,
                   label=f'Spinodal fractal network ($R = {p["Rmean"]:.1f}$ nm, $D_m = {p["D"]:.2f}$, $\\xi = {p["xi"]:.0f}$ nm)')
     ax_fit.loglog(q_dense, I_large_dense + I_por_dense, color=SAXS_COLORS['droplets_porod'], linestyle='-.', linewidth=1.8,
-                  label=f'Macroscopic droplets / Porod tail ($\\langle R \\rangle = {p["mean_radius_large"]:.0f}$ nm, $\\phi = {p["total_volume_fraction_large"]:.2e}$)')
+                  label=drop_lbl)
     ax_fit.loglog(q_dense, I_fluc_dense, color=SAXS_COLORS['pnc_fluctuations'], linestyle=':', linewidth=1.8,
                   label=f'Tanaka viscoelastic fluctuations ($\\xi_{{\\rm fluc}} = {p["xi_fluc"]:.1f}$ nm, $A_{{\\rm fluc}} = {p["A_fluc"]:.3f}$ cm$^{{-1}}$)')
     ax_fit.axhline(p['bkg'], color=SAXS_COLORS['background'], linestyle=':', linewidth=1.2,
@@ -268,7 +282,7 @@ def plot_nd_i_002():
 
     ax_fit.set_ylabel(r'Intensity $I(q)$ [$\mathrm{cm}^{-1}$]', fontsize=12)
     ax_fit.set_title('ND-i-002: multi-scale composite baseline fit (20.0 mM CaCO$_3$, pH 11.3, spinodal gelation)\n'
-                     r'Spinodal fractal network + macroscopic droplets + Tanaka PNC mesh ($q \in [0.002, 2.54]\ \mathrm{nm}^{-1}$)',
+                     r'Spinodal fractal network + bimodal macroscopic droplets + Tanaka PNC mesh ($q \in [0.002, 2.54]\ \mathrm{nm}^{-1}$)',
                      fontsize=11)
     ax_fit.legend(loc='upper right', fontsize=8.8, framealpha=0.92)
     ax_fit.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.4)
