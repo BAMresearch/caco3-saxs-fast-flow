@@ -60,80 +60,33 @@ def fit_composite_baseline():
 
     print(f"Loaded {len(q_data)} points from composite dataset across q: [{q_data.min():.5f}, {q_data.max():.5f}] nm^-1")
 
+    # Load short-distance kinetics endpoint (Frame 49) to ground high-q parameters
+    sd_params_path = os.path.join(PROJECT_DIR, 'output', 'short_distance', 'parameters.csv')
+    df_sd = pd.read_csv(sd_params_path)
+    row49 = df_sd.iloc[-1]
+    print(f"Grounded to short-distance kinetics frame {int(row49['frame_index'])} ({row49['filename']}) at t = {row49['time_seconds']:.2f} s")
+
     # Initial parameter object grounded to short-distance kinetics
     p = Parameters()
     p.add('rho2', value=RHO2_CALIBRATED, vary=False)
-    p.add('phi', value=0.00024, min=1e-7, max=0.1, vary=True)
-    p.add('Rmean', value=6.24, min=2.0, max=15.0, vary=True)
-    p.add('stdDev', value=2.47, min=0.2, max=10.0, vary=True)
-    p.add('D', value=1.86, min=1.1, max=2.999, vary=True)
-    p.add('xi', value=735.0, min=50.0, max=50000.0, vary=False)
-    p.add('bkg', value=0.00087, min=1e-6, max=1.0, vary=False)
-    p.add('mean_radius_large', value=3042.0, min=500.0, max=10000.0, vary=False)
-    p.add('std_radius_large', value=278.0, min=10.0, max=1500.0, vary=False)
-    p.add('total_volume_fraction_large', value=7.7e-6, min=1e-8, max=0.01, vary=False)
-    p.add('A_fluc', value=0.0054, min=1e-5, max=5.0, vary=False)
-    p.add('xi_fluc', value=3.05395, min=0.5, max=15.0, vary=False)
+    # Ground high-q building block and fluctuation components to Frame 49
+    p.add('Rmean', value=float(row49['Rmean']), vary=False)
+    p.add('stdDev', value=float(row49['stdDev']), vary=False)
+    p.add('D', value=float(row49['D']), vary=False)
+    p.add('A_fluc', value=float(row49['A_fluc']), vary=False)
+    p.add('xi_fluc', value=float(row49['xi_fluc']), vary=False)
     p.add('mu_fluc', value=4.0, vary=False)
+    p.add('bkg', value=float(row49['bkg']), vary=False)
 
-    # --- 4-Stage Hierarchical Fit ---
-    print("\n--- Running Stage 1: Primary Building Block & Fractal Fit (q in [0.015, 0.4] nm^-1) ---")
-    s1_mask = (q_data >= 0.015) & (q_data <= 0.4)
-    out1 = minimize(residuals_func, p, args=(q_data[s1_mask], y_data[s1_mask], dy_data[s1_mask], False, False, 1.0, 80), method='least_squares')
-    p = out1.params.copy()
-    print(f"Stage 1 Complete: Rmean = {p['Rmean'].value:.3f} nm, D = {p['D'].value:.3f}, phi = {p['phi'].value:.6e}")
+    # Fit low-q and multiscale network parameters on composite curve
+    p.add('phi', value=float(row49['phi']), min=1e-5, max=0.01, vary=True)
+    p.add('xi', value=50000.0, min=100.0, max=100000.0, vary=True)
+    p.add('mean_radius_large', value=3195.0, min=500.0, max=10000.0, vary=True)
+    p.add('std_radius_large', value=352.0, min=10.0, max=1500.0, vary=True)
+    p.add('total_volume_fraction_large', value=2.6e-5, min=1e-7, max=0.001, vary=True)
 
-    print("\n--- Running Stage 2: Large Droplet Population Fit at Low-q (q < 0.01 nm^-1) ---")
-    p['phi'].vary = False
-    p['Rmean'].vary = False
-    p['stdDev'].vary = False
-    p['D'].vary = False
-    p['xi'].vary = True
-    p['mean_radius_large'].vary = True
-    p['std_radius_large'].vary = True
-    p['total_volume_fraction_large'].vary = True
-    s2_mask = (q_data < 0.01)
-    out2 = minimize(residuals_func, p, args=(q_data[s2_mask], y_data[s2_mask], dy_data[s2_mask], True, False, 1.0, 80), method='least_squares')
-    p = out2.params.copy()
-    print(f"Stage 2 Complete: R_large = {p['mean_radius_large'].value:.1f} nm, phi_large = {p['total_volume_fraction_large'].value:.6e}, xi = {p['xi'].value:.1f} nm")
-
-    print("\n--- Running Stage 3: Viscoelastic Network Fluctuations Fit at High-q (q > 0.3 nm^-1) ---")
-    p['xi'].vary = False
-    p['mean_radius_large'].vary = False
-    p['std_radius_large'].vary = False
-    p['total_volume_fraction_large'].vary = False
-    p['A_fluc'].vary = True
-    p['xi_fluc'].vary = False  # Grounded to short-distance kinetics baseline xi_fluc = 3.05 nm
-    p['bkg'].vary = True
-    s3_mask = (q_data > 0.3)
-    out3 = minimize(residuals_func, p, args=(q_data[s3_mask], y_data[s3_mask], dy_data[s3_mask], False, False, 1.0, 80), method='least_squares')
-    p = out3.params.copy()
-    print(f"Stage 3 Complete: A_fluc = {p['A_fluc'].value:.4f} cm^-1, xi_fluc = {p['xi_fluc'].value:.3f} nm, bkg = {p['bkg'].value:.6e}")
-
-    print("\n--- Running Stage 4: Full Multi-Component Global Refinement Across All Length Scales ---")
-    for k in p:
-        if k not in ['rho2', 'mu_fluc', 'xi_fluc']:
-            p[k].vary = True
-    p['xi_fluc'].vary = False  # Maintain grounded correlation length (3.05 nm)
-    p['Rmean'].min = 4.0
-    p['Rmean'].max = 8.5
-    p['stdDev'].min = 1.5
-    p['stdDev'].max = 4.0
-    p['bkg'].min = 0.0005
-    p['bkg'].max = 0.0015
-    out_final = minimize(residuals_func, p, args=(q_data, y_data, dy_data, True, False, 1.0, 100), method='least_squares', max_nfev=600)
-    
-    # Compute exact covariance matrix and standard errors around converged solution
-    p_cov = Parameters()
-    p_cov.add('rho2', value=RHO2_CALIBRATED, vary=False)
-    for k in ['phi', 'D', 'xi', 'mean_radius_large', 'std_radius_large', 'total_volume_fraction_large', 'A_fluc']:
-        p_cov.add(k, value=out_final.params[k].value, min=1e-8, max=1e5, vary=True)
-    p_cov.add('Rmean', value=out_final.params['Rmean'].value, min=4.0, max=8.5, vary=True)
-    p_cov.add('stdDev', value=out_final.params['stdDev'].value, min=1.5, max=4.0, vary=True)
-    p_cov.add('bkg', value=out_final.params['bkg'].value, min=0.0005, max=0.0015, vary=True)
-    p_cov.add('xi_fluc', value=out_final.params['xi_fluc'].value, vary=False)
-    p_cov.add('mu_fluc', value=4.0, vary=False)
-    out_cov = minimize(residuals_func, p_cov, args=(q_data, y_data, dy_data, True, False, 1.0, 100), method='least_squares', calc_covar=True)
+    print("\n--- Running Global Refinement for Low-q Droplet and Network Parameters ---")
+    out_cov = minimize(residuals_func, p, args=(q_data, y_data, dy_data, True, False, 1.0, 100), method='least_squares', calc_covar=True)
     final_params = out_cov.params
     red_chi2 = out_cov.redchi
 
@@ -147,7 +100,15 @@ def fit_composite_baseline():
         p_err = float(final_params[p_name].stderr) if final_params[p_name].stderr is not None else 0.0
         param_dict[p_name] = p_val
         param_dict[f"std_err_{p_name}"] = p_err
-        print(f"  {p_name:<28}: {p_val:12.6f} ± {p_err:10.6f}")
+
+    # Transfer exact standard errors for short-distance grounded parameters
+    for k in ['Rmean', 'stdDev', 'D', 'A_fluc', 'xi_fluc', 'bkg']:
+        err_col = f"std_err_{k}"
+        if err_col in row49:
+            param_dict[err_col] = float(row49[err_col])
+
+    for p_name in final_params:
+        print(f"  {p_name:<28}: {param_dict[p_name]:12.6f} ± {param_dict[f'std_err_{p_name}']:10.6f}")
 
     param_dict['redchi'] = float(red_chi2)
     param_dict['aic'] = float(out_cov.aic)
