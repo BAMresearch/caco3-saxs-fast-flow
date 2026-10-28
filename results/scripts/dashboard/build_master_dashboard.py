@@ -869,7 +869,7 @@ def build_master_dashboard():
               <strong>Viscoelastic length scale (&xi;<sub>ve</sub>):</strong> The crossover scale &xi;<sub>ve</sub> &sim; &radic;(K + 4/3 G)/&zeta; &tau; separates elastic suppression at short wavelengths (q &xi;<sub>ve</sub> &gt; 1) from hydrodynamic demixing at large wavelengths (q &xi;<sub>ve</sub> &lt; 1).
             </li>
             <li>
-              <strong>Volume shrinking of the transient gel:</strong> In the 40 mM pure benchmark (ND-i-009), the network strands densify continuously (D<sub>m</sub> drifts from 1.881 to 1.925) whilst primary unit radius remains invariant (R<sub>prim</sub> &approx; 2.80 nm). This quantitative result confirms solvent expulsion from the viscoelastic network.
+              <strong>Volume shrinking of the transient gel:</strong> In the 40 mM pure benchmark (ND-i-009), the network strands densify continuously (D<sub>m</sub> drifts from 1.881 to 1.925) whilst primary unit radius remains invariant (R<sub>prim</sub> &approx; 8.35 nm, fluctuation mesh &xi;<sub>fluc</sub> &approx; 2.72 nm). This quantitative result confirms solvent expulsion from the viscoelastic network.
             </li>
             <li>
               <strong>Phase inversion and droplet coexistence:</strong> Mechanical stress relaxation along contracting struts leads to localized rupture and capillary pinch-off, shedding compact macroscopic liquid droplets (&lang;R<sub>large</sub>&rang; &approx; 2.2 to 3.5 &mu;m, &phi;<sub>large</sub> &approx; 10<sup>-4</sup>) that coexist with the space-filling gel mesh.
@@ -1178,7 +1178,7 @@ def build_master_dashboard():
                 <td>Primary pure CaCO₃ benchmark</td>
                 <td class="num">0.15 &plusmn; 0.03</td>
                 <td class="num">0.81 (81%)</td>
-                <td>&xi;(t): 46.7 nm &rarr; &infin;, D<sub>f</sub>(t) &in; [1.88, 1.93]</td>
+                <td>R<sub>prim</sub> = 8.35 nm, &xi;(t): 46.7 nm &rarr; &infin;, D<sub>f</sub>(t) &in; [1.88, 1.93], &xi;<sub>fluc</sub> = 2.72 nm</td>
                 <td class="num">2.27 &rarr; 3.20</td>
                 <td class="num">120.0</td>
                 <td class="num" style="color: var(--success);">1.20</td>
@@ -1190,7 +1190,7 @@ def build_master_dashboard():
                 <td>Rapid quench spinodal demixing</td>
                 <td class="num">&lt; 0.06</td>
                 <td class="num">0.92 (92%)</td>
-                <td>R<sub>prim</sub> = 3.50 nm, D<sub>f</sub> = 2.33, &xi; = 735 nm</td>
+                <td>R<sub>prim</sub> = 6.24 &ndash; 8.40 nm, D<sub>f</sub> = 1.99, &xi; = 735 nm, &xi;<sub>fluc</sub> = 3.05 nm</td>
                 <td class="num">3.01 &plusmn; 0.12</td>
                 <td class="num">4.98</td>
                 <td class="num" style="color: var(--success);">1.05</td>
@@ -1202,7 +1202,7 @@ def build_master_dashboard():
                 <td>Additive perturbation branch</td>
                 <td class="num">&lt; 0.06</td>
                 <td class="num">0.88 (88%)</td>
-                <td>R<sub>prim</sub> = 6.59 nm, D<sub>f</sub> = 2.10, &xi; = 1,190 nm</td>
+                <td>R<sub>prim</sub> = 5.50 &ndash; 7.03 nm, D<sub>f</sub> = 2.15, &xi; = 1,194 nm, &xi;<sub>fluc</sub> = 8.05 nm</td>
                 <td class="num">3.53 &plusmn; 0.22</td>
                 <td class="num">2.92</td>
                 <td class="num" style="color: var(--success);">1.10</td>

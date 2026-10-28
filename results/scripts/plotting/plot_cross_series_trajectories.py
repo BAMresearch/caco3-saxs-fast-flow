@@ -108,12 +108,14 @@ def generate_synthesis_figure(trajectories=None):
 
     # Pure CaCO3 series
     ax.plot([10, 15], [107.0, 47.7], 's-', color='#2563eb', linewidth=2.2, markersize=8, label=r'Discrete ACC nanospheres $\langle R_{\rm ACC} \rangle$')
-    ax.plot([15, 20, 40], [4.94, 11.20, 2.80], 'o-', color='#16a34a', linewidth=2.2, markersize=8, label=r'Primary building blocks $R_{\rm prim}$ (pure $\mathrm{CaCO}_3$)')
+    ax.plot([15, 20, 40], [4.94, 11.20, 8.35], 'o-', color='#16a34a', linewidth=2.2, markersize=8, label=r'Primary building blocks $R_{\rm prim}$ (pure $\mathrm{CaCO}_3$)')
+    ax.plot([20, 40], [7.63, 2.72], 'd:', color='#9333ea', linewidth=1.8, markersize=7, label=r'PNC fluctuation mesh $\xi_{\rm fluc}$ (pure $\mathrm{CaCO}_3$)')
     ax.plot([15, 20, 40], [108.7, 356.0, 735.0], '^--', color='#dc2626', linewidth=2.0, markersize=8, label=r'Network correlation cutoff $\xi$ (pure $\mathrm{CaCO}_3$)')
 
     # Additive Dopant annotations
-    ax.plot(40.0, 6.59, 'v', color='#9333ea', markersize=9, label=r'Co$^{2+}$ additive: enlarged node ($6.59$ nm)')
-    ax.plot(40.0, 1194.0, 'v', color='#9333ea', markersize=9, label=r'Co$^{2+}$ additive: expanded cutoff $\xi$ ($1,194$ nm)')
+    ax.plot(40.0, 7.03, 'v', color='#d97706', markersize=9, label=r'Co$^{2+}$ additive: node $R_{\rm prim}$ ($7.03$ nm)')
+    ax.plot(40.0, 8.05, 'D', color='#d97706', markersize=8, label=r'Co$^{2+}$ additive: expanded mesh $\xi_{\rm fluc}$ ($8.05$ nm)')
+    ax.plot(40.0, 1194.0, '^', color='#d97706', markersize=9, label=r'Co$^{2+}$ additive: expanded cutoff $\xi$ ($1,194$ nm)')
 
     ax.set_yscale('log')
     ax.set_xlim(8, 44)

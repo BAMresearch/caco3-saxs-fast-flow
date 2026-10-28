@@ -60,26 +60,26 @@ def fit_composite_baseline():
 
     print(f"Loaded {len(q_data)} points from composite dataset across q: [{q_data.min():.5f}, {q_data.max():.5f}] nm^-1")
 
-    # Initial parameter object with wide physical bounds for exact covariance calculation
+    # Initial parameter object grounded to verified time-resolved kinetics
     p = Parameters()
     p.add('rho2', value=RHO2_CALIBRATED, vary=False)
-    p.add('phi', value=0.0004, min=1e-7, max=0.1, vary=True)
-    p.add('Rmean', value=5.6, min=1.0, max=30.0, vary=True)
-    p.add('stdDev', value=2.6, min=0.2, max=15.0, vary=True)
-    p.add('D', value=2.10, min=1.1, max=2.999, vary=True)
-    p.add('xi', value=2500.0, min=50.0, max=50000.0, vary=False)
-    p.add('bkg', value=0.035, min=1e-6, max=1.0, vary=False)
-    p.add('mean_radius_large', value=3000.0, min=500.0, max=10000.0, vary=False)
-    p.add('std_radius_large', value=150.0, min=10.0, max=1500.0, vary=False)
-    p.add('total_volume_fraction_large', value=3e-5, min=1e-8, max=0.01, vary=False)
-    p.add('A_fluc', value=0.08, min=1e-5, max=5.0, vary=False)
-    p.add('xi_fluc', value=2.5, min=0.5, max=15.0, vary=False)
+    p.add('phi', value=5.5e-5, min=1e-7, max=0.01, vary=True)
+    p.add('Rmean', value=7.50, min=5.5, max=15.0, vary=True)
+    p.add('stdDev', value=3.80, min=0.5, max=10.0, vary=True)
+    p.add('D', value=2.20, min=1.5, max=2.999, vary=True)
+    p.add('xi', value=1193.0, min=100.0, max=50000.0, vary=False)
+    p.add('bkg', value=0.00052, min=1e-6, max=0.05, vary=False)
+    p.add('mean_radius_large', value=3470.0, min=500.0, max=10000.0, vary=False)
+    p.add('std_radius_large', value=489.0, min=10.0, max=1500.0, vary=False)
+    p.add('total_volume_fraction_large', value=2.85e-5, min=1e-8, max=0.01, vary=False)
+    p.add('A_fluc', value=0.52, min=1e-5, max=5.0, vary=False)
+    p.add('xi_fluc', value=8.045, min=1.0, max=25.0, vary=False)
     p.add('mu_fluc', value=4.0, vary=False)
 
     # --- 4-Stage Hierarchical Fit ---
     print("\n--- Running Stage 1: Primary Building Block & Fractal Fit (q in [0.015, 0.4] nm^-1) ---")
     s1_mask = (q_data >= 0.015) & (q_data <= 0.4)
-    out1 = minimize(residuals_func, p, args=(q_data[s1_mask], y_data[s1_mask], dy_data[s1_mask], False, False, 1.0, 80), method='least_squares')
+    out1 = minimize(residuals_func, p, args=(q_data[s1_mask], y_data[s1_mask], dy_data[s1_mask], False, True, 1.0, 80), method='least_squares')
     p = out1.params.copy()
     print(f"Stage 1 Complete: Rmean = {p['Rmean'].value:.3f} nm, D = {p['D'].value:.3f}, phi = {p['phi'].value:.6e}")
 
@@ -93,7 +93,7 @@ def fit_composite_baseline():
     p['std_radius_large'].vary = True
     p['total_volume_fraction_large'].vary = True
     s2_mask = (q_data < 0.01)
-    out2 = minimize(residuals_func, p, args=(q_data[s2_mask], y_data[s2_mask], dy_data[s2_mask], True, False, 1.0, 80), method='least_squares')
+    out2 = minimize(residuals_func, p, args=(q_data[s2_mask], y_data[s2_mask], dy_data[s2_mask], True, True, 1.0, 80), method='least_squares')
     p = out2.params.copy()
     print(f"Stage 2 Complete: R_large = {p['mean_radius_large'].value:.1f} nm, phi_large = {p['total_volume_fraction_large'].value:.6e}, xi = {p['xi'].value:.1f} nm")
 
@@ -103,26 +103,35 @@ def fit_composite_baseline():
     p['std_radius_large'].vary = False
     p['total_volume_fraction_large'].vary = False
     p['A_fluc'].vary = True
-    p['xi_fluc'].vary = True
+    p['xi_fluc'].vary = False  # Grounded to short-distance kinetics baseline xi_fluc = 8.045 nm
     p['bkg'].vary = True
     s3_mask = (q_data > 0.3)
-    out3 = minimize(residuals_func, p, args=(q_data[s3_mask], y_data[s3_mask], dy_data[s3_mask], False, False, 1.0, 80), method='least_squares')
+    out3 = minimize(residuals_func, p, args=(q_data[s3_mask], y_data[s3_mask], dy_data[s3_mask], False, True, 1.0, 80), method='least_squares')
     p = out3.params.copy()
     print(f"Stage 3 Complete: A_fluc = {p['A_fluc'].value:.4f} cm^-1, xi_fluc = {p['xi_fluc'].value:.3f} nm, bkg = {p['bkg'].value:.6e}")
 
     print("\n--- Running Stage 4: Full Multi-Component Global Refinement Across All Length Scales ---")
     for k in p:
-        if k not in ['rho2', 'mu_fluc']:
+        if k not in ['rho2', 'mu_fluc', 'xi_fluc']:
             p[k].vary = True
-    out_final = minimize(residuals_func, p, args=(q_data, y_data, dy_data, True, False, 1.0, 100), method='least_squares', max_nfev=600)
+    p['xi_fluc'].vary = False  # Maintain grounded correlation length
+    p['Rmean'].min = 5.5
+    p['Rmean'].max = 15.0
+    p['bkg'].min = 1e-6
+    p['bkg'].max = 0.005
+    out_final = minimize(residuals_func, p, args=(q_data, y_data, dy_data, True, True, 1.0, 100), method='least_squares', max_nfev=600)
     
     # Compute exact covariance matrix and standard errors around converged solution
     p_cov = Parameters()
     p_cov.add('rho2', value=RHO2_CALIBRATED, vary=False)
-    for k in ['phi', 'Rmean', 'stdDev', 'D', 'xi', 'bkg', 'mean_radius_large', 'std_radius_large', 'total_volume_fraction_large', 'A_fluc', 'xi_fluc']:
+    for k in ['phi', 'D', 'xi', 'mean_radius_large', 'std_radius_large', 'total_volume_fraction_large', 'A_fluc']:
         p_cov.add(k, value=out_final.params[k].value, min=1e-8, max=1e5, vary=True)
+    p_cov.add('Rmean', value=out_final.params['Rmean'].value, min=5.5, max=15.0, vary=True)
+    p_cov.add('stdDev', value=out_final.params['stdDev'].value, min=0.5, max=10.0, vary=True)
+    p_cov.add('bkg', value=out_final.params['bkg'].value, min=1e-6, max=0.005, vary=True)
+    p_cov.add('xi_fluc', value=out_final.params['xi_fluc'].value, vary=False)
     p_cov.add('mu_fluc', value=4.0, vary=False)
-    out_cov = minimize(residuals_func, p_cov, args=(q_data, y_data, dy_data, True, False, 1.0, 100), method='leastsq', calc_covar=True)
+    out_cov = minimize(residuals_func, p_cov, args=(q_data, y_data, dy_data, True, True, 1.0, 100), method='least_squares', calc_covar=True)
     final_params = out_cov.params
     red_chi2 = out_cov.redchi
 

@@ -107,11 +107,13 @@ def load_series_trajectories():
         t_vals = df_ld[t_col].values if not df_ld.empty else np.array([])
 
         phi_vals = np.zeros_like(t_vals)
+        xi_fluc = np.nan
         if sid == 'ND-i-003':
             phi_vals = df_ld['phi'].fillna(0.0).values
             r_meso = df_ld['Rmean'].values
             r_meso_label = r'ACC radius $\langle R_{\rm ACC} \rangle$'
             r_prim = np.nan
+            xi_fluc = np.nan
             r_drop = df_ld['mean_radius_large'].values if 'mean_radius_large' in df_ld.columns else np.full_like(t_vals, 2167.0)
             phi_drop = df_ld['total_volume_fraction_large'].values if 'total_volume_fraction_large' in df_ld.columns else np.full_like(t_vals, 5.1e-5)
         elif sid == 'ND-i-004':
@@ -119,6 +121,7 @@ def load_series_trajectories():
             r_meso = df_ld['xi'].values
             r_meso_label = r'Correlation cutoff $\xi$'
             r_prim = 4.94
+            xi_fluc = np.nan
             r_drop = np.full_like(t_vals, 2800.0)
             phi_drop = np.full_like(t_vals, 4.5e-5)
         elif sid == 'ND-i-002':
@@ -126,27 +129,31 @@ def load_series_trajectories():
             r_meso = df_ld['xi'].values
             r_meso_label = r'Correlation cutoff $\xi$'
             r_prim = 11.20
+            xi_fluc = 7.63
             r_drop = df_ld['mean_radius_large'].values if 'mean_radius_large' in df_ld.columns else np.full_like(t_vals, 7163.0)
             phi_drop = df_ld['total_volume_fraction_large'].values if 'total_volume_fraction_large' in df_ld.columns else np.full_like(t_vals, 8.4e-5)
         elif sid == 'ND-i-009':
             phi_vals = df_ld['phi'].fillna(0.0).values
             r_meso = df_ld['xi'].values
             r_meso_label = r'Correlation cutoff $\xi$'
-            r_prim = 2.80
+            r_prim = 8.35
+            xi_fluc = 2.72
             r_drop = df_ld['mean_radius_large'].values if 'mean_radius_large' in df_ld.columns else np.full_like(t_vals, 2904.0)
             phi_drop = df_ld['total_volume_fraction_large'].values if 'total_volume_fraction_large' in df_ld.columns else np.full_like(t_vals, 5.9e-4)
         elif sid == 'ND-i-001':
             phi_vals = df_ld['phi'].fillna(0.0).values
             r_meso = df_ld['xi'].values
             r_meso_label = r'Correlation cutoff $\xi$'
-            r_prim = 3.50
+            r_prim = 6.24
+            xi_fluc = 3.05
             r_drop = df_ld['mean_radius_large'].values if 'mean_radius_large' in df_ld.columns else np.full_like(t_vals, 3015.0)
             phi_drop = df_ld['total_volume_fraction_large'].values if 'total_volume_fraction_large' in df_ld.columns else np.full_like(t_vals, 4.98e-5)
         elif sid == 'ND-i-005':
             phi_vals = df_ld['phi'].fillna(0.0).values
             r_meso = df_ld['xi'].values if 'xi' in df_ld.columns else df_ld['xi_fluc'].values
             r_meso_label = r'Correlation cutoff $\xi$'
-            r_prim = 6.59
+            r_prim = 7.03
+            xi_fluc = 8.05
             r_drop = df_ld['mean_radius_large'].values if 'mean_radius_large' in df_ld.columns else np.full_like(t_vals, 3530.0)
             phi_drop = df_ld['total_volume_fraction_large'].values if 'total_volume_fraction_large' in df_ld.columns else np.full_like(t_vals, 2.92e-5)
 
@@ -164,6 +171,7 @@ def load_series_trajectories():
             'r_meso': r_meso,
             'r_meso_label': r_meso_label,
             'r_prim': r_prim,
+            'xi_fluc': xi_fluc,
             'r_drop': r_drop,
             'phi_drop': phi_drop,
             'chi2': chi2_vals

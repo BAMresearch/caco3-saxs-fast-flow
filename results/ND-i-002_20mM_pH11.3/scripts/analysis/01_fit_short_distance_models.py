@@ -98,20 +98,20 @@ def fit_short_distance_series():
         p1.add('xi', value=bp['xi'], vary=False)
         p1.add('total_volume_fraction_large', value=0.0, vary=False)
         p1.add('A_fluc', value=0.0, vary=False)
-        p1.add('xi_fluc', value=2.5, vary=False)
+        p1.add('xi_fluc', value=bp.get('xi_fluc', 7.63), vary=False)
         p1.add('mu_fluc', value=4.0, vary=False)
 
         if prev_params is None:
-            p1.add('phi', value=bp.get('phi', 0.00018), min=1e-6, max=0.05, vary=True)
-            p1.add('Rmean', value=bp.get('Rmean', 10.0), min=1.5, max=30.0, vary=True)
-            p1.add('stdDev', value=bp.get('stdDev', 4.0), min=0.3, max=15.0, vary=True)
-            p1.add('D', value=bp.get('D', 1.93), min=1.3, max=2.8, vary=True)
-            p1.add('bkg', value=bp.get('bkg', 0.008), min=1e-5, max=0.2, vary=True)
+            p1.add('phi', value=bp.get('phi', 4.68e-5), min=1e-6, max=0.05, vary=True)
+            p1.add('Rmean', value=bp.get('Rmean', 11.38), min=5.0, max=25.0, vary=True)
+            p1.add('stdDev', value=bp.get('stdDev', 4.04), min=0.5, max=10.0, vary=True)
+            p1.add('D', value=bp.get('D', 1.848), min=1.60, max=2.60, vary=True)
+            p1.add('bkg', value=bp.get('bkg', 0.00013), min=1e-5, max=0.01, vary=True)
         else:
             p1.add('phi', value=prev_params['phi'].value, min=prev_params['phi'].value * 0.7, max=prev_params['phi'].value * 1.3, vary=True)
             p1.add('Rmean', value=prev_params['Rmean'].value, min=max(1.5, prev_params['Rmean'].value - 1.0), max=prev_params['Rmean'].value + 1.0, vary=True)
             p1.add('stdDev', value=prev_params['stdDev'].value, min=max(0.3, prev_params['stdDev'].value - 0.8), max=prev_params['stdDev'].value + 0.8, vary=True)
-            p1.add('D', value=prev_params['D'].value, min=max(1.3, prev_params['D'].value - 0.05), max=min(2.8, prev_params['D'].value + 0.05), vary=True)
+            p1.add('D', value=prev_params['D'].value, min=max(1.60, prev_params['D'].value - 0.05), max=min(2.60, prev_params['D'].value + 0.05), vary=True)
             p1.add('bkg', value=prev_params['bkg'].value, min=max(1e-5, prev_params['bkg'].value * 0.7), max=prev_params['bkg'].value * 1.3, vary=True)
 
         def res_s1(pars):
@@ -129,7 +129,7 @@ def fit_short_distance_series():
         for k in ['phi', 'Rmean', 'stdDev', 'D', 'bkg']:
             p2[k].vary = False
 
-        init_a_fluc = float(np.clip(np.median(excess[s2_mask]) if np.any(s2_mask) else 0.05, 0.001, 1.5))
+        init_a_fluc = float(np.clip(np.median(excess[s2_mask]) if np.any(s2_mask) else 0.018, 0.001, 1.5))
         if prev_params is not None and 'A_fluc' in prev_params:
             init_a_fluc = prev_params['A_fluc'].value
 
@@ -138,7 +138,7 @@ def fit_short_distance_series():
         p2['A_fluc'].min = 1e-4
         p2['A_fluc'].max = 3.0
 
-        p2['xi_fluc'].value = 2.5 if prev_params is None else prev_params['xi_fluc'].value
+        p2['xi_fluc'].value = float(bp.get('xi_fluc', 7.63)) if prev_params is None else prev_params['xi_fluc'].value
         p2['xi_fluc'].vary = True
         p2['xi_fluc'].min = 0.5
         p2['xi_fluc'].max = 15.0
@@ -155,6 +155,8 @@ def fit_short_distance_series():
         p3['Rmean'].vary = True
         p3['stdDev'].vary = True
         p3['D'].vary = True
+        p3['D'].min = 1.60
+        p3['D'].max = 2.60
         p3['bkg'].vary = True
         p3['A_fluc'].vary = True
         p3['xi_fluc'].vary = True
