@@ -341,8 +341,9 @@ def plot_nd_i_009():
                   label=f'Spinodal fractal network ($R = {p["Rmean"]:.2f}$ nm, $D_m = {p["D"]:.2f}$, $\\xi = {p["xi"]:.0f}$ nm)')
     ax_fit.loglog(q_dense, I_large, color=SAXS_COLORS['droplets_porod'], linestyle='-.', linewidth=1.8,
                   label=f'Macroscopic droplets / Porod tail ($\\langle R \\rangle = {p["mean_radius_large"]:.0f}$ nm)')
+    xi_fluc_val = p.get('xi_fluc', p.get('xi_OZ', 2.72))
     ax_fit.loglog(q_dense, I_oz, color=SAXS_COLORS['pnc_fluctuations'], linestyle=':', linewidth=1.8,
-                  label=f'Tanaka PNC fluctuation mesh ($\\xi_{{\\rm fluc}} = {p["xi_OZ"]:.2f}$ nm)')
+                  label=f'Tanaka PNC fluctuation mesh ($\\xi_{{\\rm fluc}} = {xi_fluc_val:.2f}$ nm)')
     ax_fit.axhline(p['bkg'], color=SAXS_COLORS['background'], linestyle=':', linewidth=1.2,
                    label=f'Solvent background ({p["bkg"]:.2e} cm$^{{-1}}$)')
 

@@ -35,25 +35,27 @@ def get_available_cpus():
 def create_merged_params():
     """
     Creates Parameters for the merged dataset (0.002 to 2.5 nm^-1).
-    All components (primary fractal, large spheres, OZ fluctuations) active.
+    All components (primary fractal, large spheres, viscoelastic fluctuations, background) active.
     """
     p = Parameters()
     p.add('rho2', value=RHO2_CALIBRATED, vary=False)
     p.add('phi', value=0.006, min=1e-5, max=0.05, vary=True)
-    p.add('Rmean', value=8.5, min=3.0, max=20.0, vary=True)
-    p.add('stdDev', value=3.3, min=0.5, max=10.0, vary=True)
+    p.add('Rmean', value=8.35, min=3.0, max=20.0, vary=True)
+    p.add('stdDev', value=3.34, min=0.5, max=10.0, vary=True)
     p.add('D', value=1.92, min=1.1, max=2.999, vary=True)
-    p.add('xi', value=3000.0, min=100.0, max=30000.0, vary=True)
-    p.add('bkg', value=0.0, min=0.0, max=5.0, vary=False)
+    p.add('xi', value=250.0, min=10.0, max=30000.0, vary=True)
+    p.add('bkg', value=0.010, min=0.0, max=0.05, vary=True)
 
     # Large sphere population (active in merged)
     p.add('mean_radius_large', value=3200.0, min=500.0, max=8000.0, vary=True)
-    p.add('std_radius_large', value=150.0, min=10.0, max=500.0, vary=True)
-    p.add('total_volume_fraction_large', value=0.0007, min=1e-7, max=0.01, vary=True)
+    p.add('std_radius_large', value=230.0, min=10.0, max=500.0, vary=True)
+    p.add('total_volume_fraction_large', value=0.0012, min=1e-7, max=0.01, vary=True)
 
-    # OZ fluctuations (active in merged)
-    p.add('A_OZ', value=0.069, min=0.0, max=10.0, vary=True)
-    p.add('xi_OZ', value=6.3, min=0.5, max=50.0, vary=True)
+    # Viscoelastic fluctuations (Fisher-Burford / Tanaka with Porod boundary decay mu=4.0)
+    # Physically aligned with short-distance kinetics (xi_fluc ~ 2.72 nm)
+    p.add('A_fluc', value=0.18, min=1e-4, max=2.0, vary=True)
+    p.add('xi_fluc', value=2.7216, min=1.5, max=4.5, vary=True)
+    p.add('mu_fluc', value=4.0, vary=False)
 
     return p
 

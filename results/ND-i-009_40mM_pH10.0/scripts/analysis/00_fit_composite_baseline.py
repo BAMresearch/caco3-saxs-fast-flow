@@ -21,7 +21,9 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 # Ensure models module can be imported
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+_curr = os.path.abspath(os.path.dirname(__file__))
+PROJECT_DIR = os.path.abspath(os.path.join(_curr, '..', '..')) if os.path.basename(_curr) in ['analysis', 'plotting', 'dashboard', 'reporting'] else os.path.abspath(os.path.join(_curr, '..'))
+sys.path.insert(0, PROJECT_DIR)
 
 from models.scattering_models import (
     calc_model_intensity,
@@ -36,8 +38,8 @@ from lmfit import minimize, fit_report
 
 
 def fit_merged_dataset():
-    data_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'dataNDi009_fitting_results_merged.csv'))
-    output_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'output', 'merged'))
+    data_path = os.path.abspath(os.path.join(PROJECT_DIR, 'data', 'dataNDi009_fitting_results_merged.csv'))
+    output_dir = os.path.abspath(os.path.join(PROJECT_DIR, 'output', 'merged'))
     os.makedirs(output_dir, exist_ok=True)
 
     print(f"Loading merged dataset from: {data_path}")
@@ -69,8 +71,9 @@ def fit_merged_dataset():
     params['mean_radius_large'].vary = False
     params['std_radius_large'].vary = False
     params['total_volume_fraction_large'].vary = False
-    params['A_OZ'].vary = False
-    params['xi_OZ'].vary = False
+    params['A_fluc'].vary = False
+    params['xi_fluc'].vary = False
+    params['bkg'].vary = False
 
     out1 = minimize(residuals_func, params, args=(q_data[s1_mask], y_data[s1_mask], dy_data[s1_mask], False, False), method='least_squares')
     params = out1.params.copy()
@@ -85,22 +88,24 @@ def fit_merged_dataset():
     params['mean_radius_large'].vary = True
     params['std_radius_large'].vary = True
     params['total_volume_fraction_large'].vary = True
-    params['A_OZ'].vary = False
-    params['xi_OZ'].vary = False
+    params['A_fluc'].vary = False
+    params['xi_fluc'].vary = False
+    params['bkg'].vary = False
 
     out2 = minimize(residuals_func, params, args=(q_data[s2_mask], y_data[s2_mask], dy_data[s2_mask], True, False, 3.0), method='least_squares')
     params = out2.params.copy()
 
-    print("\n--- Running Stage 3: Ornstein-Zernike Excess Fit at High-q (q > 0.3) ---")
+    print("\n--- Running Stage 3: Viscoelastic Fluctuations Fit at High-q (q > 0.3) ---")
     s3_mask = (q_data > 0.3)
     params['mean_radius_large'].vary = False
     params['std_radius_large'].vary = False
     params['total_volume_fraction_large'].vary = False
     params['xi'].vary = False
-    params['A_OZ'].vary = True
-    params['xi_OZ'].vary = True
+    params['A_fluc'].vary = True
+    params['xi_fluc'].vary = False  # Grounded to short-distance Frame 0 baseline (2.72 nm)
+    params['bkg'].vary = True
 
-    out3 = minimize(residuals_func, params, args=(q_data[s3_mask], y_data[s3_mask], dy_data[s3_mask], False, True), method='least_squares')
+    out3 = minimize(residuals_func, params, args=(q_data[s3_mask], y_data[s3_mask], dy_data[s3_mask], False, False), method='least_squares')
     params = out3.params.copy()
 
     print("\n--- Running Stage 4: Full Multi-Component Global Refinement ---")
@@ -112,10 +117,11 @@ def fit_merged_dataset():
     params['mean_radius_large'].vary = True
     params['std_radius_large'].vary = True
     params['total_volume_fraction_large'].vary = True
-    params['A_OZ'].vary = True
-    params['xi_OZ'].vary = True
+    params['A_fluc'].vary = True
+    params['xi_fluc'].vary = False  # Fixed to short-distance kinetics baseline xi_fluc = 2.72 nm
+    params['bkg'].vary = True
 
-    out_final = minimize(residuals_func, params, args=(q_data, y_data, dy_data, True, True, 2.0), method='least_squares', max_nfev=800)
+    out_final = minimize(residuals_func, params, args=(q_data, y_data, dy_data, True, False, 2.0), method='least_squares', max_nfev=800)
     final_params = out_final.params
 
     red_chi2 = out_final.redchi
@@ -132,11 +138,17 @@ def fit_merged_dataset():
         param_dict[f"std_err_{p_name}"] = p_err
         print(f"  {p_name:<28}: {p_val:12.6f} ± {p_err:10.6f}")
 
+    # Aliases for backwards compatibility with any scripts expecting A_OZ / xi_OZ
+    param_dict['A_OZ'] = param_dict['A_fluc']
+    param_dict['std_err_A_OZ'] = param_dict['std_err_A_fluc']
+    param_dict['xi_OZ'] = param_dict['xi_fluc']
+    param_dict['std_err_xi_OZ'] = param_dict['std_err_xi_fluc']
+
     param_dict['redchi'] = float(red_chi2)
     param_dict['aic'] = float(out_final.aic)
 
     # Save to both output/composite/ (standardized) and output/merged/ (legacy compatibility)
-    composite_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'output', 'composite'))
+    composite_dir = os.path.abspath(os.path.join(PROJECT_DIR, 'output', 'composite'))
     os.makedirs(composite_dir, exist_ok=True)
     os.makedirs(output_dir, exist_ok=True)
 
@@ -153,7 +165,7 @@ def fit_merged_dataset():
     # --- Plot Baseline Fit & Decomposition ---
     print("\nGenerating baseline fit visualization...")
     q_dense = np.logspace(np.log10(q_data.min()), np.log10(q_data.max()), 600)
-    I_tot, I_prim, I_large, I_oz, I_bkg = decompose_model_components(final_params, q_dense)
+    I_tot, I_prim, I_large, I_fluc, I_bkg = decompose_model_components(final_params, q_dense)
 
     fig = plt.figure(figsize=(11, 8))
     gs = fig.add_gridspec(2, 1, height_ratios=[3, 1], hspace=0.1)
@@ -165,7 +177,9 @@ def fit_merged_dataset():
     ax_fit.loglog(q_dense, I_tot, color='#dc2626', linestyle='-', linewidth=2.2, label='Full Composite Fit')
     ax_fit.loglog(q_dense, I_prim, color='#059669', linestyle='--', linewidth=1.8, label=f'Primary Fractal (R={final_params["Rmean"].value:.2f} nm, D={final_params["D"].value:.2f})')
     ax_fit.loglog(q_dense, I_large, color='#d97706', linestyle='-.', linewidth=1.8, label=f'Large Droplets (R={final_params["mean_radius_large"].value:.0f} nm)')
-    ax_fit.loglog(q_dense, I_oz, color='#9333ea', linestyle=':', linewidth=1.8, label='OZ Viscoelastic Fluctuations')
+    ax_fit.loglog(q_dense, I_fluc, color='#9333ea', linestyle=':', linewidth=1.8, label=f'Viscoelastic Fluctuations ($\\xi_{{\\rm fluc}}={final_params["xi_fluc"].value:.2f}$ nm)')
+    if final_params['bkg'].value > 0:
+        ax_fit.axhline(final_params['bkg'].value, color='#64748b', linestyle=':', linewidth=1.2, label=f'Solvent Background ({final_params["bkg"].value:.2e} cm$^{{-1}}$)')
 
     ax_fit.set_ylabel("Scattering Intensity $I(q)$ [cm$^{-1}$]", fontsize=12)
     ax_fit.set_title(f"ND-i-009 Full-Range Composite Scattering Curve Fit (Model Condition, $\\chi^2_{{\\mathrm{{red}}}} = {red_chi2:.3f}$)", fontsize=13)

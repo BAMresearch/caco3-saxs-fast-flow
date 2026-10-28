@@ -472,8 +472,8 @@ def build_dashboard():
             <tr><th>Secondary Droplet Radius &lang;R<sub>large</sub>&rang;</th><td>{bp['mean_radius_large']:.0f} &plusmn; {bp.get('std_err_mean_radius_large', 0.0):.0f} nm</td></tr>
             <tr><th>Secondary Droplet Dispersion &sigma;<sub>large</sub></th><td>{bp['std_radius_large']:.0f} &plusmn; {bp.get('std_err_std_radius_large', 0.0):.0f} nm</td></tr>
             <tr><th>Droplet Volume Fraction &phi;<sub>large</sub></th><td>{bp['total_volume_fraction_large'] * 1e3:.2f} &plusmn; {bp.get('std_err_total_volume_fraction_large', 0.0) * 1e3:.2f} &times; 10<sup>-3</sup></td></tr>
-            <tr><th>OZ Fluctuation Amplitude A<sub>OZ</sub></th><td>{bp['A_OZ']:.1f} &plusmn; {bp.get('std_err_A_OZ', 0.0):.1f}</td></tr>
-            <tr><th>OZ Fluctuation Length &xi;<sub>OZ</sub></th><td>{bp['xi_OZ']:.1f} &plusmn; {bp.get('std_err_xi_OZ', 0.0):.1f} nm</td></tr>
+            <tr><th>Viscoelastic Fluctuation Amplitude A<sub>fluc</sub></th><td>{bp.get('A_fluc', bp.get('A_OZ', 0.0)):.2f} &plusmn; {bp.get('std_err_A_fluc', bp.get('std_err_A_OZ', 0.0)):.2f} cm<sup>-1</sup></td></tr>
+            <tr><th>Viscoelastic Fluctuation Length &xi;<sub>fluc</sub></th><td>{bp.get('xi_fluc', bp.get('xi_OZ', 2.72)):.2f} &plusmn; {bp.get('std_err_xi_fluc', bp.get('std_err_xi_OZ', 0.0)):.2f} nm</td></tr>
             <tr><th>Fractal Volume Fraction &phi;<sub>prim</sub></th><td>{bp['phi'] * 1e3:.2f} &plusmn; {bp.get('std_err_phi', 0.0) * 1e3:.2f} &times; 10<sup>-3</sup></td></tr>
             <tr><th>Overall Baseline Fit Quality &chi;<sup>2</sup><sub>red</sub></th><td><span class="badge badge-success">{bp['redchi']:.3f}</span></td></tr>
           </table>
