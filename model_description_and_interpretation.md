@@ -219,9 +219,3 @@ Even though the droplets represent only $\approx 16.7\%$ of total mineral volume
 | **Sample environment** | **BioLogic SFM-400 Stopped-Flow Mixer** | 4-syringe pneumatic injection ($3.33\ \text{mL/s}$/syringe) with $1.3\ \text{mm}$ capillary |
 
 ---
-
-## 9. License and attribution
-
-* **Data processing responsible:** Tomasz M. Stawski (`tomasz.stawski@bam.de`), Federal Institute for Materials Research and Testing (BAM)
-* **Beamtime proposal:** ESRF Proposal CH-6828 (*Time-resolved Small-Angle X-ray Scattering on Non-Classical Nucleation Pathways of Calcium Carbonate*).
-* **License:** This work is licensed under the terms of the standard [MIT License](LICENSE).
