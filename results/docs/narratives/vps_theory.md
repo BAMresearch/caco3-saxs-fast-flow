@@ -107,7 +107,7 @@ In literature addressing dilute, pre-critical solutions ($C < C^*$), prenucleati
 
 In our post-spinodal SAXS models, the fluctuation correlation length $\xi_{\text{fluc}}$ spans larger dimensions:
 - ND-i-009 (40 mM, pure, pH 10.0): $\xi_{\text{fluc}} \approx 2.72 \to 2.84\ \text{nm}$
-- ND-i-001 (40 mM, pure, pH 11.3): $\xi_{\text{fluc}} \approx 3.03 \to 3.06\ \text{nm}$ (composite baseline $\sim 15.0\ \text{nm}$)
+- ND-i-001 (40 mM, pure, pH 11.3): $\xi_{\text{fluc}} \approx 3.03 \to 3.06\ \text{nm}$
 - ND-i-005 (40 mM, +$\text{Co}^{2+}$, pH 11.3): $\xi_{\text{fluc}} \approx 8.04 \to 9.06\ \text{nm}$
 - ND-i-002 (20 mM, pure, pH 11.3): $\xi_{\text{fluc}} \approx 13.5 \to 15.0\ \text{nm}$
 
