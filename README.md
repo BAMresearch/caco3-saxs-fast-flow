@@ -199,7 +199,7 @@ All scripts can be executed using the system Python interpreter:
 - **Project leader / responsible**: Stephan E. Wolf
 - **Affiliation**: Friedrich-Alexander University Erlangen-Nürnberg (FAU) 
 - **Contact**: `stephan.e.wolf@fau.de`
-- **Funding**: DFG WO1712/7 and 8
+- **Funding**: DFG WO1712/7-1 and 8-1 (Heisenberg Project)
 - **Data processing responsible**: Tomasz M. Stawski
 - **Affiliation**: Federal Institute for Materials Research and Testing (BAM)
 - **Contact**: `tomasz.stawski@bam.de`
